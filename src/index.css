@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: "Modam-Medium";
+  src: url("../src/assets/fonts/ModamFont/Modam-Medium.ttf") format("woff2");
+  font-weight: normal;
+}
+
+
+body{
+    font-family: "Modam-Medium", sans-serif;
+}
+
+
+.font-primary {
+  font-family: "Modam-Medium", sans-serif;
+}
