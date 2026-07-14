@@ -11,6 +11,11 @@
   src: url("../src/assets/fonts/ModamFont/Modam-Light.ttf") format("woff2");
   font-weight: normal;
 }
+@font-face {
+  font-family: "Modam-ExtraLight";
+  src: url("../src/assets/fonts/ModamFont/Modam-ExtraLight.ttf") format("woff2");
+  font-weight: normal;
+}
 
 
 body{
@@ -23,4 +28,7 @@ body{
 }
 .font-primary-light {
   font-family: "Modam-Light", sans-serif;
+}
+.font-primary-ExtraLight {
+  font-family: "Modam-ExtraLight", sans-serif;
 }
