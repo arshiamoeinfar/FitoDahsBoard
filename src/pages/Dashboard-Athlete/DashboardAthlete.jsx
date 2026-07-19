@@ -66,13 +66,14 @@ export default function DashboardAthlete() {
   ];
 
   return (
-    <div className="grid grid-cols-12 grid-rows-12 h-screen bg-[#F5F7FB] gap-2">
-      <div className="col-span-1 mr-2">
+    <div className="min-h-screen bg-[#F5F7FB] flex justify-center">
+    <div className="w-full max-w-[1600px] grid grid-cols-[90px_1fr_330px] gap-6 px-8 py-6 bg-[#F5F7FB]">
+      <div className="">
         <Navbar />
       </div>
-      <div className="col-span-8 py-3">
+      <div className="py-3 ">
         <div className="grid grid-cols-12 gap-6 h-full">
-          <div className="col-span-5 row-span-1 w-full max-h-44 bg-[#007BFF]  rounded-4xl flex items-center justify-center relative">
+          <div className="col-span-6 row-span-1 w-full max-h-44 bg-[#007BFF]  rounded-4xl flex items-center justify-center relative">
             <div className="flex justify-between overflow-hidden">
               <div className="flex *: flex-col items-start justify-center gap-2 text-white absolute top-8 right-8 ">
                 <h1 className="text-2xl">تکمیل هدف روزانه</h1>
@@ -103,8 +104,8 @@ export default function DashboardAthlete() {
               </div>
             </div>
           </div>
-
-          <div className="col-span-6 row-span-2  ml-5 bg-white rounded-2xl p-6 ">
+          <div className="col-span-6 row-span-2">
+          <div className=" bg-white rounded-3xl p-6 h-[465px]">
             {/* Header */}
             <div className="flex items-center justify-between px-2">
               <h2 className="text-xl font-medium text-[#6B6F77]">
@@ -126,7 +127,7 @@ export default function DashboardAthlete() {
             <div className="mt-8 space-y-4">
               {exercises.map(() => (
                 <div className="flex flex-col items-start justify-between rounded-3xl gap-3">
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 mt-2">
                     <img
                       src={ImgSquat}
                       className="w-28 h-16 rounded-xl object-cover cursor-pointer"
@@ -159,7 +160,7 @@ export default function DashboardAthlete() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 mt-2">
                     <img
                       src={ImgSquat}
                       className="w-28 h-16 rounded-xl object-cover cursor-pointer"
@@ -192,7 +193,7 @@ export default function DashboardAthlete() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 mt-2">
                     <img
                       src={ImgSquat}
                       className="w-28 h-16 rounded-xl object-cover cursor-pointer"
@@ -225,7 +226,7 @@ export default function DashboardAthlete() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 mt-2">
                     <img
                       src={ImgSquat}
                       className="w-28 h-16 rounded-xl object-cover cursor-pointer"
@@ -263,7 +264,9 @@ export default function DashboardAthlete() {
             </div>
           </div>
 
-          <div className="col-span-5">
+          </div>
+
+          <div className="col-span-6">
             <div className="bg-white rounded-3xl p-6">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl text-[#6B6F77] font-bold font-primary-light ">
@@ -356,9 +359,9 @@ export default function DashboardAthlete() {
             </div>
           </div>
 
-          <div className="col-span-12">
-            <div className="flex justify-start ">
-              <div className="bg-white flex justify-start w-48 py-4 rounded-3xl ml-5">
+          {/* <div className="col-span-10 bg-amber-200"> */}
+            <div className="col-span-12 grid grid-cols-4 gap-5 mt-1">
+              <div className="bg-white rounded-[28px] h-[92px] flex items-center ">
                 <div className="flex mr-3">
                   <img src={Walk} alt="" />
                   <div className="flex flex-col justify-center mr-1">
@@ -371,7 +374,7 @@ export default function DashboardAthlete() {
                   </div>
                 </div>
               </div>
-              <div className="bg-white flex justify-start w-48 py-4 rounded-3xl ml-7  ">
+              <div className="bg-white rounded-[28px] h-[92px] flex items-center ">
                 <div className="flex mr-3">
                   <img src={sleep} alt="" />
                   <div className="flex flex-col justify-center mr-1">
@@ -384,7 +387,7 @@ export default function DashboardAthlete() {
                   </div>
                 </div>
               </div>
-              <div className="bg-white flex justify-start w-48 py-4 rounded-3xl ml-5">
+              <div className="bg-white rounded-[28px] h-[92px] flex items-center ">
                 <div className="flex mr-3">
                   <img src={train} alt="" />
                   <div className="flex flex-col justify-center mr-1">
@@ -397,7 +400,7 @@ export default function DashboardAthlete() {
                   </div>
                 </div>
               </div>
-              <div className="bg-white flex justify-start w-48 py-4 rounded-3xl ml-5">
+              <div className="bg-white rounded-[28px] h-[92px] flex items-center ">
                 <div className="flex mr-3">
                   <img src={star} alt="" />
                   <div className="flex flex-col justify-center mr-1">
@@ -411,9 +414,9 @@ export default function DashboardAthlete() {
                 </div>
               </div>
             </div>
-          </div>
+          {/* </div> */}
 
-          <div className="col-span-5">
+          <div className="col-span-6">
             <div className="flex bg-white flex-col p-6 rounded-3xl h-56">
               <div className="flex justify-between items-center mb-4">
                 <h1 className="text-lg text-[#6B6F77]">آب رسانی روزانه</h1>
@@ -533,7 +536,9 @@ export default function DashboardAthlete() {
           </div>
         </div>
       </div>
-      <div className="col-span-4 "></div>
+      <div className="">
+      </div>
+    </div>
     </div>
   );
 }
