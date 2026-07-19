@@ -8,7 +8,9 @@ import AnalyzIcon from "../../assets/icons/Pie Chart 3.svg";
 import userIcon from "../../assets/icons/User Rounded.svg";
 export default function Navbar() {
   return (
-    <div className="w-18 h-160 bg-white flex flex-col shadow-md items-center justify-between rounded-[56px] py-3 mt-3">
+    <div className="fixed">
+
+    <div className="w-18 h-160 bg-white flex flex-col shadow-md items-center justify-between rounded-[56px] py-3 mt-3 mr-3">
       <div className="flex flex-col items-center justify-center gap-2  ">
         <div className="flex flex-col items-center justify-center  mt-2">
           <img className="" src={HomeIcon} alt="Home" />
@@ -36,6 +38,7 @@ export default function Navbar() {
           <img src={userIcon} alt="User" />
         </div>
       </div>
+    </div>
     </div>
   );
 }
