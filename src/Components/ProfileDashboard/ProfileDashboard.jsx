@@ -1,7 +1,58 @@
-import React from 'react'
-
-export default function ProfileDashboard() {
+import Avatar from "../../assets/imges/image 11.png";
+import EditProf from "../../assets/Icons/Pen New Square.svg";
+export default function ProfileCard() {
   return (
-    <div>ProfileDashboard</div>
-  )
+    <div className="bg-white rounded-[32px] p-7">
+      <img
+        src={EditProf}
+        alt="edit profile"
+        className="absolute top-12 left-16 w-6 h-6 cursor-pointer hover:opacity-70 transition"
+      />
+      {/* <img className="w-3" src={EditProf} alt="edit profile" /> */}
+      {/* پروفایل */}
+      <div className="flex flex-col items-center">
+        <div className="rounded-full bg-[linear-gradient(180deg,#007BFF_0%,rgba(246,242,250,0)_100%)] p-px">
+          <div className="rounded-full bg-white">
+            <img
+              src={Avatar}
+              alt="avatar"
+              className="w-12 h-12 rounded-full object-cover p-1"
+            />
+          </div>
+        </div>
+        <h2 className="mt-2 text-xl font-semibold text-[#007BFF]">
+          ارشیا معین فر
+        </h2>
+
+        {/* شهر | سن */}
+        <div className="flex items-center gap-2 mt-2">
+          <span className="text-[15px] text-[#A3AED0] font-primary-ExtraLight font-medium">
+            ایران، سقز
+          </span>
+          <div className="w-px h-4 bg-[#ECECEC]"></div>
+
+          <span className="text-[15px] text-[#A3AED0] font-primary-ExtraLight font-medium">
+            ۱۸ سال
+          </span>
+        </div>
+      </div>
+      {/* اطلاعات */}
+      <div className="grid grid-cols-3 mt-5">
+        <div className="text-center">
+          <p className="text-sm text-[#A0A4AA] mt-1">قد</p>
+          <h3 className="text-2xl font-bold text-[#85A5C2]">178</h3>
+        </div>
+
+        <div className="border-x border-[#ECECEC] text-center">
+          <p className="text-sm text-[#A0A4AA] mt-1">وزن</p>
+          <h3 className="text-2xl font-bold text-[#85A5C2]">82</h3>
+        </div>
+
+        <div className="text-center">
+          <p className="text-sm text-[#A0A4AA] mt-1">گروه خون</p>
+          <h3 className="text-2xl font-bold text-[#85A5C2]">+A</h3>
+        </div>
+      </div>
+    </div>
+  );
 }
