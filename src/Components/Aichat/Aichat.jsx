@@ -23,7 +23,7 @@ export default function AIChat() {
 
         <h2 className="text-2xl font-semibold text-[#4F5965]">سلام ارشیا 👋</h2>
 
-        <p className="text-center text-[#9CA3AF] leading-8 mt-2">
+        <p className="text-center text-[#9CA3AF] leading-8 mt-2 font-primary-Light font-medium">
           من دستیار هوشمند فیتو هستم.
           <br />
           می‌توانم تمرینات، تغذیه،
@@ -34,7 +34,7 @@ export default function AIChat() {
 
       {/* Input */}
       <div className="p-5">
-        <div className="bg-[#F6F7FA] rounded-full px-5 py-3 flex items-center">
+        <div className="bg-[#EBF5FF] rounded-full px-5 py-3 flex items-center">
           <input
             type="text"
             placeholder="از من هر چیزی بپرس..."
