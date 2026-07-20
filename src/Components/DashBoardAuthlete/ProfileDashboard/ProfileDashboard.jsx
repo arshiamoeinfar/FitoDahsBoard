@@ -1,14 +1,13 @@
-import Avatar from "../../assets/imges/image 11.png";
-import EditProf from "../../assets/Icons/Pen New Square.svg";
+import Avatar from "../../../assets/imges/image 11.png";
+import EditProf from "../../../assets/Icons/Pen New Square.svg";
 export default function ProfileCard() {
   return (
-    <div className="bg-white rounded-[32px] p-7">
+    <div className="bg-white rounded-4xl p-7">
       <img
         src={EditProf}
         alt="edit profile"
         className="absolute top-12 left-16 w-6 h-6 cursor-pointer hover:opacity-70 transition"
       />
-      {/* <img className="w-3" src={EditProf} alt="edit profile" /> */}
       {/* پروفایل */}
       <div className="flex flex-col items-center">
         <div className="rounded-full bg-[linear-gradient(180deg,#007BFF_0%,rgba(246,242,250,0)_100%)] p-px">

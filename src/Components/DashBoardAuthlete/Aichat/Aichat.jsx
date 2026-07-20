@@ -1,5 +1,5 @@
-import AIImage from "../../assets/imges/image 12.png";
-import Send from "../../assets/imges/Plain 3.png";
+import AIImage from "../../../assets/imges/image 12.png";
+import Send from "../../../assets/imges/Plain 3.png";
 
 export default function AIChat() {
   return (
