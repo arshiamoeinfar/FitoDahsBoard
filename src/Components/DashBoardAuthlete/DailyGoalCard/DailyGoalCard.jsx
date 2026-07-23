@@ -1,14 +1,25 @@
 import React from "react";
 import imgRectangle from "../../../assets/imges/Rectangle 9.png";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import { useNavigate } from "react-router-dom";
+
+
 
 export default function DailyGoalCard() {
+  
+const navgate = useNavigate();
+
+
   return (
     <div className="flex justify-between overflow-hidden">
       <div className="flex *: flex-col items-start justify-center gap-2 text-white absolute top-8 right-8 ">
         <h1 className="text-2xl">تکمیل هدف روزانه</h1>
         <p className="font-primary-light">1 از 7 تمرین تکمیل شده</p>
-        <span className="bg-white text-[#007BFF] py-2 px-4 rounded-full hover:bg-gray-200 transition duration-300 cursor-pointer text-sm ">
+        <span
+          onClick={()=>{
+            navgate("/dashboardAthlete/start-training")
+          }}
+         className="bg-white text-[#007BFF] py-2 px-4 rounded-full hover:bg-gray-200 transition duration-300 cursor-pointer text-sm ">
           شروع تمرین
         </span>
       </div>

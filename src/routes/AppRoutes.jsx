@@ -1,0 +1,14 @@
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import DashboardAthlete from "../pages/Dashboard-Athlete/DashboardAthlete";
+import Home from "../pages/Home/Home";
+import StartTrain from "../pages/StartTrain/StartTrain";
+export default function AppRoutes() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/dashboardAthlete" element={<DashboardAthlete />} />
+      <Route path="/dashboardAthlete/start-training" element={<StartTrain />} />
+    </Routes>
+  );
+}
