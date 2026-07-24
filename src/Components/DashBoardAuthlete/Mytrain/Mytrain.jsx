@@ -1,6 +1,6 @@
 import React from "react";
 import Flesh from "../../../assets/imges/flesh.svg";
-import ImgSquat from "../../../assets/imges/Frame 1261157473.png";
+import ImgSquat from "../../../assets/imges/image 13.png";
 import Dumbel from "../../../assets/imges/Dumbbell Large Minimalistic.png";
 import Refresh from "../../../assets/imges/refresh.svg";
 import ClockCircle from "../../../assets/imges/Clock Circle.svg";
