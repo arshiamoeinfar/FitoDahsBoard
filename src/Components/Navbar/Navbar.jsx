@@ -29,10 +29,10 @@ export default function Navbar() {
             <img src={DumbelIcon} alt="Dumbel" />
             <p className="font-primary text-sm text-[#ABAEB2]">ورزش</p>
           </div>
-          <div className="flex flex-col items-center justify-center  mt-2">
+          <NavLink to="/dashboardnutrition" className="flex flex-col items-center justify-center  mt-2">
             <img src={DountIcon} alt="Dount" />
             <p className="font-primary text-sm text-[#ABAEB2]">تغذیه</p>
-          </div>
+          </NavLink>
           <div className="flex flex-col items-center justify-center  mt-2">
             <img src={AnalyzIcon} alt="Analyze" />
             <p className="font-primary text-sm text-[#ABAEB2]">تحلیل</p>
