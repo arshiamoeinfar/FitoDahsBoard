@@ -16,8 +16,7 @@ export default function Navbar() {
           <NavLink
             to="/dashboardAthlete"
             className={({ isActive }) =>
-              `flex flex-col items-center gap-1 transition ${
-                isActive ? "text-[#007BFF]" : "text-[#A0A4AA]"
+              `flex flex-col items-center gap-1 transition ${isActive ? "text-[#007BFF]" : "text-[#A0A4AA]"
               }`
             }
           >
@@ -29,7 +28,11 @@ export default function Navbar() {
             <img src={DumbelIcon} alt="Dumbel" />
             <p className="font-primary text-sm text-[#ABAEB2]">ورزش</p>
           </div>
-          <NavLink to="/dashboardnutrition" className="flex flex-col items-center justify-center  mt-2">
+          <NavLink to="/dashboardnutrition"
+            className={({ isActive }) =>
+              `flex flex-col items-center gap-1 transition ${isActive ? "text-[#007BFF]" : "text-[#A0A4AA]"
+              }`
+            }>
             <img src={DountIcon} alt="Dount" />
             <p className="font-primary text-sm text-[#ABAEB2]">تغذیه</p>
           </NavLink>
