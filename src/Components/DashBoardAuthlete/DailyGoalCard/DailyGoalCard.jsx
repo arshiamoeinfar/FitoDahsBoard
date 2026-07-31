@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function DailyGoalCard() {
-  
-const navgate = useNavigate();
+
+  const navgate = useNavigate();
 
 
   return (
@@ -16,22 +16,23 @@ const navgate = useNavigate();
         <h1 className="text-2xl">تکمیل هدف روزانه</h1>
         <p className="font-primary-light">1 از 7 تمرین تکمیل شده</p>
         <span
-          onClick={()=>{
+          onClick={() => {
             navgate("/dashboardAthlete/start-training")
           }}
-         className="bg-white text-[#007BFF] py-2 px-4 rounded-full hover:bg-gray-200 transition duration-300 cursor-pointer text-sm ">
+          className="bg-white text-[#007BFF] py-2 px-4 rounded-full hover:bg-gray-200 transition duration-300 cursor-pointer text-sm ">
           شروع تمرین
         </span>
       </div>
       <img className="w-full h-full object-cover" src={imgRectangle} alt="" />
-      <div className="w-24 h-24 absolute left-10 top-8">
+      <div className="w-32 h-32 absolute left-10 top-8">
         <CircularProgressbar
           value={50}
           text=""
-          strokeWidth={10}
+          strokeWidth={15}
           styles={buildStyles({
             pathColor: "#FFFFFF",
             trailColor: "#FFFFFF63",
+            strokeLinecap: "round",
           })}
         />
 
