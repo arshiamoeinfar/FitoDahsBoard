@@ -4,6 +4,7 @@ import DashboardAthlete from "../pages/Dashboard-Athlete/DashboardAthlete";
 import Home from "../pages/Home/Home";
 import StartTrain from "../pages/StartTrain/StartTrain";
 import DashBoardNutrition from "../pages/DashBoardNutrition/DashBoardNutrition";
+import AnalysisPage from "../pages/AnalysisPage/AnalysisPage";
 export default function AppRoutes() {
   return (
     <Routes>
@@ -11,6 +12,7 @@ export default function AppRoutes() {
       <Route path="/dashboardAthlete" element={<DashboardAthlete />} />
       <Route path="/dashboardnutrition" element={<DashBoardNutrition />} />
       <Route path="/dashboardAthlete/start-training" element={<StartTrain />} />
+      <Route path="/AnalysisPage" element={<AnalysisPage />} />
     </Routes>
   );
 }

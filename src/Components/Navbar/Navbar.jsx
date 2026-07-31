@@ -36,10 +36,10 @@ export default function Navbar() {
             <img src={DountIcon} alt="Dount" />
             <p className="font-primary text-sm text-[#ABAEB2]">تغذیه</p>
           </NavLink>
-          <div className="flex flex-col items-center justify-center  mt-2">
+          <NavLink to="/AnalysisPage" className="flex flex-col items-center justify-center  mt-2">
             <img src={AnalyzIcon} alt="Analyze" />
             <p className="font-primary text-sm text-[#ABAEB2]">تحلیل</p>
-          </div>
+          </NavLink>
           <div className="flex flex-col items-center justify-center  mt-2">
             <img src={SettingIcon} alt="Setting" />
             <p className="font-primary text-sm text-[#ABAEB2]">تنظیمات</p>
