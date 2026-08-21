@@ -6,7 +6,7 @@ import DocumentAdd from "../../assets/Icons/Document Add.svg";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import BodyAnalysisModel from "../../Components/AnalysComponents/BodyAnalysisModel/BodyAnalysisModel";
 import Chart from "../../Components/Chart/Chart";
-
+import BodyChangeChart from "../../Components/AnalysComponents/BodyChangeChart/BodyChangeChart";
 export default function AnalysisPage() {
   const changes = [
     {
@@ -108,10 +108,6 @@ export default function AnalysisPage() {
                         <div
                           className={`flex items-center gap-2 ${item.color}`}
                         >
-                          {/* <span className="text-sm">
-                                                        {item.value}
-                                                    </span> */}
-
                           <span
                             className={`text-2xl leading-none ${item.arrow == "↑" ? "text-[#6BAF41]" : "text-red-600"}`}
                           >
@@ -172,7 +168,10 @@ export default function AnalysisPage() {
               <Chart />
             </div>
             <div className="col-span-4 row-span-2">
-                <BodyAnalysisModel />
+              <BodyAnalysisModel />
+            </div>
+            <div className="col-span-8">
+             <BodyChangeChart/>
             </div>
           </div>
         </div>
