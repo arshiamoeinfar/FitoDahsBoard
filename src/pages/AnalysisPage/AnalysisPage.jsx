@@ -7,6 +7,8 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import BodyAnalysisModel from "../../Components/AnalysComponents/BodyAnalysisModel/BodyAnalysisModel";
 import Chart from "../../Components/Chart/Chart";
 import BodyChangeChart from "../../Components/AnalysComponents/BodyChangeChart/BodyChangeChart";
+import NutritionReport from "../../Components/AnalysComponents/NutritionReport/NutritionReport";
+import StatCard from "../../Components/DashBoardAuthlete/StatCard/StatCard";
 export default function AnalysisPage() {
   const changes = [
     {
@@ -171,7 +173,20 @@ export default function AnalysisPage() {
               <BodyAnalysisModel />
             </div>
             <div className="col-span-8">
-             <BodyChangeChart/>
+              <BodyChangeChart />
+            </div>
+            <div className="col-span-4 row-span-1">
+              <NutritionReport />
+            </div>
+            <div className="col-span-4">
+              <NutritionReport />
+            </div>
+            <div className="col-span-12 grid grid-cols-5 gap-5">
+              <StatCard />
+              <StatCard />
+              <StatCard />
+              <StatCard />
+              <StatCard />
             </div>
           </div>
         </div>
