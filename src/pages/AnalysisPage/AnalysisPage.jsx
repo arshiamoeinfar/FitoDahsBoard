@@ -9,6 +9,8 @@ import Chart from "../../Components/Chart/Chart";
 import BodyChangeChart from "../../Components/AnalysComponents/BodyChangeChart/BodyChangeChart";
 import NutritionReport from "../../Components/AnalysComponents/NutritionReport/NutritionReport";
 import StatCard from "../../Components/DashBoardAuthlete/StatCard/StatCard";
+import EvaluationHistory from "../../Components/AnalysComponents/EvaluationHistory/EvaluationHistory";
+import AppearanceChanges from "../../Components/AnalysComponents/AppearanceChanges/AppearanceChanges";
 export default function AnalysisPage() {
   const changes = [
     {
@@ -187,6 +189,12 @@ export default function AnalysisPage() {
               <StatCard />
               <StatCard />
               <StatCard />
+            </div>
+            <div className="col-span-6">
+              <AppearanceChanges />
+            </div>
+            <div className="col-span-6">
+              <EvaluationHistory />
             </div>
           </div>
         </div>
