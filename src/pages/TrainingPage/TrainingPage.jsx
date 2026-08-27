@@ -2,8 +2,9 @@ import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import StatCard from "../../Components/DashBoardAuthlete/StatCard/StatCard";
 import Mytrain from "../../Components/DashBoardAuthlete/Mytrain/Mytrain";
-import SmartAnalysisCard from "../../Components/TrainigPage/SmartAnalysisCard/SmartAnalysisCard";
+import SmartAnalysisCard from "../../Components/TrainigPage/SmartAnalysisCard/SmartAnalysisCard/SmartAnalysisCard";
 import BodyProgressCard from "../../Components/DashBoardAuthlete/BodyProgressCard/BodyProgressCard";
+import WorkoutProgramCard from "../../Components/TrainigPage/SmartAnalysisCard/WorkoutProgramCard/WorkoutProgramCard";
 
 export default function TrainingPage() {
   return (
@@ -36,6 +37,9 @@ export default function TrainingPage() {
             </div>
             <div className="col-span-7">
               <BodyProgressCard count={[1,2,3,4]} title="پیشرفت حرکات هفته"/>
+            </div>
+            <div className="col-span-5">
+              <WorkoutProgramCard/>
             </div>
           </div>
         </div>

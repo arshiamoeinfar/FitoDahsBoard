@@ -15,7 +15,7 @@ export default function SmartAnalysisCard({
   return (
     <div
       dir="rtl"
-      className="bg-gradient-to-b from-blue-500 to-blue-600 rounded-3xl p-8 flex flex-col gap-6 w-full max-w-lg shadow-lg text-right"
+      className="bg-linear-to-b from-blue-500 to-blue-600 rounded-3xl p-8 flex flex-col gap-6 w-full max-w-lg shadow-lg text-right"
     >
       <h3 className="text-white text-3xl ">{title}</h3>
 
