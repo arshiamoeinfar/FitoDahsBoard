@@ -49,7 +49,7 @@ export default function DashboardAthlete() {
 
             <div className="col-span-6">
               <div className="col-span-5">
-                <BodyProgressCard />
+                <BodyProgressCard count={[1,2]} title={"پیشرفت بدن"}/>
               </div>
             </div>
           </div>

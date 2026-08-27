@@ -3,6 +3,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import StatCard from "../../Components/DashBoardAuthlete/StatCard/StatCard";
 import Mytrain from "../../Components/DashBoardAuthlete/Mytrain/Mytrain";
 import SmartAnalysisCard from "../../Components/TrainigPage/SmartAnalysisCard/SmartAnalysisCard";
+import BodyProgressCard from "../../Components/DashBoardAuthlete/BodyProgressCard/BodyProgressCard";
 
 export default function TrainingPage() {
   return (
@@ -32,6 +33,9 @@ export default function TrainingPage() {
             </div>
             <div className="col-span-5">
                 <SmartAnalysisCard/>
+            </div>
+            <div className="col-span-7">
+              <BodyProgressCard count={[1,2,3,4]} title="پیشرفت حرکات هفته"/>
             </div>
           </div>
         </div>
