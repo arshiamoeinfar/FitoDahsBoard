@@ -24,10 +24,13 @@ export default function Navbar() {
 
             <span className="text-xs">خانه</span>
           </NavLink>
-          <div className="flex flex-col items-center justify-center  mt-2">
+          <NavLink to="/trainingpage" className={({ isActive }) =>
+              `flex flex-col items-center justify-center  mt-2 transition ${isActive ? "text-[#007BFF]" : "text-[#A0A4AA]"
+              }`
+            }>
             <img src={DumbelIcon} alt="Dumbel" />
             <p className="font-primary text-sm text-[#ABAEB2]">ورزش</p>
-          </div>
+          </NavLink>
           <NavLink to="/dashboardnutrition"
             className={({ isActive }) =>
               `flex flex-col items-center gap-1 transition ${isActive ? "text-[#007BFF]" : "text-[#A0A4AA]"
@@ -36,7 +39,7 @@ export default function Navbar() {
             <img src={DountIcon} alt="Dount" />
             <p className="font-primary text-sm text-[#ABAEB2]">تغذیه</p>
           </NavLink>
-          <NavLink to="/AnalysisPage" className="flex flex-col items-center justify-center  mt-2">
+          <NavLink to="/AnalysisPage" className="flex flex-col items-center justify-center  mt-2 transition">
             <img src={AnalyzIcon} alt="Analyze" />
             <p className="font-primary text-sm text-[#ABAEB2]">تحلیل</p>
           </NavLink>

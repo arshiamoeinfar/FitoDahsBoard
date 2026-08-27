@@ -8,7 +8,7 @@ const AppearanceChanges = () => {
 
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
-        <h2 className="text-2xl font-bold text-[#6B6F77]">
+        <h2 className="text-2xl  text-[#6B6F77] font-primary">
           تغییرات ظاهری
         </h2>
       </div>
@@ -17,7 +17,7 @@ const AppearanceChanges = () => {
       <div className="grid grid-cols-2 gap-5">
 
         {/* Before */}
-        <div className="relative h-auto overflow-hidden rounded-[32px] group">
+        <div className="relative h-fit overflow-hidden rounded-4xl group">
 
           <img
             src={BeforeImage}

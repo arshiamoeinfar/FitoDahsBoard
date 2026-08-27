@@ -51,7 +51,7 @@ export default function AssessmentHistory() {
     <div className="bg-white rounded-[32px] p-7">
 
       {/* Header */}
-      <h2 className="text-2xl font-bold text-[#6B6F77] text-right mb-6">
+      <h2 className="text-2xl  text-[#6B6F77] font-primary mb-6">
         تاریخچه ارزیابی‌ها
       </h2>
 
@@ -74,21 +74,21 @@ export default function AssessmentHistory() {
                 {/* Date */}
                 <div className="flex items-center gap-3">
 
-                  <span className="text-[#6B6F77] text-lg">
+                  <span className="text-[#6B6F77] ">
                     {item.date}
                   </span>
 
-                  <span className="text-[#007BFF] text-2xl">
-                    <img src={ImgCalander} alt="calendar" />
-                  </span>
+                  
+                    <img className="size-5" src={ImgCalander} alt="calendar" />
+                
 
                 </div>
 
                 {/* Score */}
                 <div
                   className={`
-                    px-7 py-3 rounded-full
-                    text-white text-lg font-medium
+                    px-5 py-2 rounded-full
+                    text-white text-sm font-medium
                     transition-all duration-300
                     ${
                       isOpen
