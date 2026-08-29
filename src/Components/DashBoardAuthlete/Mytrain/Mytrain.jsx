@@ -5,8 +5,14 @@ import Dumbel from "../../../assets/imges/Dumbbell Large Minimalistic.png";
 import Refresh from "../../../assets/imges/refresh.svg";
 import ClockCircle from "../../../assets/imges/Clock Circle.svg";
 import ElementLeg from "../../../assets/imges/elements.png";
+import Liner from "../../../assets/imges/Line 1.png";
 
-export default function Mytrain({ showRecord = false, startTraining = false , showDetail = false} ) {
+export default function Mytrain({
+  showRecord = false,
+  startTraining = false,
+  showDetail = false,
+  hrTrue = false,
+}) {
   const exercises = [
     {
       id: 1,
@@ -42,10 +48,10 @@ export default function Mytrain({ showRecord = false, startTraining = false , sh
 
       {/* Exercises */}
       <div className="mt-8 space-y-4">
-        <hr className="text-gray-200"/>
-        {exercises.map(() => (
+        <hr className="text-gray-200" />
+        {exercises.map((index) => (
           <div className="flex flex-col items-start justify-between rounded-3xl gap-3">
-            <div className="flex  items-center gap-4 mt-2  w-full">
+            <div className={`flex  items-center gap-4 ${hrTrue ? " py-4 " : "mt-2"} w-full`}>
               <img
                 src={ImgSquat}
                 className="w-28 h-16 rounded-xl object-cover cursor-pointer"
@@ -94,7 +100,10 @@ export default function Mytrain({ showRecord = false, startTraining = false , sh
                 </div>
               )}
             </div>
-            <div className="flex  items-center gap-4 mt-2  w-full">
+            {hrTrue && index !== exercises[exercises.length] && (
+              <hr className="text-gray-200 w-full" />
+            )}
+            <div className={`flex  items-center gap-4 ${hrTrue ? " py-4 " : "mt-2"} w-full`}>
               <img
                 src={ImgSquat}
                 className="w-28 h-16 rounded-xl object-cover cursor-pointer"
@@ -143,7 +152,10 @@ export default function Mytrain({ showRecord = false, startTraining = false , sh
                 </div>
               )}
             </div>
-            <div className="flex  items-center gap-4 mt-2  w-full">
+            {hrTrue && index !== exercises[exercises.length] && (
+              <hr className="text-gray-200 w-full" />
+            )}
+            <div className={`flex  items-center gap-4 ${hrTrue ? " py-4 " : "mt-2"} w-full`}>
               <img
                 src={ImgSquat}
                 className="w-28 h-16 rounded-xl object-cover cursor-pointer"
@@ -192,7 +204,10 @@ export default function Mytrain({ showRecord = false, startTraining = false , sh
                 </div>
               )}
             </div>
-            <div className="flex  items-center gap-4 mt-2  w-full">
+            {hrTrue && index !== exercises[exercises.length] && (
+              <hr className="text-gray-200 w-full" />
+            )}
+            <div className={`flex  items-center gap-4 ${hrTrue ? " py-4 " : "mt-2"} w-full`}>
               <img
                 src={ImgSquat}
                 className="w-28 h-16 rounded-xl object-cover cursor-pointer"
@@ -241,15 +256,18 @@ export default function Mytrain({ showRecord = false, startTraining = false , sh
                 </div>
               )}
             </div>
+            {hrTrue && index !== exercises[exercises.length - 1] && (
+              <hr className="text-gray-200 w-full" />
+            )}
           </div>
         ))}
-        {
-          showDetail && (
-            <span className="text-gray-400 Modam-Medium cursor-pointer justify-center items-center flex gap-1.5 hover:text-gray-500"> مشاهده همه تمرینات
-              <img src={Flesh} alt="" />
-            </span>
-          )
-        }
+        {showDetail && (
+          <span className="text-gray-400 Modam-Medium cursor-pointer justify-center items-center flex gap-1.5 hover:text-gray-500">
+            {" "}
+            مشاهده همه تمرینات
+            <img src={Flesh} alt="" />
+          </span>
+        )}
       </div>
     </div>
   );

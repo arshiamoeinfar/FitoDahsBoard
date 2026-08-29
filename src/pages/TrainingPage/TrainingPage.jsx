@@ -5,6 +5,9 @@ import Mytrain from "../../Components/DashBoardAuthlete/Mytrain/Mytrain";
 import SmartAnalysisCard from "../../Components/TrainigPage/SmartAnalysisCard/SmartAnalysisCard/SmartAnalysisCard";
 import BodyProgressCard from "../../Components/DashBoardAuthlete/BodyProgressCard/BodyProgressCard";
 import WorkoutProgramCard from "../../Components/TrainigPage/SmartAnalysisCard/WorkoutProgramCard/WorkoutProgramCard";
+import WorkoutHistory from "../../Components/TrainigPage/WorkoutHistory/WorkoutHistory";
+import WorkoutNotes from "../../Components/TrainigPage/WorkoutNotes/WorkoutNotes";
+import PersonalRecordsCard from "../../Components/TrainigPage/PersonalRecordsCard/PersonalRecordsCard";
 
 export default function TrainingPage() {
   return (
@@ -23,23 +26,48 @@ export default function TrainingPage() {
                 برنامه تمرینی و پیشرفت عملکردت را مدیریت کن
               </p>
             </div>
+
             <div className="col-span-12 grid grid-cols-4 gap-5">
               <StatCard />
               <StatCard />
               <StatCard />
               <StatCard />
             </div>
-            <div className="col-span-7">
-                <Mytrain showRecord={true} startTraining={true} showDetail={true} />
+            <div className="col-span-7 ">
+              <div className="col-span-7 mb-5">
+                <Mytrain
+                  showRecord={true}
+                  startTraining={true}
+                  showDetail={true}
+                  hrTrue={true}
+                />
+              </div>
+              <div className="col-span-7 mb-5">
+                <BodyProgressCard
+                  count={[1, 2, 3, 4]}
+                  title="پیشرفت حرکات هفته"
+                />
+              </div>
+              <div className="grid grid-cols-7 gap-3">
+                <div className="col-span-3 mb-5">
+                  <WorkoutHistory />
+                </div>
+                <div className="col-span-4 mb-5">
+                  <PersonalRecordsCard />
+                </div>
+              </div>
             </div>
             <div className="col-span-5">
-                <SmartAnalysisCard/>
-            </div>
-            <div className="col-span-7">
-              <BodyProgressCard count={[1,2,3,4]} title="پیشرفت حرکات هفته"/>
-            </div>
-            <div className="col-span-5">
-              <WorkoutProgramCard/>
+              <div className="col-span-5 mb-5">
+                <SmartAnalysisCard />
+              </div>
+
+              <div className="col-span-5 mb-5">
+                <WorkoutProgramCard />
+              </div>
+              <div className="col-span-5">
+                <WorkoutNotes />
+              </div>
             </div>
           </div>
         </div>
