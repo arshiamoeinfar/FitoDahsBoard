@@ -1,5 +1,5 @@
-import Avatar from "../../../assets/imges/image 11.png";
 import EditProf from "../../../assets/Icons/Pen New Square.svg";
+import UserProfile from "../../HeaderDashBoard/UserProfile/UserProfile";
 export default function ProfileCard() {
   return (
     <div className="bg-white rounded-4xl p-7">
@@ -10,15 +10,7 @@ export default function ProfileCard() {
       />
       {/* پروفایل */}
       <div className="flex flex-col items-center">
-        <div className="rounded-full bg-[linear-gradient(180deg,#007BFF_0%,rgba(246,242,250,0)_100%)] p-px">
-          <div className="rounded-full bg-white">
-            <img
-              src={Avatar}
-              alt="avatar"
-              className="w-12 h-12 rounded-full object-cover p-1"
-            />
-          </div>
-        </div>
+          <UserProfile />
         <h2 className="mt-2 text-xl font-semibold text-[#007BFF]">
           ارشیا معین فر
         </h2>

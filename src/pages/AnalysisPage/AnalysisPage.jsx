@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import AIAnalysisCard from "../../Components/AIAnalysisCard/AIAnalysisCard";
-import Diskette from "../../assets/Icons/Diskette.svg";
 import DocumentAdd from "../../assets/Icons/Document Add.svg";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import BodyAnalysisModel from "../../Components/AnalysComponents/BodyAnalysisModel/BodyAnalysisModel";
@@ -11,6 +10,7 @@ import NutritionReport from "../../Components/AnalysComponents/NutritionReport/N
 import StatCard from "../../Components/DashBoardAuthlete/StatCard/StatCard";
 import EvaluationHistory from "../../Components/AnalysComponents/EvaluationHistory/EvaluationHistory";
 import AppearanceChanges from "../../Components/AnalysComponents/AppearanceChanges/AppearanceChanges";
+import HeaderDashBoard from "../../Components/HeaderDashBoard/HeaderDashBoard";
 export default function AnalysisPage() {
   const changes = [
     {
@@ -54,44 +54,14 @@ export default function AnalysisPage() {
 
         <div className="py-3 ">
           <div className="grid grid-cols-12 gap-6 ">
-            <div className="col-span-12 ">
-              <div className="flex items-center justify-between mb-8">
-                {/* Right */}
-                <div>
-                  <h1 className="text-3xl font-bold text-[#6B6F77]">
-                    آنالیز بدن
-                  </h1>
-
-                  <div className="flex items-center gap-3 mt-2 text-sm">
-                    <span className="text-[#A0A4AA]">آخرین بروزرسانی</span>
-
-                    <span className="text-[#6B6F77] font-medium">
-                      ۲۳ تیر ۱۴۰۵
-                    </span>
-
-                    <span className="w-2 h-2 rounded-full bg-[#3BCB6A]"></span>
-
-                    <span className="text-[#3BCB6A]">جدید</span>
-                  </div>
-                </div>
-
-                {/* Left */}
-
-                <div className="flex items-center gap-4">
-                  <button className="flex items-center gap-2 bg-[#DBECFF] border border-[#E8EEF5] px-5 h-12 rounded-3xl hover:bg-[#F7FAFF] duration-300 cursor-pointer">
-                    <img src={DocumentAdd} className="text-lg"></img>
-
-                    <span className="text-[#007BFF]">دانلود گزارش</span>
-                  </button>
-
-                  <button className="flex items-center gap-2 bg-[#007BFF] text-white px-6 h-12 rounded-3xl hover:bg-[#0067D6] duration-300 cursor-pointer">
-                    <img src={Diskette} className="text-lg"></img>
-
-                    <span>ثبت آنالیز جدید</span>
-                  </button>
-                </div>
-              </div>
-            </div>
+            <HeaderDashBoard 
+              title="تغییر نسبت به قبل"
+              description="آخرین بروزرسانی"
+              date="۲۳ تیر ۱۴۰۵"
+              newStatus="جدید"
+              btnTrue={true}
+              imgBtn={DocumentAdd}
+            />
             <div className="col-span-6">
               <AIAnalysisCard />
             </div>
