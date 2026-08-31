@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Ranking from "../../../assets/Icons/Ranking.svg"
 const DEFAULT_RECORDS = [
   {
     id: 1,
@@ -43,23 +43,23 @@ const DEFAULT_RECORDS = [
   },
 ];
 
-// Trophy / podium-style icon, matching the reference image
-function RecordIcon({ className = "w-7 h-7 text-blue-500" }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      stroke="currentColor"
-      strokeWidth="1.6"
-    >
-      <path d="M12 3l1.2 2.4 2.6.4-1.9 1.9.5 2.6L12 9l-2.4 1.3.5-2.6L8.2 5.8l2.6-.4L12 3z" />
-      <path d="M9 12h6v9H9z" />
-      <path d="M5 15h4v6H5z" />
-      <path d="M15 15h4v6h-4z" />
-    </svg>
-  );
-}
+// // Trophy / podium-style icon, matching the reference image
+// function RecordIcon({ className = "w-7 h-7 text-blue-500" }) {
+//   return (
+//     <svg
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       className={className}
+//       stroke="currentColor"
+//       strokeWidth="1.6"
+//     >
+//       <path d="M12 3l1.2 2.4 2.6.4-1.9 1.9.5 2.6L12 9l-2.4 1.3.5-2.6L8.2 5.8l2.6-.4L12 3z" />
+//       <path d="M9 12h6v9H9z" />
+//       <path d="M5 15h4v6H5z" />
+//       <path d="M15 15h4v6h-4z" />
+//     </svg>
+//   );
+// }
 
 function RecordRow({ record, isOpen, onToggle }) {
   return (
@@ -69,7 +69,7 @@ function RecordRow({ record, isOpen, onToggle }) {
         className="w-full flex items-center justify-between py-6 text-right"
       >
         <div className="bg-blue-50 rounded-2xl w-16 h-16 flex items-center justify-center shrink-0">
-          <RecordIcon />
+          <img className="size-7" src={Ranking} alt="" />
         </div>
 
         <div className="flex-1 mr-4 text-right">

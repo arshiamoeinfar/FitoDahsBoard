@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import AddCircle from "../../../assets/Icons/Add Circle.svg"
 const initialNotes = [
   {
     id: 1,
@@ -68,7 +68,7 @@ export default function WorkoutNotes() {
             onClick={() => setIsAdding(true)}
             className="flex items-center gap-2 rounded-full bg-[#DBECFF] px-3 py-1 text-[#007BFF] transition hover:bg-[#CDE4FF]"
           >
-            <span className="text-xl">⊕</span>
+            <img src={AddCircle} alt="" />
 
             <span>افزودن</span>
           </button>
