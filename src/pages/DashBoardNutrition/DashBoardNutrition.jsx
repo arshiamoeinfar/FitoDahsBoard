@@ -7,11 +7,15 @@ import Navbar from "../../Components/Navbar/Navbar";
 import imgLunch from "../../assets/imges/lunch.png";
 import ImgFood from "../../assets/imges/image 17.png";
 import AddFoodModal from "../../Components/NutrationPage/AddFoodModal/AddFoodModal";
+import HeaderDashBoard from "../../Components/HeaderDashBoard/HeaderDashBoard";
 
 function MealCard({ meal, isOpen, onToggle, onAddFood }) {
   return (
     <div className="bg-white rounded-3xl p-6 mt-5">
-      <div onClick={onToggle} className="flex items-center justify-between cursor-pointer">
+      <div
+        onClick={onToggle}
+        className="flex items-center justify-between cursor-pointer"
+      >
         {/* سمت راست */}
         <div className="flex items-center gap-5">
           <div className="flex items-center gap-4">
@@ -96,8 +100,16 @@ export default function DashBoardNutrition() {
       time: "۷:۳۰",
       isOpen: true,
       foods: [
-        { title: "جوی دوسر با موز", desc: "۵۰ گرم جو + ۱ عدد موز متوسط", calories: "340 kcal" },
-        { title: "تخم مرغ آبپز", desc: "۳ عدد تخم مرغ بزرگ", calories: "340 kcal" },
+        {
+          title: "جوی دوسر با موز",
+          desc: "۵۰ گرم جو + ۱ عدد موز متوسط",
+          calories: "340 kcal",
+        },
+        {
+          title: "تخم مرغ آبپز",
+          desc: "۳ عدد تخم مرغ بزرگ",
+          calories: "340 kcal",
+        },
         { title: "شیر کم چرب", desc: "۲۰۰ میلی لیتر", calories: "340 kcal" },
       ],
     },
@@ -134,15 +146,15 @@ export default function DashBoardNutrition() {
 
   const toggleMeal = (id) => {
     setMeals((prev) =>
-      prev.map((m) => (m.id === id ? { ...m, isOpen: !m.isOpen } : m))
+      prev.map((m) => (m.id === id ? { ...m, isOpen: !m.isOpen } : m)),
     );
   };
 
   const handleAddFood = (mealId, food) => {
     setMeals((prev) =>
       prev.map((m) =>
-        m.id === mealId ? { ...m, foods: [...m.foods, food] } : m
-      )
+        m.id === mealId ? { ...m, foods: [...m.foods, food] } : m,
+      ),
     );
     setActiveMealId(null);
   };
@@ -151,66 +163,87 @@ export default function DashBoardNutrition() {
 
   return (
     <div className="min-h-screen bg-[#F5F7FB] flex justify-center">
-      <div className="w-full max-w-[1600px] grid grid-cols-[90px_1fr_330px] gap-6 px-8 py-6 bg-[#F5F7FB]">
+      <div className="w-full max-w-[1600px] grid grid-cols-[90px_1fr] gap-6 px-8 py-6 bg-[#F5F7FB]">
         <div>
           <Navbar />
         </div>
 
         <div className="py-3">
-          <div className="col-span-10 grid grid-cols-4 gap-5 mt-1">
-            <StatCard />
-            <StatCard />
-            <StatCard />
-            <StatCard />
-          </div>
+          <div className="grid grid-cols-12 gap-6">
+            <div className=" col-span-12">
+              <HeaderDashBoard
+                title={"تغذیه من"}
+                description={
+                  "برنامه تغذیه و موارد دریافتی بدن رو از این قسمت برسی کن"
+                }
+              />
+            </div>
 
-          {/* Content */}
-          {meals.map((meal) => (
-            <MealCard
-              key={meal.id}
-              meal={meal}
-              isOpen={meal.isOpen}
-              onToggle={() => toggleMeal(meal.id)}
-              onAddFood={() => setActiveMealId(meal.id)}
-            />
-          ))}
-        </div>
+            <div className="col-span-12 grid grid-cols-4 gap-5">
+              <StatCard />
+              <StatCard />
+              <StatCard />
+              <StatCard />
+            </div>
 
-        <div>
-          <AIChat />
-          <div className="bg-white rounded-4xl p-7 mt-5">
-            {/* Header */}
-            <h2 className="text-2xl text-[#6B6F77] font-medium text-right">
-              مکمل‌ها
-            </h2>
-
-            <div className="h-px bg-[#EEEEEE] my-5"></div>
-
-            {/* List */}
-            <div className="flex flex-col gap-8">
-              {supplements.map((item, index) => (
-                <div key={index} className="flex items-center justify-between">
-                  {/* Right side */}
-                  <div className="flex items-center gap-5">
-                    <div className="w-15 h-15 rounded-3xl bg-[#EAF3FF] flex items-center justify-center text-2xl">
-                      {item.emoji}
-                    </div>
-                    <div className="text-right">
-                      <h3 className="text-xl text-[#6B6F77] font-medium">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-[#A0A4AA] mt-2">{item.desc}</p>
-                    </div>
-                  </div>
-                  {/* Checkbox */}
-                  <div className="w-7 h-7 rounded-xl border-2 border-[#007BFF] flex items-center justify-center">
-                    <div className="w-4 h-4 bg-[#007BFF] rounded-md flex items-center justify-center">
-                      <span className="text-white text-xs">✓</span>
-                    </div>
-                  </div>
-                </div>
+            <div className="col-span-8 ">
+              {meals.map((meal) => (
+                <MealCard
+                  key={meal.id}
+                  meal={meal}
+                  isOpen={meal.isOpen}
+                  onToggle={() => toggleMeal(meal.id)}
+                  onAddFood={() => setActiveMealId(meal.id)}
+                />
               ))}
             </div>
+            <div className="col-span-4">
+              <div className="col-span-4 mt-5">
+                <AIChat />
+              </div>
+              <div className="col-span-4">
+                <div className="bg-white rounded-4xl p-7 mt-5">
+                  {/* Header */}
+                  <h2 className="text-2xl text-[#6B6F77] font-medium text-right">
+                    مکمل‌ها
+                  </h2>
+
+                  <div className="h-px bg-[#EEEEEE] my-5"></div>
+
+                  {/* List */}
+                  <div className="flex flex-col gap-8">
+                    {supplements.map((item, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between"
+                      >
+                        {/* Right side */}
+                        <div className="flex items-center gap-5">
+                          <div className="w-15 h-15 rounded-3xl bg-[#EAF3FF] flex items-center justify-center text-2xl">
+                            {item.emoji}
+                          </div>
+                          <div className="text-right">
+                            <h3 className="text-xl text-[#6B6F77] font-medium">
+                              {item.title}
+                            </h3>
+                            <p className="text-sm text-[#A0A4AA] mt-2">
+                              {item.desc}
+                            </p>
+                          </div>
+                        </div>
+                        {/* Checkbox */}
+                        <div className="w-7 h-7 rounded-xl border-2 border-[#007BFF] flex items-center justify-center">
+                          <div className="w-4 h-4 bg-[#007BFF] rounded-md flex items-center justify-center">
+                            <span className="text-white text-xs">✓</span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Content */}
           </div>
         </div>
       </div>

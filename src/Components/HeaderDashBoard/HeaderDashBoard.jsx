@@ -15,7 +15,7 @@ export default function HeaderDashBoard({
 }) {
   return (
     <div className="col-span-12 ">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-2">
         {/* Right */}
         <div>
           <h1 className="text-3xl font-bold text-[#6B6F77]">{title}</h1>
@@ -25,7 +25,7 @@ export default function HeaderDashBoard({
 
             <span className="text-[#6B6F77] font-medium">{date}</span>
 
-            <span className="w-2 h-2 rounded-full bg-[#3BCB6A]"></span>
+            {/* <span className="w-2 h-2 rounded-full bg-[#3BCB6A]"></span> */}
 
             <span className="text-[#3BCB6A]">{newStatus}</span>
           </div>
