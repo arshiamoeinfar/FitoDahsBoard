@@ -3,7 +3,7 @@ import Send from "../../../assets/imges/Plain 3.png";
 
 export default function AIChat() {
   return (
-    <div className="bg-white rounded-[32px] h-[570px] flex flex-col overflow-hidden">
+    <div className="bg-white rounded-3xl h-[570px] flex flex-col overflow-hidden mt-5">
       {/* Tabs */}
       <div className="p-5 border-b border-[#ECECEC]">
         <div className="bg-[#F5F7FA] rounded-full p-1 flex">
