@@ -1,9 +1,13 @@
 import EditProf from "../../../assets/Icons/Pen New Square.svg";
 import UserProfile from "../../HeaderDashBoard/UserProfile/UserProfile";
+import { useNavigate } from "react-router-dom";
 export default function ProfileCard() {
+
+  const navigate = useNavigate();
   return (
     <div className="bg-white rounded-4xl p-7">
       <img
+        onClick={()=> navigate("/settings")}
         src={EditProf}
         alt="edit profile"
         className="absolute top-12 left-16 w-6 h-6 cursor-pointer hover:opacity-70 transition"
