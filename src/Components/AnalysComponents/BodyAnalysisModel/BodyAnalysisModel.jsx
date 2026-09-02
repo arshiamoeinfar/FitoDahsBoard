@@ -9,8 +9,8 @@ export default function BodyAnalysisModel() {
         <div className="text-2xl  text-[#6B6F77] font-primary">
           مدل تعاملی بدن
         </div>
-        <div className="">
-          <SegmentedControl />
+        <div className="p-5 flex justify-center items-center">
+          <SegmentedControl item1={"جلو"} item2={"پشت"} />
         </div>
       </div>
       <div className="flex justify-center items-center mt-9">
