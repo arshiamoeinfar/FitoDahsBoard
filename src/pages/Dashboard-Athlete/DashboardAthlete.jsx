@@ -54,7 +54,7 @@ export default function DashboardAthlete() {
             </div>
           </div>
         </div>
-        <div className="">
+        <div className="col-auto mt-3">
           <ProfileCard />
           <AIChat />
         </div>
