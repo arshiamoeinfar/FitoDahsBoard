@@ -78,8 +78,8 @@ export default function BodyChangeChart() {
         <div className="text-2xl  text-[#6B6F77] font-primary">
           روند تغییرات وزن ، چربی و عضله
         </div>
-        <div className="">
-          <SegmentedControl />
+        <div className="p-5 flex justify-center items-center">
+          <SegmentedControl item1={"7 روز"} item2={"1 ماه"} item3={"3 ماه"} item4={"1 سال"} />
         </div>
       </div>
       <div className="w-full rounded-[32px] bg-white p-6" dir="rtl">

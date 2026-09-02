@@ -5,6 +5,7 @@ import imgDinner from "../../../assets/imges/dinner.png";
 import imgLunch from "../../../assets/imges/lunch.png";
 import imgFire from "../../../assets/imges/Fire.svg";
 import Liner from "../../../assets/imges/Line 1.png";
+import { useNavigate } from "react-router-dom";
 
 export default function NutritionCard() {
 
@@ -22,13 +23,17 @@ export default function NutritionCard() {
           value: 45,
         },
       ];
+
+      const navigate = useNavigate()
   return (
     <div className="bg-white rounded-3xl p-6">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-xl text-[#6B6F77] font-bold font-primary-light ">
           تغذیه امروز
         </h2>
-        <button className="flex items-center gap-2 text-[#6B6F77] text-sm hover:text-[#000000] transition cursor-pointer">
+        <button
+        onClick={()=> navigate("/dashboardnutrition")}
+        className="flex items-center gap-2 text-[#6B6F77] text-sm hover:text-[#000000] transition cursor-pointer">
           جزئیات بیشتر
           <img src={Flesh} alt="" className="w-4 h-4" />
         </button>

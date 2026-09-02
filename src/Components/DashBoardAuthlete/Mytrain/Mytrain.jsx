@@ -6,6 +6,7 @@ import Refresh from "../../../assets/imges/refresh.svg";
 import ClockCircle from "../../../assets/imges/Clock Circle.svg";
 import ElementLeg from "../../../assets/imges/elements.png";
 import Liner from "../../../assets/imges/Line 1.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Mytrain({
   showRecord = false,
@@ -24,6 +25,7 @@ export default function Mytrain({
     },
   ];
 
+  const navigate = useNavigate()
   return (
     <div className=" bg-white rounded-3xl p-6 h-fit">
       {/* Header */}
@@ -39,7 +41,9 @@ export default function Mytrain({
             شروع تمرین
           </button>
         ) : (
-          <button className="flex items-center gap-2 text-[#6B6F77] text-sm hover:text-gray-700 transition cursor-pointer">
+          <button 
+          onClick={()=> navigate("/trainingpage")}
+          className="flex items-center gap-2 text-[#6B6F77] text-sm hover:text-gray-700 transition cursor-pointer">
             جزئیات تمرین
             <img src={Flesh} alt="" />
           </button>
@@ -53,13 +57,14 @@ export default function Mytrain({
           <div className="flex flex-col items-start justify-between rounded-3xl gap-3">
             <div className={`flex  items-center gap-4 ${hrTrue ? " py-4 " : "mt-2"} w-full`}>
               <img
+               onClick={() => navigate("/dashboardAthlete/start-training")}
                 src={ImgSquat}
                 className="w-28 h-16 rounded-xl object-cover cursor-pointer"
                 alt=""
               />
 
               <div className="w-full">
-                <h3 className="font-primary font-medium text-[#6B6F77] mb-2 cursor-pointer">
+                <h3 onClick={() => navigate("/dashboardAthlete/start-training")} className="font-primary font-medium text-[#6B6F77] mb-2 cursor-pointer">
                   اسکوات با هالتر
                 </h3>
                 <div className="flex gap-3">

@@ -1,20 +1,13 @@
 import AIImage from "../../../assets/imges/image 12.png";
 import Send from "../../../assets/imges/Plain 3.png";
+import SegmentedControl from "../../SegmentedControl/SegmentedControl";
 
 export default function AIChat() {
   return (
     <div className="bg-white rounded-3xl h-[570px] flex flex-col overflow-hidden mt-5">
       {/* Tabs */}
-      <div className="p-5 border-b border-[#ECECEC]">
-        <div className="bg-[#F5F7FA] rounded-full p-1 flex">
-          <button className="flex-1 py-3 rounded-full bg-[#007BFF] text-white  transition text-sm">
-            هوش مصنوعی
-          </button>
-
-          <button className="flex-1 py-3 rounded-full text-[#7D8790] font-medium hover:text-[#007BFF] transition text-sm">
-            چت مربی
-          </button>
-        </div>
+      <div className="p-5 border-b border-[#ECECEC] flex justify-center items-center">
+       <SegmentedControl item1={"چت با مربی"} item2={"هوش مصنوعی"}/>
       </div>
 
       {/* Body */}
