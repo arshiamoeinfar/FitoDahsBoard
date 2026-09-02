@@ -1,3 +1,6 @@
+import ImgSetting from "../../assets/Icons/Settings.svg"
+
+
 const tabs = [
   {
     id: "profile",
@@ -28,7 +31,7 @@ const tabs = [
 
 const SettingsTabs = ({ activeTab, setActiveTab }) => {
   return (
-    <div className="w-full flex items-center gap-5 bg-amber-200">
+    <div className="w-full flex items-center gap-5">
       {tabs.map((tab) => {
         const isActive = activeTab === tab.id;
 

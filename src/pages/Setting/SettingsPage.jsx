@@ -1,6 +1,11 @@
 import { useState } from "react";
 import SettingsTabs from "../../Components/SettingsDshBoard/SettingsTabs";
 import Navbar from "../../Components/Navbar/Navbar";
+import ProfileSettings  from "../../Components/SettingsDshBoard/ProfileSettings";
+import NotificationSettings from "../../Components/SettingsDshBoard/NotificationSettings";
+import SubscriptionSettings from "../../Components/SettingsDshBoard/SubscriptionSettings";
+import PrivacySettings from "../../Components/SettingsDshBoard/PrivacySettings";
+import GeneralSettings from "../../Components/SettingsDshBoard/GeneralSettings";
 
 const SettingsPage = () => {
   const [activeTab, setActiveTab] = useState("profile");
@@ -20,34 +25,34 @@ const SettingsPage = () => {
                   activeTab={activeTab}
                   setActiveTab={setActiveTab}
                 />
-              <div className="mt-7 bg-amber-200">
+              <div className="mt-7">
                 {activeTab === "profile" && (
                   <div>
-                    <h1 className="text-2xl text-[#6B6F77]">پروفایل من</h1>
+                  <ProfileSettings/>
                   </div>
                 )}
 
                 {activeTab === "subscription" && (
                   <div>
-                    <h1 className="text-2xl text-[#6B6F77]">پلن اشتراک</h1>
+                    <SubscriptionSettings/>
                   </div>
                 )}
 
                 {activeTab === "notifications" && (
                   <div>
-                    <h1 className="text-2xl text-[#6B6F77]">اعلان‌ها</h1>
+                      <NotificationSettings/>
                   </div>
                 )}
 
                 {activeTab === "privacy" && (
                   <div>
-                    <h1 className="text-2xl text-[#6B6F77]">حریم خصوصی</h1>
+                      <PrivacySettings/>
                   </div>
                 )}
 
                 {activeTab === "settings" && (
                   <div>
-                    <h1 className="text-2xl text-[#6B6F77]">تنظیمات</h1>
+                   <GeneralSettings/>
                   </div>
                 )}
               </div>
