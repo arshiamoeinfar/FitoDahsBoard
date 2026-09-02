@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-export default function SegmentedControl() {
-  const options = ["جلو", "پشت"];
+export default function SegmentedControl(props) {
+  const options = Object.values(props);
   const [selected, setSelected] = useState(options[0]);
   return (
     <div className="bg-[#F2F8FD] rounded-3xl p-1 w-fit">

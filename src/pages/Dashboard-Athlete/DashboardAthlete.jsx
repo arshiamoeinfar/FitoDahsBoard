@@ -10,7 +10,7 @@ import StatCard from "../../Components/DashBoardAuthlete/StatCard/StatCard";
 import NutritionCard from "../../Components/DashBoardAuthlete/NutritionCard/NutritionCard";
 import DailyHydrationCard from "../../Components/DashBoardAuthlete/DailyHydrationCard/DailyHydrationCard";
 import BodyProgressCard from "../../Components/DashBoardAuthlete/BodyProgressCard/BodyProgressCard";
-
+import imgWalk from "../../assets/imges/walk.png";
 export default function DashboardAthlete() {
   return (
     <div className="min-h-screen bg-[#F5F7FB] flex justify-center">
@@ -34,10 +34,10 @@ export default function DashboardAthlete() {
 
             {/* <div className="col-span-10 bg-amber-200"> */}
             <div className="col-span-12 grid grid-cols-4 gap-5 mt-1">
-              <StatCard />
-              <StatCard />
-              <StatCard />
-              <StatCard />
+              <StatCard title={"قدم امروز"} value={"7234"} img={imgWalk} />
+              <StatCard title={"وزن"} value={"7234"} img={imgWalk} />
+              <StatCard title={"وزن"} value={"7234"} img={imgWalk} />
+              <StatCard title={"وزن"} value={"7234"} img={imgWalk} />
             </div>
             {/* </div> */}
 

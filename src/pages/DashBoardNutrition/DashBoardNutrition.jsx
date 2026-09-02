@@ -8,6 +8,8 @@ import imgLunch from "../../assets/imges/lunch.png";
 import ImgFood from "../../assets/imges/image 17.png";
 import AddFoodModal from "../../Components/NutrationPage/AddFoodModal/AddFoodModal";
 import HeaderDashBoard from "../../Components/HeaderDashBoard/HeaderDashBoard";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import Walk from "../../assets/imges/walk.png";
 
 function MealCard({ meal, isOpen, onToggle, onAddFood }) {
   return (
@@ -180,10 +182,40 @@ export default function DashBoardNutrition() {
             </div>
 
             <div className="col-span-12 grid grid-cols-4 gap-5">
-              <StatCard />
-              <StatCard />
-              <StatCard />
-              <StatCard />
+              <StatCard
+                title={"کالری"}
+                value={"1700"}
+                img={Walk}
+                type="circle"
+                progress={50}
+              />
+              <StatCard
+                title={"کربوهیدرات"}
+                value={"7234"}
+                img={Walk}
+                type="circle"
+                progress={5}
+                color="#6578BC"
+                colorBg="#DBE3FF"
+              />
+              <StatCard
+                title={"پروتئین"}
+                value={"340" + "" + "g"}
+                img={Walk}
+                type="circle"
+                progress={10}
+                color="#C23EA1"
+                colorBg="#FFDBF6"
+              />
+              <StatCard
+                title={"چربی"}
+                value={"340"}
+                img={Walk}
+                type="circle"
+                progress={70}
+                color="#41CCD4"
+                colorBg="#DBFDFF"
+              />
             </div>
 
             <div className="col-span-8 ">

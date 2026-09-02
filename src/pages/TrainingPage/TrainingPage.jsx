@@ -9,6 +9,7 @@ import WorkoutHistory from "../../Components/TrainigPage/WorkoutHistory/WorkoutH
 import WorkoutNotes from "../../Components/TrainigPage/WorkoutNotes/WorkoutNotes";
 import PersonalRecordsCard from "../../Components/TrainigPage/PersonalRecordsCard/PersonalRecordsCard";
 import HeaderDashBoard from "../../Components/HeaderDashBoard/HeaderDashBoard";
+import Walk from "../../assets/imges/walk.png";
 
 export default function TrainingPage() {
   return (
@@ -21,10 +22,10 @@ export default function TrainingPage() {
           <div className="grid grid-cols-12 gap-6">
            <HeaderDashBoard title={"تمرین های من"} description={"سلام مهدی، امروز آماده‌ای؟"} />
             <div className="col-span-12 grid grid-cols-4 gap-5">
-              <StatCard />
-              <StatCard />
-              <StatCard />
-              <StatCard />
+              <StatCard title={"وزن"} value={"7234"} img={Walk} type="image" />
+              <StatCard title={"وزن"} value={"7234"} img={Walk} type="image"/>
+              <StatCard title={"وزن"} value={"7234"} img={Walk} type="image"/>
+              <StatCard title={"وزن"} value={"7234"} img={Walk} type="image"/>
             </div>
             <div className="col-span-7 ">
               <div className="col-span-7 mb-5">
