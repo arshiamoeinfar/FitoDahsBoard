@@ -11,6 +11,7 @@ import StatCard from "../../Components/DashBoardAuthlete/StatCard/StatCard";
 import EvaluationHistory from "../../Components/AnalysComponents/EvaluationHistory/EvaluationHistory";
 import AppearanceChanges from "../../Components/AnalysComponents/AppearanceChanges/AppearanceChanges";
 import HeaderDashBoard from "../../Components/HeaderDashBoard/HeaderDashBoard";
+import imgWalk from "../../assets/imges/walk.png";
 export default function AnalysisPage() {
   const changes = [
     {
@@ -54,7 +55,7 @@ export default function AnalysisPage() {
 
         <div className="py-3 ">
           <div className="grid grid-cols-12 gap-6 ">
-            <HeaderDashBoard 
+            <HeaderDashBoard
               title="تغییر نسبت به قبل"
               description="آخرین بروزرسانی"
               date="۲۳ تیر ۱۴۰۵"
@@ -154,11 +155,11 @@ export default function AnalysisPage() {
               <NutritionReport />
             </div>
             <div className="col-span-12 grid grid-cols-5 gap-5">
-              <StatCard />
-              <StatCard />
-              <StatCard />
-              <StatCard />
-              <StatCard />
+              <StatCard title={"قدم امروز"} value={"7234"} img={imgWalk} />
+              <StatCard title={"قدم امروز"} value={"7234"} img={imgWalk} />
+              <StatCard title={"قدم امروز"} value={"7234"} img={imgWalk} />
+              <StatCard title={"قدم امروز"} value={"7234"} img={imgWalk} />
+              <StatCard title={"قدم امروز"} value={"7234"} img={imgWalk} />
             </div>
             <div className="col-span-6">
               <AppearanceChanges />
