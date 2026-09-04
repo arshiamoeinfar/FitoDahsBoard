@@ -1,663 +1,291 @@
-import { useEffect, useMemo, useState } from "react";
-import {
-  X,
-  Search,
-  Plus,
-  Minus,
-  ChevronLeft,
-  Utensils,
-  Clock3,
-  Check,
-  Sparkles,
-} from "lucide-react";
+import { X, Search, Plus, Minus, Camera, ChevronDown } from "lucide-react";
 
-const foods = [
-  {
-    id: 1,
-    name: "سینه مرغ گریل شده",
-    category: "پروتئین",
-    emoji: "🍗",
-    calories: 165,
-    protein: 31,
-    carbs: 0,
-    fat: 3.6,
-  },
-  {
-    id: 2,
-    name: "برنج سفید پخته شده",
-    category: "کربوهیدرات",
-    emoji: "🍚",
-    calories: 130,
-    protein: 2.7,
-    carbs: 28,
-    fat: 0.3,
-  },
-  {
-    id: 3,
-    name: "تخم مرغ آب پز",
-    category: "پروتئین",
-    emoji: "🥚",
-    calories: 155,
-    protein: 13,
-    carbs: 1.1,
-    fat: 11,
-  },
-  {
-    id: 4,
-    name: "جو دوسر پرک",
-    category: "کربوهیدرات",
-    emoji: "🥣",
-    calories: 389,
-    protein: 16.9,
-    carbs: 66,
-    fat: 6.9,
-  },
-  {
-    id: 5,
-    name: "موز",
-    category: "میوه",
-    emoji: "🍌",
-    calories: 89,
-    protein: 1.1,
-    carbs: 22.8,
-    fat: 0.3,
-  },
-  {
-    id: 6,
-    name: "شیر کم چرب",
-    category: "لبنیات",
-    emoji: "🥛",
-    calories: 42,
-    protein: 3.4,
-    carbs: 5,
-    fat: 1,
-  },
-  {
-    id: 7,
-    name: "سیب",
-    category: "میوه",
-    emoji: "🍎",
-    calories: 52,
-    protein: 0.3,
-    carbs: 14,
-    fat: 0.2,
-  },
-  {
-    id: 8,
-    name: "سیب زمینی آب پز",
-    category: "کربوهیدرات",
-    emoji: "🥔",
-    calories: 87,
-    protein: 1.9,
-    carbs: 20,
-    fat: 0.1,
-  },
-];
-
-const recentFoods = [3, 1, 2];
-
-export default function AddFoodModal({
-  isOpen,
-  onClose,
-  mealName = "صبحانه",
-  onAddFood,
-}) {
-  const [search, setSearch] = useState("");
-  const [selectedFood, setSelectedFood] = useState(null);
-  const [quantity, setQuantity] = useState(100);
-
-  useEffect(() => {
-    if (!isOpen) {
-      setSearch("");
-      setSelectedFood(null);
-      setQuantity(100);
-    }
-  }, [isOpen]);
-
-  const filteredFoods = useMemo(() => {
-    if (!search.trim()) return foods;
-
-    return foods.filter(
-      (food) =>
-        food.name.includes(search.trim()) ||
-        food.category.includes(search.trim())
-    );
-  }, [search]);
-
-  const recentFoodList = recentFoods
-    .map((id) => foods.find((food) => food.id === id))
-    .filter(Boolean);
-
-  const nutrition = selectedFood
-    ? {
-        calories: Math.round((selectedFood.calories * quantity) / 100),
-        protein: Number(
-          ((selectedFood.protein * quantity) / 100).toFixed(1)
-        ),
-        carbs: Number(((selectedFood.carbs * quantity) / 100).toFixed(1)),
-        fat: Number(((selectedFood.fat * quantity) / 100).toFixed(1)),
-      }
-    : null;
-
-  const increaseQuantity = () => {
-    setQuantity((prev) => prev + 10);
-  };
-
-  const decreaseQuantity = () => {
-    setQuantity((prev) => Math.max(10, prev - 10));
-  };
-
-  const handleQuantityChange = (e) => {
-    const value = Number(e.target.value);
-
-    if (Number.isNaN(value)) {
-      setQuantity(0);
-      return;
-    }
-
-    setQuantity(Math.max(0, value));
-  };
-
-  const handleAddFood = () => {
-    if (!selectedFood || quantity <= 0) return;
-
-    const foodToAdd = {
-      ...selectedFood,
-      quantity,
-      nutrition,
-    };
-
-    onAddFood?.(foodToAdd);
-    onClose();
-  };
-
+export default function AddFoodModal({ isOpen, onClose, onAdd }) {
   if (!isOpen) return null;
 
   return (
     <div
       dir="rtl"
-      className="fixed inset-0 z-999 flex items-center justify-center bg-[#17324d]/25 px-5 py-8 backdrop-blur-[4px]"
-      onMouseDown={(e) => {
-        if (e.target === e.currentTarget) {
-          onClose();
-        }
-      }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm"
     >
-      <div className="flex h-[min(760px,90vh)] w-full max-w-[1050px] flex-col overflow-hidden rounded-[28px] border border-white bg-[#ffffff] shadow-[0_25px_80px_rgba(39,91,135,0.16)]">
-
-        {/* ================= HEADER ================= */}
-
-        <div className="flex shrink-0 items-center justify-between border-b border-[#edf1f5] px-7 py-5">
-
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-[14px] bg-[#eef7e8] text-xl">
-              🍽️
-            </div>
-
-            <div>
-              <h2 className="text-[19px] font-bold text-[#50545a]">
-                افزودن غذا
-              </h2>
-
-              <p className="mt-0.5 text-[12px] text-[#a1a5aa]">
-                افزودن غذا به {mealName}
-              </p>
-            </div>
+      <div className="flex max-h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-[28px] bg-[#F8FAFC] shadow-2xl">
+        {/* HEADER */}
+        <div className="flex items-center justify-between border-b border-gray-100 bg-white px-6 py-5">
+          <div>
+            <h2 className="text-xl font-bold text-gray-900">افزودن غذا</h2>
+            <p className="mt-1 text-sm text-gray-400">
+              غذای خود را به وعده غذایی اضافه کنید
+            </p>
           </div>
-
           <button
+            type="button"
             onClick={onClose}
-            className="flex h-10 w-10 items-center justify-center rounded-full text-[#a5a9ad] transition-all hover:bg-[#f4f7fa] hover:text-[#555]"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition hover:bg-gray-200 hover:text-gray-800"
           >
-            <X size={21} strokeWidth={1.8} />
+            <X size={20} />
           </button>
-
         </div>
 
-        {/* ================= BODY ================= */}
-
-        <div className="flex min-h-0 flex-1 flex-col lg:flex-row">
-
-          {/* ================= LEFT / FOOD LIST ================= */}
-
-          <div className="flex min-h-0 flex-1 flex-col border-l border-[#edf1f5]">
-
-            {/* Search */}
-
-            <div className="px-7 pt-6">
-
+        {/* CONTENT */}
+        <div className="grid flex-1 overflow-y-auto lg:grid-cols-2">
+          {/* LEFT SIDE */}
+          <div className="space-y-6 border-l border-gray-100 p-6">
+            {/* SEARCH */}
+            <div>
+              <label className="mb-2 block text-sm font-medium text-gray-700">
+                انتخاب غذا
+              </label>
               <div className="relative">
-
                 <Search
                   size={19}
-                  strokeWidth={1.8}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[#a9afb5]"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
                 />
-
                 <input
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
+                  type="text"
                   placeholder="جستجوی غذا..."
-                  className="h-[52px] w-full rounded-[16px] border border-[#e8edf2] bg-[#f8fafc] pr-12 pl-12 text-[14px] text-[#555] outline-none transition-all placeholder:text-[#b4b8bd] focus:border-[#65aef0] focus:bg-white focus:ring-4 focus:ring-[#1688ed]/5"
+                  className="w-full rounded-2xl border border-gray-200 bg-white py-3.5 pr-11 pl-4 text-sm outline-none transition focus:border-[#007BFF] focus:ring-4 focus:ring-blue-500/10"
                 />
-
-                {search && (
-                  <button
-                    onClick={() => setSearch("")}
-                    className="absolute left-4 top-1/2 flex -translate-y-1/2 text-[#aeb3b8] hover:text-[#555]"
-                  >
-                    <X size={16} />
-                  </button>
-                )}
-
               </div>
-
             </div>
 
-            {/* Recent */}
-
-            {!search && (
-              <div className="px-7 pt-6">
-
-                <div className="mb-3 flex items-center gap-2">
-                  <Clock3 size={15} className="text-[#a8adb2]" />
-
-                  <span className="text-[13px] font-semibold text-[#777c81]">
-                    اخیراً مصرف شده
-                  </span>
-                </div>
-
-                <div className="flex gap-3 overflow-x-auto pb-1">
-
-                  {recentFoodList.map((food) => (
-                    <button
-                      key={food.id}
-                      onClick={() => {
-                        setSelectedFood(food);
-                        setQuantity(100);
-                      }}
-                      className={`group min-w-[115px] rounded-[16px] border p-3 text-right transition-all ${
-                        selectedFood?.id === food.id
-                          ? "border-[#1688ed] bg-[#f2f8ff]"
-                          : "border-[#edf0f3] bg-white hover:border-[#d5e7f8] hover:bg-[#f8fbff]"
-                      }`}
-                    >
-
-                      <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-[11px] bg-[#eef6fc] text-lg">
-                        {food.emoji}
-                      </div>
-
-                      <p className="truncate text-[12px] font-semibold text-[#62666a]">
-                        {food.name}
-                      </p>
-
-                      <p className="mt-1 text-[10px] text-[#a5a9ad]">
-                        {food.calories} kcal / 100g
-                      </p>
-
-                    </button>
-                  ))}
-
-                </div>
-
-              </div>
-            )}
-
-            {/* Food list */}
-
-            <div className="min-h-0 flex-1 overflow-y-auto px-7 pb-6 pt-6">
-
-              <div className="mb-3 flex items-center justify-between">
-
-                <span className="text-[13px] font-semibold text-[#777c81]">
-                  {search ? "نتایج جستجو" : "پیشنهاد شده برای شما"}
-                </span>
-
-                <span className="text-[11px] text-[#b0b4b8]">
-                  {filteredFoods.length} غذا
-                </span>
-
-              </div>
-
-              <div className="space-y-2">
-
-                {filteredFoods.map((food) => (
-                  <button
-                    key={food.id}
-                    onClick={() => {
-                      setSelectedFood(food);
-                      setQuantity(100);
-                    }}
-                    className={`group flex w-full items-center gap-4 rounded-[17px] border p-3 text-right transition-all ${
-                      selectedFood?.id === food.id
-                        ? "border-[#1688ed] bg-[#f4f9ff]"
-                        : "border-[#edf0f3] bg-white hover:border-[#dceaf6] hover:bg-[#fbfdff]"
-                    }`}
-                  >
-
-                    {/* Food icon */}
-
-                    <div className="flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-[15px] bg-[#f0f7fc] text-[25px]">
-                      {food.emoji}
-                    </div>
-
-                    {/* Information */}
-
-                    <div className="min-w-0 flex-1">
-
-                      <div className="flex items-center gap-2">
-
-                        <h3 className="truncate text-[13px] font-semibold text-[#5e6368]">
-                          {food.name}
-                        </h3>
-
-                        {selectedFood?.id === food.id && (
-                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#1688ed] text-white">
-                            <Check size={12} strokeWidth={3} />
-                          </span>
-                        )}
-
-                      </div>
-
-                      <div className="mt-1 flex items-center gap-2">
-
-                        <span className="text-[10px] text-[#a7acb1]">
-                          {food.category}
-                        </span>
-
-                        <span className="h-1 w-1 rounded-full bg-[#d5d9dc]" />
-
-                        <span className="text-[10px] text-[#a7acb1]">
-                          {food.calories} kcal / 100g
-                        </span>
-
-                      </div>
-
-                    </div>
-
-                    {/* Add icon */}
-
-                    <div
-                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all ${
-                        selectedFood?.id === food.id
-                          ? "bg-[#1688ed] text-white"
-                          : "bg-[#edf6fd] text-[#1688ed] group-hover:bg-[#1688ed] group-hover:text-white"
-                      }`}
-                    >
-                      <Plus size={17} strokeWidth={2} />
-                    </div>
-
-                  </button>
-                ))}
-
-                {filteredFoods.length === 0 && (
-                  <div className="flex flex-col items-center justify-center py-16 text-center">
-
-                    <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-[#f4f7fa] text-2xl">
-                      🔎
-                    </div>
-
-                    <p className="text-[13px] font-semibold text-[#70757a]">
-                      غذایی پیدا نشد
-                    </p>
-
-                    <p className="mt-1 text-[11px] text-[#adb1b5]">
-                      نام غذای دیگری را جستجو کنید
-                    </p>
-
+            {/* FOOD LIST */}
+            <div className="max-h-[230px] space-y-2 overflow-y-auto pr-1">
+              <button
+                type="button"
+                className="flex w-full items-center justify-between rounded-2xl border border-[#007BFF] bg-blue-50 p-3 text-right transition"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gray-50 text-xl">
+                    🍗
                   </div>
-                )}
-
-              </div>
-
-              {/* Create food */}
-
-              <button className="mt-4 flex h-[45px] w-full items-center justify-center gap-2 rounded-[14px] border border-dashed border-[#cddfec] text-[12px] font-medium text-[#1688ed] transition-all hover:border-[#1688ed] hover:bg-[#f7fbff]">
-                <Plus size={16} />
-                ایجاد غذای جدید
+                  <div>
+                    <p className="font-medium text-gray-900">سینه مرغ</p>
+                    <p className="mt-1 text-xs text-gray-400">165 کالری در 100 گرم</p>
+                  </div>
+                </div>
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#007BFF] text-xs text-white">
+                  ✓
+                </div>
               </button>
 
+              <button
+                type="button"
+                className="flex w-full items-center justify-between rounded-2xl border border-gray-100 bg-white p-3 text-right transition hover:border-gray-200"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gray-50 text-xl">
+                    🍚
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900">برنج پخته</p>
+                    <p className="mt-1 text-xs text-gray-400">130 کالری در 100 گرم</p>
+                  </div>
+                </div>
+              </button>
             </div>
 
+            {/* QUANTITY */}
+            <div>
+              <label className="mb-2 block text-sm font-medium text-gray-700">
+                مقدار
+              </label>
+              <div className="flex gap-3">
+                <div className="flex flex-1 items-center justify-between rounded-2xl border border-gray-200 bg-white p-2">
+                  <button
+                    type="button"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 text-gray-600 transition hover:bg-gray-200"
+                  >
+                    <Minus size={17} />
+                  </button>
+                  <input
+                    type="number"
+                    min="1"
+                    value={1}
+                    className="w-16 bg-transparent text-center font-bold text-gray-900 outline-none"
+                  />
+                  <button
+                    type="button"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#007BFF] text-white transition hover:bg-blue-600"
+                  >
+                    <Plus size={17} />
+                  </button>
+                </div>
+
+                <div className="relative flex-1">
+                  <select className="h-full w-full appearance-none rounded-2xl border border-gray-200 bg-white px-4 text-sm text-gray-700 outline-none focus:border-[#007BFF]">
+                    <option>گرم</option>
+                    <option>دانه</option>
+                  </select>
+                  <ChevronDown
+                    size={17}
+                    className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+                  />
+                </div>
+              </div>
+              <p className="mt-2 text-xs text-gray-400">معادل تقریبی 100.0 گرم</p>
+            </div>
+
+            {/* MEAL */}
+            <div>
+              <label className="mb-2 block text-sm font-medium text-gray-700">
+                وعده غذایی
+              </label>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  className="rounded-xl border border-[#007BFF] bg-blue-50 px-4 py-3 text-sm font-medium text-[#007BFF] transition"
+                >
+                  صبحانه
+                </button>
+                <button
+                  type="button"
+                  className="rounded-xl border border-gray-100 bg-white px-4 py-3 text-sm text-gray-500 transition hover:border-gray-200"
+                >
+                  ناهار
+                </button>
+                <button
+                  type="button"
+                  className="rounded-xl border border-gray-100 bg-white px-4 py-3 text-sm text-gray-500 transition hover:border-gray-200"
+                >
+                  شام
+                </button>
+                <button
+                  type="button"
+                  className="rounded-xl border border-gray-100 bg-white px-4 py-3 text-sm text-gray-500 transition hover:border-gray-200"
+                >
+                  میان وعده
+                </button>
+              </div>
+            </div>
+
+            {/* AI FOOD PHOTO */}
+            <label className="block cursor-pointer">
+              <input type="file" accept="image/*" capture="environment" className="hidden" />
+              <div className="flex items-center gap-4 rounded-2xl border border-dashed border-blue-200 bg-blue-50/50 p-4 transition hover:bg-blue-50">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-[#007BFF] shadow-sm">
+                  <Camera size={21} />
+                </div>
+                <div>
+                  <p className="font-medium text-gray-900">تشخیص غذا با عکس</p>
+                  <p className="mt-1 text-xs text-gray-500">
+                    از غذایت عکس بگیر تا مقدار و ارزش غذایی آن تخمین زده شود
+                  </p>
+                </div>
+              </div>
+            </label>
           </div>
 
-          {/* ================= RIGHT / SELECTED FOOD ================= */}
-
-          <div className="flex w-full shrink-0 flex-col bg-[#fbfcfd] lg:w-[390px]">
-
-            {!selectedFood ? (
-              <div className="flex flex-1 flex-col items-center justify-center px-10 text-center">
-
-                <div className="mb-5 flex h-[82px] w-[82px] items-center justify-center rounded-[26px] bg-[#edf6fd] text-[36px]">
+          {/* RIGHT SIDE */}
+          <div className="p-6">
+            <div className="h-full rounded-3xl bg-white p-6 shadow-sm">
+              {/* EMPTY STATE */}
+              <div className="flex h-full min-h-[400px] flex-col items-center justify-center text-center">
+                <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-blue-50 text-3xl">
                   🍽️
                 </div>
-
-                <h3 className="text-[15px] font-bold text-[#62676c]">
-                  یک غذا انتخاب کنید
-                </h3>
-
-                <p className="mt-2 max-w-[230px] text-[11px] leading-6 text-[#a8adb2]">
-                  از لیست غذاها یک مورد را انتخاب کنید تا مقدار مصرف و ارزش
-                  غذایی آن را مشخص کنید.
+                <h3 className="font-bold text-gray-800">هنوز غذایی انتخاب نشده</h3>
+                <p className="mt-2 max-w-xs text-sm leading-6 text-gray-400">
+                  یک غذا از لیست انتخاب کن تا اطلاعات تغذیه‌ای آن اینجا نمایش داده شود.
                 </p>
-
               </div>
-            ) : (
-              <div className="flex min-h-0 flex-1 flex-col">
 
-                {/* Selected header */}
-
-                <div className="px-7 pt-7">
-
-                  <button
-                    onClick={() => setSelectedFood(null)}
-                    className="mb-6 flex items-center gap-1 text-[11px] text-[#92979c] transition-colors hover:text-[#1688ed]"
-                  >
-                    <ChevronLeft size={15} />
-                    انتخاب غذای دیگر
-                  </button>
-
-                  <div className="flex flex-col items-center text-center">
-
-                    <div className="flex h-[90px] w-[90px] items-center justify-center rounded-[27px] bg-white text-[45px] shadow-[0_8px_25px_rgba(40,90,130,0.07)]">
-                      {selectedFood.emoji}
-                    </div>
-
-                    <h3 className="mt-4 text-[16px] font-bold text-[#5c6166]">
-                      {selectedFood.name}
-                    </h3>
-
-                    <span className="mt-1 text-[10px] text-[#a5aaae]">
-                      ارزش غذایی بر اساس 100 گرم
-                    </span>
-
+              {/* NUTRITION - Hidden for UI demo */}
+              <div className="hidden space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-3xl">
+                    🍗
                   </div>
-
+                  <div>
+                    <p className="text-lg font-bold text-gray-900">سینه مرغ</p>
+                    <p className="mt-1 text-sm text-gray-400">1 عدد • 100.0 گرم</p>
+                  </div>
                 </div>
 
-                {/* Quantity */}
-
-                <div className="px-7 pt-7">
-
-                  <p className="mb-3 text-[12px] font-semibold text-[#777c81]">
-                    مقدار مصرف
-                  </p>
-
-                  <div className="flex h-[62px] items-center rounded-[17px] border border-[#e7edf2] bg-white p-2">
-
-                    <button
-                      onClick={decreaseQuantity}
-                      className="flex h-[44px] w-[44px] items-center justify-center rounded-[13px] bg-[#f2f6f9] text-[#858b90] transition-all hover:bg-[#e9f3fb] hover:text-[#1688ed]"
-                    >
-                      <Minus size={17} />
-                    </button>
-
-                    <div className="flex flex-1 items-center justify-center gap-2">
-
-                      <input
-                        type="number"
-                        value={quantity}
-                        onChange={handleQuantityChange}
-                        className="w-[65px] bg-transparent text-center text-[17px] font-bold text-[#555a5f] outline-none"
-                      />
-
-                      <span className="text-[12px] text-[#9ca2a7]">
-                        گرم
-                      </span>
-
-                    </div>
-
-                    <button
-                      onClick={increaseQuantity}
-                      className="flex h-[44px] w-[44px] items-center justify-center rounded-[13px] bg-[#edf6fd] text-[#1688ed] transition-all hover:bg-[#dff0fc]"
-                    >
-                      <Plus size={17} />
-                    </button>
-
+                <div className="rounded-2xl bg-[#007BFF] p-5 text-white">
+                  <p className="text-sm text-white/70">کالری این غذا</p>
+                  <div className="mt-2 flex items-end gap-2">
+                    <span className="text-4xl font-bold">165</span>
+                    <span className="mb-1 text-sm text-white/70">kcal</span>
                   </div>
-
                 </div>
 
-                {/* Nutrition */}
-
-                <div className="px-7 pt-6">
-
-                  <div className="mb-3 flex items-center justify-between">
-
-                    <p className="text-[12px] font-semibold text-[#777c81]">
-                      ارزش غذایی
-                    </p>
-
-                    <span className="text-[10px] text-[#a4a9ad]">
-                      برای {quantity} گرم
-                    </span>
-
-                  </div>
-
-                  {/* Calories */}
-
-                  <div className="rounded-[19px] bg-white p-4 shadow-[0_5px_20px_rgba(40,90,130,0.035)]">
-
-                    <div className="flex items-center justify-between">
-
-                      <div className="flex items-center gap-3">
-
-                        <div className="flex h-10 w-10 items-center justify-center rounded-[12px] bg-[#eff8e9]">
-                          🔥
-                        </div>
-
-                        <div>
-                          <p className="text-[10px] text-[#a1a6ab]">
-                            کالری
-                          </p>
-
-                          <p className="mt-0.5 text-[18px] font-bold text-[#5d6267]">
-                            {nutrition.calories}
-                            <span className="mr-1 text-[9px] font-normal text-[#9ea3a8]">
-                              kcal
-                            </span>
-                          </p>
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                    {/* Macro grid */}
-
-                    <div className="mt-4 grid grid-cols-3 gap-2">
-
-                      <Macro
-                        label="پروتئین"
-                        value={nutrition.protein}
-                        unit="g"
-                        bg="bg-[#eefaff]"
-                        valueColor="text-[#45b9c8]"
-                      />
-
-                      <Macro
-                        label="کربوهیدرات"
-                        value={nutrition.carbs}
-                        unit="g"
-                        bg="bg-[#f9f6ff]"
-                        valueColor="text-[#9279d5]"
-                      />
-
-                      <Macro
-                        label="چربی"
-                        value={nutrition.fat}
-                        unit="g"
-                        bg="bg-[#fff8ed]"
-                        valueColor="text-[#e5a848]"
-                      />
-
-                    </div>
-
-                  </div>
-
+                <div className="grid grid-cols-3 gap-3">
+                  <NutritionCard title="پروتئین" value={31} unit="g" icon="🥩" />
+                  <NutritionCard title="کربوهیدرات" value={0} unit="g" icon="🍚" />
+                  <NutritionCard title="چربی" value={3.6} unit="g" icon="🥑" />
                 </div>
 
-                {/* AI suggestion */}
-
-                <div className="mt-auto px-7 pb-5 pt-5">
-
-                  <div className="mb-4 flex items-center gap-2 rounded-[15px] border border-[#e6f1fb] bg-[#f5faff] p-3">
-
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] bg-[#e7f3ff] text-[#1688ed]">
-                      <Sparkles size={15} />
-                    </div>
-
-                    <p className="text-[10px] leading-5 text-[#8b969f]">
-                      مقدار مصرف بر اساس برنامه غذایی شما پیشنهاد شده است.
-                    </p>
-
-                  </div>
-
-                  <button
-                    onClick={handleAddFood}
-                    disabled={!quantity || quantity <= 0}
-                    className="flex h-[52px] w-full items-center justify-center gap-2 rounded-[16px] bg-[#1688ed] text-[13px] font-semibold text-white shadow-[0_8px_20px_rgba(22,136,237,0.18)] transition-all hover:bg-[#087bdc] hover:shadow-[0_10px_25px_rgba(22,136,237,0.25)] disabled:cursor-not-allowed disabled:opacity-50"
-                  >
-                    <Plus size={18} strokeWidth={2.3} />
-                    افزودن به {mealName}
-                  </button>
-
+                <div className="space-y-5">
+                  <MacroBar title="پروتئین" value={31} max={50} />
+                  <MacroBar title="کربوهیدرات" value={0} max={100} />
+                  <MacroBar title="چربی" value={3.6} max={50} />
                 </div>
 
+                <div className="flex items-center justify-between rounded-2xl bg-gray-50 px-4 py-3">
+                  <span className="text-sm text-gray-500">وعده غذایی</span>
+                  <span className="font-medium text-gray-800">صبحانه</span>
+                </div>
               </div>
-            )}
-
+            </div>
           </div>
+        </div>
 
+        {/* FOOTER */}
+        <div className="flex items-center justify-between gap-4 border-t border-gray-100 bg-white px-6 py-4">
+          <button
+            type="button"
+            onClick={onClose}
+            className="rounded-xl px-5 py-3 text-sm font-medium text-gray-500 transition hover:bg-gray-100"
+          >
+            انصراف
+          </button>
+          <button
+            type="button"
+            disabled
+            className="rounded-xl bg-[#007BFF] px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            + افزودن به وعده غذایی
+          </button>
         </div>
       </div>
     </div>
   );
 }
 
-/* ================= MACRO COMPONENT ================= */
-
-function Macro({
-  label,
-  value,
-  unit,
-  bg,
-  valueColor,
-}) {
+function NutritionCard({ title, value, unit, icon }) {
   return (
-    <div className={`rounded-[13px] ${bg} px-2 py-3 text-center`}>
-
-      <p className="text-[9px] text-[#a1a6aa]">
-        {label}
-      </p>
-
-      <p className={`mt-1 text-[14px] font-bold ${valueColor}`}>
-        {value}
-        <span className="mr-0.5 text-[8px] font-normal">
-          {unit}
+    <div className="rounded-2xl border border-gray-100 bg-white p-4">
+      <div className="mb-2 flex items-center justify-between">
+        <span className="text-xs text-gray-500">{title}</span>
+        <span>{icon}</span>
+      </div>
+      <div className="flex items-end gap-1">
+        <span className="text-xl font-bold text-gray-900">
+          {Number(value).toFixed(1)}
         </span>
-      </p>
+        <span className="mb-0.5 text-xs text-gray-400">{unit}</span>
+      </div>
+    </div>
+  );
+}
 
+function MacroBar({ title, value, max }) {
+  const percentage = Math.min((value / max) * 100, 100);
+
+  return (
+    <div className="space-y-2">
+      <div className="flex items-center justify-between text-sm">
+        <span className="text-gray-500">{title}</span>
+        <span className="font-medium text-gray-800">
+          {Number(value).toFixed(1)}g
+        </span>
+      </div>
+      <div className="h-2 overflow-hidden rounded-full bg-gray-100">
+        <div
+          className="h-full rounded-full bg-[#007BFF] transition-all duration-300"
+          style={{ width: `${percentage}%` }}
+        />
+      </div>
     </div>
   );
 }
