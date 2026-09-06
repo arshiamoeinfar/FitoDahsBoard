@@ -1,7 +1,76 @@
 import { X, Search, Plus, Minus, Camera, ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 export default function AddFoodModal({ isOpen, onClose, onAdd }) {
   if (!isOpen) return null;
+
+  const [SearchFood, setSearchFood] = useState("");
+  const [IsActive, setIsActive] = useState(false);
+  const [SelectedFood, setSelectedFood] = useState(null);
+
+  console.log(SelectedFood);
+  
+  const foods = [
+    {
+      id: 1,
+      name: "سینه مرغ",
+      emoji: "🍗",
+      calories: 165,
+      protein: 31,
+      carbs: 0,
+      fat: 3.6,
+    },
+    {
+      id: 2,
+      name: "برنج",
+      emoji: "🍚",
+      calories: 130,
+      protein: 2.7,
+      carbs: 28,
+      fat: 0.3,
+    },
+    {
+      id:3,
+      name: "سیب",
+      emoji: "🍎",
+      calories: 52,
+      protein: 0.3,
+      carbs: 14,
+      fat: 0.2,
+    },
+    {
+      id:4,
+      name: "ماست",
+      emoji: "🥛",
+      calories: 61,
+      protein: 3.3,
+      carbs: 4.8,
+      fat: 3.3,
+    },
+    {
+      id:5,
+      name: "تخم مرغ",
+      emoji: "🥚",
+      calories: 155,
+      protein: 13,
+      carbs: 1.1,
+      fat: 11,
+    },
+    {
+      id:6,
+      name: "پنیر",
+      emoji: "🧀",
+      calories: 403,
+      protein: 25,
+      carbs: 2,
+      fat: 33,
+    }
+  ];
+
+  function clickHandler(id) {
+    setIsActive(!IsActive);
+    setSelectedFood(foods.find((item) => item.id === id));
+  }
 
   return (
     <div
@@ -41,32 +110,46 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
                 />
                 <input
+                  value={SearchFood}
                   type="text"
-                  placeholder="جستجوی غذا..."
+                  placeholder="جستجوی غذا.."
                   className="w-full rounded-2xl border border-gray-200 bg-white py-3.5 pr-11 pl-4 text-sm outline-none transition focus:border-[#007BFF] focus:ring-4 focus:ring-blue-500/10"
+                  onChange={(e) => setSearchFood(e.target.value)}
                 />
               </div>
             </div>
 
             {/* FOOD LIST */}
-            <div className="max-h-[230px] space-y-2 overflow-y-auto pr-1">
-              <button
-                type="button"
-                className="flex w-full items-center justify-between rounded-2xl border border-[#007BFF] bg-blue-50 p-3 text-right transition"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gray-50 text-xl">
-                    🍗
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900">سینه مرغ</p>
-                    <p className="mt-1 text-xs text-gray-400">165 کالری در 100 گرم</p>
-                  </div>
-                </div>
-                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#007BFF] text-xs text-white">
-                  ✓
-                </div>
-              </button>
+            <div className="max-h-57.5 space-y-2 overflow-y-auto pr-1 transition-all ">
+              {foods
+                .filter((item) =>
+                  item.name
+                    .trim()
+                    .toLowerCase()
+                    .includes(SearchFood.trim().toLowerCase()),
+                )
+                .map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => clickHandler(item.id)}
+                    type="button"
+                    className="flex w-full items-center justify-between rounded-2xl border border-gray-100 bg-white p-3 text-right transition hover:border-gray-200 cursor-pointer"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gray-50 text-xl">
+                        {item.emoji}
+                      </div>
+
+                      <div>
+                        <p className="font-medium text-gray-900">{item.name}</p>
+
+                        <p className="mt-1 text-xs text-gray-400">
+                          {item.calories} کالری در 100 گرم
+                        </p>
+                      </div>
+                    </div>
+                  </button>
+                ))}
 
               <button
                 type="button"
@@ -78,7 +161,9 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">برنج پخته</p>
-                    <p className="mt-1 text-xs text-gray-400">130 کالری در 100 گرم</p>
+                    <p className="mt-1 text-xs text-gray-400">
+                      130 کالری در 100 گرم
+                    </p>
                   </div>
                 </div>
               </button>
@@ -115,6 +200,7 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
                   <select className="h-full w-full appearance-none rounded-2xl border border-gray-200 bg-white px-4 text-sm text-gray-700 outline-none focus:border-[#007BFF]">
                     <option>گرم</option>
                     <option>دانه</option>
+                    <option>کف دست</option>
                   </select>
                   <ChevronDown
                     size={17}
@@ -122,7 +208,9 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
                   />
                 </div>
               </div>
-              <p className="mt-2 text-xs text-gray-400">معادل تقریبی 100.0 گرم</p>
+              <p className="mt-2 text-xs text-gray-400">
+                معادل تقریبی 100.0 گرم
+              </p>
             </div>
 
             {/* MEAL */}
@@ -160,7 +248,12 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
 
             {/* AI FOOD PHOTO */}
             <label className="block cursor-pointer">
-              <input type="file" accept="image/*" capture="environment" className="hidden" />
+              <input
+                type="file"
+                accept="image/*"
+                capture="environment"
+                className="hidden"
+              />
               <div className="flex items-center gap-4 rounded-2xl border border-dashed border-blue-200 bg-blue-50/50 p-4 transition hover:bg-blue-50">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-[#007BFF] shadow-sm">
                   <Camera size={21} />
@@ -179,46 +272,66 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
           <div className="p-6">
             <div className="h-full rounded-3xl bg-white p-6 shadow-sm">
               {/* EMPTY STATE */}
-              <div className="flex h-full min-h-[400px] flex-col items-center justify-center text-center">
+              {SelectedFood === null && (
+              <div className="flex h-full min-h-100 flex-col items-center justify-center text-center">
                 <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-blue-50 text-3xl">
                   🍽️
                 </div>
-                <h3 className="font-bold text-gray-800">هنوز غذایی انتخاب نشده</h3>
+                <h3 className="font-bold text-gray-800">
+                  هنوز غذایی انتخاب نشده
+                </h3>
                 <p className="mt-2 max-w-xs text-sm leading-6 text-gray-400">
-                  یک غذا از لیست انتخاب کن تا اطلاعات تغذیه‌ای آن اینجا نمایش داده شود.
+                  یک غذا از لیست انتخاب کن تا اطلاعات تغذیه‌ای آن اینجا نمایش
+                  داده شود.
                 </p>
               </div>
 
+              )}
+
               {/* NUTRITION - Hidden for UI demo */}
-              <div className="hidden space-y-6">
+
+              {SelectedFood !== null && (
+              <div className={`${SelectedFood ? "block" : "hidden"} space-y-6`}>
                 <div className="flex items-center gap-4">
                   <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-3xl">
-                    🍗
+                    {SelectedFood.emoji}
                   </div>
                   <div>
-                    <p className="text-lg font-bold text-gray-900">سینه مرغ</p>
-                    <p className="mt-1 text-sm text-gray-400">1 عدد • 100.0 گرم</p>
+                    <p className="text-lg font-bold text-gray-900">{SelectedFood.name}</p>
+                    <p className="mt-1 text-sm text-gray-400">
+                      {SelectedFood.calories} کالری در 100 گرم
+                    </p>
                   </div>
                 </div>
 
                 <div className="rounded-2xl bg-[#007BFF] p-5 text-white">
                   <p className="text-sm text-white/70">کالری این غذا</p>
                   <div className="mt-2 flex items-end gap-2">
-                    <span className="text-4xl font-bold">165</span>
+                    <span className="text-4xl font-bold">{SelectedFood.calories}</span>
                     <span className="mb-1 text-sm text-white/70">kcal</span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-3 gap-3">
-                  <NutritionCard title="پروتئین" value={31} unit="g" icon="🥩" />
-                  <NutritionCard title="کربوهیدرات" value={0} unit="g" icon="🍚" />
-                  <NutritionCard title="چربی" value={3.6} unit="g" icon="🥑" />
+                  <NutritionCard
+                    title="پروتئین"
+                    value={SelectedFood.protein}
+                    unit="g"
+                    icon="🥩"
+                  />
+                  <NutritionCard
+                    title="کربوهیدرات"
+                    value={SelectedFood.carbs}
+                    unit="g"
+                    icon="🍚"
+                  />
+                  <NutritionCard title="چربی" value={SelectedFood.fat} unit="g" icon="🥑" />
                 </div>
 
                 <div className="space-y-5">
-                  <MacroBar title="پروتئین" value={31} max={50} />
-                  <MacroBar title="کربوهیدرات" value={0} max={100} />
-                  <MacroBar title="چربی" value={3.6} max={50} />
+                  <MacroBar title="پروتئین" value={SelectedFood.protein} max={50} />
+                  <MacroBar title="کربوهیدرات" value={SelectedFood.carbs} max={100} />
+                  <MacroBar title="چربی" value={SelectedFood.fat} max={50} />
                 </div>
 
                 <div className="flex items-center justify-between rounded-2xl bg-gray-50 px-4 py-3">
@@ -226,6 +339,8 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
                   <span className="font-medium text-gray-800">صبحانه</span>
                 </div>
               </div>
+
+              )}
             </div>
           </div>
         </div>
