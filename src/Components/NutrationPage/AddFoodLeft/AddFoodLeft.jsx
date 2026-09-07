@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function AddFoodRight({ SelectedFood }) {
+export default function AddFoodLeft({ SelectedFood}) {
   return (
     <div className="p-6">
             <div className="h-full rounded-3xl bg-white p-6 shadow-sm">

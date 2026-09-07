@@ -1,7 +1,8 @@
 import { X, Search, Plus, Minus, Camera, ChevronDown } from "lucide-react";
 import { useState } from "react";
-import AddFoodRight from "../AddFoodLeft/AddFoodLeft";
-import AddFoodLeft from "../AddFoodRight/AddFoodRight";
+import AddFoodRight from "../AddFoodRight/AddFoodRight";
+import AddFoodLeft from "../AddFoodLeft/AddFoodLeft";
+import { useEffect } from "react";
 
 export default function AddFoodModal({ isOpen, onClose, onAdd }) {
   if (!isOpen) return null;
@@ -66,13 +67,19 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
       protein: 25,
       carbs: 2,
       fat: 33,
-    }
+    },
   ];
 
   function clickHandler(id) {
     setIsActive(!IsActive);
-    setSelectedFood(foods.find((item) => item.id === id));
+    const selected = foods.find((item) => item.id === id);
+    console.log("found:", selected);
+    setSelectedFood(selected);
   }
+
+  useEffect(() => {
+  console.log("SelectedFood changed:", SelectedFood);
+}, [SelectedFood]);
 
   return (
     <div
@@ -100,15 +107,16 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
         {/* CONTENT */}
         <div className="grid flex-1 overflow-y-auto lg:grid-cols-2">
           {/* LEFT SIDE */}
-          <AddFoodLeft
+          <AddFoodRight
             foods={foods}
             SearchFood={SearchFood}
             setSearchFood={setSearchFood}
             clickHandler={clickHandler}
+            SelectedFood={SelectedFood}
           />
 
           {/* RIGHT SIDE */}
-          <AddFoodRight SelectedFood={SelectedFood} />
+          <AddFoodLeft SelectedFood={SelectedFood} />
         </div>
 
         {/* FOOTER */}
@@ -132,6 +140,3 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
     </div>
   );
 }
-
-
-

@@ -1,8 +1,9 @@
 import React from 'react'
 import { X, Search, Plus, Minus, Camera, ChevronDown } from "lucide-react";
+import ValueFood from "../ValueFood";
 
-export default function AddFoodLeft({ foods, SearchFood, setSearchFood, clickHandler }) {
-
+export default function AddFoodRight({ SelectedFood , foods, SearchFood, setSearchFood, clickHandler }) {
+    
     return (
         <div className="space-y-6 border-l border-gray-100 p-6">
             {/* SEARCH */}
@@ -64,26 +65,7 @@ export default function AddFoodLeft({ foods, SearchFood, setSearchFood, clickHan
                     مقدار
                 </label>
                 <div className="flex gap-3">
-                    <div className="flex flex-1 items-center justify-between rounded-2xl border border-gray-200 bg-white p-2">
-                        <button
-                            type="button"
-                            className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 text-gray-600 transition hover:bg-gray-200"
-                        >
-                            <Minus size={17} />
-                        </button>
-                        <input
-                            type="number"
-                            min="1"
-                            value={1}
-                            className="w-16 bg-transparent text-center font-bold text-gray-900 outline-none"
-                        />
-                        <button
-                            type="button"
-                            className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#007BFF] text-white transition hover:bg-blue-600"
-                        >
-                            <Plus size={17} />
-                        </button>
-                    </div>
+                    <ValueFood SelectedFood={SelectedFood} />
 
                     <div className="relative flex-1">
                         <select className="h-full w-full appearance-none rounded-2xl border border-gray-200 bg-white px-4 text-sm text-gray-700 outline-none focus:border-[#007BFF]">
