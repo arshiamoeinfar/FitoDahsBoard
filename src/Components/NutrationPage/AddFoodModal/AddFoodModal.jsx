@@ -1,5 +1,7 @@
 import { X, Search, Plus, Minus, Camera, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import AddFoodRight from "../AddFoodLeft/AddFoodLeft";
+import AddFoodLeft from "../AddFoodRight/AddFoodRight";
 
 export default function AddFoodModal({ isOpen, onClose, onAdd }) {
   if (!isOpen) return null;
@@ -9,7 +11,7 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
   const [SelectedFood, setSelectedFood] = useState(null);
 
   console.log(SelectedFood);
-  
+
   const foods = [
     {
       id: 1,
@@ -30,7 +32,7 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
       fat: 0.3,
     },
     {
-      id:3,
+      id: 3,
       name: "سیب",
       emoji: "🍎",
       calories: 52,
@@ -39,7 +41,7 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
       fat: 0.2,
     },
     {
-      id:4,
+      id: 4,
       name: "ماست",
       emoji: "🥛",
       calories: 61,
@@ -48,7 +50,7 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
       fat: 3.3,
     },
     {
-      id:5,
+      id: 5,
       name: "تخم مرغ",
       emoji: "🥚",
       calories: 155,
@@ -57,7 +59,7 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
       fat: 11,
     },
     {
-      id:6,
+      id: 6,
       name: "پنیر",
       emoji: "🧀",
       calories: 403,
@@ -98,251 +100,15 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
         {/* CONTENT */}
         <div className="grid flex-1 overflow-y-auto lg:grid-cols-2">
           {/* LEFT SIDE */}
-          <div className="space-y-6 border-l border-gray-100 p-6">
-            {/* SEARCH */}
-            <div>
-              <label className="mb-2 block text-sm font-medium text-gray-700">
-                انتخاب غذا
-              </label>
-              <div className="relative">
-                <Search
-                  size={19}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
-                />
-                <input
-                  value={SearchFood}
-                  type="text"
-                  placeholder="جستجوی غذا.."
-                  className="w-full rounded-2xl border border-gray-200 bg-white py-3.5 pr-11 pl-4 text-sm outline-none transition focus:border-[#007BFF] focus:ring-4 focus:ring-blue-500/10"
-                  onChange={(e) => setSearchFood(e.target.value)}
-                />
-              </div>
-            </div>
-
-            {/* FOOD LIST */}
-            <div className="max-h-57.5 space-y-2 overflow-y-auto pr-1 transition-all ">
-              {foods
-                .filter((item) =>
-                  item.name
-                    .trim()
-                    .toLowerCase()
-                    .includes(SearchFood.trim().toLowerCase()),
-                )
-                .map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => clickHandler(item.id)}
-                    type="button"
-                    className="flex w-full items-center justify-between rounded-2xl border border-gray-100 bg-white p-3 text-right transition hover:border-gray-200 cursor-pointer"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gray-50 text-xl">
-                        {item.emoji}
-                      </div>
-
-                      <div>
-                        <p className="font-medium text-gray-900">{item.name}</p>
-
-                        <p className="mt-1 text-xs text-gray-400">
-                          {item.calories} کالری در 100 گرم
-                        </p>
-                      </div>
-                    </div>
-                  </button>
-                ))}
-
-              <button
-                type="button"
-                className="flex w-full items-center justify-between rounded-2xl border border-gray-100 bg-white p-3 text-right transition hover:border-gray-200"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gray-50 text-xl">
-                    🍚
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900">برنج پخته</p>
-                    <p className="mt-1 text-xs text-gray-400">
-                      130 کالری در 100 گرم
-                    </p>
-                  </div>
-                </div>
-              </button>
-            </div>
-
-            {/* QUANTITY */}
-            <div>
-              <label className="mb-2 block text-sm font-medium text-gray-700">
-                مقدار
-              </label>
-              <div className="flex gap-3">
-                <div className="flex flex-1 items-center justify-between rounded-2xl border border-gray-200 bg-white p-2">
-                  <button
-                    type="button"
-                    className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 text-gray-600 transition hover:bg-gray-200"
-                  >
-                    <Minus size={17} />
-                  </button>
-                  <input
-                    type="number"
-                    min="1"
-                    value={1}
-                    className="w-16 bg-transparent text-center font-bold text-gray-900 outline-none"
-                  />
-                  <button
-                    type="button"
-                    className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#007BFF] text-white transition hover:bg-blue-600"
-                  >
-                    <Plus size={17} />
-                  </button>
-                </div>
-
-                <div className="relative flex-1">
-                  <select className="h-full w-full appearance-none rounded-2xl border border-gray-200 bg-white px-4 text-sm text-gray-700 outline-none focus:border-[#007BFF]">
-                    <option>گرم</option>
-                    <option>دانه</option>
-                    <option>کف دست</option>
-                  </select>
-                  <ChevronDown
-                    size={17}
-                    className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
-                  />
-                </div>
-              </div>
-              <p className="mt-2 text-xs text-gray-400">
-                معادل تقریبی 100.0 گرم
-              </p>
-            </div>
-
-            {/* MEAL */}
-            <div>
-              <label className="mb-2 block text-sm font-medium text-gray-700">
-                وعده غذایی
-              </label>
-              <div className="grid grid-cols-2 gap-2">
-                <button
-                  type="button"
-                  className="rounded-xl border border-[#007BFF] bg-blue-50 px-4 py-3 text-sm font-medium text-[#007BFF] transition"
-                >
-                  صبحانه
-                </button>
-                <button
-                  type="button"
-                  className="rounded-xl border border-gray-100 bg-white px-4 py-3 text-sm text-gray-500 transition hover:border-gray-200"
-                >
-                  ناهار
-                </button>
-                <button
-                  type="button"
-                  className="rounded-xl border border-gray-100 bg-white px-4 py-3 text-sm text-gray-500 transition hover:border-gray-200"
-                >
-                  شام
-                </button>
-                <button
-                  type="button"
-                  className="rounded-xl border border-gray-100 bg-white px-4 py-3 text-sm text-gray-500 transition hover:border-gray-200"
-                >
-                  میان وعده
-                </button>
-              </div>
-            </div>
-
-            {/* AI FOOD PHOTO */}
-            <label className="block cursor-pointer">
-              <input
-                type="file"
-                accept="image/*"
-                capture="environment"
-                className="hidden"
-              />
-              <div className="flex items-center gap-4 rounded-2xl border border-dashed border-blue-200 bg-blue-50/50 p-4 transition hover:bg-blue-50">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-[#007BFF] shadow-sm">
-                  <Camera size={21} />
-                </div>
-                <div>
-                  <p className="font-medium text-gray-900">تشخیص غذا با عکس</p>
-                  <p className="mt-1 text-xs text-gray-500">
-                    از غذایت عکس بگیر تا مقدار و ارزش غذایی آن تخمین زده شود
-                  </p>
-                </div>
-              </div>
-            </label>
-          </div>
+          <AddFoodLeft
+            foods={foods}
+            SearchFood={SearchFood}
+            setSearchFood={setSearchFood}
+            clickHandler={clickHandler}
+          />
 
           {/* RIGHT SIDE */}
-          <div className="p-6">
-            <div className="h-full rounded-3xl bg-white p-6 shadow-sm">
-              {/* EMPTY STATE */}
-              {SelectedFood === null && (
-              <div className="flex h-full min-h-100 flex-col items-center justify-center text-center">
-                <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-blue-50 text-3xl">
-                  🍽️
-                </div>
-                <h3 className="font-bold text-gray-800">
-                  هنوز غذایی انتخاب نشده
-                </h3>
-                <p className="mt-2 max-w-xs text-sm leading-6 text-gray-400">
-                  یک غذا از لیست انتخاب کن تا اطلاعات تغذیه‌ای آن اینجا نمایش
-                  داده شود.
-                </p>
-              </div>
-
-              )}
-
-              {/* NUTRITION - Hidden for UI demo */}
-
-              {SelectedFood !== null && (
-              <div className={`${SelectedFood ? "block" : "hidden"} space-y-6`}>
-                <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-3xl">
-                    {SelectedFood.emoji}
-                  </div>
-                  <div>
-                    <p className="text-lg font-bold text-gray-900">{SelectedFood.name}</p>
-                    <p className="mt-1 text-sm text-gray-400">
-                      {SelectedFood.calories} کالری در 100 گرم
-                    </p>
-                  </div>
-                </div>
-
-                <div className="rounded-2xl bg-[#007BFF] p-5 text-white">
-                  <p className="text-sm text-white/70">کالری این غذا</p>
-                  <div className="mt-2 flex items-end gap-2">
-                    <span className="text-4xl font-bold">{SelectedFood.calories}</span>
-                    <span className="mb-1 text-sm text-white/70">kcal</span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-3 gap-3">
-                  <NutritionCard
-                    title="پروتئین"
-                    value={SelectedFood.protein}
-                    unit="g"
-                    icon="🥩"
-                  />
-                  <NutritionCard
-                    title="کربوهیدرات"
-                    value={SelectedFood.carbs}
-                    unit="g"
-                    icon="🍚"
-                  />
-                  <NutritionCard title="چربی" value={SelectedFood.fat} unit="g" icon="🥑" />
-                </div>
-
-                <div className="space-y-5">
-                  <MacroBar title="پروتئین" value={SelectedFood.protein} max={50} />
-                  <MacroBar title="کربوهیدرات" value={SelectedFood.carbs} max={100} />
-                  <MacroBar title="چربی" value={SelectedFood.fat} max={50} />
-                </div>
-
-                <div className="flex items-center justify-between rounded-2xl bg-gray-50 px-4 py-3">
-                  <span className="text-sm text-gray-500">وعده غذایی</span>
-                  <span className="font-medium text-gray-800">صبحانه</span>
-                </div>
-              </div>
-
-              )}
-            </div>
-          </div>
+          <AddFoodRight SelectedFood={SelectedFood} />
         </div>
 
         {/* FOOTER */}
@@ -350,7 +116,7 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
           <button
             type="button"
             onClick={onClose}
-            className="rounded-xl px-5 py-3 text-sm font-medium text-gray-500 transition hover:bg-gray-100"
+            className="rounded-xl px-5 py-3 text-sm font-medium text-gray-500 transition bg-gray-100 hover:bg-gray-200 cursor-pointer"
           >
             انصراف
           </button>
@@ -367,40 +133,5 @@ export default function AddFoodModal({ isOpen, onClose, onAdd }) {
   );
 }
 
-function NutritionCard({ title, value, unit, icon }) {
-  return (
-    <div className="rounded-2xl border border-gray-100 bg-white p-4">
-      <div className="mb-2 flex items-center justify-between">
-        <span className="text-xs text-gray-500">{title}</span>
-        <span>{icon}</span>
-      </div>
-      <div className="flex items-end gap-1">
-        <span className="text-xl font-bold text-gray-900">
-          {Number(value).toFixed(1)}
-        </span>
-        <span className="mb-0.5 text-xs text-gray-400">{unit}</span>
-      </div>
-    </div>
-  );
-}
 
-function MacroBar({ title, value, max }) {
-  const percentage = Math.min((value / max) * 100, 100);
 
-  return (
-    <div className="space-y-2">
-      <div className="flex items-center justify-between text-sm">
-        <span className="text-gray-500">{title}</span>
-        <span className="font-medium text-gray-800">
-          {Number(value).toFixed(1)}g
-        </span>
-      </div>
-      <div className="h-2 overflow-hidden rounded-full bg-gray-100">
-        <div
-          className="h-full rounded-full bg-[#007BFF] transition-all duration-300"
-          style={{ width: `${percentage}%` }}
-        />
-      </div>
-    </div>
-  );
-}
