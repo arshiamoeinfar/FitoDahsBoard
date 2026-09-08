@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { X, Search, Plus, Minus, Camera, ChevronDown } from "lucide-react";
 
 export default function ValueFood({ SelectedFood }) {
-  const [ValueFood, setValueFood] = useState(1);
+  const [ValueFood, setValueFood] = useState(100);
   const clickPalus = () => {
-    setValueFood(ValueFood + 1);
+    setValueFood(Number(ValueFood + 1));
   };
   console.log(ValueFood);
 
@@ -12,6 +12,7 @@ export default function ValueFood({ SelectedFood }) {
     <div className="flex flex-1 items-center justify-between rounded-2xl border border-gray-200 bg-white p-2">
       <button
         type="button"
+        onClick={() => setValueFood(Number(ValueFood > 1 ? ValueFood - 1 : ValueFood = 0))}
         disabled={SelectedFood == null}
         className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 text-gray-600 transition hover:bg-gray-200 disabled:disabled:cursor-not-allowed disabled:opacity-70"
       >
@@ -20,9 +21,9 @@ export default function ValueFood({ SelectedFood }) {
       <input
         type="number"
         min="1"
-        disabled={SelectedFood == null}
+        disabled={SelectedFood == null || ValueFood < 1}
         value={ValueFood}
-        onChange={(e) => setValueFood(e.target.value)}
+        onChange={(e) => setValueFood(Number(e.target.value))}
         className="w-16 bg-transparent text-center font-bold text-gray-900 outline-none appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
       />
       <button
