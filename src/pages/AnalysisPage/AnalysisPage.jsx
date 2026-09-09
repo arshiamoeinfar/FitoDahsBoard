@@ -12,6 +12,8 @@ import EvaluationHistory from "../../Components/AnalysComponents/EvaluationHisto
 import AppearanceChanges from "../../Components/AnalysComponents/AppearanceChanges/AppearanceChanges";
 import HeaderDashBoard from "../../Components/HeaderDashBoard/HeaderDashBoard";
 import imgWalk from "../../assets/imges/walk.png";
+import imgFront from "../../assets/imges/image 24 (1).png";
+import imgBack from "../../assets/imges/backMan.png";
 export default function AnalysisPage() {
   const changes = [
     {
@@ -143,7 +145,11 @@ export default function AnalysisPage() {
               <Chart />
             </div>
             <div className="col-span-4 row-span-2">
-              <BodyAnalysisModel />
+              <BodyAnalysisModel
+                frontImage={imgFront}
+                backImage={imgBack}
+                title="مدل تعاملی بدن"
+              />
             </div>
             <div className="col-span-8">
               <BodyChangeChart />

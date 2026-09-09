@@ -30,7 +30,7 @@ const BodyChanges = () => {
   return (
     <>
       {/* ===== کارت اصلی ===== */}
-      <div className="bg-white rounded-3xl shadow-lg border border-gray-100/50 overflow-hidden hover:shadow-xl transition-shadow">
+      <div className="bg-white rounded-3xl  border border-gray-100/50 overflow-hidden transition-shadow">
         <div className="flex flex-col md:flex-row">
           
           {/* بخش تصویر (پیش‌نمایش) */}
@@ -61,7 +61,7 @@ const BodyChanges = () => {
           {/* بخش اطلاعات */}
           <div className="flex-1 p-5 md:p-6 space-y-4">
             <div>
-              <h3 className="text-lg font-semibold text-gray-800">تغییرات بدن</h3>
+              <h3 class="text-2xl  text-[#6B6F77] font-primary mb-3">تغییرات بدن</h3>
               <p className="text-sm text-gray-500">آخرین بروزرسانی: {stats.lastUpdate}</p>
             </div>
 
@@ -70,7 +70,7 @@ const BodyChanges = () => {
               {/* وزن */}
               <div className="bg-gray-50/70 p-3 rounded-xl text-center">
                 <p className="text-xs text-gray-500 mb-1">وزن</p>
-                <p className="text-base font-bold text-gray-800">{stats.currentWeight} kg</p>
+                <p className="text-base  text-gray-600">{stats.currentWeight} kg</p>
                 <div className={`flex items-center justify-center gap-0.5 text-xs font-medium mt-0.5 ${isWeightDown ? "text-emerald-500" : "text-rose-500"}`}>
                   {weightDiff < 0 ? (
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,7 +89,7 @@ const BodyChanges = () => {
               {/* چربی */}
               <div className="bg-gray-50/70 p-3 rounded-2xl text-center">
                 <p className="text-xs text-gray-500 mb-1">چربی</p>
-                <p className="text-base font-bold text-gray-800">{stats.currentFat}%</p>
+                <p className="text-base  text-gray-600">{stats.currentFat}%</p> 
                 <div className={`flex items-center justify-center gap-0.5 text-xs font-medium mt-0.5 ${isFatDown ? "text-emerald-500" : "text-rose-500"}`}>
                   {fatDiff < 0 ? (
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -108,7 +108,7 @@ const BodyChanges = () => {
               {/* عضله */}
               <div className="bg-gray-50/70 p-3 rounded-xl text-center">
                 <p className="text-xs text-gray-500 mb-1">عضله</p>
-                <p className="text-base font-bold text-gray-800">{stats.currentMuscle}%</p>
+                <p className="text-base  text-gray-600">{stats.currentMuscle}%</p> 
                 <div className={`flex items-center justify-center gap-0.5 text-xs font-medium mt-0.5 ${isMuscleUp ? "text-emerald-500" : "text-rose-500"}`}>
                   {muscleDiff > 0 ? (
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -144,7 +144,7 @@ const BodyChanges = () => {
             {/* دکمه مشاهده تصاویر کامل */}
             <button
               onClick={() => setIsModalOpen(true)}
-              className="w-full h-12 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 shadow-sm hover:shadow-md"
+              className="w-full h-12 cursor-pointer bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 shadow-sm hover:shadow-md"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
