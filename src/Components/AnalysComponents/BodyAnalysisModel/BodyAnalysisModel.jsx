@@ -221,7 +221,7 @@ export default function BodyAnalysisModel({ frontImage, backImage, title }) {
       },
 
       // ساعد
-            {
+      {
         id: "brachioradialis-l",
         label: "ساعد چپ",
         x: "68%",
@@ -229,7 +229,7 @@ export default function BodyAnalysisModel({ frontImage, backImage, title }) {
         status: "خوب",
         percent: 18.5,
       },
-            {
+      {
         id: "brachioradialis-r",
         label: "ساعد راست",
         x: "36%",
@@ -243,43 +243,83 @@ export default function BodyAnalysisModel({ frontImage, backImage, title }) {
       // ===== پشت (۳ نقطه) =====
       {
         id: "back-upper",
-        label: "بالای پشت",
-        x: "50%",
+        label: "ذوزنقه ای راست",
+        x: "54%",
+        y: "18%",
+        status: "خوب",
+        percent: 18.8,
+      },
+      {
+        id: "back-upper-l",
+        label: "ذوزنقه ای چپ",
+        x: "47%",
         y: "18%",
         status: "خوب",
         percent: 18.8,
       },
       {
         id: "back-middle",
-        label: "وسط پشت",
-        x: "50%",
-        y: "30%",
+        label: "پشتی بزرگ راست",
+        x: "56%",
+        y: "32%",
+        status: "خوب",
+        percent: 18.3,
+      },
+      {
+        id: "back-middle-l",
+        label: "پشتی بزرگ چپ",
+        x: "46%",
+        y: "32%",
         status: "خوب",
         percent: 18.3,
       },
       {
         id: "back-lower",
-        label: "پایین پشت",
-        x: "50%",
-        y: "42%",
+        label: "گرد بزرگ راست",
+        x: "58%",
+        y: "28%",
         status: "خوب",
         percent: 17.7,
+      },
+      {
+        id: "back-lower-l",
+        label: "گرد بزرگ جپ",
+        x: "44%",
+        y: "28%",
+        status: "خوب",
+        percent: 17.7,
+      },
+      {
+        id: "posterior-deltoid-r",
+        label: "دلتویید خلفی راست",
+        x: "60%",
+        y: "22%",
+        status: "خوب",
+        percent: 18.5,
+      },
+      {
+        id: "posterior-deltoid-l",
+        label: "دلتویید خلفی راست",
+        x: "42%",
+        y: "22%",
+        status: "خوب",
+        percent: 18.5,
       },
 
       // ===== سه‌سر بازو (۲ نقطه) =====
       {
         id: "triceps-l",
         label: "سه‌سر چپ",
-        x: "11%",
-        y: "26%",
+        x: "38%",
+        y: "30%",
         status: "خوب",
         percent: 18.3,
       },
       {
         id: "triceps-r",
         label: "سه‌سر راست",
-        x: "89%",
-        y: "26%",
+        x: "62%",
+        y: "28%",
         status: "خوب",
         percent: 18.1,
       },
@@ -288,19 +328,39 @@ export default function BodyAnalysisModel({ frontImage, backImage, title }) {
       {
         id: "hamstring-l",
         label: "پشت ران چپ",
-        x: "35%",
-        y: "72%",
+        x: "45%",
+        y: "62%",
         status: "خوب",
         percent: 18.9,
       },
       {
         id: "hamstring-r",
         label: "پشت ران راست",
-        x: "65%",
-        y: "72%",
+        x: "55%",
+        y: "62%",
         status: "خوب",
         percent: 19.1,
       },
+
+      // ساق
+      {
+        id: "gastrocnemius-r",
+        label: "ساق راست",
+        x: "57%",
+        y: "78%",
+        status: "خوب",
+        percent: 19.1,
+      },
+      // ساق
+      {
+        id: "gastrocnemius-م",
+        label: "ساق چپ",
+        x: "44%",
+        y: "78%",
+        status: "خوب",
+        percent: 19.1,
+      },
+
     ],
   };
 
@@ -426,7 +486,7 @@ export default function BodyAnalysisModel({ frontImage, backImage, title }) {
                   {/* ===== Tooltip ===== */}
                   <div
                     className={`
-                      w-40 flex flex-col py-2 px-4 rounded-3xl absolute z-50
+                      w-40 flex flex-col py-2 px-4 rounded-3xl absolute z-99
                       bg-white border-2 border-gray-200 shadow-xl
                       transition-all duration-200
                       ${
@@ -442,7 +502,7 @@ export default function BodyAnalysisModel({ frontImage, backImage, title }) {
                     <div
                       className="absolute -bottom-2 left-1/2 -translate-x-1/2 
                                   w-3 h-3 bg-white border-r-2 border-b-2 border-gray-200 
-                                  rotate-45"
+                                  rotate-45 z-99"
                     />
 
                     {/* نام عضله */}
