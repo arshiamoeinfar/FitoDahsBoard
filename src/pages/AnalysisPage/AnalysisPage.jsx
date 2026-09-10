@@ -155,7 +155,7 @@ export default function AnalysisPage() {
               <BodyChangeChart />
             </div>
             <div className="col-span-4 row-span-1">
-              <NutritionReport />
+              <NutritionReport type="water" title="مصرف آب روزانه" />
             </div>
             <div className="col-span-4">
               <NutritionReport />
