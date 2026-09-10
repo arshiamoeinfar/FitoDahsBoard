@@ -42,7 +42,7 @@ export default function DashboardAthlete() {
             {/* </div> */}
 
             <div className="col-span-6">
-              <div className="flex bg-white flex-col p-6 rounded-3xl h-56">
+              <div className="flex bg-white flex-col p-6 rounded-3xl h-auto">
                 <DailyHydrationCard />
               </div>
             </div>
