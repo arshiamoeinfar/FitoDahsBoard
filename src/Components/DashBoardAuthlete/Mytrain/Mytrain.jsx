@@ -6,6 +6,8 @@ import Refresh from "../../../assets/imges/refresh.svg";
 import ClockCircle from "../../../assets/imges/Clock Circle.svg";
 import ElementLeg from "../../../assets/imges/elements.png";
 import Liner from "../../../assets/imges/Line 1.png";
+import WorkoutProgramModal from "../../../Components/DashBoardAuthlete/WorkoutProgramModal/WorkoutProgramModal";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Mytrain({
@@ -24,6 +26,7 @@ export default function Mytrain({
       image: ImgSquat,
     },
   ];
+    const [isProgramModalOpen, setIsProgramModalOpen] = useState(false);
 
   const navigate = useNavigate()
   return (
@@ -37,7 +40,7 @@ export default function Mytrain({
         </div>
 
         {startTraining ? (
-          <button className="bg-[#007BFF] text-white px-4 py-2 rounded-full hover:bg-[#0056A3] transition cursor-pointer Modam-Medium ">
+          <button className="bg-[#007BFF] text-white px-4 py-2 rounded-full hover:bg-[#0056A3] transition cursor-pointer Modam-Medium" onClick={()=> navigate("/dashboardAthlete/start-training")}>
             شروع تمرین
           </button>
         ) : (
@@ -267,12 +270,21 @@ export default function Mytrain({
           </div>
         ))}
         {showDetail && (
-          <span className="text-gray-400 Modam-Medium cursor-pointer justify-center items-center flex gap-1.5 hover:text-gray-500">
-            {" "}
-            مشاهده همه تمرینات
-            <img src={Flesh} alt="" />
-          </span>
-        )}
+        <span
+          onClick={() => setIsProgramModalOpen(true)}
+          className="text-gray-400 Modam-Medium cursor-pointer justify-center items-center flex gap-1.5 hover:text-gray-500"
+        >
+          {" "}
+          مشاهده همه تمرینات
+          <img src={Flesh} alt="" />
+        </span>
+      )}
+ 
+        <WorkoutProgramModal
+          showModal={isProgramModalOpen}
+          setShowModal={setIsProgramModalOpen}
+          // athleteName={athleteName}
+        />
       </div>
     </div>
   );
