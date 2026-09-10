@@ -2,8 +2,9 @@ import React from "react";
 import Liner from "../../../assets/imges/Line 1.png";
 import Vector from "../../../assets/imges/Vector 177.png";
 import { AreaChart, Area, ResponsiveContainer } from "recharts";
+import { useNavigate } from "react-router-dom";
 
-export default function BodyProgressCard({ count = [], title = "" }) {
+export default function BodyProgressCard({ isShowMore = true, count = [], title = "" }) {
   const data = [
     { value: 45 },
     { value: 20 },
@@ -16,15 +17,19 @@ export default function BodyProgressCard({ count = [], title = "" }) {
     { value: 60 },
     { value: 55 },
   ];
+
+  const navigate = useNavigate()
   return (
     <div className="flex bg-white flex-col p-6 rounded-3xl">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-lg text-[#6B6F77]">{title}</h1>
         <div className="flex justify-center items-center">
-          <span className="text-sm text-[#6B6F77] font-primary-light">
-            این هفته
+          {isShowMore && (
+            <span onClick={()=> navigate("/trainingpage")}  className="text-sm flex justify-center items-center text-[#6B6F77] font-primary-light cursor-pointer">
+            بیشتر
+            <img className=" mr-0.5 w-2.5 h-fit" src={Vector} alt="" />
           </span>
-          <img className=" mr-0.5 w-2.5 h-fit" src={Vector} alt="" />
+          )}
         </div>
       </div>
       <div className="flex justify-start items-center gap-4">
