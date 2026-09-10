@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Copy, Printer, Share2, X } from "lucide-react";
 
-import ReportHeader from "./ReportHeader";
-import ReportOverview from "./ReportOverview";
-import ReportStats from "./ReportStats";
-import ExerciseProgress from "./ExerciseProgress";
-import AnalysisSection from "./AnalysisSection";
-import AIRecommendations from "./AIRecommendations";
-import ReportSummary from "./ReportSummary";
-import { reportData } from "./reportData";
+import ReportHeader from "./ModalReport/ReportHeader";
+import ReportOverview from "./ModalReport/ReportOverview";
+import ReportStats from "./ModalReport/ReportStats";
+import ExerciseProgress from "./ModalReport/ExerciseProgress";
+import AnalysisSection from "./ModalReport/AnalysisSection";
+import AIRecommendations from "./ModalReport/AIRecommendations";
+import ReportSummary from "./ModalReport/ReportSummary";
+import { reportData } from "./ModalReport/reportData";
 
 export default function WorkoutAIReport({ onClose }) {
   const [copied, setCopied] = useState(false);
