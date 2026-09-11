@@ -4,6 +4,7 @@ import HeaderDashBoard from "../../Components/DashBoardAuth/HeaderDashBoard/Head
 import StatCard from "../../Components/shared/StatCard/StatCard";
 import imgWalk from "../../assets/imges/walk.png";
 import NeedsAttention from "../../Components/CoachDashboard/NeedsAttention";
+import ChartDashboardCoach from "../../Components/CoachDashboard/ChartDashboardCoach";
 export default function CoachDashboard() {
   return (
     <div className="min-h-screen bg-[#F5F7FB] flex justify-center">
@@ -26,6 +27,9 @@ export default function CoachDashboard() {
             </div>
             <div className="col-span-12">
                 <NeedsAttention />
+            </div>
+            <div className="col-span-8">
+                <ChartDashboardCoach />
             </div>
           </div>
         </div>
