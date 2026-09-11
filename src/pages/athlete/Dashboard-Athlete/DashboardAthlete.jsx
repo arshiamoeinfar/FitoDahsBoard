@@ -6,7 +6,7 @@ import ProfileCard from "../../../Components/DashBoardAuth/DashBoardAuthlete/Pro
 import AIChat from "../../../Components/DashBoardAuth/DashBoardAuthlete/Aichat/Aichat";
 import Mytrain from "../../../Components/DashBoardAuth/DashBoardAuthlete/Mytrain/Mytrain";
 import DailyGoalCard from "../../../Components/DashBoardAuth/DashBoardAuthlete/DailyGoalCard/DailyGoalCard";
-import StatCard from "../../../Components/DashBoardAuth/DashBoardAuthlete/StatCard/StatCard";
+import StatCard from "../../../Components/shared/StatCard/StatCard";
 import NutritionCard from "../../../Components/DashBoardAuth/DashBoardAuthlete/NutritionCard/NutritionCard";
 import DailyHydrationCard from "../../../Components/DashBoardAuth/DashBoardAuthlete/DailyHydrationCard/DailyHydrationCard";
 import BodyProgressCard from "../../../Components/DashBoardAuth/DashBoardAuthlete/BodyProgressCard/BodyProgressCard";

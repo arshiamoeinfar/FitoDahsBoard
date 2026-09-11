@@ -1,5 +1,5 @@
 import React from "react";
-import Walk from "../../../../assets/imges/walk.png";
+import Walk from "../../../assets/imges/walk.png";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 
 export default function StatCard({

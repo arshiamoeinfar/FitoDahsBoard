@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../../../Components/shared/Navbar/Navbar";
-import StatCard from "../../../Components/DashBoardAuth/DashBoardAuthlete/StatCard/StatCard";
+import StatCard from "../../../Components/shared/StatCard/StatCard";
 import Mytrain from "../../../Components/DashBoardAuth/DashBoardAuthlete/Mytrain/Mytrain";
 import SmartAnalysisCard from "../../../Components/DashBoardAuth/TrainigPage/SmartAnalysisCard/SmartAnalysisCard/SmartAnalysisCard";
 import BodyProgressCard from "../../../Components/DashBoardAuth/DashBoardAuthlete/BodyProgressCard/BodyProgressCard";

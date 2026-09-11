@@ -2,7 +2,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import React, { useState } from "react";
 import AIChat from "../../../Components/DashBoardAuth/DashBoardAuthlete/Aichat/Aichat";
-import StatCard from "../../../Components/DashBoardAuth/DashBoardAuthlete/StatCard/StatCard";
+import StatCard from "../../../Components/shared/StatCard/StatCard";
 import Navbar from "../../../Components/shared/Navbar/Navbar";
 import imgLunch from "../../../assets/imges/lunch.png";
 import ImgFood from "../../../assets/imges/image 17.png";

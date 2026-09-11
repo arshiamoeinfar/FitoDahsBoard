@@ -7,7 +7,7 @@ import BodyAnalysisModel from "../../../Components/DashBoardAuth/AnalysComponent
 import Chart from "../../../Components/DashBoardAuth/Chart/Chart";
 import BodyChangeChart from "../../../Components/DashBoardAuth/AnalysComponents/BodyChangeChart/BodyChangeChart";
 import NutritionReport from "../../../Components/DashBoardAuth/AnalysComponents/NutritionReport/NutritionReport";
-import StatCard from "../../../Components/DashBoardAuth/DashBoardAuthlete/StatCard/StatCard";
+import StatCard from "../../../Components/shared/StatCard/StatCard";
 import EvaluationHistory from "../../../Components/DashBoardAuth/AnalysComponents/EvaluationHistory/EvaluationHistory";
 import AppearanceChanges from "../../../Components/DashBoardAuth/AnalysComponents/AppearanceChanges/AppearanceChanges";
 import HeaderDashBoard from "../../../Components/DashBoardAuth/HeaderDashBoard/HeaderDashBoard";
