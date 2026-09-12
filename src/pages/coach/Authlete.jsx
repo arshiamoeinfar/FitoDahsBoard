@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-
+import CaretDown from '@mui/icons-material/KeyboardArrowDown';
 export default function CoachStudents() {
   const [search, setSearch] = useState("");
   const [filterOpen, setFilterOpen] = useState(false);
@@ -199,11 +199,12 @@ export default function CoachStudents() {
           >
             <span>فیلتر پیشرفته</span>
             <span
-              className={`text-sm  justify-center w-4 h-4 flex items-end transition-transform duration-300 ${
+              className={`text-sm  justify-center w-4 h-4 flex items-center transition-transform duration-300 ${
                 filterOpen ? "rotate-180" : ""
               }`}
             >
-             
+             <CaretDown/>
+             {/* <img className="brightness-0 saturate-100" src={CaretDown} alt="" /> */}
             </span>
           </button>
 
