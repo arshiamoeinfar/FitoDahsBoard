@@ -1,5 +1,7 @@
 // components/coach/NeedsAttention.jsx
 
+import { useNavigate } from "react-router-dom";
+
 const students = [
   {
     id: 1,
@@ -41,12 +43,16 @@ const statusStyles = {
 };
 
 const NeedsAttention = () => {
+
+  const navigate = useNavigate()
   return (
-    <section className="bg-white rounded-3xl p-5 md:p-7 shadow-sm">
+    <section className="bg-white rounded-3xl p-5 md:p-7 ">
       {/* ===== هدر ===== */}
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-primary  text-[#6B6F77]">نیازمند توجه</h2>
-        <button className="text-sm font-medium text-[#007BFF] hover:text-blue-600 transition-colors cursor-pointer">
+        <button
+        onClick={() => navigate("/coach/athletes")}
+        className="text-sm font-medium text-[#007BFF] hover:text-blue-600 transition-colors cursor-pointer">
           مشاهده همه شاگردان
         </button>
       </div>

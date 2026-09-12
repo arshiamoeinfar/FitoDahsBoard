@@ -67,7 +67,7 @@ const ProgressChart = () => {
   const currentMetric = metrics[metric];
 
   return (
-    <section className="bg-white rounded-3xl p-5 md:p-7 shadow-sm h-full flex flex-col">
+    <section className="bg-white rounded-3xl p-5 md:p-7  h-full flex flex-col">
       {/* ===== هدر ===== */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
         <h2 className="text-2xl font-primary  text-[#6B6F77]">
