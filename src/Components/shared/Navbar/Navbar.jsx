@@ -66,6 +66,7 @@ export default function Navbar() {
               }
             >
               <img
+                className="w-6 h-6 gap-2"
                 src={location.pathname === item.to ? item.active : item.inactive}
                 alt={item.label}
               />
