@@ -5,7 +5,7 @@ import DocumentAdd from "../../../assets/Icons/Document Add.svg";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import BodyAnalysisModel from "../../../Components/DashBoardAuth/AnalysComponents/BodyAnalysisModel/BodyAnalysisModel";
 import Chart from "../../../Components/DashBoardAuth/Chart/Chart";
-import BodyChangeChart from "../../../Components/DashBoardAuth/AnalysComponents/BodyChangeChart/BodyChangeChart";
+import BodyChangeChart from "../../../Components/shared/BodyChangeChart/BodyChangeChart"
 import NutritionReport from "../../../Components/DashBoardAuth/AnalysComponents/NutritionReport/NutritionReport";
 import StatCard from "../../../Components/shared/StatCard/StatCard";
 import EvaluationHistory from "../../../Components/DashBoardAuth/AnalysComponents/EvaluationHistory/EvaluationHistory";

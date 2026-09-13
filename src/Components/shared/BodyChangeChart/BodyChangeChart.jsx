@@ -1,6 +1,6 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
-import SegmentedControl from "../../../shared/SegmentedControl/SegmentedControl";
+import SegmentedControl from "../SegmentedControl/SegmentedControl";
 import {
   AreaChart,
   Area,

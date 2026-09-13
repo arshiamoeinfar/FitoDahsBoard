@@ -140,12 +140,12 @@ export default function AddAuth() {
               </div>
             </div>
 
-            <div className="px-7 py-5 border-t border-gray-100 bg-gray-50">
+            <div className="px-7 pb-4 pt-1 border-t border-gray-100 bg-gray-50">
               <div className="flex items-center justify-between">
                 <button
                   type="button"
                   onClick={step === 1 ? closeModal : prevStep}
-                  className="px-6 py-3 rounded-xl border border-gray-200 bg-white text-gray-600 font-medium hover:bg-gray-100 active:scale-95 transition-all duration-200"
+                  className="px-6 py-2 rounded-xl border border-gray-200 bg-white text-gray-600 font-medium hover:bg-gray-100 active:scale-95 transition-all duration-200"
                 >
                   {step === 1 ? "انصراف" : "مرحله قبل"}
                 </button>
@@ -154,7 +154,7 @@ export default function AddAuth() {
                   <button
                     type="button"
                     onClick={nextStep}
-                    className="group px-7 py-3 rounded-xl bg-blue-600 text-white font-medium shadow-lg shadow-blue-100 hover:bg-blue-700 active:scale-95 transition-all duration-200 flex items-center gap-2"
+                    className="group px-7 py-2 rounded-xl bg-blue-600 text-white font-medium shadow-lg shadow-blue-100 hover:bg-blue-700 active:scale-95 transition-all duration-200 flex items-center gap-2"
                   >
                     ادامه
 
@@ -166,7 +166,7 @@ export default function AddAuth() {
                   <button
                     type="button"
                     onClick={closeModal}
-                    className="px-8 py-3 rounded-xl bg-blue-600 text-white font-medium shadow-lg shadow-blue-100 hover:bg-blue-700 active:scale-95 transition-all duration-200"
+                    className="px-8 py-2 rounded-xl bg-blue-600 text-white font-medium shadow-lg shadow-blue-100 hover:bg-blue-700 active:scale-95 transition-all duration-200"
                   >
                     افزودن شاگرد
                   </button>

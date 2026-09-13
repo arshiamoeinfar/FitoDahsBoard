@@ -35,10 +35,10 @@ const ATHLETE_NAV_ITEMS = [
 ];
 
 const COACH_NAV_ITEMS = [
-  { to: "/coach", label: "داشبورد", active: CoachHomeActive, inactive: CoachHomeInactive },
+  { to: "/coach/dashboard", label: "داشبورد", active: CoachHomeActive, inactive: CoachHomeInactive },
   { to: "/coach/athletes", label: "شاگردها", active: CoachAthletesActive, inactive: CoachAthletesInactive },
   { to: "/coach/programs", label: "برنامه‌ها", active: CoachProgramsActive, inactive: CoachProgramsInactive },
-  { to: "/coach/analysis", label: "گزارش ها", active: CoachAnalyzeIcon, inactive: CoachAnalyzIcon },
+  { to: "/coach/report", label: "گزارش ها", active: CoachAnalyzeIcon, inactive: CoachAnalyzIcon },
   { to: "/coach/messages", label: "پیام‌ها", active: CoachMessagesActive, inactive: CoachMessagesInactive },
   { to: "/coach/settings", label: "تنظیمات", active: SettingIcon, inactive: SettingNot },
 ];
