@@ -54,13 +54,13 @@ function ProgressRow({ report, delay }) {
   return (
     <div>
       <div className="flex items-center justify-between mb-3">
+          <p className="text-sm font-primary text-[#4F5965]">{report.label}</p>
         <span
           className="text-sm  tabular-nums"
           style={{ color: report.color }}
         >
           {report.percent}%
         </span>
-        <p className="text-sm font-primary text-[#4F5965]">{report.label}</p>
       </div>
 
       <div

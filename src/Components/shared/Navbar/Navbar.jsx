@@ -39,7 +39,7 @@ const COACH_NAV_ITEMS = [
   { to: "/coach/athletes", label: "شاگردها", active: CoachAthletesActive, inactive: CoachAthletesInactive },
   { to: "/coach/programs", label: "برنامه‌ها", active: CoachProgramsActive, inactive: CoachProgramsInactive },
   { to: "/coach/report", label: "گزارش ها", active: CoachAnalyzeIcon, inactive: CoachAnalyzIcon },
-  { to: "/coach/messages", label: "پیام‌ها", active: CoachMessagesActive, inactive: CoachMessagesInactive },
+  { to: "/coach/message", label: "پیام‌ها", active: CoachMessagesActive, inactive: CoachMessagesInactive },
   { to: "/coach/settings", label: "تنظیمات", active: SettingIcon, inactive: SettingNot },
 ];
 
