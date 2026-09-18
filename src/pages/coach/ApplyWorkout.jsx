@@ -567,23 +567,23 @@ export default function ApplyWorkout() {
 
                         <button
                           type="button"
-                          className="
+                          className={`
                             px-4
                             py-2
                             rounded-xl
-                            bg-[#EEF5FF]
-                            text-[#007BFF]
+                            
+                            ${status.label === "فعال" ? "bg-emerald-50 text-emerald-600" : status.label === "منقضی شده" ? "bg-red-50 text-red-500" : status.label === "درحال انجام" ? "bg-blue-50 text-blue-600" : status.label === "غیرفعال" ? "bg-gray-100 text-gray-500" : ""}
                             text-xs
                             font-bold
-                            hover:bg-[#007BFF]
-                            hover:text-white
+                            hover:scale-102
+                            hover:shadow-md
                             transition
                             duration-300
                             ease-in-out
                             cursor-pointer
-                          "
+                          `}
                         >
-                          مشاهده کامل
+                        {status.label === "فعال" ? "مشاهده کامل" : status.label === "درحال انجام" ? "ادامه فرایند" : status.label === "منقضی شده" ? "حذف" : status.label === "غیرفعال" ? "فعال کردن" : status.label}
                         </button>
 
                       </div>
