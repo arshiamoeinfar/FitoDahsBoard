@@ -18,7 +18,7 @@ import CoachHomeActive from "../../../assets/Icons/category.svg";
 import CoachHomeInactive from "../../../assets/Icons/category (1).svg";
 import CoachAthletesActive from "../../../assets/Icons/profile-2user (1).svg";
 import CoachAthletesInactive from "../../../assets/Icons/profile-2user.svg";
-import CoachProgramsActive from "../../../assets/Icons/profile-2user (1).svg";
+import CoachProgramsActive from "../../../assets/Icons/menu-board (1).svg";
 import CoachProgramsInactive from "../../../assets/Icons/menu-board.svg";
 import CoachMessagesActive from "../../../assets/Icons/messages (1).svg";
 import CoachMessagesInactive from "../../../assets/Icons/messages.svg";
