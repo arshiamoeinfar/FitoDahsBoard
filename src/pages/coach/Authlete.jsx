@@ -1,10 +1,13 @@
 import React, { useMemo, useState } from "react";
 import CaretDown from '@mui/icons-material/KeyboardArrowDown';
-export default function CoachStudents() {
+import { useNavigate } from 'react-router-dom';
+
+export default function CoachAthletes() {
   const [search, setSearch] = useState("");
   const [filterOpen, setFilterOpen] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState("همه");
   const [selectedStudent, setSelectedStudent] = useState(null);
+
 
   const students = [
     {
@@ -125,6 +128,8 @@ export default function CoachStudents() {
     "افزایش قدرت",
   ];
 
+  const navigate = useNavigate();
+
   const filteredStudents = useMemo(() => {
     return students.filter((student) => {
       const matchesSearch =
@@ -204,7 +209,6 @@ export default function CoachStudents() {
               }`}
             >
              <CaretDown/>
-             {/* <img className="brightness-0 saturate-100" src={CaretDown} alt="" /> */}
             </span>
           </button>
 
@@ -266,11 +270,11 @@ export default function CoachStudents() {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-[22px] overflow-hidden shadow-[0_5px_25px_rgba(30,70,110,0.04)]">
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[850px] border-collapse">
+      <div className="bg-white rounded-3xl overflow-hidden shadow-[0_5px_25px_rgba(30,70,110,0.04)]">
+        <div className="overflow-x-auto w-full">
+          <table className="w-full border-collapse">
             <thead>
-              <tr className="text-gray-500 text-[11px] font-normal">
+              <tr className="text-gray-500 text-[13px] font-normal">
                 <th className="text-right font-normal px-5 py-5">
                   شاگرد
                 </th>
@@ -341,7 +345,7 @@ export default function CoachStudents() {
                             {student.name}
                           </span>
 
-                          <span className="text-[9px] text-gray-400 mt-0.5">
+                          <span className="text-[11px] text-gray-400 mt-0.5">
                             {student.goal}
                           </span>
                         </div>
@@ -350,42 +354,42 @@ export default function CoachStudents() {
 
                     {/* Goal */}
                     <td className="px-5 py-4">
-                      <span className="text-xs text-gray-600">
+                      <span className="text-[13px] text-gray-600">
                         {student.goal}
                       </span>
                     </td>
 
                     {/* Weight */}
                     <td className="px-5 py-4">
-                      <span className="text-xs text-gray-600">
+                      <span className="text-[13px] text-gray-600">
                         {student.weight}KG
                       </span>
                     </td>
 
                     {/* Height */}
                     <td className="px-5 py-4">
-                      <span className="text-xs text-gray-600">
+                      <span className="text-[13px] text-gray-600">
                         {student.height}CM
                       </span>
                     </td>
 
                     {/* BMI */}
                     <td className="px-5 py-4">
-                      <span className="text-xs text-gray-600">
+                      <span className="text-[13px] text-gray-600">
                         {student.bmi}
                       </span>
                     </td>
 
                     {/* Body Fat */}
                     <td className="px-5 py-4">
-                      <span className="text-xs text-gray-600">
+                      <span className="text-[13px] text-gray-600">
                         {student.bodyFat}%
                       </span>
                     </td>
 
                     {/* Activity */}
                     <td className="px-5 py-4">
-                      <span className="text-xs text-gray-600">
+                      <span className="text-[13px] text-gray-600">
                         {student.activity}
                       </span>
                     </td>
@@ -394,19 +398,20 @@ export default function CoachStudents() {
                     <td className="px-5 py-4">
                       <button
                         type="button"
-                        onClick={() => setSelectedStudent(student)}
+                        onClick={() => navigate(`/coach/athletes/${student.id}`)}
                         className="
                           min-w-[72px]
                           px-4
                           py-2
                           rounded-full
                           bg-blue-100
-                          text-blue-600
-                          text-[10px]
+                          text-[#007BFF]
+                          text-[12px]
                           font-medium
                           hover:bg-blue-600
                           hover:text-white
                           active:scale-95
+                          cursor-pointer
                           transition-all duration-200
                         "
                       >
@@ -423,11 +428,11 @@ export default function CoachStudents() {
                         🔍
                       </div>
 
-                      <p className="text-sm font-medium text-gray-600">
+                      <p className="text-[13px] font-medium text-gray-600">
                         شاگردی پیدا نشد
                       </p>
 
-                      <p className="text-xs text-gray-400">
+                      <p className="text-[11px] text-gray-400">
                         عبارت جستجو یا فیلتر انتخابی را تغییر دهید
                       </p>
                     </div>
@@ -447,281 +452,8 @@ export default function CoachStudents() {
       </div>
 
       {/* Student Details Modal */}
-      {selectedStudent && (
-        <div
-          className="
-            fixed inset-0
-            z-50
-            bg-black/40
-            backdrop-blur-sm
-            flex
-            items-center
-            justify-center
-            px-4
-            animate-[fadeIn_.2s_ease-out]
-          "
-          onClick={() => setSelectedStudent(null)}
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="
-              w-full
-              max-w-2xl
-              max-h-[90vh]
-              overflow-y-auto
-              bg-white
-              rounded-[28px]
-              shadow-2xl
-              animate-[modalIn_.3s_cubic-bezier(.16,1,.3,1)]
-            "
-          >
-            {/* Modal Header */}
-            <div className="px-6 py-6 border-b border-gray-100">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div
-                    className="
-                      w-14 h-14
-                      rounded-full
-                      bg-blue-50
-                      border
-                      border-blue-100
-                      flex
-                      items-center
-                      justify-center
-                      text-3xl
-                    "
-                  >
-                    {selectedStudent.avatar}
-                  </div>
 
-                  <div>
-                    <h2 className="text-lg font-bold text-gray-800">
-                      {selectedStudent.name}
-                    </h2>
 
-                    <p className="text-xs text-gray-400 mt-1">
-                      {selectedStudent.goal}
-                    </p>
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setSelectedStudent(null)}
-                  className="
-                    w-9 h-9
-                    rounded-xl
-                    bg-gray-50
-                    text-gray-500
-                    hover:bg-red-50
-                    hover:text-red-500
-                    transition-all
-                    duration-200
-                    active:scale-90
-                  "
-                >
-                  ×
-                </button>
-              </div>
-            </div>
-
-            {/* Modal Body */}
-            <div className="p-6 space-y-6">
-              {/* Body Stats */}
-              <div>
-                <h3 className="text-sm font-bold text-gray-800 mb-3">
-                  اطلاعات بدنی
-                </h3>
-
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  <InfoCard
-                    title="وزن"
-                    value={`${selectedStudent.weight} KG`}
-                  />
-
-                  <InfoCard
-                    title="قد"
-                    value={`${selectedStudent.height} CM`}
-                  />
-
-                  <InfoCard
-                    title="BMI"
-                    value={selectedStudent.bmi}
-                  />
-
-                  <InfoCard
-                    title="درصد چربی"
-                    value={`${selectedStudent.bodyFat}%`}
-                  />
-                </div>
-              </div>
-
-              {/* Personal */}
-              <div>
-                <h3 className="text-sm font-bold text-gray-800 mb-3">
-                  اطلاعات شخصی
-                </h3>
-
-                <div className="grid grid-cols-2 gap-3">
-                  <DetailRow
-                    title="سن"
-                    value={`${selectedStudent.age} سال`}
-                  />
-
-                  <DetailRow
-                    title="جنسیت"
-                    value={selectedStudent.gender}
-                  />
-
-                  <DetailRow
-                    title="شماره تماس"
-                    value={selectedStudent.phone}
-                  />
-
-                  <DetailRow
-                    title="ایمیل"
-                    value={selectedStudent.email}
-                  />
-                </div>
-              </div>
-
-              {/* Training */}
-              <div>
-                <h3 className="text-sm font-bold text-gray-800 mb-3">
-                  اطلاعات تمرینی
-                </h3>
-
-                <div className="grid grid-cols-2 gap-3">
-                  <DetailRow
-                    title="سطح"
-                    value={selectedStudent.level}
-                  />
-
-                  <DetailRow
-                    title="سابقه تمرین"
-                    value={selectedStudent.trainingHistory}
-                  />
-
-                  <DetailRow
-                    title="جلسات در هفته"
-                    value={`${selectedStudent.sessions} جلسه`}
-                  />
-
-                  <DetailRow
-                    title="آخرین فعالیت"
-                    value={selectedStudent.activity}
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Modal Footer */}
-            <div className="px-6 py-5 border-t border-gray-100 bg-gray-50">
-              <div className="flex justify-end gap-3">
-                <button
-                  type="button"
-                  onClick={() => setSelectedStudent(null)}
-                  className="
-                    px-5
-                    py-2.5
-                    rounded-xl
-                    bg-white
-                    border border-gray-200
-                    text-gray-600
-                    text-xs
-                    hover:bg-gray-100
-                    active:scale-95
-                    transition-all duration-200
-                  "
-                >
-                  بستن
-                </button>
-
-                <button
-                  type="button"
-                  className="
-                    px-6
-                    py-2.5
-                    rounded-xl
-                    bg-blue-600
-                    text-white
-                    text-xs
-                    hover:bg-blue-700
-                    active:scale-95
-                    transition-all duration-200
-                  "
-                >
-                  مشاهده پروفایل کامل
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <style>
-        {`
-          @keyframes fadeIn {
-            from {
-              opacity: 0;
-            }
-            to {
-              opacity: 1;
-            }
-          }
-
-          @keyframes modalIn {
-            from {
-              opacity: 0;
-              transform: translateY(25px) scale(.96);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0) scale(1);
-            }
-          }
-
-          @keyframes filterIn {
-            from {
-              opacity: 0;
-              transform: translateY(-8px) scale(.98);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0) scale(1);
-            }
-          }
-        `}
-      </style>
-    </div>
-  );
-}
-
-function InfoCard({ title, value }) {
-  return (
-    <div className="rounded-2xl bg-gray-50 border border-gray-100 p-4">
-      <span className="block text-[10px] text-gray-400 mb-2">
-        {title}
-      </span>
-
-      <span className="text-sm font-bold text-gray-700">
-        {value}
-      </span>
-    </div>
-  );
-}
-
-function DetailRow({ title, value }) {
-  return (
-    <div className="flex items-center justify-between gap-3 rounded-xl border border-gray-100 px-4 py-3">
-      <span className="text-[10px] text-gray-400">
-        {title}
-      </span>
-
-      <span className="text-xs text-gray-700 font-medium text-left">
-        {value}
-      </span>
     </div>
   );
 }
