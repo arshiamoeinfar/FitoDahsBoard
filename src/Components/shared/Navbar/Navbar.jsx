@@ -13,7 +13,6 @@ import SettingIcon from "../../../assets/Icons/Settings.svg";
 import SettingNot from "../../../assets/Icons/SettingsNot.svg";
 import userIcon from "../../../assets/Icons/User Rounded.svg";
 
-
 import CoachHomeActive from "../../../assets/Icons/category.svg";
 import CoachHomeInactive from "../../../assets/Icons/category (1).svg";
 import CoachAthletesActive from "../../../assets/Icons/profile-2user (1).svg";
@@ -25,22 +24,76 @@ import CoachMessagesInactive from "../../../assets/Icons/messages.svg";
 import CoachAnalyzeIcon from "../../../assets/Icons/Pie Chart 3.svg";
 import CoachAnalyzIcon from "../../../assets/Icons/Pie Chart Not 3.svg";
 
-
 const ATHLETE_NAV_ITEMS = [
-  { to: "/dashboardAthlete", label: "خانه", active: HomeIcon1, inactive: Home1Img },
-  { to: "/trainingpage", label: "ورزش", active: DumbelIcon, inactive: TrainingIcon },
-  { to: "/dashboardnutrition", label: "تغذیه", active: DountIcon, inactive: NutritionIcon },
-  { to: "/AnalysisPage", label: "تحلیل", active: AnalyzeIcon, inactive: AnalyzIcon },
-  { to: "/settings", label: "تنظیمات", active: SettingIcon, inactive: SettingNot },
+  {
+    to: "/dashboardAthlete",
+    label: "خانه",
+    active: HomeIcon1,
+    inactive: Home1Img,
+  },
+  {
+    to: "/trainingpage",
+    label: "ورزش",
+    active: DumbelIcon,
+    inactive: TrainingIcon,
+  },
+  {
+    to: "/dashboardnutrition",
+    label: "تغذیه",
+    active: DountIcon,
+    inactive: NutritionIcon,
+  },
+  {
+    to: "/AnalysisPage",
+    label: "تحلیل",
+    active: AnalyzeIcon,
+    inactive: AnalyzIcon,
+  },
+  {
+    to: "/settings",
+    label: "تنظیمات",
+    active: SettingIcon,
+    inactive: SettingNot,
+  },
 ];
 
 const COACH_NAV_ITEMS = [
-  { to: "/coach/dashboard", label: "داشبورد", active: CoachHomeActive, inactive: CoachHomeInactive },
-  { to: "/coach/athletes", label: "شاگردها", active: CoachAthletesActive, inactive: CoachAthletesInactive },
-  { to: "/coach/programs", label: "برنامه‌ها", active: CoachProgramsActive, inactive: CoachProgramsInactive },
-  { to: "/coach/report", label: "گزارش ها", active: CoachAnalyzeIcon, inactive: CoachAnalyzIcon },
-  { to: "/coach/message", label: "پیام‌ها", active: CoachMessagesActive, inactive: CoachMessagesInactive },
-  { to: "/coach/settings", label: "تنظیمات", active: SettingIcon, inactive: SettingNot },
+  {
+    to: "/coach/dashboard",
+    label: "داشبورد",
+    active: CoachHomeActive,
+    inactive: CoachHomeInactive,
+  },
+  {
+    to: "/coach/athletes",
+    label: "شاگردها",
+    active: CoachAthletesActive,
+    inactive: CoachAthletesInactive,
+  },
+  {
+    to: "/coach/programs",
+    label: "برنامه‌ها",
+    active: CoachProgramsActive,
+    inactive: CoachProgramsInactive,
+  },
+  {
+    to: "/coach/report",
+    label: "گزارش ها",
+    active: CoachAnalyzeIcon,
+    inactive: CoachAnalyzIcon,
+  },
+  {
+    to: "/coach/message",
+    label: "پیام‌ها",
+    active: CoachMessagesActive,
+    inactive: CoachMessagesInactive,
+  },
+  {
+    to: "/coach/settings",
+    label: "تنظیمات",
+    active: SettingIcon,
+    inactive: SettingNot,
+  },
 ];
 
 export default function Navbar() {
@@ -67,7 +120,9 @@ export default function Navbar() {
             >
               <img
                 className="w-6 h-6 gap-2"
-                src={location.pathname === item.to ? item.active : item.inactive}
+                src={
+                  location.pathname === item.to ? item.active : item.inactive
+                }
                 alt={item.label}
               />
               <p className="font-primary text-xs">{item.label}</p>
@@ -77,7 +132,11 @@ export default function Navbar() {
 
         <div className="w-full flex justify-center">
           <div className="flex flex-col items-center justify-center bg-blue-500 rounded-full w-14 h-14 cursor-pointer">
-            <img onClick={() => navigate(profileRoute)} src={userIcon} alt="User" />
+            <img
+              onClick={() => navigate(profileRoute)}
+              src={userIcon}
+              alt="User"
+            />
           </div>
         </div>
       </div>
