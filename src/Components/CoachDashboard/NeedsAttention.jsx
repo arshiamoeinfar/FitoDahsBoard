@@ -58,7 +58,7 @@ const NeedsAttention = () => {
       </div>
 
       {/* ===== جدول ===== */}
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto ">
         <table className="w-full text-right border-collapse">
           <thead>
             <tr className="text-sm text-slate-400">

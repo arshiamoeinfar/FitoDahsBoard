@@ -219,14 +219,15 @@ export default function ApplyWorkout() {
                       px-5
                       rounded-xl
                       text-sm
-                      font-bold
+                      font-primary
                       transition-all
                       duration-200
                       cursor-pointer
+                      
                       ${
                         programType === "workout"
                           ? "bg-[#007BFF] text-white shadow-[0_5px_14px_rgba(0,123,255,0.18)]"
-                          : "text-[#7A8494] hover:text-[#1F2937] hover:bg-[#F8FAFC]"
+                          : "text-[#7A8494] hover:text-[#007BFF] hover:bg-[#F8FAFC]"
                       }
                     `}
                   >
@@ -255,14 +256,14 @@ export default function ApplyWorkout() {
                       px-5
                       rounded-xl
                       text-sm
-                      font-bold
+                      font-primary
                       transition-all
                       duration-200
                       cursor-pointer
                       ${
                         programType === "nutrition"
                           ? "bg-[#007BFF] text-white shadow-[0_5px_14px_rgba(0,123,255,0.18)]"
-                          : "text-[#7A8494] hover:text-[#1F2937] hover:bg-[#F8FAFC]"
+                          : "text-[#7A8494] hover:text-[#007BFF] hover:bg-[#F8FAFC]"
                       }
                     `}
                   >
