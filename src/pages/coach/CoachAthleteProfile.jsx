@@ -6,6 +6,9 @@ import UserProfile from "../../Components/DashBoardAuth/HeaderDashBoard/UserProf
 import AddCircle from "../../assets/Icons/Add Circle.svg";
 import ChatIcon from "@mui/icons-material/Chat";
 import Chart from "../../Components/shared/Chart/Chart";
+import ProgressNavbar from "../../Components/CoachDashboard/ProgressNavbar";
+import BodyChangeChart from "../../Components/shared/BodyChangeChart/BodyChangeChart";
+import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 export default function CoachAthleteProfile() {
   const { id } = useParams();
   return (
@@ -20,49 +23,85 @@ export default function CoachAthleteProfile() {
               title="پروفایل ورزشکار"
               description="اطلاعات کامل، برنامه‌ها و روند پیشرفت"
             />
-          </div>
-          <div className="col-span-12">
-            <div className="flex justify-between mt-4 bg-white p-4 rounded-3xl">
-              <div className="flex justify-center items-center">
-                <UserProfile />
-                <div className="flex flex-col items-start mr-2 gap-1">
-                  <h2 className="text-sm text-[#6B6F77]  font-primary">
-                    ارشیا معین فر
-                  </h2>
-                  <h2 className="text-xs text-[#6B6F77]  Modam-Medium">
-                    عضو از دی 1404
-                  </h2>
+
+            <div className="col-span-12">
+              <div className="flex justify-between mt-4 bg-white p-4 rounded-3xl">
+                <div className="flex justify-center items-center">
+                  <UserProfile />
+                  <div className="flex flex-col items-start mr-2 gap-1">
+                    <h2 className="text-sm text-[#6B6F77]  font-primary">
+                      ارشیا معین فر
+                    </h2>
+                    <h2 className="text-xs text-[#6B6F77]  Modam-Medium">
+                      عضو از دی 1404
+                    </h2>
+                  </div>
+                </div>
+                <div className="flex gap-2 rounded-full p-2 px-4 py-1.5">
+                  <button className="bg-[#007BFF] text-white text-sm rounded-full px-4 py-1.5 cursor-pointer gap-1 flex items-center justify-center transition-colors hover:bg-[#007bffee] Modam-Medium">
+                    <ChatIcon style={{ fontSize: "18px" }} />
+                    شروع گفتگو
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setIsOpen(true)}
+                    className="flex  items-center gap-1 bg-[#007BFF33] py-2 px-3 rounded-full text-sm text-[#007BFF] font-primary cursor-pointer hover:bg-[#007bff5b]  transition-colors"
+                  >
+                    <img
+                      src={AddCircle}
+                      alt="add student"
+                      className="w-5 h-5 transition-transform duration-300 hover:rotate-90"
+                    />
+                    ایجاد برنامه
+                  </button>
+                  <button className="border rounded-full text-sm Modam-Medium text-[#A6A9AD] px-4 bg-transparent cursor-pointer hover:text-[#007BFF] transition-colors">
+                    ویرایش اطلاعات
+                  </button>
                 </div>
               </div>
-              <div className="flex gap-2 rounded-full p-2 px-4 py-1.5">
-                <button className="bg-[#007BFF] text-white text-sm rounded-full px-4 py-1.5 cursor-pointer gap-1 flex items-center justify-center transition-colors hover:bg-[#007bffee] Modam-Medium">
-                  <ChatIcon style={{ fontSize: "18px" }} />
-                  شروع گفتگو
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setIsOpen(true)}
-                  className="flex  items-center gap-1 bg-[#007BFF33] py-2 px-3 rounded-full text-sm text-[#007BFF] font-primary cursor-pointer hover:bg-[#007bff5b]  transition-colors"
-                >
-                  <img
-                    src={AddCircle}
-                    alt="add student"
-                    className="w-5 h-5 transition-transform duration-300 hover:rotate-90"
+            </div>
+            <div className="col-span-12 flex justify-around gap-4">
+              <Chart />
+              <Chart />
+              <Chart />
+              <Chart />
+              <Chart />
+            </div>
+            <div className="col-span-12">
+              <ProgressNavbar />
+            </div>
+            <div className="col-span-8">
+              <BodyChangeChart />
+            </div>
+            <div className="col-span-4 bg-white rounded-3xl p-5">
+              <div className="flex justify-between items-center mb-12">
+                <h3 className="text-2xl  text-[#6B6F77] text-start">
+                  نمره کلی بدن
+                </h3>
+                <p className="text-[#969696] font-primary-light">
+                  وضعیت : <span className="text-[#6BAF41]">عالی</span>
+                </p>
+              </div>
+              <div className="flex justify-center items-center">
+                <div className="w-52 flex justify-center items-center relative">
+                  <CircularProgressbar
+                    value={50}
+                    text=""
+                    strokeWidth={13}
+                    styles={buildStyles({
+                      pathColor: "#6BAF41",
+                      trailColor: "#6BAF411A",
+                      strokeLinecap: "round",
+                    })}
                   />
-                  افزودن شاگرد
-                </button>
-                <button className="border rounded-full text-sm Modam-Medium text-[#A6A9AD] px-4 bg-transparent cursor-pointer hover:text-[#007BFF] transition-colors">
-                  ویرایش اطلاعات
-                </button>
+
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-[#6B6F77] text-5xl">
+                    50{" "}
+                    <span className="text-sm font-primary-light ">از 100</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-span-12 flex justify-around gap-4 mt-7">
-            <Chart />
-            <Chart />
-            <Chart />
-            <Chart />
-            <Chart />
           </div>
         </div>
       </div>
