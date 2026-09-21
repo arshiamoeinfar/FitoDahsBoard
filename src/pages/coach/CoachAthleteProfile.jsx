@@ -9,6 +9,7 @@ import Chart from "../../Components/shared/Chart/Chart";
 import ProgressNavbar from "../../Components/CoachDashboard/ProgressNavbar";
 import BodyChangeChart from "../../Components/shared/BodyChangeChart/BodyChangeChart";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
+import AppearanceChanges from "../../Components/shared/AppearanceChanges/AppearanceChanges";
 export default function CoachAthleteProfile() {
   const { id } = useParams();
   return (
@@ -101,6 +102,9 @@ export default function CoachAthleteProfile() {
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="col-span-6">
+              <AppearanceChanges />
             </div>
           </div>
         </div>

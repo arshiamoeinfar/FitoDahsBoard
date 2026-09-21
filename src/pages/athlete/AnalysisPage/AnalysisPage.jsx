@@ -9,7 +9,7 @@ import BodyChangeChart from "../../../Components/shared/BodyChangeChart/BodyChan
 import NutritionReport from "../../../Components/DashBoardAuth/AnalysComponents/NutritionReport/NutritionReport";
 import StatCard from "../../../Components/shared/StatCard/StatCard";
 import EvaluationHistory from "../../../Components/DashBoardAuth/AnalysComponents/EvaluationHistory/EvaluationHistory";
-import AppearanceChanges from "../../../Components/DashBoardAuth/AnalysComponents/AppearanceChanges/AppearanceChanges";
+import AppearanceChanges from "../../../Components/shared/AppearanceChanges/AppearanceChanges";
 import HeaderDashBoard from "../../../Components/DashBoardAuth/HeaderDashBoard/HeaderDashBoard";
 import imgWalk from "../../../assets/imges/walk.png";
 import imgFront from "../../../assets/imges/image 24 (1).png";

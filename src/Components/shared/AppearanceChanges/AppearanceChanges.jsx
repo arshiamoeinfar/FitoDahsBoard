@@ -1,7 +1,7 @@
 // components/BodyChanges/BodyChanges.jsx
 import { useState } from "react";
 import BodyChangesModal from "./BodyChangesModal";
-import BodyImg from "../../../../assets/imges/image 22 (1).svg"
+import BodyImg from "../../../assets/imges/image 22 (1).svg"
 const BodyChanges = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
