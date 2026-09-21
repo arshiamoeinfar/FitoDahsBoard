@@ -320,20 +320,20 @@ function WorkoutSessionCard({ session }) {
 
       <div className="bg-white border-x border-b border-[#F0F2F5] rounded-b-xl overflow-hidden">
         <div className="grid grid-cols-4 px-5 py-3 text-xs text-[#8A93A3] border-b border-[#F0F2F5]">
-          <span className="text-right">وزنه</span>
+          <span className="text-right">حرکت</span>
           <span className="text-center">تکرار</span>
           <span className="text-center">ست</span>
-          <span className="text-left">حرکت</span>
+          <span className="text-left">وزنه</span>
         </div>
         {session.exercises.map((ex, i) => (
           <div
             key={i}
             className="grid grid-cols-4 px-5 py-3.5 text-sm text-[#4F5965] border-b border-[#F5F7FA] last:border-0"
           >
-            <span className="text-right">{ex.weight}</span>
+            <span className="text-right font-medium">{ex.name}</span>
             <span className="text-center">{ex.reps}</span>
             <span className="text-center">{ex.sets}</span>
-            <span className="text-left font-medium">{ex.name}</span>
+            <span className="text-left">{ex.weight}</span>
           </div>
         ))}
       </div>
