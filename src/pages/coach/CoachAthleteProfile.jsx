@@ -10,6 +10,9 @@ import ProgressNavbar from "../../Components/CoachDashboard/ProgressNavbar";
 import BodyChangeChart from "../../Components/shared/BodyChangeChart/BodyChangeChart";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import AppearanceChanges from "../../Components/shared/AppearanceChanges/AppearanceChanges";
+import NutritionReport from "../../Components/shared/NutritionReport/NutritionReport";
+import ChartDashboardCoach from "../../Components/shared/ChartDashboardCoach"
+import WorkoutProgram from "./WorkoutProgram";
 export default function CoachAthleteProfile() {
   const { id } = useParams();
   return (
@@ -72,7 +75,9 @@ export default function CoachAthleteProfile() {
               <ProgressNavbar />
             </div>
             <div className="col-span-8">
-              <BodyChangeChart />
+              {/* <BodyChangeChart /> */}
+                <ChartDashboardCoach />
+
             </div>
             <div className="col-span-4 bg-white rounded-3xl p-5">
               <div className="flex justify-between items-center mb-12">
@@ -103,8 +108,14 @@ export default function CoachAthleteProfile() {
                 </div>
               </div>
             </div>
-            <div className="col-span-6">
+            <div className="col-span-12">
+              <WorkoutProgram />
+            </div>
+            <div className="col-span-7">
               <AppearanceChanges />
+            </div>
+            <div className="col-span-5">
+              <NutritionReport type="water" title="مصرف آب روزانه" />
             </div>
           </div>
         </div>
