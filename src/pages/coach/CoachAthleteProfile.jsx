@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../../Components/shared/Navbar/Navbar";
 import HeaderDashBoard from "../../Components/DashBoardAuth/HeaderDashBoard/HeaderDashBoard";
@@ -13,7 +13,45 @@ import AppearanceChanges from "../../Components/shared/AppearanceChanges/Appeara
 import NutritionReport from "../../Components/shared/NutritionReport/NutritionReport";
 import ChartDashboardCoach from "../../Components/shared/ChartDashboardCoach"
 import WorkoutProgram from "./WorkoutProgram";
-export default function CoachAthleteProfile() {
+export default function CoachAthleteProfile() 
+{
+  
+const defaultItems = [
+  {
+    id: "overview",
+    label: "نمای کلی",
+  },
+  {
+    id: "body-health",
+    label: "بدن و سلامت",
+  },
+  {
+    id: "training",
+    label: "تمرین",
+  },
+  {
+    id: "nutrition",
+    label: "تغذیه",
+  },
+  {
+    id: "progress",
+    label: "پیشرفت",
+  },
+  {
+    id: "activity",
+    label: "فعالیت",
+  },
+  {
+    id: "files",
+    label: "فایل ها",
+  },
+  {
+    id: "notes",
+    label: "یادداشت ها",
+  },
+];
+const [activeItem, setActiveItem] = useState("overview");
+
   const { id } = useParams();
   return (
     <div className="min-h-screen bg-[#F5F7FB] flex justify-center">
@@ -72,8 +110,10 @@ export default function CoachAthleteProfile() {
               <Chart />
             </div>
             <div className="col-span-12">
-              <ProgressNavbar />
+              <ProgressNavbar items={defaultItems} defaultActiveItem={activeItem} onItemChange={setActiveItem} />
             </div>
+             {activeItem === "overview" && (
+              <>
             <div className="col-span-8">
               {/* <BodyChangeChart /> */}
                 <ChartDashboardCoach />
@@ -117,6 +157,16 @@ export default function CoachAthleteProfile() {
             <div className="col-span-5">
               <NutritionReport type="water" title="مصرف آب روزانه" />
             </div>
+              </>
+             )}
+             {activeItem === "training" && (
+              <>
+              <div className="col-span-12">
+
+                <WorkoutProgram />
+              </div>
+              </>
+             )}
           </div>
         </div>
       </div>

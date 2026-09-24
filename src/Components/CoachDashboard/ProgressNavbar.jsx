@@ -1,43 +1,10 @@
 import React from "react";
 
-const defaultItems = [
-  {
-    id: "overview",
-    label: "نمای کلی",
-  },
-  {
-    id: "body-health",
-    label: "بدن و سلامت",
-  },
-  {
-    id: "training",
-    label: "تمرین",
-  },
-  {
-    id: "nutrition",
-    label: "تغذیه",
-  },
-  {
-    id: "progress",
-    label: "پیشرفت",
-  },
-  {
-    id: "activity",
-    label: "فعالیت",
-  },
-  {
-    id: "files",
-    label: "فایل ها",
-  },
-  {
-    id: "notes",
-    label: "یادداشت ها",
-  },
-];
 
 export default function ProgressNavbar({
-  items = defaultItems,
-  activeItem = "overview",
+  items,
+  defaultActiveItem = "overview",
+  activeItem = defaultActiveItem,
   onItemChange,
   className = "",
 }) {
@@ -50,7 +17,7 @@ export default function ProgressNavbar({
       dir="rtl"
       className={`
         w-full
-        h-[60px]
+        h-15
         px-5
         bg-white
         rounded-[22px]
