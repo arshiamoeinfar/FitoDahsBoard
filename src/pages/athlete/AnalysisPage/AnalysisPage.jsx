@@ -2,7 +2,6 @@ import React from "react";
 import Navbar from "../../../Components/shared/Navbar/Navbar";
 import AIAnalysisCard from "../../../Components/DashBoardAuth/AIAnalysisCard/AIAnalysisCard";
 import DocumentAdd from "../../../assets/Icons/Document Add.svg";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import BodyAnalysisModel from "../../../Components/DashBoardAuth/AnalysComponents/BodyAnalysisModel/BodyAnalysisModel";
 import Chart from "../../../Components/shared/Chart/Chart";
 import BodyChangeChart from "../../../Components/shared/BodyChangeChart/BodyChangeChart"
@@ -14,6 +13,8 @@ import HeaderDashBoard from "../../../Components/DashBoardAuth/HeaderDashBoard/H
 import imgWalk from "../../../assets/imges/walk.png";
 import imgFront from "../../../assets/imges/image 24 (1).png";
 import imgBack from "../../../assets/imges/backMan.png";
+import CircularProgressbarChart from "../../../Components/shared/CircularProgressbar/CircularProgressbar";
+
 export default function AnalysisPage() {
   const changes = [
     {
@@ -109,34 +110,9 @@ export default function AnalysisPage() {
                 </p>
               </div>
             </div>
-            <div className="col-span-3 bg-white rounded-3xl p-5">
-              <div className="flex justify-between items-center mb-12">
-                <h3 className="text-2xl  text-[#6B6F77] text-start">
-                  نمره کلی بدن
-                </h3>
-                <p className="text-[#969696] font-primary-light">
-                  وضعیت : <span className="text-[#6BAF41]">عالی</span>
-                </p>
-              </div>
-              <div className="flex justify-center items-center">
-                <div className="w-52 flex justify-center items-center relative">
-                  <CircularProgressbar
-                    value={50}
-                    text=""
-                    strokeWidth={13}
-                    styles={buildStyles({
-                      pathColor: "#6BAF41",
-                      trailColor: "#6BAF411A",
-                      strokeLinecap: "round",
-                    })}
-                  />
+            <div className="col-span-3">
+            <CircularProgressbarChart value={50} title="نمره کلی بدن" />
 
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-[#6B6F77] text-5xl">
-                    50{" "}
-                    <span className="text-sm font-primary-light ">از 100</span>
-                  </div>
-                </div>
-              </div>
             </div>
             <div className="col-span-12 flex justify-around">
               <Chart />

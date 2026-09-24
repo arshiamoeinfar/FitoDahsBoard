@@ -8,11 +8,12 @@ import ChatIcon from "@mui/icons-material/Chat";
 import Chart from "../../Components/shared/Chart/Chart";
 import ProgressNavbar from "../../Components/CoachDashboard/ProgressNavbar";
 import BodyChangeChart from "../../Components/shared/BodyChangeChart/BodyChangeChart";
-import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import AppearanceChanges from "../../Components/shared/AppearanceChanges/AppearanceChanges";
 import NutritionReport from "../../Components/shared/NutritionReport/NutritionReport";
 import ChartDashboardCoach from "../../Components/shared/ChartDashboardCoach"
 import WorkoutProgram from "./WorkoutProgram";
+import CircularProgressbarChart from "../../Components/shared/CircularProgressbar/CircularProgressbar";
+
 export default function CoachAthleteProfile() 
 {
   
@@ -119,34 +120,8 @@ const [activeItem, setActiveItem] = useState("overview");
                 <ChartDashboardCoach />
 
             </div>
-            <div className="col-span-4 bg-white rounded-3xl p-5">
-              <div className="flex justify-between items-center mb-12">
-                <h3 className="text-2xl  text-[#6B6F77] text-start">
-                  نمره کلی بدن
-                </h3>
-                <p className="text-[#969696] font-primary-light">
-                  وضعیت : <span className="text-[#6BAF41]">عالی</span>
-                </p>
-              </div>
-              <div className="flex justify-center items-center">
-                <div className="w-52 flex justify-center items-center relative">
-                  <CircularProgressbar
-                    value={50}
-                    text=""
-                    strokeWidth={13}
-                    styles={buildStyles({
-                      pathColor: "#6BAF41",
-                      trailColor: "#6BAF411A",
-                      strokeLinecap: "round",
-                    })}
-                  />
-
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-[#6B6F77] text-5xl">
-                    50{" "}
-                    <span className="text-sm font-primary-light ">از 100</span>
-                  </div>
-                </div>
-              </div>
+            <div className="col-span-4">
+              <CircularProgressbarChart value={90} title="میزان انجام تمرین ها" />
             </div>
             <div className="col-span-12">
               <WorkoutProgram />
@@ -164,6 +139,16 @@ const [activeItem, setActiveItem] = useState("overview");
               <div className="col-span-12">
 
                 <WorkoutProgram />
+              </div>
+              </>
+             )}
+             {activeItem === "progress" && (
+              <>
+              <div className="col-span-8">
+                <BodyChangeChart />
+              </div>
+              <div className="col-span-4">
+                <CircularProgressbarChart value={40} title="میزان پیشرفت بدن" />
               </div>
               </>
              )}
