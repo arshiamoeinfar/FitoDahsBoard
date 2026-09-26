@@ -145,7 +145,9 @@ export default function CoachAthletes() {
   }, [search, selectedFilter]);
 
   return (
-    <div dir="rtl" className="w-full min-h-screen bg-[#f3f8fd] p-5 md:p-7">
+    <div dir="rtl" className="w-full min-h-screen">
+      <div className="w-full max-w-[1600px] grid grid-cols-[1fr] gap-6 bg-[#F5F7FB]">
+
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-3 mb-5">
         {/* Search */}
@@ -270,7 +272,7 @@ export default function CoachAthletes() {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-3xl overflow-hidden shadow-[0_5px_25px_rgba(30,70,110,0.04)]">
+      <div className="bg-white rounded-3xl overflow-hidden">
         <div className="overflow-x-auto w-full">
           <table className="w-full border-collapse">
             <thead>
@@ -454,6 +456,7 @@ export default function CoachAthletes() {
       {/* Student Details Modal */}
 
 
+    </div>
     </div>
   );
 }

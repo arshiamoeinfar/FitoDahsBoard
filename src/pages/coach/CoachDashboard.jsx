@@ -6,6 +6,7 @@ import imgWalk from "../../assets/imges/walk.png";
 import NeedsAttention from "../../Components/CoachDashboard/NeedsAttention";
 import ChartDashboardCoach from "../../Components/shared/ChartDashboardCoach";
 import BodyChangeChart from "../../Components/shared/BodyChangeChart/BodyChangeChart";
+import TodayActions from "../../Components/CoachDashboard/TodayActions";
 export default function CoachDashboard() {
   return (
     <div className="min-h-screen bg-[#F5F7FB] flex justify-center">
@@ -32,6 +33,9 @@ export default function CoachDashboard() {
             <div className="col-span-8">
                 {/* <ChartDashboardCoach /> */}
                 <BodyChangeChart />
+            </div>
+            <div className="col-span-4">
+                <TodayActions />
             </div>
           </div>
         </div>
