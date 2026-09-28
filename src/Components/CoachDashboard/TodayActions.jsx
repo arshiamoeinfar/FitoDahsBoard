@@ -84,16 +84,18 @@ export default function TodayActions() {
     },
   };
 
+  const visibleActions = showAll ? actions : actions.slice(0, 3);
+
   return (
     <section
       dir="rtl"
       className="
         w-full
-        h-full
+        h-fit
         rounded-[24px]
         bg-white
         p-5
-        shadow-[0_2px_12px_rgba(15,23,42,0.02)]
+        
       "
     >
       {/* Header */}
@@ -124,8 +126,9 @@ export default function TodayActions() {
       </div>
 
       {/* Actions */}
+
       <div className="flex flex-col gap-2">
-        {actions.map((action, index) => {
+        {visibleActions.map((action, index) => {
           const Icon = action.icon;
           const style = styles[action.type];
 
@@ -145,7 +148,8 @@ export default function TodayActions() {
                 rounded-md
                 px-1
                 ${
-                  index !== actions.length - 1
+                  showAll
+                  || index !== visibleActions.length - 1
                     ? "border-b border-[#F0F2F5]"
                     : ""
                 }
@@ -234,7 +238,7 @@ export default function TodayActions() {
           onClick={() => {handleClick()}}
           type="button"
           className="
-            text-[9px]
+            text-[11px]
             font-medium
             text-[#8B929C]
             transition-colors
@@ -242,7 +246,7 @@ export default function TodayActions() {
             cursor-pointer
           "
         >
-          مشاهده همه موارد
+         {showAll ? "نمایش کمتر" : "مشاهده همه"} 
         </button>
       </div>
     </section>
