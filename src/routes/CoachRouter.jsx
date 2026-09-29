@@ -6,6 +6,7 @@ import ReportPage from '../pages/coach/ReportPage'
 import MessageCoach from '../pages/coach/MessageCoach'
 import ApplyWorkout from '../pages/coach/ApplyWorkout'
 import CoachAthleteProfile from '../pages/coach/CoachAthleteProfile'
+import Setting from '../pages/coach/Setting'
 
 export default function CoachRouter() {
   return (
@@ -17,6 +18,7 @@ export default function CoachRouter() {
         <Route path="/coach/report" element={<ReportPage />} />
         <Route path="/coach/message" element={<MessageCoach />} />
         <Route path="/coach/programs" element={<ApplyWorkout />} />
+        <Route path="/coach/settings" element={<Setting />} />
     </Routes>
     </>
   )
