@@ -6,6 +6,7 @@ import NotificationSettings from "../../Components/shared/SettingsDshBoard/Notif
 import SubscriptionSettings from "../../Components/shared/SettingsDshBoard/SubscriptionSettings";
 import PrivacySettings from "../../Components/shared/SettingsDshBoard/PrivacySettings";
 import GeneralSettings from "../../Components/shared/SettingsDshBoard/GeneralSettings";
+import SettingsAuth from "../../Components/DashBoardAuth/Settings/SettingsAuth";
 
 const SettingsPage = () => {
   const [activeTab, setActiveTab] = useState("profile");
@@ -19,43 +20,9 @@ const SettingsPage = () => {
 
         <div className="py-3">
           <div className="grid grid-cols-12 gap-6">
-            <div className="col-span-12">
-              <SettingsTabs
-                activeTab={activeTab}
-                setActiveTab={setActiveTab}
-              />
-              <div className="mt-7">
-                {activeTab === "profile" && (
-                  <div>
-                    <ProfileSettings/>
-                  </div>
-                )}
-
-                {activeTab === "subscription" && (
-                  <div>
-                    <SubscriptionSettings/>
-                  </div>
-                )}
-
-                {activeTab === "notifications" && (
-                  <div>
-                    <NotificationSettings/>
-                  </div>
-                )}
-
-                {activeTab === "privacy" && (
-                  <div>
-                    <PrivacySettings/>
-                  </div>
-                )}
-
-                {activeTab === "settings" && (
-                  <div>
-                    <GeneralSettings/>
-                  </div>
-                )}
-              </div>
-            </div>
+           <div className="col-span-12">
+            <SettingsAuth />
+           </div>
           </div>
         </div>
       </div>
