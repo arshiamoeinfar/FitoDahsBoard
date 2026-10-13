@@ -80,12 +80,12 @@ function RecordRow({ record, isOpen, onToggle }) {
         </div>
 
         {record.isNew && (
-          <button
+          <span
             className="items-center gap-2 border border-gray-200 rounded-full px-2 py-0.5 text-gray-700 text-sm hover:bg-gray-50 transition-colors self-start"
           >
             <span>{"رکورد جدید"}</span>
             <span>🔥</span>
-          </button>
+          </span>
         )}
 
         <svg

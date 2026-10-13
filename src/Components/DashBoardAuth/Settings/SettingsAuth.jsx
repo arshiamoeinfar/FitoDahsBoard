@@ -1184,7 +1184,7 @@ export default function AthleteSettings() {
 
         <div className="mb-6 flex flex-col justify-between gap-4 md:flex-row md:items-center">
           <div>
-            <h1 className="text-2xl font-bold text-[#1F2937]">
+            <h1 className="text-3xl font-bold text-[#6B6F77]">
               تنظیمات حساب
             </h1>
 
