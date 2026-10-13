@@ -56,8 +56,8 @@ export default function Mytrain({
       {/* Exercises */}
       <div className="mt-8 space-y-4">
         <hr className="text-gray-200" />
-        {exercises.map((index) => (
-          <div className="flex flex-col items-start justify-between rounded-3xl gap-3">
+        {exercises.map((exercise) => (
+          <div key={exercise.id} className="flex flex-col items-start justify-between rounded-3xl gap-3">
             <div className={`flex  items-center gap-4 ${hrTrue ? " py-4 " : "mt-2"} w-full`}>
               <img
                onClick={() => navigate("/dashboardAthlete/start-training")}
@@ -108,7 +108,7 @@ export default function Mytrain({
                 </div>
               )}
             </div>
-            {hrTrue && index !== exercises[exercises.length] && (
+            {hrTrue && exercise !== exercises[exercises.length] && (
               <hr className="text-gray-200 w-full" />
             )}
             <div className={`flex  items-center gap-4 ${hrTrue ? " py-4 " : "mt-2"} w-full`}>
@@ -160,7 +160,7 @@ export default function Mytrain({
                 </div>
               )}
             </div>
-            {hrTrue && index !== exercises[exercises.length] && (
+            {hrTrue && exercise !== exercises[exercises.length] && (
               <hr className="text-gray-200 w-full" />
             )}
             <div className={`flex  items-center gap-4 ${hrTrue ? " py-4 " : "mt-2"} w-full`}>
@@ -212,7 +212,7 @@ export default function Mytrain({
                 </div>
               )}
             </div>
-            {hrTrue && index !== exercises[exercises.length] && (
+            {hrTrue && exercise !== exercises[exercises.length] && (
               <hr className="text-gray-200 w-full" />
             )}
             <div className={`flex  items-center gap-4 ${hrTrue ? " py-4 " : "mt-2"} w-full`}>
@@ -264,7 +264,7 @@ export default function Mytrain({
                 </div>
               )}
             </div>
-            {hrTrue && index !== exercises[exercises.length - 1] && (
+            {hrTrue && exercise !== exercises[exercises.length - 1] && (
               <hr className="text-gray-200 w-full" />
             )}
           </div>

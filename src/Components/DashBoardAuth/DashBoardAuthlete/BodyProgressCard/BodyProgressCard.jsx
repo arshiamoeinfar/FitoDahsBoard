@@ -34,7 +34,7 @@ export default function BodyProgressCard({ isShowMore = true, count = [], title 
       </div>
       <div className="flex justify-start items-center gap-4">
         {count.map((item, index) => (
-          <>
+          <React.Fragment key={index}>
             <div className="flex w-full flex-col gap-2">
               <div className="flex flex-col gap-2">
                 <h1 className="text-[#6B6F77] Modam-Medium text-sm ">پرس دمبل</h1>
@@ -74,7 +74,7 @@ export default function BodyProgressCard({ isShowMore = true, count = [], title 
             {index !== 1 && index !== count.length - 1 && (
               <img className="w-1 h-32" src={Liner} alt="" />
             )}
-          </>
+          </React.Fragment>
         ))}
       </div>
     </div>
