@@ -130,7 +130,7 @@ export default function MessageCoach() {
                 onSelect={handleSelect}
               />
             </div>
-            <div className="col-span-8 ">
+            <div className="col-span-8 overflow-y-auto">
               <StudentChat
                 conversation={activeConversation}
                 messages={activeMessages}
