@@ -13,6 +13,11 @@ import NutritionReport from "../../Components/shared/NutritionReport/NutritionRe
 import ChartDashboardCoach from "../../Components/shared/ChartDashboardCoach"
 import WorkoutProgram from "./WorkoutProgram";
 import CircularProgressbarChart from "../../Components/shared/CircularProgressbar/CircularProgressbar";
+import HealthInfoCard from "../../Components/CoachDashboard/HealthInfoCard.jsx";
+import BodyHealth from "./BodyHealth.jsx";
+import ActivityProfileDashBoard from "./ActivityProfileDashBoard.jsx";
+import AthleteFiles from "./AthleteFiles.jsx";
+import NotesCard from "../../Components/CoachDashboard/NotesCard.jsx";
 
 export default function CoachAthleteProfile() 
 {
@@ -149,6 +154,35 @@ const [activeItem, setActiveItem] = useState("overview");
               </div>
               <div className="col-span-4">
                 <CircularProgressbarChart value={40} title="میزان پیشرفت بدن" />
+              </div>
+              </>
+             )}
+            {activeItem === "body-health" && (
+              <>
+              <div className="col-span-12">
+                <BodyHealth />
+              </div>
+              </>
+             )}
+             {activeItem === "activity" && (
+              <>
+              <div className="col-span-12">
+
+                <ActivityProfileDashBoard />
+              </div>
+              </>
+             )}
+             {activeItem === "files" && (
+              <>
+              <div className="col-span-12">
+                <AthleteFiles />
+              </div>
+              </>
+             )}
+             {activeItem === "notes" && (
+              <>
+              <div className="col-span-12">
+                <NotesCard />
               </div>
               </>
              )}
