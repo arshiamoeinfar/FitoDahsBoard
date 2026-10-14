@@ -7,6 +7,14 @@ import DashBoardNutrition from "../pages/athlete/DashBoardNutrition/DashBoardNut
 import AnalysisPage from "../pages/athlete/AnalysisPage/AnalysisPage";
 import TrainingPage from "../pages/athlete/TrainingPage/TrainingPage";
 import Settings from "../pages/Setting/SettingsPage";
+import Coach from "../pages/coach/CoachDashboard";
+import CoachAthletes from "../pages/coach/CoachAthletes";
+import ReportPage from "../pages/coach/ReportPage";
+import MessageCoach from "../pages/coach/MessageCoach";
+import ApplyWorkout from "../pages/coach/ApplyWorkout";
+import CoachAthleteProfile from "../pages/coach/CoachAthleteProfile";
+import CoachSetting from "../pages/coach/Setting";
+import WorkoutProgramBuilder from "../pages/coach/WorkoutProgramBuilder";
 
 export default function AppRoutes() {
   return (
@@ -18,6 +26,14 @@ export default function AppRoutes() {
       <Route path="/AnalysisPage" element={<AnalysisPage />} />
       <Route path="/trainingpage" element={<TrainingPage />} />
       <Route path="/settings" element={<Settings />} />
+      <Route path="/coach/dashboard" element={<Coach />} />
+      <Route path="/coach/athletes" element={<CoachAthletes />} />
+      <Route path="/coach/athletes/:id" element={<CoachAthleteProfile />} />
+      <Route path="/coach/report" element={<ReportPage />} />
+      <Route path="/coach/message" element={<MessageCoach />} />
+      <Route path="/coach/programs" element={<ApplyWorkout />} />
+      <Route path="/coach/builder" element={<WorkoutProgramBuilder />} />
+      <Route path="/coach/settings" element={<CoachSetting />} />
     </Routes>
   );
 }
