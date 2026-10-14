@@ -61,7 +61,7 @@ const BodyChanges = () => {
           {/* بخش اطلاعات */}
           <div className="flex-1 p-5 md:p-6 space-y-4">
             <div>
-              <h3 class="text-2xl  text-[#6B6F77] font-primary mb-3">تغییرات بدن</h3>
+              <h3 className="text-2xl  text-[#6B6F77] font-primary mb-3">تغییرات بدن</h3>
               <p className="text-sm text-gray-500">آخرین بروزرسانی: {stats.lastUpdate}</p>
             </div>
 
