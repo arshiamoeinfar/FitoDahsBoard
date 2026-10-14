@@ -74,7 +74,7 @@ function handleAddExercise(exercise) {
               type="button"
               key={muscle}
               onClick={() => setMuscle(muscle)}
-              className={`rounded-full border px-5 py-3 text-sm font-medium transition ${
+              className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
                 selectedMuscle === muscle
                   ? "border-[#1685F8] bg-[#D9ECFF] text-[#087BEE]"
                   : "border-transparent bg-[#F1F6FC] text-[#707780] hover:border-blue-200"
@@ -90,7 +90,7 @@ function handleAddExercise(exercise) {
               onChange={(event) => setQuery(event.target.value)}
               placeholder="جست‌وجوی حرکت..."
               aria-label="جست‌وجوی حرکت"
-              className="w-full rounded-full border border-slate-200 bg-white py-3 pr-9 pl-3 text-sm outline-none focus:border-blue-400"
+              className="w-full rounded-full border border-slate-200 bg-white py-2 pr-9 pl-3 text-sm outline-none focus:border-blue-400"
             />
           </label>
         </div>

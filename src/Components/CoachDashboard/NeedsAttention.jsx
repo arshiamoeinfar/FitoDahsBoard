@@ -35,7 +35,6 @@ const students = [
   },
 ];
 
-// تنظیمات رنگ بج بر اساس نوع وضعیت
 const statusStyles = {
   warning: "bg-amber-100 text-amber-700",
   danger: "bg-rose-100 text-rose-700",
@@ -47,7 +46,6 @@ const NeedsAttention = () => {
   const navigate = useNavigate()
   return (
     <section className="bg-white rounded-3xl p-5 md:p-7 ">
-      {/* ===== هدر ===== */}
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-primary  text-[#6B6F77]">نیازمند توجه</h2>
         <button
@@ -57,7 +55,6 @@ const NeedsAttention = () => {
         </button>
       </div>
 
-      {/* ===== جدول ===== */}
       <div className="overflow-x-auto ">
         <table className="w-full text-right border-collapse">
           <thead>
