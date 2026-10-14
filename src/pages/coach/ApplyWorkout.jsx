@@ -1,10 +1,12 @@
 import React, { useMemo, useState } from "react";
 import Navbar from "../../Components/shared/Navbar/Navbar";
 import HeaderDashBoard from "../../Components/DashBoardAuth/HeaderDashBoard/HeaderDashBoard";
-import AddIcon from '@mui/icons-material/Add';
-import SearchIcon from '@mui/icons-material/Search';
-import FastfoodIcon from '@mui/icons-material/Fastfood';
-import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
+import AddIcon from "@mui/icons-material/Add";
+import SearchIcon from "@mui/icons-material/Search";
+import FastfoodIcon from "@mui/icons-material/Fastfood";
+import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import WorkoutProgramBuilder from "./WorkoutProgramBuilder";
+import { Navigate, useNavigate } from "react-router-dom";
 const students = [
   {
     id: 1,
@@ -113,12 +115,12 @@ const statusConfig = {
 };
 
 export default function ApplyWorkout() {
+  const [isOpen, setIsOpen] = useState(false);
   const [programType, setProgramType] = useState("workout");
   const [search, setSearch] = useState("");
   const [activeFilter, setActiveFilter] = useState("all");
 
-  const currentProgramKey =
-    programType === "workout" ? "workout" : "nutrition";
+  const currentProgramKey = programType === "workout" ? "workout" : "nutrition";
 
   const filteredStudents = useMemo(() => {
     return students.filter((student) => {
@@ -172,10 +174,14 @@ export default function ApplyWorkout() {
     },
   ];
 
+  const navigate = useNavigate();
+
+  const createProgram = () => {
+    navigate(`/coach/builder`);
+  };
   return (
     <div className="min-h-screen bg-[#F5F7FB] flex justify-center">
       <div className="w-full max-w-[1600px] grid grid-cols-[90px_1fr] gap-6 px-8 py-6 bg-[#F5F7FB]">
-
         {/* Navbar */}
         <div>
           <Navbar />
@@ -183,7 +189,6 @@ export default function ApplyWorkout() {
 
         {/* Main Content */}
         <div className="py-3">
-
           {/* Header */}
           <div className="grid grid-cols-12 gap-6">
             <HeaderDashBoard
@@ -194,15 +199,11 @@ export default function ApplyWorkout() {
 
           {/* Program Management */}
           <section className="mt-7">
-
             {/* ================= TOP CONTROLS ================= */}
             <div className="flex items-center justify-between gap-6 mb-6">
-
               {/* Program Type */}
               <div className="flex items-center gap-2">
-
                 <div className="inline-flex items-center p-1 bg-white border border-[#E8EDF5] rounded-2xl gap-2">
-
                   {/* Workout */}
                   <button
                     type="button"
@@ -232,12 +233,10 @@ export default function ApplyWorkout() {
                     `}
                   >
                     <span className="text-base text-center flex items-center justify-center">
-                      <FitnessCenterIcon/>
+                      <FitnessCenterIcon />
                     </span>
 
-                    <span>
-                      تمرین
-                    </span>
+                    <span>تمرین</span>
                   </button>
 
                   {/* Nutrition */}
@@ -268,24 +267,18 @@ export default function ApplyWorkout() {
                     `}
                   >
                     <span className="text-base text-center flex items-center justify-center">
-                      <FastfoodIcon/>
+                      <FastfoodIcon />
                     </span>
 
-                    <span>
-                      تغذیه
-                    </span>
+                    <span>تغذیه</span>
                   </button>
-
                 </div>
-
               </div>
 
               {/* ================= RIGHT ACTIONS ================= */}
               <div className="flex items-center gap-3">
-
                 {/* Search */}
                 <div className="relative w-[280px]">
-
                   <input
                     type="text"
                     value={search}
@@ -313,13 +306,13 @@ export default function ApplyWorkout() {
                   />
 
                   <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#9AA3B2] text-sm">
-                    <SearchIcon/>
+                    <SearchIcon />
                   </span>
-
                 </div>
 
                 {/* Create Program */}
                 <button
+                  onClick={() => createProgram()}
                   type="button"
                   className="
                     h-12
@@ -341,28 +334,24 @@ export default function ApplyWorkout() {
                   "
                 >
                   <span className="text-lg leading-none">
-                    <AddIcon/>
+                    <AddIcon />
                   </span>
 
-                  <span className="text-white font-medium">
+                  <span onClick={()=> createProgram()}  className="text-white font-medium">
                     {programType === "workout"
                       ? "ساخت برنامه تمرینی"
                       : "ساخت برنامه تغذیه"}
                   </span>
                 </button>
-
               </div>
-
             </div>
+            {/* {isOpen && <WorkoutProgramBuilder />} */}
 
             {/* ================= TABLE CARD ================= */}
             <div className="bg-white rounded-[24px] border border-gray-100  overflow-hidden">
-
               {/* ================= FILTERS ================= */}
               <div className="px-6 pt-5 border-b border-gray-100">
-
                 <div className="flex items-center gap-8">
-
                   {filters.map((filter) => {
                     const active = activeFilter === filter.id;
                     const count = getCount(filter.id);
@@ -385,10 +374,8 @@ export default function ApplyWorkout() {
                           }
                         `}
                       >
-
                         {/* Title + Notification Badge */}
                         <span className="relative inline-flex text-[#6B6F77] font-medium cursor-pointer">
-
                           {filter.title}
 
                           {count > 0 && (
@@ -418,20 +405,16 @@ export default function ApplyWorkout() {
                               {count}
                             </span>
                           )}
-
                         </span>
 
                         {/* Active Line */}
                         {active && (
                           <span className="absolute bottom-0 right-0 left-0 h-[2px] rounded-full bg-[#007BFF]" />
                         )}
-
                       </button>
                     );
                   })}
-
                 </div>
-
               </div>
 
               {/* ================= TABLE HEADER ================= */}
@@ -448,36 +431,21 @@ export default function ApplyWorkout() {
                   text-gray-400
                 "
               >
+                <div>شاگرد</div>
 
-                <div>
-                  شاگرد
-                </div>
+                <div>اسم برنامه</div>
 
-                <div>
-                  اسم برنامه
-                </div>
+                <div>وضعیت</div>
 
-                <div>
-                  وضعیت
-                </div>
+                <div>تاریخ ایجاد</div>
 
-                <div>
-                  تاریخ ایجاد
-                </div>
+                <div>تاریخ انقضا</div>
 
-                <div>
-                  تاریخ انقضا
-                </div>
-
-                <div className="text-center">
-                  مشاهده کامل
-                </div>
-
+                <div className="text-center">مشاهده کامل</div>
               </div>
 
               {/* ================= TABLE BODY ================= */}
               <div>
-
                 {filteredStudents.map((student) => {
                   const program = student[currentProgramKey];
                   const status = statusConfig[program.status];
@@ -497,16 +465,13 @@ export default function ApplyWorkout() {
                         transition
                       "
                     >
-
                       {/* Student */}
                       <div className="flex items-center gap-3">
-
                         <div className="w-11 h-11 rounded-full bg-[#F1F5F9] flex items-center justify-center text-xl">
                           {student.avatar}
                         </div>
 
                         <div>
-
                           <p className="text-sm text-[#6B6F77] font-primary">
                             {student.name}
                           </p>
@@ -514,23 +479,18 @@ export default function ApplyWorkout() {
                           <p className="text-[10px] text-gray-400 mt-1">
                             شاگرد {student.id}
                           </p>
-
                         </div>
-
                       </div>
 
                       {/* Program */}
                       <div>
-
                         <p className="text-sm text-[#6B6F77] font-primary">
                           {program.name}
                         </p>
-
                       </div>
 
                       {/* Status */}
                       <div>
-
                         <span
                           className={`
                             inline-flex
@@ -544,13 +504,10 @@ export default function ApplyWorkout() {
                             ${status.className}
                           `}
                         >
-
                           <span className="w-1.5 h-1.5 rounded-full bg-current " />
 
                           {status.label}
-
                         </span>
-
                       </div>
 
                       {/* Created */}
@@ -565,7 +522,6 @@ export default function ApplyWorkout() {
 
                       {/* View */}
                       <div className="flex justify-center">
-
                         <button
                           type="button"
                           className={`
@@ -584,24 +540,26 @@ export default function ApplyWorkout() {
                             cursor-pointer
                           `}
                         >
-                        {status.label === "فعال" ? "مشاهده کامل" : status.label === "درحال انجام" ? "ادامه فرایند" : status.label === "منقضی شده" ? "حذف" : status.label === "غیرفعال" ? "فعال کردن" : status.label}
+                          {status.label === "فعال"
+                            ? "مشاهده کامل"
+                            : status.label === "درحال انجام"
+                              ? "ادامه فرایند"
+                              : status.label === "منقضی شده"
+                                ? "حذف"
+                                : status.label === "غیرفعال"
+                                  ? "فعال کردن"
+                                  : status.label}
                         </button>
-
                       </div>
-
                     </div>
                   );
                 })}
-
               </div>
 
               {/* ================= EMPTY STATE ================= */}
               {filteredStudents.length === 0 && (
                 <div className="py-20 text-center">
-
-                  <div className="text-4xl mb-4">
-                    🔍
-                  </div>
+                  <div className="text-4xl mb-4">🔍</div>
 
                   <p className="text-sm font-bold text-gray-700">
                     شاگردی پیدا نشد
@@ -610,14 +568,10 @@ export default function ApplyWorkout() {
                   <p className="text-xs text-gray-400 mt-2">
                     جستجو یا فیلتر انتخاب‌شده را تغییر دهید
                   </p>
-
                 </div>
               )}
-
             </div>
-
           </section>
-
         </div>
       </div>
     </div>
