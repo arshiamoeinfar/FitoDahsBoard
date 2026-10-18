@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ThemeProvider, useTheme } from "../../../context/ThemeContext.jsx";
 import {
   User,
   CreditCard,
@@ -29,6 +30,7 @@ import {
   CheckCircle2,
   XCircle,
 } from "lucide-react";
+import ThemeSwitcher from "../../shared/ThemeSwitcher/ThemeSwitcher.jsx";
 
 /* =========================================================
    TABS
@@ -72,7 +74,7 @@ function Toggle({ enabled, onChange }) {
       type="button"
       onClick={() => onChange(!enabled)}
       className={`relative h-7 w-12 shrink-0 rounded-full transition-all duration-300 ${
-        enabled ? "bg-[#007BFF]" : "bg-gray-200"
+        enabled ? "bg-primary" : "bg-muted/30"
       }`}
     >
       <span
@@ -95,19 +97,19 @@ function SettingRow({
   children,
 }) {
   return (
-    <div className="flex items-center justify-between gap-5 rounded-2xl border border-gray-100 bg-white p-5 transition hover:border-blue-100">
+    <div className="flex items-center justify-between gap-5 rounded-2xl border border-border bg-surface p-5 transition hover:border-primary/40">
       <div className="flex min-w-0 items-center gap-4">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-[#007BFF]">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
           <Icon size={20} />
         </div>
 
         <div className="min-w-0">
-          <h4 className="font-semibold text-[#1F2937]">
+          <h4 className="font-semibold text-foreground">
             {title}
           </h4>
 
           {description && (
-            <p className="mt-1 text-sm leading-6 text-[#8A919B]">
+            <p className="mt-1 text-sm leading-6 text-muted">
               {description}
             </p>
           )}
@@ -130,16 +132,16 @@ function SectionHeader({
 }) {
   return (
     <div className="mb-6 flex items-center gap-3">
-      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-[#007BFF]">
+      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
         <Icon size={20} />
       </div>
 
       <div>
-        <h2 className="text-lg font-bold text-[#1F2937]">
+        <h2 className="text-lg font-bold text-foreground">
           {title}
         </h2>
 
-        <p className="mt-1 text-sm text-[#8A919B]">
+        <p className="mt-1 text-sm text-muted">
           {description}
         </p>
       </div>
@@ -160,7 +162,7 @@ function InputField({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-sm font-medium text-[#4B5563]">
+      <label className="mb-2 block text-sm font-medium text-foreground">
         {label}
       </label>
 
@@ -169,7 +171,7 @@ function InputField({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-[#1F2937] outline-none transition placeholder:text-gray-300 focus:border-[#007BFF] focus:ring-4 focus:ring-blue-50"
+        className="w-full rounded-xl border border-border bg-input px-4 py-3 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-primary focus:ring-4 focus:ring-primary/20"
       />
     </div>
   );
@@ -189,35 +191,35 @@ function DeviceCard({
   onLogout,
 }) {
   return (
-    <div className="flex flex-col gap-4 rounded-2xl border border-gray-100 bg-white p-5 transition hover:border-blue-100 md:flex-row md:items-center md:justify-between">
+    <div className="flex flex-col gap-4 rounded-2xl border border-border bg-surface p-5 transition hover:border-primary/40 md:flex-row md:items-center md:justify-between">
       <div className="flex items-center gap-4">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gray-50 text-[#4B5563]">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-surface-secondary text-foreground">
           <Icon size={22} />
         </div>
 
         <div>
           <div className="flex flex-wrap items-center gap-2">
-            <h4 className="font-bold text-[#1F2937]">
+            <h4 className="font-bold text-foreground">
               {title}
             </h4>
 
             {current && (
-              <span className="rounded-full bg-green-50 px-2.5 py-1 text-[11px] font-medium text-green-600">
+              <span className="rounded-full bg-success/10 px-2.5 py-1 text-[11px] font-medium text-success">
                 دستگاه فعلی
               </span>
             )}
           </div>
 
-          <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-[#8A919B]">
+          <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-muted">
             <span>{browser}</span>
             <span>•</span>
             <span>{location}</span>
           </div>
 
-          <div className="mt-2 flex items-center gap-2 text-xs text-[#9CA3AF]">
+          <div className="mt-2 flex items-center gap-2 text-xs text-muted">
             <span
               className={`h-2 w-2 rounded-full ${
-                current ? "bg-green-500" : "bg-gray-300"
+                current ? "bg-success" : "bg-muted/40"
               }`}
             />
 
@@ -230,7 +232,7 @@ function DeviceCard({
         <button
           type="button"
           onClick={onLogout}
-          className="flex items-center justify-center gap-2 rounded-xl bg-red-50 px-4 py-2.5 text-xs font-semibold text-red-500 transition hover:bg-red-100"
+          className="flex items-center justify-center gap-2 rounded-xl bg-danger/10 px-4 py-2.5 text-xs font-semibold text-danger transition hover:bg-danger/20"
         >
           <LogOut size={16} />
           خروج از دستگاه
@@ -258,43 +260,43 @@ function SubscriptionCard({
     <div
       className={`relative flex flex-col rounded-[24px] border p-6 transition-all duration-300 ${
         active
-          ? "border-[#007BFF] bg-blue-50/40 shadow-lg shadow-blue-100"
-          : "border-gray-100 bg-white hover:-translate-y-1 hover:border-blue-100 hover:shadow-xl hover:shadow-gray-100"
+          ? "border-primary bg-primary/10 shadow-lg shadow-primary/20"
+          : "border-border bg-surface hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl"
       }`}
     >
       {popular && (
-        <div className="absolute -top-3 right-6 rounded-full bg-[#007BFF] px-4 py-1.5 text-[11px] font-bold text-white shadow-md shadow-blue-100">
+        <div className="absolute -top-3 right-6 rounded-full bg-primary px-4 py-1.5 text-[11px] font-bold text-white shadow-md shadow-primary/20">
           محبوب‌ترین پلن
         </div>
       )}
 
       {active && (
-        <div className="absolute left-5 top-5 flex items-center gap-1 rounded-full bg-green-50 px-3 py-1.5 text-[11px] font-medium text-green-600">
+        <div className="absolute left-5 top-5 flex items-center gap-1 rounded-full bg-success/10 px-3 py-1.5 text-[11px] font-medium text-success">
           <CheckCircle2 size={13} />
           پلن فعلی
         </div>
       )}
 
       <div className="mb-5">
-        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-[#007BFF]">
+        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
           <Crown size={22} />
         </div>
 
-        <h3 className="text-xl font-bold text-[#1F2937]">
+        <h3 className="text-xl font-bold text-foreground">
           {name}
         </h3>
 
-        <p className="mt-2 text-sm leading-6 text-[#8A919B]">
+        <p className="mt-2 text-sm leading-6 text-muted">
           {description}
         </p>
       </div>
 
       <div className="mb-6">
-        <span className="text-3xl font-bold text-[#1F2937]">
+        <span className="text-3xl font-bold text-foreground">
           {price}
         </span>
 
-        <span className="mr-1 text-sm text-[#8A919B]">
+        <span className="mr-1 text-sm text-muted">
           {period}
         </span>
       </div>
@@ -303,9 +305,9 @@ function SubscriptionCard({
         {features.map((feature, index) => (
           <div
             key={index}
-            className="flex items-center gap-2 text-sm text-[#5F6B7A]"
+            className="flex items-center gap-2 text-sm text-foreground/80"
           >
-            <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-50 text-green-600">
+            <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-success/10 text-success">
               <Check size={12} />
             </span>
 
@@ -320,8 +322,8 @@ function SubscriptionCard({
         disabled={active}
         className={`mt-auto flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition ${
           active
-            ? "cursor-default bg-green-50 text-green-600"
-            : "bg-[#007BFF] text-white hover:bg-blue-600"
+            ? "cursor-default bg-success/10 text-success"
+            : "bg-primary text-white hover:bg-primary-hover"
         }`}
       >
         {active ? (
@@ -416,7 +418,7 @@ export default function AthleteSettings() {
 
   /* SETTINGS */
 
-  const [theme, setTheme] = useState("light");
+  const { theme, setTheme } = useTheme();
 
   const [settings, setSettings] = useState({
     autoPlayVideos: true,
@@ -447,32 +449,32 @@ export default function AthleteSettings() {
 
         {/* PROFILE IMAGE */}
 
-        <div className="mb-7 flex flex-col gap-5 rounded-2xl border border-gray-100 bg-gray-50/50 p-5 sm:flex-row sm:items-center">
+        <div className="mb-7 flex flex-col gap-5 rounded-2xl border border-border  p-5 sm:flex-row sm:items-center">
           <div className="relative">
-            <div className="flex h-24 w-24 items-center justify-center overflow-hidden rounded-[22px] bg-blue-50 text-3xl font-bold text-[#007BFF]">
+            <div className="flex h-24 w-24 items-center justify-center overflow-hidden rounded-[22px] bg-primary/10 text-3xl font-bold text-primary">
               ا
             </div>
 
             <button
               type="button"
-              className="absolute -bottom-2 -left-2 flex h-9 w-9 items-center justify-center rounded-xl bg-[#007BFF] text-white shadow-lg shadow-blue-100 transition hover:bg-blue-600"
+              className="absolute -bottom-2 -left-2 flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-primary/20 transition hover:bg-primary-hover"
             >
               <Camera size={17} />
             </button>
           </div>
 
           <div>
-            <h3 className="font-bold text-[#1F2937]">
+            <h3 className="font-bold text-foreground">
               تصویر پروفایل
             </h3>
 
-            <p className="mt-1 text-sm text-[#8A919B]">
+            <p className="mt-1 text-sm text-muted">
               تصویر پروفایل خود را برای حساب Fito انتخاب کنید.
             </p>
 
             <button
               type="button"
-              className="mt-3 rounded-xl border border-gray-200 bg-white px-4 py-2 text-xs font-semibold text-[#4B5563] transition hover:border-blue-200 hover:text-[#007BFF]"
+              className="mt-3 rounded-xl border border-border bg-surface px-4 py-2 text-xs font-semibold text-foreground transition hover:border-primary/40 hover:text-primary"
             >
               تغییر تصویر
             </button>
@@ -482,7 +484,7 @@ export default function AthleteSettings() {
         {/* PERSONAL INFO */}
 
         <div className="mb-7">
-          <h3 className="mb-4 font-bold text-[#1F2937]">
+          <h3 className="mb-4 font-bold text-foreground">
             اطلاعات شخصی
           </h3>
 
@@ -559,52 +561,52 @@ export default function AthleteSettings() {
         {/* SPORT SUMMARY */}
 
         <div>
-          <h3 className="mb-4 font-bold text-[#1F2937]">
+          <h3 className="mb-4 font-bold text-foreground">
             خلاصه وضعیت
           </h3>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-gray-100 bg-white p-5">
+            <div className="rounded-2xl border border-border bg-surface p-5">
               <Dumbbell
                 size={21}
-                className="mb-4 text-[#007BFF]"
+                className="mb-4 text-primary"
               />
 
-              <p className="text-sm text-[#8A919B]">
+              <p className="text-sm text-muted">
                 تمرین در هفته
               </p>
 
-              <p className="mt-2 text-xl font-bold text-[#1F2937]">
+              <p className="mt-2 text-xl font-bold text-foreground">
                 ۴ روز
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-100 bg-white p-5">
+            <div className="rounded-2xl border border-border bg-surface p-5">
               <Activity
                 size={21}
-                className="mb-4 text-[#007BFF]"
+                className="mb-4 text-primary"
               />
 
-              <p className="text-sm text-[#8A919B]">
+              <p className="text-sm text-muted">
                 وزن فعلی
               </p>
 
-              <p className="mt-2 text-xl font-bold text-[#1F2937]">
+              <p className="mt-2 text-xl font-bold text-foreground">
                 ۷۸ kg
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-100 bg-white p-5">
+            <div className="rounded-2xl border border-border bg-surface p-5">
               <Target
                 size={21}
-                className="mb-4 text-[#007BFF]"
+                className="mb-4 text-primary"
               />
 
-              <p className="text-sm text-[#8A919B]">
+              <p className="text-sm text-muted">
                 هدف
               </p>
 
-              <p className="mt-2 text-xl font-bold text-[#1F2937]">
+              <p className="mt-2 text-xl font-bold text-foreground">
                 عضله‌سازی
               </p>
             </div>
@@ -677,36 +679,36 @@ export default function AthleteSettings() {
 
         {/* CURRENT PLAN */}
 
-        <div className="mb-7 overflow-hidden rounded-[24px] border border-blue-100 bg-gradient-to-l from-blue-50 to-white p-6">
+        <div className="mb-7 overflow-hidden rounded-[24px] border border-primary/30 p-6 bg-surface">
           <div className="flex flex-col justify-between gap-5 md:flex-row md:items-center">
             <div className="flex items-center gap-4">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#007BFF] text-white shadow-lg shadow-blue-100">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary text-white shadow-lg shadow-primary/20">
                 <Crown size={25} />
               </div>
 
               <div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="text-lg font-bold text-[#1F2937]">
+                  <h3 className="text-lg font-bold text-foreground">
                     پلن حرفه‌ای
                   </h3>
 
-                  <span className="rounded-full bg-green-50 px-3 py-1 text-[11px] font-medium text-green-600">
+                  <span className="rounded-full bg-success/10 px-3 py-1 text-[11px] font-medium text-success">
                     فعال
                   </span>
                 </div>
 
-                <p className="mt-1 text-sm text-[#8A919B]">
+                <p className="mt-1 text-sm text-muted">
                   اشتراک شما تا ۳۰ روز دیگر فعال است.
                 </p>
               </div>
             </div>
 
             <div className="text-right">
-              <p className="text-xs text-[#9CA3AF]">
+              <p className="text-xs text-muted">
                 تمدید بعدی
               </p>
 
-              <p className="mt-1 font-bold text-[#1F2937]">
+              <p className="mt-1 font-bold text-foreground">
                 ۳۰ مهر ۱۴۰۵
               </p>
             </div>
@@ -858,18 +860,18 @@ export default function AthleteSettings() {
 
         {/* PASSWORD */}
 
-        <div className="mb-6 rounded-2xl border border-gray-100 bg-white p-5">
+        <div className="mb-6 rounded-2xl border border-border bg-surface p-5">
           <div className="mb-5 flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-[#007BFF]">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <LockKeyhole size={19} />
             </div>
 
             <div>
-              <h3 className="font-bold text-[#1F2937]">
+              <h3 className="font-bold text-foreground">
                 تغییر رمز عبور
               </h3>
 
-              <p className="mt-1 text-xs text-[#9CA3AF]">
+              <p className="mt-1 text-xs text-muted">
                 رمز عبور حساب خود را تغییر دهید.
               </p>
             </div>
@@ -894,7 +896,7 @@ export default function AthleteSettings() {
                 onClick={() =>
                   setShowPassword(!showPassword)
                 }
-                className="absolute left-3 top-[39px] text-gray-400"
+                className="absolute left-3 top-[39px] text-muted"
               >
                 {showPassword ? (
                   <EyeOff size={18} />
@@ -931,7 +933,7 @@ export default function AthleteSettings() {
 
           <button
             type="button"
-            className="mt-5 flex items-center gap-2 rounded-xl bg-[#007BFF] px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-600"
+            className="mt-5 flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover"
           >
             <LockKeyhole size={17} />
             تغییر رمز عبور
@@ -943,16 +945,16 @@ export default function AthleteSettings() {
         <div>
           <div className="mb-4 flex items-center justify-between">
             <div>
-              <h3 className="font-bold text-[#1F2937]">
+              <h3 className="font-bold text-foreground">
                 دستگاه‌های فعال
               </h3>
 
-              <p className="mt-1 text-sm text-[#8A919B]">
+              <p className="mt-1 text-sm text-muted">
                 دستگاه‌هایی که در حال حاضر به حساب شما دسترسی دارند.
               </p>
             </div>
 
-            <span className="rounded-full bg-green-50 px-3 py-1.5 text-xs font-medium text-green-600">
+            <span className="rounded-full bg-success/10 px-3 py-1.5 text-xs font-medium text-success">
               {devices.length} دستگاه
             </span>
           </div>
@@ -1007,7 +1009,7 @@ export default function AthleteSettings() {
         {/* THEME */}
 
         <div className="mb-6">
-          <h3 className="mb-4 font-bold text-[#1F2937]">
+          <h3 className="mb-4 font-bold text-foreground">
             ظاهر برنامه
           </h3>
 
@@ -1039,12 +1041,12 @@ export default function AthleteSettings() {
                   onClick={() => setTheme(item.id)}
                   className={`relative rounded-2xl border p-5 text-right transition ${
                     active
-                      ? "border-[#007BFF] bg-blue-50/50 ring-4 ring-blue-50"
-                      : "border-gray-100 bg-white hover:border-blue-100"
+                      ? "border-primary bg-primary/10 "
+                      : "border-border bg-surface hover:border-primary/40"
                   }`}
                 >
                   {active && (
-                    <span className="absolute left-4 top-4 flex h-6 w-6 items-center justify-center rounded-full bg-[#007BFF] text-white">
+                    <span className="absolute left-4 top-4 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white">
                       <Check size={14} />
                     </span>
                   )}
@@ -1052,14 +1054,14 @@ export default function AthleteSettings() {
                   <div
                     className={`mb-4 flex h-11 w-11 items-center justify-center rounded-xl ${
                       active
-                        ? "bg-[#007BFF] text-white"
-                        : "bg-gray-50 text-gray-500"
+                        ? "bg-primary text-white"
+                        : "bg-surface-secondary text-muted"
                     }`}
                   >
                     <Icon size={20} />
                   </div>
 
-                  <h4 className="font-bold text-[#1F2937]">
+                  <h4 className="font-bold text-foreground">
                     {item.title}
                   </h4>
                 </button>
@@ -1132,7 +1134,7 @@ export default function AthleteSettings() {
                   language: e.target.value,
                 })
               }
-              className="rounded-xl border border-gray-200 bg-white px-4 py-2.5 text-sm outline-none focus:border-[#007BFF]"
+              className="rounded-xl border border-border bg-input px-4 py-2.5 text-sm outline-none focus:border-primary"
             >
               <option value="fa">فارسی</option>
               <option value="en">English</option>
@@ -1176,7 +1178,7 @@ export default function AthleteSettings() {
   return (
     <div
       dir="rtl"
-      className="min-h-screen bg-[#F5F7FB] px-4 py-6 md:px-8"
+      className="min-h-screen bg-background px-4 py-6 md:px-8"
     >
       <div className="mx-auto w-full max-w-[1500px]">
 
@@ -1184,27 +1186,30 @@ export default function AthleteSettings() {
 
         <div className="mb-6 flex flex-col justify-between gap-4 md:flex-row md:items-center">
           <div>
-            <h1 className="text-3xl font-bold text-[#6B6F77]">
+            <h1 className="text-3xl font-bold text-muted">
               تنظیمات حساب
             </h1>
 
-            <p className="mt-2 text-sm text-[#8A919B]">
+            <p className="mt-2 text-sm text-muted">
               اطلاعات حساب و تجربه استفاده از Fito را مدیریت کنید.
             </p>
           </div>
+          <div className="flex gap-3">
 
+          <ThemeSwitcher/>
           <button
             type="button"
-            className="flex items-center justify-center gap-2 rounded-xl bg-[#007BFF] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-100 transition hover:bg-blue-600"
-          >
+            className="flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-primary-hover"
+            >
             <Save size={18} />
             ذخیره تغییرات
           </button>
+          </div>
         </div>
 
         {/* TABS */}
 
-        <div className="mb-6 overflow-hidden rounded-[24px] border border-gray-100 bg-white shadow-[0_4px_30px_rgba(0,0,0,0.03)]">
+        <div className="mb-6 overflow-hidden rounded-3xl border border-border bg-surface shadow-[0_4px_30px_rgba(0,0,0,0.03)]">
           <div className="scrollbar-hide flex overflow-x-auto">
             {tabs.map((tab) => {
               const Icon = tab.icon;
@@ -1217,8 +1222,8 @@ export default function AthleteSettings() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`relative flex min-w-[150px] shrink-0 items-center justify-center gap-2.5 px-5 py-5 text-sm font-medium transition-all ${
                     active
-                      ? "bg-blue-50/40 text-[#007BFF]"
-                      : "text-[#7C8490] hover:bg-gray-50 hover:text-[#1F2937]"
+                      ? "bg-primary/10 text-primary"
+                      : "text-muted hover:bg-surface-secondary hover:text-foreground"
                   }`}
                 >
                   <Icon size={18} />
@@ -1226,7 +1231,7 @@ export default function AthleteSettings() {
                   <span>{tab.title}</span>
 
                   {active && (
-                    <span className="absolute bottom-0 right-5 left-5 h-[3px] rounded-full bg-[#007BFF]" />
+                    <span className="absolute bottom-0 right-5 left-5 h-[3px] rounded-full bg-primary" />
                   )}
                 </button>
               );
@@ -1236,7 +1241,7 @@ export default function AthleteSettings() {
 
         {/* CONTENT */}
 
-        <div className="rounded-[28px] border border-gray-100 bg-white p-5 shadow-[0_4px_30px_rgba(0,0,0,0.03)] md:p-8">
+        <div className="rounded-3xl border border-border bg-surface p-5 shadow-[0_4px_30px_rgba(0,0,0,0.03)] md:p-8">
           {renderContent()}
         </div>
 
@@ -1245,7 +1250,7 @@ export default function AthleteSettings() {
         <div className="mt-5 flex justify-end">
           <button
             type="button"
-            className="flex items-center gap-2 rounded-xl bg-[#007BFF] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-100 transition hover:bg-blue-600"
+            className="flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-primary-hover"
           >
             <Save size={18} />
             ذخیره تغییرات

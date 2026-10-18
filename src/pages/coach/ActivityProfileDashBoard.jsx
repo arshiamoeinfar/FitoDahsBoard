@@ -20,7 +20,7 @@ export default function ActivityProfileDashBoard() {
   return (
    <main
         dir="rtl"
-        className="min-h-screen bg-[#F1F7FC]"
+        className="min-h-screen bg-background"
       >
         <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-4 lg:grid-cols-2">
           <HealthInfoCard

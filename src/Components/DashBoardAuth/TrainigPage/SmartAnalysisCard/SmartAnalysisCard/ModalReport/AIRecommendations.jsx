@@ -7,9 +7,9 @@ export default function AIRecommendations({
   recommendations,
 }) {
   return (
-    <section className="mt-4 overflow-hidden rounded-[26px] bg-white shadow-sm">
+    <section className="mt-4 overflow-hidden rounded-[26px] bg-surface shadow-sm">
 
-      <div className="bg-[#007BFF] px-5 py-5 text-white sm:px-6">
+      <div className="bg-primary px-5 py-5 text-white sm:px-6">
 
         <div className="flex items-center gap-3">
 
@@ -38,14 +38,14 @@ export default function AIRecommendations({
         {recommendations.map((item, index) => (
           <div
             key={index}
-            className="flex items-start gap-3 rounded-[18px] bg-[#F7FAFD] p-3.5"
+            className="flex items-start gap-3 rounded-[18px] bg-surface-secondary p-3.5"
           >
 
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#007BFF] text-xs font-bold text-white">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">
               {index + 1}
             </div>
 
-            <p className="text-xs leading-7 text-[#62666D]">
+            <p className="text-xs leading-7 text-foreground">
               {item}
             </p>
 

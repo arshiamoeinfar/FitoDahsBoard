@@ -32,3 +32,87 @@ body{
 .font-primary-ExtraLight {
   font-family: "Modam-ExtraLight", sans-serif;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+
+  --background: #f5f7fb;
+  --surface: #ffffff;
+  --surface-secondary: #f0f4fa;
+  --foreground: #6B6F77;
+  --muted: #6b6f77;
+  --border: #e3e8f0;
+  --primary: #007bff;
+  --primary-hover: #0066d6;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --input: #ffffff;
+  --overlay: rgb(15 23 42 / 45%);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --background: #0B1220;
+  --surface: #141d2e;
+  --surface-secondary: #1c2940;
+  --foreground: #f1f5f9;
+  --muted: #a0aec0;
+  --border: #2b3950;
+  --primary: #3395ff;
+  --primary-hover: #5aa8ff;
+  --success: #4ade80;
+  --danger: #f87171;
+  --input: #10192a;
+  --overlay: rgb(0 0 0 / 65%);
+}
+
+/* اتصال متغیرها به کلاس‌های Tailwind */
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --color-input: var(--input);
+  --color-overlay: var(--overlay);
+}
+
+html {
+  background: var(--background);
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+* {
+  border-color: var(--border);
+}
+
+input,
+textarea,
+select {
+  color: var(--foreground);
+  /* background-color: var(--input); */
+}
+
+::placeholder {
+  color: var(--muted);
+}
+
+:focus-visible {
+  outline-color: var(--primary);
+}

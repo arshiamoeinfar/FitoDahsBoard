@@ -169,19 +169,19 @@ function ProgressChart({ progress }) {
   const ticks = [40, 30, 20, 10];
 
   return (
-    <div className="bg-white rounded-3xl p-7 border border-[#A6A9AD]">
+    <div className="bg-surface rounded-3xl p-7 border border-border">
       <div className="flex items-center justify-between mb-8">
-        <h3 className="text-lg font-semibold text-[#6B6F77]">
+        <h3 className="text-lg font-semibold text-muted">
           روند پیشرفت وزنه ها
         </h3>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#007BFF]" />
-            <span className="text-xs text-[#6B6F77]">این ماه</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+            <span className="text-xs text-muted">این ماه</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-[#BFDBFF]" />
-            <span className="text-xs text-[#6B6F77]">ماه قبل</span>
+            <span className="text-xs text-muted">ماه قبل</span>
           </div>
         </div>
       </div>
@@ -190,7 +190,7 @@ function ProgressChart({ progress }) {
         <div className="flex-1 relative h-40">
           <div className="absolute inset-0 flex flex-col justify-between pb-5">
             {ticks.map((t) => (
-              <div key={t} className="h-px bg-[#EEF2F8]" />
+              <div key={t} className="h-px bg-border" />
             ))}
           </div>
 
@@ -201,7 +201,7 @@ function ProgressChart({ progress }) {
                 className="flex items-end gap-1 flex-1 justify-center group h-full"
               >
                 <div
-                  className="w-2 rounded-t-md bg-[#007BFF] transition-all"
+                  className="w-2 rounded-t-md bg-primary transition-all"
                   style={{
                     height: `${(progress.thisMonth[i] / maxValue) * 100}%`,
                   }}
@@ -218,7 +218,7 @@ function ProgressChart({ progress }) {
             ))}
           </div>
         </div>
-        <div className="flex flex-col justify-between text-xs text-[#C3C7CE] h-40 pb-5">
+        <div className="flex flex-col justify-between text-xs text-muted h-40 pb-5">
           {ticks.map((t) => (
             <span key={t}>{t}</span>
           ))}
@@ -238,23 +238,23 @@ function WorkoutCalendarCard({
   onNextMonth,
 }) {
   return (
-    <div className="bg-[#F2F8FD] rounded-3xl p-7">
-      <h3 className="text-xl font-primary text-[#6B6F77] text-right mb-5">
+    <div className="bg-surface-secondary rounded-3xl p-7">
+      <h3 className="text-xl font-primary text-muted text-right mb-5">
         تقویم تمرینات
       </h3>
 
-      <div className="bg-white rounded-full flex items-center justify-between px-5 py-3 mb-6">
+      <div className="bg-surface rounded-full flex items-center justify-between px-5 py-3 mb-6">
         <button
           onClick={onPrevMonth}
-          className="text-[#4F5965] hover:text-[#007BFF] transition cursor-pointer"
+          className="text-foreground hover:text-primary transition cursor-pointer"
           aria-label="ماه قبل"
         >
           <ChevronLeftIcon fontSize="small" />
         </button>
-        <span className="text-[#4F5965] font-medium">{month.monthLabel}</span>
+        <span className="text-foreground font-medium">{month.monthLabel}</span>
         <button
           onClick={onNextMonth}
-          className="text-[#4F5965] hover:text-[#007BFF] transition cursor-pointer"
+          className="text-foreground hover:text-primary transition cursor-pointer"
           aria-label="ماه بعد"
         >
           <ChevronRightIcon fontSize="small" />
@@ -263,7 +263,7 @@ function WorkoutCalendarCard({
 
       <div className="grid grid-cols-7 text-center mb-4">
         {WEEKDAYS.map((d) => (
-          <div key={d} className="text-[#8A93A3] text-sm font-medium">
+          <div key={d} className="text-muted text-sm font-medium">
             {d}
           </div>
         ))}
@@ -281,8 +281,8 @@ function WorkoutCalendarCard({
               <span
                 className={`text-lg transition ${
                   isSelected
-                    ? "text-[#007BFF] font-bold"
-                    : "text-[#4F5965] hover:text-[#007BFF]"
+                    ? "text-primary font-bold"
+                    : "text-foreground hover:text-primary"
                 }`}
               >
                 {day}
@@ -290,7 +290,7 @@ function WorkoutCalendarCard({
               {hasWorkout && (
                 <span
                   className={`w-1.5 h-1.5 rounded-full ${
-                    isSelected ? "bg-[#007BFF]" : "bg-[#7FB1FF]"
+                    isSelected ? "bg-primary" : "bg-primary/20"
                   }`}
                 />
               )}
@@ -307,19 +307,19 @@ function WorkoutCalendarCard({
 ===================================================== */
 function WorkoutSessionCard({ session }) {
   return (
-    <div className="bg-[#F2F8FD] rounded-t-2xl overflow-hidden">
+    <div className="bg-surface-secondary rounded-t-2xl overflow-hidden">
       <div className="flex items-center justify-between px-5 py-3.5">
-        <p className="text-base font-primary text-[#6B6F77]">
+        <p className="text-base font-primary text-muted">
           {session.title}
         </p>
-        <div className="flex items-center gap-1.5 text-[#007BFF] text-sm font-medium">
+        <div className="flex items-center gap-1.5 text-primary text-sm font-medium">
           <CalendarTodayOutlinedIcon sx={{ fontSize: 15 }} />
           {session.weekday} - {session.dateLabel}
         </div>
       </div>
 
-      <div className="bg-white border-x border-b border-[#F0F2F5] rounded-b-xl overflow-hidden">
-        <div className="grid grid-cols-4 px-5 py-3 text-xs text-[#8A93A3] border-b border-[#F0F2F5]">
+      <div className="bg-surface border-x border-b border-border rounded-b-xl overflow-hidden">
+        <div className="grid grid-cols-4 px-5 py-3 text-xs text-muted border-b border-border">
           <span className="text-right">حرکت</span>
           <span className="text-center">تکرار</span>
           <span className="text-center">ست</span>
@@ -328,7 +328,7 @@ function WorkoutSessionCard({ session }) {
         {session.exercises.map((ex, i) => (
           <div
             key={i}
-            className="grid grid-cols-4 px-5 py-3.5 text-sm text-[#4F5965] border-b border-[#F5F7FA] last:border-0"
+            className="grid grid-cols-4 px-5 py-3.5 text-sm text-foreground border-b border-border last:border-0"
           >
             <span className="text-right font-medium">{ex.name}</span>
             <span className="text-center">{ex.reps}</span>
@@ -350,13 +350,13 @@ function WorkoutProgramCard({
   const week = month.weeks[selectedWeekIndex];
 
   return (
-    <div className="bg-white rounded-3xl p-7 flex flex-col min-h-0 border border-[#A6A9AD]">
+    <div className="bg-surface rounded-3xl p-7 flex flex-col min-h-0 border border-border">
       <div className="flex items-center justify-between mb-6 shrink-0">
-        <h3 className="text-xl font-primary text-[#6B6F77]">
+        <h3 className="text-xl font-primary text-muted">
           برنامه تمرینی ({month.programLabel})
         </h3>
 
-        <div className="bg-[#007BFF] rounded-full flex items-center gap-3 px-5 py-2.5 text-white">
+        <div className="bg-primary rounded-full flex items-center gap-3 px-5 py-2.5 text-white">
           <button
             onClick={onNextWeek}
             disabled={selectedWeekIndex === month.weeks.length - 1}
@@ -415,30 +415,30 @@ export default function WorkoutProgramModal({ showModal, setShowModal }) {
 
   return (
     <div
-      className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4"
+      className="fixed inset-0 bg-overlay flex items-center justify-center z-50 px-4"
       onClick={() => setShowModal(false)}
     >
       <div
-        className="bg-[#F8FAFE] rounded-[40px] w-full max-w-6xl max-h-[92vh] overflow-y-auto p-10"
+        className="bg-surface-secondary rounded-[40px] w-full max-w-6xl max-h-[92vh] overflow-y-auto p-10"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-start justify-between mb-8">
           <div className="flex items-start gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-[#E8F1FF] flex items-center justify-center shrink-0">
-              <FitnessCenterOutlinedIcon className="text-[#007BFF]" />
+            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+              <FitnessCenterOutlinedIcon className="text-primary" />
             </div>
             <div className="text-right">
-              <h2 className="text-2xl font-bold text-[#4F5965]">
+              <h2 className="text-2xl font-bold text-foreground">
                 تمامی تمرینات من
               </h2>
-              <p className="text-sm text-[#A0A4AA] mt-1">
+              <p className="text-sm text-muted mt-1">
                 برنامه تمرینیت رو که مربی برات تنظیم کرده اینجا میتونی ببینی
               </p>
             </div>
           </div>
           <button
             onClick={() => setShowModal(false)}
-            className="w-10 h-10 rounded-full border-2 border-[#007BFF] flex items-center justify-center text-[#007BFF] hover:bg-[#E8F1FF] transition cursor-pointer"
+            className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center text-primary hover:bg-primary/20 transition cursor-pointer"
             aria-label="بستن"
           >
             <CloseIcon fontSize="small" />

@@ -123,31 +123,31 @@ function WorkoutDetails({ workout, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-[999] flex items-center justify-center bg-black/30 backdrop-blur-sm p-5"
+      className="fixed inset-0 z-[999] flex items-center justify-center bg-overlay backdrop-blur-sm p-5"
       onClick={onClose}
     >
       <div
         dir="rtl"
         onClick={(event) => event.stopPropagation()}
-        className="w-full max-w-2xl max-h-[85vh] overflow-hidden rounded-[32px] bg-white shadow-2xl"
+        className="w-full max-w-2xl max-h-[85vh] overflow-hidden rounded-[32px] bg-surface shadow-2xl"
       >
 
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-[#EEF1F5] p-6">
+        <div className="flex items-center justify-between border-b border-border p-6">
 
           <div>
-            <span className="text-sm text-[#007BFF]">
+            <span className="text-sm text-primary">
               {workout.date}
             </span>
 
-            <h2 className="mt-2 text-2xl text-[#6B6F77]">
+            <h2 className="mt-2 text-2xl text-foreground">
               {workout.day}
             </h2>
           </div>
 
           <button
             onClick={onClose}
-            className="flex size-10 items-center justify-center rounded-full bg-[#F5F7FA] text-xl transition hover:bg-[#EAF2FB]"
+            className="flex size-10 items-center justify-center rounded-full bg-surface-secondary text-xl transition hover:bg-primary/10"
           >
             ✕
           </button>
@@ -159,17 +159,17 @@ function WorkoutDetails({ workout, onClose }) {
         <div className="grid grid-cols-3 gap-3 p-6">
 
           {/* Exercises */}
-          <div className="rounded-2xl bg-[#F6F9FD] p-4 text-center">
+          <div className="rounded-2xl bg-surface-secondary p-4 text-center">
 
             <div className="mb-2 text-2xl">
               🏋️
             </div>
 
-            <p className="text-xs text-[#A0A4AA]">
+            <p className="text-xs text-muted">
               حرکات
             </p>
 
-            <p className="mt-1 text-lg text-[#6B6F77]">
+            <p className="mt-1 text-lg text-foreground">
               {workout.exercises}
             </p>
 
@@ -177,17 +177,17 @@ function WorkoutDetails({ workout, onClose }) {
 
 
           {/* Sets */}
-          <div className="rounded-2xl bg-[#F6F9FD] p-4 text-center">
+          <div className="rounded-2xl bg-surface-secondary p-4 text-center">
 
             <div className="mb-2 text-2xl">
               🔄
             </div>
 
-            <p className="text-xs text-[#A0A4AA]">
+            <p className="text-xs text-muted">
               ست‌ها
             </p>
 
-            <p className="mt-1 text-lg text-[#6B6F77]">
+            <p className="mt-1 text-lg text-foreground">
               {workout.sets}
             </p>
 
@@ -195,17 +195,17 @@ function WorkoutDetails({ workout, onClose }) {
 
 
           {/* Duration */}
-          <div className="rounded-2xl bg-[#F6F9FD] p-4 text-center">
+          <div className="rounded-2xl bg-surface-secondary p-4 text-center">
 
             <div className="mb-2 text-2xl">
               ⏱️
             </div>
 
-            <p className="text-xs text-[#A0A4AA]">
+            <p className="text-xs text-muted">
               مدت تمرین
             </p>
 
-            <p className="mt-1 text-lg text-[#6B6F77]">
+            <p className="mt-1 text-lg text-foreground">
               {workout.duration}
             </p>
 
@@ -217,7 +217,7 @@ function WorkoutDetails({ workout, onClose }) {
         {/* Exercises */}
         <div className="max-h-[45vh] overflow-y-auto px-6 pb-6">
 
-          <h3 className="mb-4 text-lg text-[#6B6F77]">
+          <h3 className="mb-4 text-lg text-foreground">
             حرکات انجام شده
           </h3>
 
@@ -228,22 +228,22 @@ function WorkoutDetails({ workout, onClose }) {
 
               <div
                 key={exercise.id}
-                className="flex items-center justify-between rounded-2xl border border-[#EEF1F5] bg-white p-4 transition hover:border-[#D8E8F9] hover:bg-[#FAFCFF]"
+                className="flex items-center justify-between rounded-2xl border border-border bg-surface p-4 transition hover:border-primary/30 hover:bg-surface-secondary"
               >
 
                 <div className="flex items-center gap-3">
 
-                  <div className="flex size-11 items-center justify-center rounded-xl bg-[#EAF3FF] text-xl">
+                  <div className="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-xl">
                     🏋️
                   </div>
 
                   <div>
 
-                    <p className="text-sm text-[#6B6F77]">
+                    <p className="text-sm text-foreground">
                       {exercise.name}
                     </p>
 
-                    <p className="mt-1 text-xs text-[#A0A4AA]">
+                    <p className="mt-1 text-xs text-muted">
                       {exercise.sets} ست × {exercise.reps} تکرار
                     </p>
 
@@ -254,7 +254,7 @@ function WorkoutDetails({ workout, onClose }) {
 
                 <div className="text-left">
 
-                  <p className="text-sm text-[#6B6F77]">
+                  <p className="text-sm text-foreground">
                     {exercise.weight}
                   </p>
 
@@ -300,7 +300,7 @@ export default function WorkoutHistory() {
 
       <section
         dir="rtl"
-        className="h-full rounded-3xl bg-white p-6"
+        className="h-full rounded-3xl bg-surface p-6"
       >
 
         {/* Header */}
@@ -308,11 +308,11 @@ export default function WorkoutHistory() {
 
           <div>
 
-            <h2 className="text-xl text-[#6B6F77]">
+            <h2 className="text-xl text-foreground">
               تاریخچه تمرین‌ها
             </h2>
 
-            <p className=" text-sm text-[#A0A4AA]">
+            <p className=" text-sm text-muted">
               تمرین‌های انجام شده اخیر
             </p>
 
@@ -321,7 +321,7 @@ export default function WorkoutHistory() {
 
           <button
             onClick={() => setShowAll(!showAll)}
-            className="flex items-center gap-1 text-sm text-[#007BFF] transition hover:text-[#0056A3]"
+            className="flex items-center gap-1 text-sm text-primary transition hover:text-primary-hover"
           >
             {showAll ? "نمایش کمتر" : "مشاهده همه"}
 
@@ -334,7 +334,7 @@ export default function WorkoutHistory() {
         <div className="relative">
 
           {/* Timeline Line */}
-          <div className="absolute right-[9px] top-4 bottom-4 w-[2px] bg-[#E5ECF4]" />
+          <div className="absolute right-[9px] top-4 bottom-4 w-[2px] bg-border" />
 
 
           <div className="space-y-7">
@@ -351,10 +351,10 @@ export default function WorkoutHistory() {
                 <div className="relative z-10 flex shrink-0 justify-center">
 
                   <div
-                    className={`size-5 rounded-full border-4 border-white shadow-sm transition ${
+                    className={`size-5 rounded-full border-4 border-surface shadow-sm transition ${
                       index === 0
-                        ? "bg-[#007BFF]"
-                        : "bg-white border-[#DDE5EE]"
+                        ? "bg-primary"
+                        : "bg-surface border-border"
                     }`}
                   />
 
@@ -362,24 +362,24 @@ export default function WorkoutHistory() {
 
 
                 {/* Content */}
-                <div className="flex-1 rounded-2xl p-1 transition group-hover:bg-[#F7FAFE]">
+                <div className="flex-1 rounded-2xl p-1 transition group-hover:bg-surface-secondary">
 
                   <div className="flex items-start justify-between">
 
                     <div>
 
-                      <p className="text-sm text-[#A0A4AA]">
+                      <p className="text-sm text-muted">
                         {workout.date}
                       </p>
 
-                      <h3 className="mt-1 text-lg text-[#6B6F77]">
+                      <h3 className="mt-1 text-lg text-foreground">
                         {workout.day}
                       </h3>
 
                     </div>
 
 
-                    <span className="rounded-full bg-[#EAF3FF] px-3 py-1 text-xs text-[#007BFF] opacity-0 transition group-hover:opacity-100">
+                    <span className="rounded-full bg-primary/10 px-3 py-1 text-xs text-primary opacity-0 transition group-hover:opacity-100">
                       مشاهده جزئیات
                     </span>
 
@@ -387,7 +387,7 @@ export default function WorkoutHistory() {
 
 
                   {/* Stats */}
-                  <div className="mt-4 flex flex-wrap items-center gap-6 text-sm text-[#6B6F77]">
+                  <div className="mt-4 flex flex-wrap items-center gap-6 text-sm text-foreground">
 
                     <div className="flex items-center gap-2">
                       <span>🏋️</span>

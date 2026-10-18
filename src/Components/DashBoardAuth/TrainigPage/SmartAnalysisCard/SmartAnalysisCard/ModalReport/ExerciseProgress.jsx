@@ -7,21 +7,21 @@ export default function ExerciseProgress({
   exercises,
 }) {
   return (
-    <section className="mt-4 rounded-[26px] bg-white p-5 shadow-sm sm:p-6">
+    <section className="mt-4 rounded-[26px] bg-surface p-5 shadow-sm sm:p-6">
 
       <div className="flex items-center gap-3">
 
-        <div className="flex h-10 w-10 items-center justify-center rounded-[13px] bg-[#EAF4FF] text-[#007BFF]">
+        <div className="flex h-10 w-10 items-center justify-center rounded-[13px] bg-primary/10 text-primary">
           <BarChart3 size={19} />
         </div>
 
         <div>
 
-          <h3 className="text-sm font-bold text-[#45474C] sm:text-base">
+          <h3 className="text-sm font-bold text-foreground sm:text-base">
             پیشرفت حرکات
           </h3>
 
-          <p className="mt-1 text-[10px] text-[#8A8D93]">
+          <p className="mt-1 text-[10px] text-muted">
             مقایسه رکورد فعلی با دوره قبلی
           </p>
 
@@ -48,17 +48,17 @@ function ExerciseCard({ exercise }) {
   const width = Math.min(exercise.progress * 6, 100);
 
   return (
-    <div className="rounded-[20px] border border-[#EEF2F6] p-4">
+    <div className="rounded-[20px] border border-border p-4">
 
       <div className="flex items-center justify-between">
 
         <div>
 
-          <p className="text-sm font-bold text-[#45474C]">
+          <p className="text-sm font-bold text-foreground">
             {exercise.name}
           </p>
 
-          <p className="mt-1 text-[10px] text-[#8A8D93]">
+          <p className="mt-1 text-[10px] text-muted">
             {exercise.previous}
             <span className="mx-1.5">
               ←
@@ -68,16 +68,16 @@ function ExerciseCard({ exercise }) {
 
         </div>
 
-        <span className="text-sm font-black text-[#007BFF]">
+        <span className="text-sm font-black text-primary">
           +{exercise.progress}٪
         </span>
 
       </div>
 
-      <div className="mt-4 h-2 overflow-hidden rounded-full bg-[#EAF2F9]">
+      <div className="mt-4 h-2 overflow-hidden rounded-full bg-surface-secondary">
 
         <div
-          className="h-full rounded-full bg-[#007BFF] transition-all duration-700"
+          className="h-full rounded-full bg-primary transition-all duration-700"
           style={{
             width: `${width}%`,
           }}

@@ -20,38 +20,38 @@ export default function AnalysisPage() {
     {
       title: "وزن",
       value: "+1.2 KG",
-      color: "text-[#F04B4B]",
+      color: "text-danger",
       arrow: "↑",
     },
     {
       title: "چربی بدن",
       value: "-3.2 %",
-      color: "text-[#63AF42]",
+      color: "text-success",
       arrow: "↓",
     },
     {
       title: "عضله",
       value: "+0.2 KG",
-      color: "text-[#63AF42]",
+      color: "text-success",
       arrow: "↓",
     },
     {
       title: "آب بدن",
       value: "+1.2 %",
-      color: "text-[#63AF42]",
+      color: "text-success",
       arrow: "↑",
     },
     {
       title: "قد",
       value: "+1.2 cm",
-      color: "text-[#63AF42]",
+      color: "text-success",
       arrow: "↑",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-[#F5F7FB] flex justify-center">
-      <div className="w-full max-w-[1600px] grid grid-cols-[90px_1fr] gap-6 px-8 py-6 bg-[#F5F7FB]">
+    <div className="min-h-screen flex justify-center">
+      <div className="w-full max-w-[1600px] grid grid-cols-[90px_1fr] gap-6 px-8 py-6 bg-background">
         <div className="">
           <Navbar />
         </div>
@@ -70,8 +70,8 @@ export default function AnalysisPage() {
               <AIAnalysisCard />
             </div>
             <div className="col-span-3">
-              <div className="bg-white rounded-4xl p-6 flex flex-col">
-                <h2 className="text-2xl  text-[#6B6F77] text-start mb-5">
+              <div className="bg-surface rounded-4xl p-6 flex flex-col">
+                <h2 className="text-2xl  text-foreground text-start mb-5">
                   تغییر نسبت به قبل
                 </h2>
 
@@ -79,7 +79,7 @@ export default function AnalysisPage() {
                   {changes.map((item, index) => (
                     <div key={index}>
                       <div className="flex items-center justify-between py-2">
-                        <span className="text-sm text-[#6B6F77]">
+                        <span className="text-sm text-foreground">
                           {item.title}
                         </span>
 
@@ -87,12 +87,12 @@ export default function AnalysisPage() {
                           className={`flex items-center gap-2 ${item.color}`}
                         >
                           <span
-                            className={`text-2xl leading-none ${item.arrow == "↑" ? "text-[#6BAF41]" : "text-red-600"}`}
+                            className={`text-2xl leading-none ${item.arrow == "↑" ? "text-success" : "text-danger"}`}
                           >
                             {item.arrow}
                           </span>
                           <span
-                            className={`text-sm ${item.arrow == "↑" ? "text-[#6BAF41]" : "text-red-600"}`}
+                            className={`text-sm ${item.arrow == "↑" ? "text-success" : "text-danger"}`}
                           >
                             {item.value}
                           </span>
@@ -100,12 +100,12 @@ export default function AnalysisPage() {
                       </div>
 
                       {index !== changes.length - 1 && (
-                        <div className="h-px bg-[#ECECEC] mt-2" />
+                        <div className="h-px bg-border mt-2" />
                       )}
                     </div>
                   ))}
                 </div>
-                <p className="text-center text-[#A0A4AA] text-sm mt-4">
+                <p className="text-center text-muted text-sm mt-4">
                   در مقایسه با ۳۰ روز قبل
                 </p>
               </div>

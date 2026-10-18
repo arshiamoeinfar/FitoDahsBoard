@@ -129,7 +129,7 @@ function WaterIcon() {
 function FitoLogo() {
   return (
     <div className="flex items-center gap-2.5">
-      <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-[#007BFF] shadow-[0_0_30px_rgba(0,123,255,0.35)]">
+      <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-primary shadow-[0_0_30px_rgba(0,123,255,0.35)]">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
           <path
             d="M7 5V19M17 5V19M4 8V16M20 8V16M7 12H17"
@@ -172,7 +172,7 @@ function CircularProgress({ value }) {
           cx="56"
           cy="56"
           r={radius}
-          stroke="#007BFF"
+          stroke="var(--primary)"
           strokeWidth="8"
           fill="none"
           strokeLinecap="round"
@@ -197,7 +197,7 @@ function DashboardPreview() {
   return (
     <div className="relative mx-auto w-full max-w-[620px]">
       {/* Glow */}
-      <div className="absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#007BFF]/20 blur-[120px]" />
+      <div className="absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-[120px]" />
 
       <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#090d13]/95 p-4 shadow-2xl shadow-black">
         {/* Fake browser bar */}
@@ -235,7 +235,7 @@ function DashboardPreview() {
                   </div>
                 </div>
 
-                <span className="rounded-full bg-[#007BFF]/10 px-2.5 py-1 text-[9px] text-[#4da3ff]">
+                <span className="rounded-full bg-primary/10 px-2.5 py-1 text-[9px] text-primary">
                   فعال
                 </span>
               </div>
@@ -253,13 +253,13 @@ function DashboardPreview() {
                   </h3>
                 </div>
 
-                <div className="rounded-xl bg-[#007BFF]/10 p-2 text-[#007BFF]">
+                <div className="rounded-xl bg-primary/10 p-2 text-primary">
                   <DumbbellIcon />
                 </div>
               </div>
 
               <div className="mb-4 h-1.5 overflow-hidden rounded-full bg-white/5">
-                <div className="h-full w-[68%] rounded-full bg-[#007BFF]" />
+                <div className="h-full w-[68%] rounded-full bg-primary" />
               </div>
 
               <div className="flex items-center justify-between text-[10px] text-white/35">
@@ -332,7 +332,7 @@ function DashboardPreview() {
                   (height, index) => (
                     <div
                       key={index}
-                      className="flex-1 rounded-t-md bg-[#007BFF]/30 transition-all duration-300 hover:bg-[#007BFF]"
+                      className="flex-1 rounded-t-md bg-primary/30 transition-all duration-300 hover:bg-primary"
                       style={{ height: `${height}%` }}
                     />
                   )
@@ -346,7 +346,7 @@ function DashboardPreview() {
       {/* Floating AI card */}
       <div className="absolute -bottom-7 -left-5 hidden w-48 rounded-2xl border border-white/10 bg-[#0b1017]/95 p-3 shadow-2xl backdrop-blur-xl sm:block">
         <div className="mb-2 flex items-center gap-2">
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#007BFF] text-xs">
+          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary text-xs">
             ✦
           </div>
 
@@ -372,7 +372,7 @@ function MiniStat({ icon, title, value, unit }) {
   return (
     <div className="rounded-2xl border border-white/5 bg-white/[0.035] p-3">
       <div className="mb-2 flex items-center justify-between">
-        <span className="text-[#007BFF]">{icon}</span>
+        <span className="text-primary">{icon}</span>
         <span className="text-[9px] text-white/30">{title}</span>
       </div>
 
@@ -391,14 +391,14 @@ function MiniStat({ icon, title, value, unit }) {
 function FeatureCard({ icon, title, description, large = false }) {
   return (
     <div
-      className={`group relative overflow-hidden rounded-3xl border border-white/8 bg-white/[0.025] p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[#007BFF]/30 hover:bg-white/[0.045] ${
+      className={`group relative overflow-hidden rounded-3xl border border-white/8 bg-white/[0.025] p-6 transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:bg-white/[0.045] ${
         large ? "md:p-8" : ""
       }`}
     >
-      <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-[#007BFF]/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-primary/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
 
       <div className="relative">
-        <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl border border-[#007BFF]/20 bg-[#007BFF]/10 text-[#007BFF]">
+        <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
           {icon}
         </div>
 
@@ -410,7 +410,7 @@ function FeatureCard({ icon, title, description, large = false }) {
           {description}
         </p>
 
-        <div className="mt-6 flex items-center gap-2 text-xs text-[#007BFF]">
+        <div className="mt-6 flex items-center gap-2 text-xs text-primary">
           <span>بیشتر بدانید</span>
           <ArrowIcon />
         </div>
@@ -488,7 +488,7 @@ export default function Home() {
               ورود
             </button>
 
-            <button className="rounded-xl bg-[#007BFF] px-5 py-2.5 text-sm font-medium text-white shadow-lg shadow-[#007BFF]/20 transition hover:bg-[#006fe6]">
+            <button className="rounded-xl bg-primary px-5 py-2.5 text-sm font-medium text-white shadow-lg shadow-primary/20 transition hover:bg-primary-hover">
               شروع رایگان
             </button>
           </div>
@@ -525,7 +525,7 @@ export default function Home() {
                 </button>
               ))}
 
-              <button className="mt-2 rounded-xl bg-[#007BFF] py-3 text-sm font-medium">
+              <button className="mt-2 rounded-xl bg-primary py-3 text-sm font-medium">
                 شروع رایگان
               </button>
             </div>
@@ -539,7 +539,7 @@ export default function Home() {
         <section className="relative min-h-screen overflow-hidden px-5 pb-20 pt-36 lg:px-8 lg:pt-44">
           {/* Background */}
           <div className="pointer-events-none absolute inset-0">
-            <div className="absolute left-1/2 top-[-200px] h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[#007BFF]/10 blur-[160px]" />
+            <div className="absolute left-1/2 top-[-200px] h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-primary/10 blur-[160px]" />
 
             <div className="absolute bottom-0 left-1/4 h-[300px] w-[300px] rounded-full bg-blue-900/10 blur-[120px]" />
           </div>
@@ -548,10 +548,10 @@ export default function Home() {
             <div className="grid items-center gap-16 lg:grid-cols-[0.9fr_1.1fr]">
               {/* Text */}
               <FadeInUp className="order-2 text-center lg:order-1 lg:text-right">
-                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#007BFF]/20 bg-[#007BFF]/5 px-4 py-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#007BFF] shadow-[0_0_10px_#007BFF]" />
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px_#007BFF]" />
 
-                  <span className="text-xs text-[#4da3ff]">
+                  <span className="text-xs text-primary">
                     آینده فیتنس از اینجا شروع می‌شود
                   </span>
                 </div>
@@ -570,7 +570,7 @@ export default function Home() {
                 </p>
 
                 <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-                  <button className="group flex items-center justify-center gap-3 rounded-xl bg-[#007BFF] px-7 py-4 text-sm font-bold shadow-[0_10px_40px_rgba(0,123,255,0.25)] transition hover:-translate-y-0.5 hover:bg-[#006fe6]">
+                  <button className="group flex items-center justify-center gap-3 rounded-xl bg-primary px-7 py-4 text-sm font-bold shadow-[0_10px_40px_rgba(0,123,255,0.25)] transition hover:-translate-y-0.5 hover:bg-primary-hover">
                     شروع رایگان
                     <ArrowIcon />
                   </button>
@@ -637,7 +637,7 @@ export default function Home() {
         <section id="features" className="px-5 py-28 lg:px-8">
           <div className="mx-auto max-w-[1200px]">
             <FadeInUp className="mb-14 text-center">
-              <span className="text-xs font-medium text-[#007BFF]">
+              <span className="text-xs font-medium text-primary">
                 امکانات فیتو
               </span>
 
@@ -721,11 +721,11 @@ export default function Home() {
         {/* ================= WORKOUT ================= */}
 
         <section id="workout" className="relative overflow-hidden px-5 py-28 lg:px-8">
-          <div className="absolute right-[-200px] top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-[#007BFF]/10 blur-[150px]" />
+          <div className="absolute right-[-200px] top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-primary/10 blur-[150px]" />
 
           <div className="relative mx-auto grid max-w-[1200px] items-center gap-16 lg:grid-cols-2">
             <FadeInUp>
-              <span className="text-xs text-[#007BFF]">
+              <span className="text-xs text-primary">
                 تمرین هوشمند
               </span>
 
@@ -742,7 +742,7 @@ export default function Home() {
                 عملکردت رو ثبت کن و بدون سردرگمی مسیر پیشرفتت رو ادامه بده.
               </p>
 
-              <button className="mt-8 flex items-center gap-3 text-sm font-medium text-[#007BFF]">
+              <button className="mt-8 flex items-center gap-3 text-sm font-medium text-primary">
                 مشاهده برنامه تمرینی
                 <ArrowIcon />
               </button>
@@ -761,7 +761,7 @@ export default function Home() {
                     </h3>
                   </div>
 
-                  <span className="rounded-full bg-[#007BFF]/10 px-3 py-1.5 text-[10px] text-[#4da3ff]">
+                  <span className="rounded-full bg-primary/10 px-3 py-1.5 text-[10px] text-primary">
                     68%
                   </span>
                 </div>
@@ -782,7 +782,7 @@ export default function Home() {
                         <div
                           className={`flex h-8 w-8 items-center justify-center rounded-lg ${
                             done
-                              ? "bg-[#007BFF]/10 text-[#007BFF]"
+                              ? "bg-primary/10 text-primary"
                               : "bg-white/5 text-white/20"
                           }`}
                         >
@@ -828,7 +828,7 @@ export default function Home() {
                     </h3>
                   </div>
 
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#007BFF]/10 text-[#007BFF]">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
                     <FlameIcon />
                   </div>
                 </div>
@@ -853,7 +853,7 @@ export default function Home() {
 
                       <div className="mt-3 h-1 overflow-hidden rounded-full bg-white/5">
                         <div
-                          className="h-full rounded-full bg-[#007BFF]"
+                          className="h-full rounded-full bg-primary"
                           style={{ width: percent }}
                         />
                       </div>
@@ -879,7 +879,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <span className="text-sm font-bold text-[#007BFF]">
+                    <span className="text-sm font-bold text-primary">
                       60%
                     </span>
                   </div>
@@ -888,7 +888,7 @@ export default function Home() {
             </FadeInUp>
 
             <FadeInUp delay={200} className="order-1 lg:order-2">
-              <span className="text-xs text-[#007BFF]">
+              <span className="text-xs text-primary">
                 تغذیه
               </span>
 
@@ -913,7 +913,7 @@ export default function Home() {
         <section id="coaches" className="px-5 py-28 lg:px-8">
           <div className="mx-auto max-w-[1200px]">
             <FadeInUp className="mx-auto max-w-2xl text-center">
-              <span className="text-xs text-[#007BFF]">
+              <span className="text-xs text-primary">
                 برای مربیان
               </span>
 
@@ -946,7 +946,7 @@ export default function Home() {
                         </h3>
                       </div>
 
-                      <span className="rounded-lg bg-[#007BFF]/10 px-2 py-1 text-[9px] text-[#4da3ff]">
+                      <span className="rounded-lg bg-primary/10 px-2 py-1 text-[9px] text-primary">
                         84 شاگرد
                       </span>
                     </div>
@@ -963,7 +963,7 @@ export default function Home() {
                           className="flex items-center justify-between rounded-xl border border-white/5 bg-white/[0.025] p-3"
                         >
                           <div className="flex items-center gap-2.5">
-                            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#007BFF]/10 text-[9px] font-bold text-[#4da3ff]">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-[9px] font-bold text-primary">
                               {avatar}
                             </div>
 
@@ -1000,7 +1000,7 @@ export default function Home() {
                         </p>
 
                         <div className="mt-6 h-1 overflow-hidden rounded-full bg-white/5">
-                          <div className="h-full w-[72%] rounded-full bg-[#007BFF]" />
+                          <div className="h-full w-[72%] rounded-full bg-primary" />
                         </div>
                       </div>
                     ))}
@@ -1014,11 +1014,11 @@ export default function Home() {
         {/* ================= AI ================= */}
 
         <section className="relative overflow-hidden border-y border-white/5 bg-[#03070c] px-5 py-28 lg:px-8">
-          <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#007BFF]/10 blur-[150px]" />
+          <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[150px]" />
 
           <div className="relative mx-auto grid max-w-[1100px] items-center gap-14 lg:grid-cols-2">
             <FadeInUp>
-              <span className="text-xs text-[#007BFF]">
+              <span className="text-xs text-primary">
                 Fito AI
               </span>
 
@@ -1039,7 +1039,7 @@ export default function Home() {
             <FadeInUp delay={200}>
               <div className="rounded-[28px] border border-white/10 bg-white/[0.035] p-5 shadow-[0_0_80px_rgba(0,123,255,0.08)] backdrop-blur-xl">
                 <div className="mb-6 flex items-center gap-3 border-b border-white/5 pb-5">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#007BFF] shadow-lg shadow-[#007BFF]/20">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary shadow-lg shadow-primary/20">
                     ✦
                   </div>
 
@@ -1064,7 +1064,7 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div className="ml-auto max-w-[85%] rounded-2xl rounded-tl-md bg-[#007BFF]/10 p-4">
+                  <div className="ml-auto max-w-[85%] rounded-2xl rounded-tl-md bg-primary/10 p-4">
                     <p className="text-xs leading-6 text-white/70">
                       با توجه به تمرین امروزت، یک وعده با پروتئین
                       بالا و کربوهیدرات متعادل می‌تونه انتخاب مناسبی
@@ -1073,9 +1073,9 @@ export default function Home() {
                   </div>
 
                   <div className="flex items-center gap-1 px-2 pt-1">
-                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#007BFF]" />
-                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#007BFF] [animation-delay:150ms]" />
-                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#007BFF] [animation-delay:300ms]" />
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary [animation-delay:150ms]" />
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary [animation-delay:300ms]" />
                   </div>
                 </div>
 
@@ -1084,7 +1084,7 @@ export default function Home() {
                     از فیتو AI سوال بپرس...
                   </span>
 
-                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#007BFF] text-xs">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary text-xs">
                     ↑
                   </div>
                 </div>
@@ -1097,11 +1097,11 @@ export default function Home() {
 
         <section className="px-5 py-32 lg:px-8">
           <FadeInUp>
-            <div className="relative mx-auto max-w-[1100px] overflow-hidden rounded-[36px] border border-[#007BFF]/20 bg-[#007BFF]/[0.06] px-6 py-20 text-center">
-              <div className="absolute left-1/2 top-1/2 h-[350px] w-[350px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#007BFF]/10 blur-[100px]" />
+            <div className="relative mx-auto max-w-[1100px] overflow-hidden rounded-[36px] border border-primary/20 bg-primary/[0.06] px-6 py-20 text-center">
+              <div className="absolute left-1/2 top-1/2 h-[350px] w-[350px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[100px]" />
 
               <div className="relative">
-                <span className="text-xs text-[#4da3ff]">
+                <span className="text-xs text-primary">
                   مسیر جدیدت
                 </span>
 
@@ -1115,7 +1115,7 @@ export default function Home() {
                   تمرین، تغذیه و پیشرفتت رو با فیتو هوشمندتر مدیریت کن.
                 </p>
 
-                <button className="mt-9 rounded-xl bg-[#007BFF] px-8 py-4 text-sm font-bold shadow-[0_15px_50px_rgba(0,123,255,0.3)] transition hover:-translate-y-1 hover:bg-[#006fe6]">
+                <button className="mt-9 rounded-xl bg-primary px-8 py-4 text-sm font-bold shadow-[0_15px_50px_rgba(0,123,255,0.3)] transition hover:-translate-y-1 hover:bg-primary-hover">
                   شروع رایگان با فیتو
                 </button>
               </div>

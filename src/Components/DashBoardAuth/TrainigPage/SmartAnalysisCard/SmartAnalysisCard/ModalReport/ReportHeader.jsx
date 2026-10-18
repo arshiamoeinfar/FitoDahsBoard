@@ -11,7 +11,7 @@ export default function ReportHeader({
   onClose,
 }) {
   return (
-    <header className="relative shrink-0 overflow-hidden bg-[#007BFF] px-5 py-5 text-white sm:px-7 sm:py-6">
+    <header className="relative shrink-0 overflow-hidden bg-primary px-5 py-5 text-white sm:px-7 sm:py-6">
 
       <div className="absolute -left-16 -top-20 h-48 w-48 rounded-full bg-white/[0.06]" />
 
@@ -58,7 +58,7 @@ export default function ReportHeader({
 
         <div className="flex items-center gap-3">
 
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-sm font-bold text-[#007BFF]">
+          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-sm font-bold text-primary">
             {athlete.charAt(0)}
           </div>
 

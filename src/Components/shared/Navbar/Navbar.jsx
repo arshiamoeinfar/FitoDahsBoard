@@ -106,7 +106,7 @@ export default function Navbar() {
 
   return (
     <div className="fixed">
-      <div className="w-18 h-160 bg-white flex flex-col shadow-md items-center justify-between rounded-[56px] py-3 mt-3 mr-3">
+      <div className="w-18 h-160 bg-surface flex flex-col shadow-md items-center justify-between rounded-[56px] py-3 mt-3 mr-3">
         <div className="flex flex-col items-center justify-center gap-2">
           {navItems.map((item, index) => (
             <NavLink
@@ -115,7 +115,7 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `flex flex-col items-center justify-center gap-1 transition ${
                   index > 0 ? "mt-2" : ""
-                } ${isActive ? "text-[#007BFF]" : "text-[#A0A4AA]"}`
+                } ${isActive ? "text-primary" : "text-muted"}`
               }
             >
               <img
@@ -131,7 +131,7 @@ export default function Navbar() {
         </div>
 
         <div className="w-full flex justify-center">
-          <div className="flex flex-col items-center justify-center bg-blue-500 rounded-full w-14 h-14 cursor-pointer">
+          <div className="flex flex-col items-center justify-center bg-primary rounded-full w-14 h-14 cursor-pointer">
             <img
               onClick={() => navigate(profileRoute)}
               src={userIcon}

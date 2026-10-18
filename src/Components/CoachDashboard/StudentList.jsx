@@ -13,7 +13,7 @@ const ConversationItem = memo(function ConversationItem({
     <button
       onClick={() => onSelect(conversation.id)}
       className={`w-full flex-col justify-center  items-center gap-3 px-4 py-3.5 rounded-3xl text-right transition cursor-pointer ${
-        isActive ? "bg-[#EAF3FF]" : "hover:bg-[#F5F7FB]"
+        isActive ? "bg-primary/10" : "hover:bg-surface-secondary"
       }`}
     >
       <div className="flex-1 flex  min-w-0">
@@ -26,20 +26,20 @@ const ConversationItem = memo(function ConversationItem({
             />
           </div>
           {conversation.online && (
-            <span className="absolute left-75 top-1 w-3 h-3 rounded-full bg-[#22C55E] border-2 border-white" />
+            <span className="absolute left-75 top-1 w-3 h-3 rounded-full bg-success border-2 border-white" />
           )}
           <div className="flex items-center justify-between w-full">
-            <p className="text-sm font-medium text-[#4F5965] truncate">
+            <p className="text-sm font-medium text-foreground truncate">
               {conversation.name}
             </p>
-            <span className="text-xs text-[#A0A4AA] shrink-0">
+            <span className="text-xs text-muted shrink-0">
               {conversation.time}
             </span>
           </div>
         </div>
       </div>
       <div className="">
-        <p className="text-xs text-[#A0A4AA] truncate mt-1">
+        <p className="text-xs text-muted truncate mt-1">
           {conversation.lastMessage}
         </p>
       </div>
@@ -60,12 +60,12 @@ const StudentsList = memo(function StudentsList({
   onSelect,
 }) {
   return (
-    <div className=" bg-white rounded-3xl p-5 flex flex-col h-full ">
-      <h2 className="text-xl font-primary text-[#4F5965] text-right px-1">
+    <div className=" bg-surface rounded-3xl p-5 flex flex-col h-full ">
+      <h2 className="text-xl font-primary text-foreground text-right px-1">
         گفتگوهای شاگردان
       </h2>
 
-      <hr className="my-5 text-gray-100" />
+      <hr className="my-5 text-border" />
 
       <div className="flex flex-col h-[calc(100vh-200px)] gap-1 overflow-y-auto ">
         {conversations.map((c) => (

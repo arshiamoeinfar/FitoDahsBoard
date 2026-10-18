@@ -98,19 +98,19 @@ const students = [
 const statusConfig = {
   active: {
     label: "فعال",
-    className: "bg-emerald-50 text-emerald-600",
+    className: "bg-green-500/10 text-success",
   },
   inactive: {
     label: "غیرفعال",
-    className: "bg-gray-100 text-gray-500",
+    className: "bg-surface-secondary text-muted",
   },
   expired: {
     label: "منقضی شده",
-    className: "bg-red-50 text-red-500",
+    className: "bg-red-500/10 text-danger",
   },
   inProgress: {
     label: "درحال انجام",
-    className: "bg-blue-50 text-blue-600",
+    className: "bg-blue-500/10 text-primary",
   },
 };
 
@@ -180,8 +180,8 @@ export default function ApplyWorkout() {
     navigate(`/coach/builder`);
   };
   return (
-    <div className="min-h-screen bg-[#F5F7FB] flex justify-center">
-      <div className="w-full max-w-[1600px] grid grid-cols-[90px_1fr] gap-6 px-8 py-6 bg-[#F5F7FB]">
+    <div className="min-h-screen bg-background flex justify-center">
+      <div className="w-full max-w-[1600px] grid grid-cols-[90px_1fr] gap-6 px-8 py-6 bg-background">
         {/* Navbar */}
         <div>
           <Navbar />
@@ -203,7 +203,7 @@ export default function ApplyWorkout() {
             <div className="flex items-center justify-between gap-6 mb-6">
               {/* Program Type */}
               <div className="flex items-center gap-2">
-                <div className="inline-flex items-center p-1 bg-white border border-[#E8EDF5] rounded-2xl gap-2">
+                <div className="inline-flex items-center p-1 bg-surface border border-border rounded-2xl gap-2">
                   {/* Workout */}
                   <button
                     type="button"
@@ -227,8 +227,8 @@ export default function ApplyWorkout() {
                       
                       ${
                         programType === "workout"
-                          ? "bg-[#007BFF] text-white shadow-[0_5px_14px_rgba(0,123,255,0.18)]"
-                          : "text-[#7A8494] hover:text-[#007BFF] hover:bg-[#F8FAFC]"
+                          ? "bg-primary text-white shadow-[0_5px_14px_rgba(0,123,255,0.18)]"
+                          : "text-muted hover:text-primary hover:bg-surface-secondary"
                       }
                     `}
                   >
@@ -261,8 +261,8 @@ export default function ApplyWorkout() {
                       cursor-pointer
                       ${
                         programType === "nutrition"
-                          ? "bg-[#007BFF] text-white shadow-[0_5px_14px_rgba(0,123,255,0.18)]"
-                          : "text-[#7A8494] hover:text-[#007BFF] hover:bg-[#F8FAFC]"
+                          ? "bg-primary text-white shadow-[0_5px_14px_rgba(0,123,255,0.18)]"
+                          : "text-muted hover:text-primary hover:bg-surface-secondary"
                       }
                     `}
                   >
@@ -290,22 +290,22 @@ export default function ApplyWorkout() {
                       pr-11
                       pl-4
                       rounded-2xl
-                      bg-white
+                      bg-input
                       border
-                      border-[#E8EDF5]
+                      border-border
                       outline-none
                       text-sm
-                      text-[#1F2937]
-                      placeholder:text-[#A5ADBA]
+                      text-foreground
+                      placeholder:text-muted
                       shadow-[0_4px_20px_rgba(15,23,42,0.03)]
-                      focus:border-[#007BFF]
+                      focus:border-primary
                       focus:ring-4
-                      focus:ring-[#007BFF]/5
+                      focus:ring-primary/5
                       transition-all
                     "
                   />
 
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#9AA3B2] text-sm">
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-muted text-sm">
                     <SearchIcon />
                   </span>
                 </div>
@@ -318,7 +318,7 @@ export default function ApplyWorkout() {
                     h-12
                     px-6
                     rounded-2xl
-                    bg-[#007BFF]
+                    bg-primary
                     text-white
                     text-sm
                     font-bold
@@ -327,7 +327,7 @@ export default function ApplyWorkout() {
                     justify-center
                     gap-2
                     shadow-[0_8px_20px_rgba(0,123,255,0.18)]
-                    hover:bg-[#006FE6]
+                    hover:bg-primary-hover
                     hover:shadow-[0_10px_24px_rgba(0,123,255,0.24)]
                     active:scale-[0.98]
                     transition-all
@@ -348,9 +348,9 @@ export default function ApplyWorkout() {
             {/* {isOpen && <WorkoutProgramBuilder />} */}
 
             {/* ================= TABLE CARD ================= */}
-            <div className="bg-white rounded-[24px] border border-gray-100  overflow-hidden">
+            <div className="bg-surface rounded-[24px] border border-border  overflow-hidden">
               {/* ================= FILTERS ================= */}
-              <div className="px-6 pt-5 border-b border-gray-100">
+              <div className="px-6 pt-5 border-b border-border">
                 <div className="flex items-center gap-8">
                   {filters.map((filter) => {
                     const active = activeFilter === filter.id;
@@ -369,13 +369,13 @@ export default function ApplyWorkout() {
                           transition
                           ${
                             active
-                              ? "text-[#007BFF]"
-                              : "text-gray-400 hover:text-gray-700"
+                              ? "text-primary"
+                              : "text-muted hover:text-foreground"
                           }
                         `}
                       >
                         {/* Title + Notification Badge */}
-                        <span className="relative inline-flex text-[#6B6F77] font-medium cursor-pointer">
+                        <span className="relative inline-flex text-foreground font-medium cursor-pointer">
                           {filter.title}
 
                           {count > 0 && (
@@ -397,8 +397,8 @@ export default function ApplyWorkout() {
                                 
                                 ${
                                   active
-                                    ? "bg-[#007BFF] text-white"
-                                    : "bg-[#EEF5FF] text-[#007BFF]"
+                                    ? "bg-primary text-white"
+                                    : "bg-primary/10 text-primary"
                                 }
                               `}
                             >
@@ -409,7 +409,7 @@ export default function ApplyWorkout() {
 
                         {/* Active Line */}
                         {active && (
-                          <span className="absolute bottom-0 right-0 left-0 h-[2px] rounded-full bg-[#007BFF]" />
+                          <span className="absolute bottom-0 right-0 left-0 h-[2px] rounded-full bg-primary" />
                         )}
                       </button>
                     );
@@ -425,10 +425,10 @@ export default function ApplyWorkout() {
                   items-center
                   px-6
                   h-14
-                  bg-[#FAFBFD]
+                  bg-surface-secondary
                   font-primary 
                   text-sm
-                  text-gray-400
+                  text-muted
                 "
               >
                 <div>شاگرد</div>
@@ -460,23 +460,23 @@ export default function ApplyWorkout() {
                         px-6
                         min-h-[82px]
                         border-t
-                        border-gray-50
-                        hover:bg-[#FAFCFF]
+                        border-border
+                        hover:bg-surface-secondary
                         transition
                       "
                     >
                       {/* Student */}
                       <div className="flex items-center gap-3">
-                        <div className="w-11 h-11 rounded-full bg-[#F1F5F9] flex items-center justify-center text-xl">
+                        <div className="w-11 h-11 rounded-full bg-surface-secondary flex items-center justify-center text-xl">
                           {student.avatar}
                         </div>
 
                         <div>
-                          <p className="text-sm text-[#6B6F77] font-primary">
+                          <p className="text-sm text-foreground font-primary">
                             {student.name}
                           </p>
 
-                          <p className="text-[10px] text-gray-400 mt-1">
+                          <p className="text-[10px] text-muted mt-1">
                             شاگرد {student.id}
                           </p>
                         </div>
@@ -484,7 +484,7 @@ export default function ApplyWorkout() {
 
                       {/* Program */}
                       <div>
-                        <p className="text-sm text-[#6B6F77] font-primary">
+                        <p className="text-sm text-foreground font-primary">
                           {program.name}
                         </p>
                       </div>
@@ -511,12 +511,12 @@ export default function ApplyWorkout() {
                       </div>
 
                       {/* Created */}
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-muted">
                         {program.createdAt}
                       </div>
 
                       {/* Expire */}
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-muted">
                         {program.expireAt}
                       </div>
 
@@ -529,7 +529,7 @@ export default function ApplyWorkout() {
                             py-2
                             rounded-xl
                             
-                            ${status.label === "فعال" ? "bg-emerald-50 text-emerald-600" : status.label === "منقضی شده" ? "bg-red-50 text-red-500" : status.label === "درحال انجام" ? "bg-blue-50 text-blue-600" : status.label === "غیرفعال" ? "bg-gray-100 text-gray-500" : ""}
+                            ${status.label === "فعال" ? "bg-green-500/10 text-success" : status.label === "منقضی شده" ? "bg-red-500/10 text-danger" : status.label === "درحال انجام" ? "bg-blue-500/10 text-primary" : status.label === "غیرفعال" ? "bg-surface-secondary text-muted" : ""}
                             text-xs
                             font-bold
                             hover:scale-102
@@ -561,11 +561,11 @@ export default function ApplyWorkout() {
                 <div className="py-20 text-center">
                   <div className="text-4xl mb-4">🔍</div>
 
-                  <p className="text-sm font-bold text-gray-700">
+                  <p className="text-sm font-bold text-foreground">
                     شاگردی پیدا نشد
                   </p>
 
-                  <p className="text-xs text-gray-400 mt-2">
+                  <p className="text-xs text-muted mt-2">
                     جستجو یا فیلتر انتخاب‌شده را تغییر دهید
                   </p>
                 </div>

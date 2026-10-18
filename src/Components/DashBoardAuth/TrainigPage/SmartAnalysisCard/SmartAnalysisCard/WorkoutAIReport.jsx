@@ -86,14 +86,14 @@ ${reportData.summary}
   return (
     <div
       dir="rtl"
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#08111F]/55 p-3 backdrop-blur-md sm:p-5"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-overlay p-3 backdrop-blur-md sm:p-5"
       onMouseDown={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
         }
       }}
     >
-      <div className="flex max-h-[94vh] w-full max-w-[980px] flex-col overflow-hidden rounded-[32px] bg-[#F5F8FC] shadow-2xl">
+      <div className="flex max-h-[94vh] w-full max-w-[980px] flex-col overflow-hidden rounded-[32px] bg-background shadow-2xl">
 
         {/* Header */}
         <ReportHeader
@@ -143,7 +143,7 @@ ${reportData.summary}
         </div>
 
         {/* Footer */}
-        <div className="shrink-0 border-t border-[#E9EEF4] bg-white px-4 py-3 sm:px-6">
+        <div className="shrink-0 border-t border-border bg-surface px-4 py-3 sm:px-6">
 
           <div className="flex flex-col-reverse gap-2.5 sm:flex-row sm:items-center sm:justify-between">
 
@@ -151,7 +151,7 @@ ${reportData.summary}
 
               <button
                 onClick={handlePrint}
-                className="flex flex-1 items-center justify-center gap-2 rounded-[14px] border border-[#E3E8EE] px-4 py-3 text-xs text-[#62666D] transition hover:bg-[#F7FAFD] sm:flex-none"
+                className="flex flex-1 items-center justify-center gap-2 rounded-[14px] border border-border px-4 py-3 text-xs text-foreground transition hover:bg-surface-secondary sm:flex-none"
               >
                 <Printer size={17} />
                 چاپ گزارش
@@ -159,7 +159,7 @@ ${reportData.summary}
 
               <button
                 onClick={handleCopy}
-                className="flex flex-1 items-center justify-center gap-2 rounded-[14px] border border-[#E3E8EE] px-4 py-3 text-xs text-[#62666D] transition hover:bg-[#F7FAFD] sm:flex-none"
+                className="flex flex-1 items-center justify-center gap-2 rounded-[14px] border border-border px-4 py-3 text-xs text-foreground transition hover:bg-surface-secondary sm:flex-none"
               >
                 {copied ? (
                   "کپی شد"
@@ -175,7 +175,7 @@ ${reportData.summary}
 
             <button
               onClick={handleShare}
-              className="flex items-center justify-center gap-2 rounded-[14px] bg-[#007BFF] px-6 py-3 text-xs font-bold text-white transition hover:bg-[#006FE6]"
+              className="flex items-center justify-center gap-2 rounded-[14px] bg-primary px-6 py-3 text-xs font-bold text-white transition hover:bg-primary-hover"
             >
               <Share2 size={17} />
               اشتراک‌گذاری گزارش

@@ -14,18 +14,18 @@ const medicalFiles = [
 
 function FilesCard({ title, files }) {
   return (
-    <div dir="rtl" className="rounded-2xl bg-white p-5">
-      <h3 className="mb-5 text-[16px] font-primary text-gray-500">{title}</h3>
+    <div dir="rtl" className="rounded-2xl bg-surface p-5">
+      <h3 className="mb-5 text-[16px] font-primary text-muted">{title}</h3>
 
       <div className="space-y-3">
         {files.map((file) => (
           <div
             key={file}
-            className="flex items-center gap-3 rounded-2xl bg-[#F1F7FC] px-3 py-3"
+            className="flex items-center gap-3 rounded-2xl bg-surface-secondary px-3 py-3"
           >
-            <span className="flex-1 text-sm text-gray-500">{file}</span>
+            <span className="flex-1 text-sm text-muted">{file}</span>
             {/* File icon - UI only */}
-            <span className="flex h-7 w-7 shrink-0 items-center justify-center text-blue-500">
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center text-primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="17"

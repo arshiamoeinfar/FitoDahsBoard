@@ -1,11 +1,11 @@
 const PersonalInfo = () => {
   return (
-    <div className="bg-white rounded-4xl p-8">
+    <div className="bg-surface rounded-4xl p-8">
       {/* Header */}
       <div className="flex items-center justify-start gap-3 mb-8">
         <span className="text-2xl">👤</span>
 
-        <h2 className="text-2xl text-[#6B6F77] font-bold Modam-Medium">
+        <h2 className="text-2xl text-foreground font-bold Modam-Medium">
           اطلاعات شخصی
         </h2>
       </div>
@@ -13,31 +13,31 @@ const PersonalInfo = () => {
       {/* Form */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-5">
         <div>
-          <label className="block text-[#6B6F77] mb-3 text-sm">
+          <label className="block text-foreground mb-3 text-sm">
             نام:
           </label>
 
           <input
             type="text"
             defaultValue="علی"
-            className="w-full h-16 bg-[#F5F7FA] rounded-2xl px-5 text-[#6B6F77] outline-none border border-transparent focus:border-[#007BFF] transition"
+            className="w-full h-16 bg-input rounded-2xl px-5 text-foreground outline-none border border-transparent focus:border-primary transition"
           />
         </div>
 
         <div>
-          <label className="block text-[#6B6F77] mb-3 text-sm">
+          <label className="block text-foreground mb-3 text-sm">
             نام خانوادگی:
           </label>
 
           <input
             type="text"
             defaultValue="خواجه زاده"
-            className="w-full h-16 bg-[#F5F7FA] rounded-2xl px-5 text-[#6B6F77] outline-none border border-transparent focus:border-[#007BFF] transition"
+            className="w-full h-16 bg-input rounded-2xl px-5 text-foreground outline-none border border-transparent focus:border-primary transition"
           />
         </div>
 
         <div>
-          <label className="block text-[#6B6F77] mb-3 text-sm">
+          <label className="block text-foreground mb-3 text-sm">
             ایمیل:
           </label>
 
@@ -45,12 +45,12 @@ const PersonalInfo = () => {
             type="email"
             defaultValue="mahdi.kh@gmail.com"
             dir="ltr"
-            className="w-full h-16 bg-[#F5F7FA] rounded-2xl px-5 text-[#6B6F77] outline-none border border-transparent focus:border-[#007BFF] transition"
+            className="w-full h-16 bg-input rounded-2xl px-5 text-foreground outline-none border border-transparent focus:border-primary transition"
           />
         </div>
 
         <div>
-          <label className="block text-[#6B6F77] mb-3 text-sm">
+          <label className="block text-foreground mb-3 text-sm">
             شماره موبایل:
           </label>
 
@@ -58,28 +58,28 @@ const PersonalInfo = () => {
             type="text"
             defaultValue="09123456789"
             dir="ltr"
-            className="w-full h-16 bg-[#F5F7FA] rounded-2xl px-5 text-[#6B6F77] outline-none border border-transparent focus:border-[#007BFF] transition"
+            className="w-full h-16 bg-input rounded-2xl px-5 text-foreground outline-none border border-transparent focus:border-primary transition"
           />
         </div>
 
         <div>
-          <label className="block text-[#6B6F77] mb-3 text-sm">
+          <label className="block text-foreground mb-3 text-sm">
             تاریخ تولد:
           </label>
 
           <input
             type="text"
             defaultValue="1383/06/15"
-            className="w-full h-16 bg-[#F5F7FA] rounded-2xl px-5 text-[#6B6F77] outline-none border border-transparent focus:border-[#007BFF] transition"
+            className="w-full h-16 bg-input rounded-2xl px-5 text-foreground outline-none border border-transparent focus:border-primary transition"
           />
         </div>
 
         <div>
-          <label className="block text-[#6B6F77] mb-3 text-sm">
+          <label className="block text-foreground mb-3 text-sm">
             جنسیت:
           </label>
 
-          <select className="w-full h-16 bg-[#F5F7FA] rounded-2xl px-5 text-[#6B6F77] outline-none border border-transparent focus:border-[#007BFF] transition">
+          <select className="w-full h-16 bg-input rounded-2xl px-5 text-foreground outline-none border border-transparent focus:border-primary transition">
             <option>مرد</option>
             <option>زن</option>
           </select>
@@ -87,7 +87,7 @@ const PersonalInfo = () => {
       </div>
 
       {/* Save Button */}
-      <button className="mt-8 bg-[#007BFF] hover:bg-[#006BE0] text-white px-10 h-14 rounded-full transition-all duration-300 cursor-pointer">
+      <button className="mt-8 bg-primary hover:bg-primary-hover text-white px-10 h-14 rounded-full transition-all duration-300 cursor-pointer">
         ذخیره تغییرات
       </button>
     </div>

@@ -52,8 +52,8 @@ const SettingsTabs = ({ activeTab, setActiveTab }) => {
               cursor-pointer
               ${
                 isActive
-                  ? "bg-[#007BFF] text-white"
-                  : "bg-white text-[#6B6F77] hover:bg-[#F7FAFF]"
+                  ? "bg-primary text-white"
+                  : "bg-surface text-foreground hover:bg-surface-secondary"
               }
             `}
           >

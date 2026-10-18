@@ -146,13 +146,13 @@ export default function CoachAthletes() {
 
   return (
     <div dir="rtl" className="w-full min-h-screen">
-      <div className="w-full max-w-[1600px] grid grid-cols-[1fr] gap-6 bg-[#F5F7FB]">
+      <div className="w-full max-w-[1600px] grid grid-cols-[1fr] gap-6 bg-background">
 
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-3 mb-5">
         {/* Search */}
         <div className="relative w-full sm:w-[300px]">
-          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">
+          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-muted">
             ⌕
           </span>
 
@@ -164,18 +164,19 @@ export default function CoachAthletes() {
             className="
               w-full
               h-11
-              bg-white
+              bg-input
               rounded-2xl
               border border-transparent
               pr-10
               pl-4
               text-xs
-              text-gray-600
+              text-foreground
+              placeholder:text-muted
               outline-none
               transition-all duration-200
-              focus:border-blue-400
+              focus:border-primary
               focus:ring-4
-              focus:ring-blue-100
+              focus:ring-primary/30
             "
           />
         </div>
@@ -189,7 +190,7 @@ export default function CoachAthletes() {
               h-11
               px-5
               rounded-2xl
-              bg-blue-600
+              bg-primary
               text-white
               text-xs
               font-medium
@@ -198,7 +199,7 @@ export default function CoachAthletes() {
               justify-center
               gap-2
               shadow-sm
-              hover:bg-blue-700
+              hover:bg-primary-hover
               active:scale-95
               transition-all duration-200
               w-full sm:w-auto
@@ -222,15 +223,15 @@ export default function CoachAthletes() {
                 top-14
                 right-0
                 w-52
-                bg-white
+                bg-surface
                 rounded-2xl
-                border border-gray-100
+                border border-border
                 shadow-xl
                 p-2
                 animate-[filterIn_.2s_ease-out]
               "
             >
-              <p className="px-3 py-2 text-[11px] text-gray-400">
+              <p className="px-3 py-2 text-[11px] text-muted">
                 هدف شاگرد
               </p>
 
@@ -252,8 +253,8 @@ export default function CoachAthletes() {
                     transition-all duration-200
                     ${
                       selectedFilter === filter
-                        ? "bg-blue-50 text-blue-600 font-medium"
-                        : "text-gray-600 hover:bg-gray-50"
+                        ? "bg-primary/10 text-primary font-medium"
+                        : "text-foreground hover:bg-surface-secondary"
                     }
                   `}
                 >
@@ -261,7 +262,7 @@ export default function CoachAthletes() {
                     {filter}
 
                     {selectedFilter === filter && (
-                      <span className="text-blue-600">✓</span>
+                      <span className="text-primary">✓</span>
                     )}
                   </span>
                 </button>
@@ -272,11 +273,11 @@ export default function CoachAthletes() {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-3xl overflow-hidden">
+      <div className="bg-surface rounded-3xl overflow-hidden">
         <div className="overflow-x-auto w-full">
           <table className="w-full border-collapse">
             <thead>
-              <tr className="text-gray-500 text-[13px] font-normal">
+              <tr className="text-muted text-[13px] font-normal">
                 <th className="text-right font-normal px-5 py-5">
                   شاگرد
                 </th>
@@ -317,8 +318,8 @@ export default function CoachAthletes() {
                   <tr
                     key={student.id}
                     className="
-                      border-t border-gray-100
-                      hover:bg-blue-50/30
+                      border-t border-border
+                      hover:bg-surface-secondary
                       transition-colors duration-200
                     "
                   >
@@ -329,9 +330,9 @@ export default function CoachAthletes() {
                           className="
                             w-9 h-9
                             rounded-full
-                            bg-blue-50
+                            bg-primary/10
                             border
-                            border-blue-100
+                            border-primary/30
                             flex
                             items-center
                             justify-center
@@ -343,11 +344,11 @@ export default function CoachAthletes() {
                         </div>
 
                         <div className="flex flex-col">
-                          <span className="text-xs font-medium text-gray-700">
+                          <span className="text-xs font-medium text-foreground">
                             {student.name}
                           </span>
 
-                          <span className="text-[11px] text-gray-400 mt-0.5">
+                          <span className="text-[11px] text-muted mt-0.5">
                             {student.goal}
                           </span>
                         </div>
@@ -356,42 +357,42 @@ export default function CoachAthletes() {
 
                     {/* Goal */}
                     <td className="px-5 py-4">
-                      <span className="text-[13px] text-gray-600">
+                      <span className="text-[13px] text-foreground">
                         {student.goal}
                       </span>
                     </td>
 
                     {/* Weight */}
                     <td className="px-5 py-4">
-                      <span className="text-[13px] text-gray-600">
+                      <span className="text-[13px] text-foreground">
                         {student.weight}KG
                       </span>
                     </td>
 
                     {/* Height */}
                     <td className="px-5 py-4">
-                      <span className="text-[13px] text-gray-600">
+                      <span className="text-[13px] text-foreground">
                         {student.height}CM
                       </span>
                     </td>
 
                     {/* BMI */}
                     <td className="px-5 py-4">
-                      <span className="text-[13px] text-gray-600">
+                      <span className="text-[13px] text-foreground">
                         {student.bmi}
                       </span>
                     </td>
 
                     {/* Body Fat */}
                     <td className="px-5 py-4">
-                      <span className="text-[13px] text-gray-600">
+                      <span className="text-[13px] text-foreground">
                         {student.bodyFat}%
                       </span>
                     </td>
 
                     {/* Activity */}
                     <td className="px-5 py-4">
-                      <span className="text-[13px] text-gray-600">
+                      <span className="text-[13px] text-foreground">
                         {student.activity}
                       </span>
                     </td>
@@ -406,11 +407,11 @@ export default function CoachAthletes() {
                           px-4
                           py-2
                           rounded-full
-                          bg-blue-100
-                          text-[#007BFF]
+                          bg-primary/10
+                          text-primary
                           text-[12px]
                           font-medium
-                          hover:bg-blue-600
+                          hover:bg-primary
                           hover:text-white
                           active:scale-95
                           cursor-pointer
@@ -426,15 +427,15 @@ export default function CoachAthletes() {
                 <tr>
                   <td colSpan="8" className="py-16 text-center">
                     <div className="flex flex-col items-center gap-3">
-                      <div className="w-14 h-14 rounded-full bg-gray-50 flex items-center justify-center text-2xl">
+                      <div className="w-14 h-14 rounded-full bg-surface-secondary flex items-center justify-center text-2xl">
                         🔍
                       </div>
 
-                      <p className="text-[13px] font-medium text-gray-600">
+                      <p className="text-[13px] font-medium text-foreground">
                         شاگردی پیدا نشد
                       </p>
 
-                      <p className="text-[11px] text-gray-400">
+                      <p className="text-[11px] text-muted">
                         عبارت جستجو یا فیلتر انتخابی را تغییر دهید
                       </p>
                     </div>
@@ -446,8 +447,8 @@ export default function CoachAthletes() {
         </div>
 
         {/* Result Footer */}
-        <div className="border-t border-gray-100 px-5 py-4">
-          <span className="text-[10px] text-gray-400">
+        <div className="border-t border-border px-5 py-4">
+          <span className="text-[10px] text-muted">
             نمایش {filteredStudents.length} شاگرد از {students.length} شاگرد
           </span>
         </div>

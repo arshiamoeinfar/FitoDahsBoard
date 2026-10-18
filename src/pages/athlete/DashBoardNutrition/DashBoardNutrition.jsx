@@ -13,7 +13,7 @@ import Walk from "../../../assets/imges/walk.png";
 
 function MealCard({ meal, isOpen, onToggle, onAddFood }) {
   return (
-    <div className="bg-white rounded-3xl p-6 mt-5">
+    <div className="bg-surface rounded-3xl p-6 mt-5">
       <div
         onClick={onToggle}
         className="flex items-center justify-between cursor-pointer"
@@ -27,8 +27,8 @@ function MealCard({ meal, isOpen, onToggle, onAddFood }) {
               alt={meal.name}
             />
             <div className="text-right">
-              <p className="text-sm text-[#A0A4AA]">
-                <span className="text-xl text-[#6B6F77] font-medium block">
+              <p className="text-sm text-muted">
+                <span className="text-xl text-foreground font-medium block">
                   {meal.name}
                 </span>
                 {meal.time} خورده شد
@@ -44,12 +44,12 @@ function MealCard({ meal, isOpen, onToggle, onAddFood }) {
               e.stopPropagation();
               onAddFood();
             }}
-            className="bg-[#E8F1FF] text-[#007BFF] px-5 py-2 rounded-full text-sm cursor-pointer"
+            className="bg-primary/10 text-primary px-5 py-2 rounded-full text-sm cursor-pointer"
           >
             افزودن +
           </button>
 
-          <button className="text-[#6B6F77] text-xl">
+          <button className="text-foreground text-xl">
             {isOpen ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </button>
         </div>
@@ -60,7 +60,7 @@ function MealCard({ meal, isOpen, onToggle, onAddFood }) {
           isOpen ? "max-h-125 opacity-100 mt-6" : "max-h-0 opacity-0 mt-0"
         }`}
       >
-        <div className="h-px bg-[#EEEEEE] mb-6"></div>
+        <div className="h-px bg-border mb-6"></div>
 
         <div className="flex flex-col gap-6">
           {meal.foods.map((food, index) => (
@@ -68,8 +68,8 @@ function MealCard({ meal, isOpen, onToggle, onAddFood }) {
               {/* غذا */}
               <div className="flex items-center gap-4 flex-row-reverse">
                 <div className="text-right">
-                  <h3 className="text-[#6B6F77] font-medium">{food.title}</h3>
-                  <p className="text-sm text-[#A0A4AA]">{food.desc}</p>
+                  <h3 className="text-foreground font-medium">{food.title}</h3>
+                  <p className="text-sm text-muted">{food.desc}</p>
                 </div>
 
                 <div className="w-13 h-13 rounded-2xl bg-[#0065B8] flex items-center justify-center text-2xl">
@@ -79,9 +79,9 @@ function MealCard({ meal, isOpen, onToggle, onAddFood }) {
 
               {/* کالری */}
               <div className="flex items-center gap-3">
-                <span className="text-sm text-[#6B6F77]">{food.calories}</span>
-                <div className="w-7 h-7 rounded-xl border-2 border-[#007BFF] flex items-center justify-center">
-                  <div className="w-4 h-4 bg-[#007BFF] rounded-md flex items-center justify-center">
+                <span className="text-sm text-foreground">{food.calories}</span>
+                <div className="w-7 h-7 rounded-xl border-2 border-primary flex items-center justify-center">
+                  <div className="w-4 h-4 bg-primary rounded-md flex items-center justify-center">
                     <span className="text-white text-xs">✓</span>
                   </div>
                 </div>
@@ -164,8 +164,8 @@ export default function DashBoardNutrition() {
   const activeMeal = meals.find((m) => m.id === activeMealId);
 
   return (
-    <div className="min-h-screen bg-[#F5F7FB] flex justify-center">
-      <div className="w-full max-w-[1600px] grid grid-cols-[90px_1fr] gap-6 px-8 py-6 bg-[#F5F7FB]">
+    <div className="min-h-screen flex justify-center">
+      <div className="w-full max-w-[1600px] grid grid-cols-[90px_1fr] gap-6 px-8 py-6 bg-background">
         <div>
           <Navbar />
         </div>
@@ -234,13 +234,13 @@ export default function DashBoardNutrition() {
                 <AIChat />
               </div>
               <div className="col-span-4">
-                <div className="bg-white rounded-4xl p-7 mt-5">
+                <div className="bg-surface rounded-4xl p-7 mt-5">
                   {/* Header */}
-                  <h2 className="text-2xl text-[#6B6F77] font-medium text-right">
+                  <h2 className="text-2xl text-foreground font-medium text-right">
                     مکمل‌ها
                   </h2>
 
-                  <div className="h-px bg-[#EEEEEE] my-5"></div>
+                  <div className="h-px bg-border my-5"></div>
 
                   {/* List */}
                   <div className="flex flex-col gap-8">
@@ -251,21 +251,21 @@ export default function DashBoardNutrition() {
                       >
                         {/* Right side */}
                         <div className="flex items-center gap-5">
-                          <div className="w-15 h-15 rounded-3xl bg-[#EAF3FF] flex items-center justify-center text-2xl">
+                          <div className="w-15 h-15 rounded-3xl bg-primary/10 flex items-center justify-center text-2xl">
                             {item.emoji}
                           </div>
                           <div className="text-right">
-                            <h3 className="text-xl text-[#6B6F77] font-medium">
+                            <h3 className="text-xl text-foreground font-medium">
                               {item.title}
                             </h3>
-                            <p className="text-sm text-[#A0A4AA] mt-2">
+                            <p className="text-sm text-muted mt-2">
                               {item.desc}
                             </p>
                           </div>
                         </div>
                         {/* Checkbox */}
-                        <div className="w-7 h-7 rounded-xl border-2 border-[#007BFF] flex items-center justify-center">
-                          <div className="w-4 h-4 bg-[#007BFF] rounded-md flex items-center justify-center">
+                        <div className="w-7 h-7 rounded-xl border-2 border-primary flex items-center justify-center">
+                          <div className="w-4 h-4 bg-primary rounded-md flex items-center justify-center">
                             <span className="text-white text-xs">✓</span>
                           </div>
                         </div>

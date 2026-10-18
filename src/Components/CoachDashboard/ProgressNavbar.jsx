@@ -19,10 +19,10 @@ export default function ProgressNavbar({
         w-full
         h-15
         px-5
-        bg-white
+        bg-surface
         rounded-[22px]
         border
-        border-[#F0F3F8]
+        border-border
         shadow-[0_4px_24px_rgba(15,23,42,0.025)]
         flex
         items-center
@@ -67,8 +67,8 @@ export default function ProgressNavbar({
                 cursor-pointer
                 ${
                   isActive
-                    ? "text-[#007BFF]"
-                    : "text-[#9CA3AF] hover:text-[#526174]"
+                    ? "text-primary"
+                    : "text-muted hover:text-foreground"
                 }
               `}
             >
@@ -84,7 +84,7 @@ export default function ProgressNavbar({
                       left-0
                       h-[3px]
                       rounded-t-full
-                      bg-[#007BFF]
+                      bg-primary
                     "
                   />
                 )}

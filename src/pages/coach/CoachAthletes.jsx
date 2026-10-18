@@ -7,8 +7,8 @@ import Authlete from "./Authlete";
 export default function CoachAthletes() {
   return (
     <>
-      <div className="min-h-screen bg-[#F5F7FB] flex justify-center">
-        <div className="w-full max-w-[1600px] grid grid-cols-[90px_1fr] gap-6 px-8 py-6 bg-[#F5F7FB]">
+      <div className="min-h-screen bg-background flex justify-center">
+        <div className="w-full max-w-[1600px] grid grid-cols-[90px_1fr] gap-6 px-8 py-6 bg-background">
           <div className="">
             <Navbar />
           </div>

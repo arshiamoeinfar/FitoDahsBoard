@@ -30,23 +30,23 @@ export default function Mytrain({
 
   const navigate = useNavigate()
   return (
-    <div className=" bg-white rounded-3xl p-6 h-fit">
+    <div className=" bg-surface rounded-3xl p-6 h-fit">
       {/* Header */}
       <div className="flex items-center justify-between px-2">
-        <h2 className="text-xl font-medium text-[#6B6F77]">تمرینات امروز</h2>
+        <h2 className="text-xl font-medium text-muted">تمرینات امروز</h2>
         <div className="flex items-end  gap-2 px-4 py-2">
           <img src={ElementLeg} alt="Leg" className="w-4 h-4" />
-          <span className="text-sm text-[#6B6F77]">روز پا</span>
+          <span className="text-sm text-muted">روز پا</span>
         </div>
 
         {startTraining ? (
-          <button className="bg-[#007BFF] text-white px-4 py-2 rounded-full hover:bg-[#0056A3] transition cursor-pointer Modam-Medium" onClick={()=> navigate("/dashboardAthlete/start-training")}>
+          <button className="bg-primary text-white px-4 py-2 rounded-full hover:bg-primary-hover transition cursor-pointer Modam-Medium" onClick={()=> navigate("/dashboardAthlete/start-training")}>
             شروع تمرین
           </button>
         ) : (
           <button 
           onClick={()=> navigate("/trainingpage")}
-          className="flex items-center gap-2 text-[#6B6F77] text-sm hover:text-gray-700 transition cursor-pointer">
+          className="flex items-center gap-2 text-muted text-sm hover:text-foreground transition cursor-pointer">
             جزئیات تمرین
             <img src={Flesh} alt="" />
           </button>
@@ -55,7 +55,7 @@ export default function Mytrain({
 
       {/* Exercises */}
       <div className="mt-8 space-y-4">
-        <hr className="text-gray-200" />
+        <hr className="text-border" />
         {exercises.map((exercise) => (
           <div key={exercise.id} className="flex flex-col items-start justify-between rounded-3xl gap-3">
             <div className={`flex  items-center gap-4 ${hrTrue ? " py-4 " : "mt-2"} w-full`}>
@@ -67,49 +67,49 @@ export default function Mytrain({
               />
 
               <div className="w-full">
-                <h3 onClick={() => navigate("/dashboardAthlete/start-training")} className="font-primary font-medium text-[#6B6F77] mb-2 cursor-pointer">
+                <h3 onClick={() => navigate("/dashboardAthlete/start-training")} className="font-primary font-medium text-muted mb-2 cursor-pointer">
                   اسکوات با هالتر
                 </h3>
                 <div className="flex gap-3">
                   <div className="flex items-center gap-0.5">
                     <img className="size-3.5" src={Dumbel} alt="" />
-                    <p className="text-[12px] text-[#6B6F77] font-primary-ExtraLight font-medium">
+                    <p className="text-[12px] text-muted font-primary-ExtraLight font-medium">
                       4 ست{" "}
                     </p>
                   </div>
                   <div className="flex items-center gap-0.5">
                     <img className="size-3.5" src={Refresh} alt="" />
-                    <p className="text-[12px] text-[#6B6F77] font-primary-ExtraLight font-medium">
+                    <p className="text-[12px] text-muted font-primary-ExtraLight font-medium">
                       8 تکرار{" "}
                     </p>
                   </div>
                   <div className="flex items-center gap-0.5">
                     <img className="size-3.5" src={ClockCircle} alt="" />
-                    <p className="text-[12px] text-[#6B6F77] font-primary-ExtraLight font-medium">
+                    <p className="text-[12px] text-muted font-primary-ExtraLight font-medium">
                       10 ثانیه استراحت{" "}
                     </p>
                   </div>
                 </div>
               </div>
               {showRecord && (
-                <div className="flex justify-center items-center bg-[#F2F8FD] w-full gap-8 p-4 rounded-3xl">
+                <div className="flex justify-center items-center bg-surface-secondary w-full gap-8 p-4 rounded-3xl">
                   <div className="flex-col justify-center items-center">
-                    <h1 className="text-[#007BFF] Modam-Medium">رکورد قبلی</h1>
-                    <p className="text-[#6B6F77] Modam-Medium text-sm ">30KG</p>
+                    <h1 className="text-primary Modam-Medium">رکورد قبلی</h1>
+                    <p className="text-muted Modam-Medium text-sm ">30KG</p>
                   </div>
                   <div className="flex-col justify-center items-center ">
-                    <h1 className="text-[#007BFF] Modam-Medium">رکورد فعلی</h1>
-                    <p className="text-[#6B6F77] Modam-Medium text-sm">30KG</p>
+                    <h1 className="text-primary Modam-Medium">رکورد فعلی</h1>
+                    <p className="text-muted Modam-Medium text-sm">30KG</p>
                   </div>
                   <div className="flex-col justify-center items-center">
-                    <h1 className="text-[#007BFF] Modam-Medium"> پیشرفت</h1>
-                    <p className="text-[#6B6F77] Modam-Medium text-sm ">30%</p>
+                    <h1 className="text-primary Modam-Medium"> پیشرفت</h1>
+                    <p className="text-muted Modam-Medium text-sm ">30%</p>
                   </div>
                 </div>
               )}
             </div>
             {hrTrue && exercise !== exercises[exercises.length] && (
-              <hr className="text-gray-200 w-full" />
+              <hr className="text-border w-full" />
             )}
             <div className={`flex  items-center gap-4 ${hrTrue ? " py-4 " : "mt-2"} w-full`}>
               <img
@@ -119,49 +119,49 @@ export default function Mytrain({
               />
 
               <div className="w-full">
-                <h3 className="font-primary font-medium text-[#6B6F77] mb-2 cursor-pointer">
+                <h3 className="font-primary font-medium text-muted mb-2 cursor-pointer">
                   اسکوات با هالتر
                 </h3>
                 <div className="flex gap-3">
                   <div className="flex items-center gap-0.5">
                     <img className="size-3.5" src={Dumbel} alt="" />
-                    <p className="text-[12px] text-[#6B6F77] font-primary-ExtraLight font-medium">
+                    <p className="text-[12px] text-muted font-primary-ExtraLight font-medium">
                       4 ست{" "}
                     </p>
                   </div>
                   <div className="flex items-center gap-0.5">
                     <img className="size-3.5" src={Refresh} alt="" />
-                    <p className="text-[12px] text-[#6B6F77] font-primary-ExtraLight font-medium">
+                    <p className="text-[12px] text-muted font-primary-ExtraLight font-medium">
                       8 تکرار{" "}
                     </p>
                   </div>
                   <div className="flex items-center gap-0.5">
                     <img className="size-3.5" src={ClockCircle} alt="" />
-                    <p className="text-[12px] text-[#6B6F77] font-primary-ExtraLight font-medium">
+                    <p className="text-[12px] text-muted font-primary-ExtraLight font-medium">
                       10 ثانیه استراحت{" "}
                     </p>
                   </div>
                 </div>
               </div>
               {showRecord && (
-                <div className="flex justify-center items-center bg-[#F2F8FD] w-full gap-8 p-4 rounded-3xl">
+                <div className="flex justify-center items-center bg-surface-secondary w-full gap-8 p-4 rounded-3xl">
                   <div className="flex-col justify-center items-center">
-                    <h1 className="text-[#007BFF] Modam-Medium">رکورد قبلی</h1>
-                    <p className="text-[#6B6F77] Modam-Medium text-sm ">30KG</p>
+                    <h1 className="text-primary Modam-Medium">رکورد قبلی</h1>
+                    <p className="text-muted Modam-Medium text-sm ">30KG</p>
                   </div>
                   <div className="flex-col justify-center items-center ">
-                    <h1 className="text-[#007BFF] Modam-Medium">رکورد فعلی</h1>
-                    <p className="text-[#6B6F77] Modam-Medium text-sm">30KG</p>
+                    <h1 className="text-primary Modam-Medium">رکورد فعلی</h1>
+                    <p className="text-muted Modam-Medium text-sm">30KG</p>
                   </div>
                   <div className="flex-col justify-center items-center">
-                    <h1 className="text-[#007BFF] Modam-Medium"> پیشرفت</h1>
-                    <p className="text-[#6B6F77] Modam-Medium text-sm ">30%</p>
+                    <h1 className="text-primary Modam-Medium"> پیشرفت</h1>
+                    <p className="text-muted Modam-Medium text-sm ">30%</p>
                   </div>
                 </div>
               )}
             </div>
             {hrTrue && exercise !== exercises[exercises.length] && (
-              <hr className="text-gray-200 w-full" />
+              <hr className="text-border w-full" />
             )}
             <div className={`flex  items-center gap-4 ${hrTrue ? " py-4 " : "mt-2"} w-full`}>
               <img
@@ -171,49 +171,49 @@ export default function Mytrain({
               />
 
               <div className="w-full">
-                <h3 className="font-primary font-medium text-[#6B6F77] mb-2 cursor-pointer">
+                <h3 className="font-primary font-medium text-muted mb-2 cursor-pointer">
                   اسکوات با هالتر
                 </h3>
                 <div className="flex gap-3">
                   <div className="flex items-center gap-0.5">
                     <img className="size-3.5" src={Dumbel} alt="" />
-                    <p className="text-[12px] text-[#6B6F77] font-primary-ExtraLight font-medium">
+                    <p className="text-[12px] text-muted font-primary-ExtraLight font-medium">
                       4 ست{" "}
                     </p>
                   </div>
                   <div className="flex items-center gap-0.5">
                     <img className="size-3.5" src={Refresh} alt="" />
-                    <p className="text-[12px] text-[#6B6F77] font-primary-ExtraLight font-medium">
+                    <p className="text-[12px] text-muted font-primary-ExtraLight font-medium">
                       8 تکرار{" "}
                     </p>
                   </div>
                   <div className="flex items-center gap-0.5">
                     <img className="size-3.5" src={ClockCircle} alt="" />
-                    <p className="text-[12px] text-[#6B6F77] font-primary-ExtraLight font-medium">
+                    <p className="text-[12px] text-muted font-primary-ExtraLight font-medium">
                       10 ثانیه استراحت{" "}
                     </p>
                   </div>
                 </div>
               </div>
               {showRecord && (
-                <div className="flex justify-center items-center bg-[#F2F8FD] w-full gap-8 p-4 rounded-3xl">
+                <div className="flex justify-center items-center bg-surface-secondary w-full gap-8 p-4 rounded-3xl">
                   <div className="flex-col justify-center items-center">
-                    <h1 className="text-[#007BFF] Modam-Medium">رکورد قبلی</h1>
-                    <p className="text-[#6B6F77] Modam-Medium text-sm ">30KG</p>
+                    <h1 className="text-primary Modam-Medium">رکورد قبلی</h1>
+                    <p className="text-muted Modam-Medium text-sm ">30KG</p>
                   </div>
                   <div className="flex-col justify-center items-center ">
-                    <h1 className="text-[#007BFF] Modam-Medium">رکورد فعلی</h1>
-                    <p className="text-[#6B6F77] Modam-Medium text-sm">30KG</p>
+                    <h1 className="text-primary Modam-Medium">رکورد فعلی</h1>
+                    <p className="text-muted Modam-Medium text-sm">30KG</p>
                   </div>
                   <div className="flex-col justify-center items-center">
-                    <h1 className="text-[#007BFF] Modam-Medium"> پیشرفت</h1>
-                    <p className="text-[#6B6F77] Modam-Medium text-sm ">30%</p>
+                    <h1 className="text-primary Modam-Medium"> پیشرفت</h1>
+                    <p className="text-muted Modam-Medium text-sm ">30%</p>
                   </div>
                 </div>
               )}
             </div>
             {hrTrue && exercise !== exercises[exercises.length] && (
-              <hr className="text-gray-200 w-full" />
+              <hr className="text-border w-full" />
             )}
             <div className={`flex  items-center gap-4 ${hrTrue ? " py-4 " : "mt-2"} w-full`}>
               <img
@@ -223,56 +223,56 @@ export default function Mytrain({
               />
 
               <div className="w-full">
-                <h3 className="font-primary font-medium text-[#6B6F77] mb-2 cursor-pointer">
+                <h3 className="font-primary font-medium text-muted mb-2 cursor-pointer">
                   اسکوات با هالتر
                 </h3>
                 <div className="flex gap-3">
                   <div className="flex items-center gap-0.5">
                     <img className="size-3.5" src={Dumbel} alt="" />
-                    <p className="text-[12px] text-[#6B6F77] font-primary-ExtraLight font-medium">
+                    <p className="text-[12px] text-muted font-primary-ExtraLight font-medium">
                       4 ست{" "}
                     </p>
                   </div>
                   <div className="flex items-center gap-0.5">
                     <img className="size-3.5" src={Refresh} alt="" />
-                    <p className="text-[12px] text-[#6B6F77] font-primary-ExtraLight font-medium">
+                    <p className="text-[12px] text-muted font-primary-ExtraLight font-medium">
                       8 تکرار{" "}
                     </p>
                   </div>
                   <div className="flex items-center gap-0.5">
                     <img className="size-3.5" src={ClockCircle} alt="" />
-                    <p className="text-[12px] text-[#6B6F77] font-primary-ExtraLight font-medium">
+                    <p className="text-[12px] text-muted font-primary-ExtraLight font-medium">
                       10 ثانیه استراحت{" "}
                     </p>
                   </div>
                 </div>
               </div>
               {showRecord && (
-                <div className="flex justify-center items-center bg-[#F2F8FD] w-full gap-8 p-4 rounded-3xl">
+                <div className="flex justify-center items-center bg-surface-secondary w-full gap-8 p-4 rounded-3xl">
                   <div className="flex-col justify-center items-center">
-                    <h1 className="text-[#007BFF] Modam-Medium">رکورد قبلی</h1>
-                    <p className="text-[#6B6F77] Modam-Medium text-sm ">30KG</p>
+                    <h1 className="text-primary Modam-Medium">رکورد قبلی</h1>
+                    <p className="text-muted Modam-Medium text-sm ">30KG</p>
                   </div>
                   <div className="flex-col justify-center items-center ">
-                    <h1 className="text-[#007BFF] Modam-Medium">رکورد فعلی</h1>
-                    <p className="text-[#6B6F77] Modam-Medium text-sm">30KG</p>
+                    <h1 className="text-primary Modam-Medium">رکورد فعلی</h1>
+                    <p className="text-muted Modam-Medium text-sm">30KG</p>
                   </div>
                   <div className="flex-col justify-center items-center">
-                    <h1 className="text-[#007BFF] Modam-Medium"> پیشرفت</h1>
-                    <p className="text-[#6B6F77] Modam-Medium text-sm ">30%</p>
+                    <h1 className="text-primary Modam-Medium"> پیشرفت</h1>
+                    <p className="text-muted Modam-Medium text-sm ">30%</p>
                   </div>
                 </div>
               )}
             </div>
             {hrTrue && exercise !== exercises[exercises.length - 1] && (
-              <hr className="text-gray-200 w-full" />
+              <hr className="text-border w-full" />
             )}
           </div>
         ))}
         {showDetail && (
         <span
           onClick={() => setIsProgramModalOpen(true)}
-          className="text-gray-400 Modam-Medium cursor-pointer justify-center items-center flex gap-1.5 hover:text-gray-500"
+          className="text-muted Modam-Medium cursor-pointer justify-center items-center flex gap-1.5 hover:text-foreground"
         >
           {" "}
           مشاهده همه تمرینات

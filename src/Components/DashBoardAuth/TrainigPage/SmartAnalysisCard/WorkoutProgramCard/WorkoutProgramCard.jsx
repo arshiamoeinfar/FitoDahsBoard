@@ -15,15 +15,15 @@ const TYPE_STYLES = {
     check: true,
   },
   فشاری: {
-    bg: "bg-amber-50",
+    bg: "bg-amber-500/10",
     border: "border-amber-400",
     dot: "bg-amber-400",
     check: false,
   },
   استراحت: {
-    bg: "bg-gray-100",
-    border: "border-gray-200",
-    dot: "bg-gray-200",
+    bg: "bg-surface-secondary",
+    border: "border-border",
+    dot: "bg-border",
     check: false,
   },
 };
@@ -44,7 +44,7 @@ function DayCircle({ day, type }) {
   const style = TYPE_STYLES[type] || TYPE_STYLES["استراحت"];
   return (
     <div className="flex flex-col items-center gap-3">
-      <span className="text-[#6B6F77] Modam-Medium text-sm">{day}</span>
+      <span className="text-foreground Modam-Medium text-sm">{day}</span>
       <div
         className={`w-12 h-12 rounded-full flex items-center justify-center border-2 ${style.bg} ${style.border}`}
       >
@@ -64,7 +64,7 @@ function DayCircle({ day, type }) {
           </svg>
         )}
       </div>
-      <span className="text-[#6B6F77] Modam-Medium text-sm ">{type}</span>
+      <span className="text-foreground Modam-Medium text-sm ">{type}</span>
     </div>
   );
 }
@@ -79,13 +79,13 @@ export default function WorkoutProgramCard({
 
   return (
     <div
-      className="bg-white rounded-3xl p-8 w-full max-w-3xl flex flex-col gap-8"
+      className="bg-surface rounded-3xl p-8 w-full max-w-3xl flex flex-col gap-8"
     >
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h3 className="text-xl font-medium text-[#6B6F77]">{title}</h3>
+        <h3 className="text-xl font-medium text-foreground">{title}</h3>
 
-        <div className="inline-flex bg-blue-50/60 rounded-full p-1">
+        <div className="inline-flex bg-blue-500/10 rounded-full p-1">
           <SegmentedControl />
         </div>
       </div>
@@ -98,10 +98,10 @@ export default function WorkoutProgramCard({
       </div>
 
       {/* Legend */}
-      <div className="bg-[#F2F8FD] rounded-2xl px-6 py-4 flex items-center justify-center gap-8 flex-wrap">
+      <div className="bg-surface-secondary rounded-2xl px-6 py-4 flex items-center justify-center gap-8 flex-wrap">
         {LEGEND_ORDER.map((type) => (
           <div key={type} className="flex items-center gap-2">
-            <span className="text-gray-600 text-sm">{type}</span>
+            <span className="text-foreground text-sm">{type}</span>
             <span className={`w-3 h-3 rounded-full ${TYPE_STYLES[type].dot}`} />
           </div>
         ))}
@@ -113,8 +113,8 @@ export default function WorkoutProgramCard({
           {coachInitial}
         </div>
         <div className="text-start">
-          <p className="text-gray-400 text-xs">برنامه از</p>
-          <p className="text-gray-800 font-bold">{coachName}</p>
+          <p className="text-muted text-xs">برنامه از</p>
+          <p className="text-foreground font-bold">{coachName}</p>
         </div>
       </div>
     </div>

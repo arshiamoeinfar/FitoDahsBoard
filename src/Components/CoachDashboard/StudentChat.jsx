@@ -47,7 +47,7 @@ const MessageBubble = memo(function MessageBubble({
       id={`msg-${message.id}`}
       className={`group flex flex-col transition-all duration-500 rounded-2xl p-1 ${
         isCoach ? "items-end" : "items-start"
-      } ${isHighlighted ? "bg-yellow-100/70 ring-2 ring-yellow-300" : ""}`}
+      } ${isHighlighted ? "bg-yellow-500/10 ring-2 ring-yellow-500/40" : ""}`}
     >
       <div
         className={`flex items-center gap-1.5 max-w-[88%] sm:max-w-[75%] ${
@@ -55,11 +55,11 @@ const MessageBubble = memo(function MessageBubble({
         }`}
       >
         {/* نوار ابزار پیام (ریپلای، ویرایش، کپی، حذف) */}
-        <div className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity flex items-center gap-0.5 bg-white shadow-sm border border-gray-100 rounded-full px-1.5 py-0.5 shrink-0">
+        <div className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity flex items-center gap-0.5 bg-surface shadow-sm border border-border rounded-full px-1.5 py-0.5 shrink-0">
           <button
             type="button"
             onClick={() => onReply(message)}
-            className="text-gray-400 hover:text-[#007BFF] p-1 rounded-full transition cursor-pointer"
+            className="text-muted hover:text-primary p-1 rounded-full transition cursor-pointer"
             title="پاسخ (Reply)"
           >
             <ReplyRoundedIcon sx={{ fontSize: 16 }} />
@@ -69,7 +69,7 @@ const MessageBubble = memo(function MessageBubble({
             <button
               type="button"
               onClick={handleCopy}
-              className="text-gray-400 hover:text-green-600 p-1 rounded-full transition cursor-pointer"
+              className="text-muted hover:text-success p-1 rounded-full transition cursor-pointer"
               title={copied ? "کپی شد!" : "کپی متن"}
             >
               <ContentCopyRoundedIcon sx={{ fontSize: 14 }} />
@@ -80,7 +80,7 @@ const MessageBubble = memo(function MessageBubble({
             <button
               type="button"
               onClick={() => onEdit(message)}
-              className="text-gray-400 hover:text-amber-500 p-1 rounded-full transition cursor-pointer"
+              className="text-muted hover:text-amber-500 p-1 rounded-full transition cursor-pointer"
               title="ویرایش پیام"
             >
               <EditOutlinedIcon sx={{ fontSize: 15 }} />
@@ -91,7 +91,7 @@ const MessageBubble = memo(function MessageBubble({
             <button
               type="button"
               onClick={() => onDelete(message.id)}
-              className="text-gray-400 hover:text-red-500 p-1 rounded-full transition cursor-pointer"
+              className="text-muted hover:text-danger p-1 rounded-full transition cursor-pointer"
               title="حذف پیام"
             >
               <DeleteOutlineRoundedIcon sx={{ fontSize: 16 }} />
@@ -103,8 +103,8 @@ const MessageBubble = memo(function MessageBubble({
         <div
           className={`px-4 py-2.5 rounded-2xl text-sm leading-7 shadow-xs min-w-[110px] ${
             isCoach
-              ? "bg-[#007BFF] text-white rounded-tl-sm"
-              : "bg-[#F1F3F6] text-[#4F5965] rounded-tr-sm"
+              ? "bg-primary text-white rounded-tl-sm"
+              : "bg-surface-secondary text-foreground rounded-tr-sm"
           }`}
         >
           {/* باکس ریپلایِ داخل پیام (با کلیک روی آن به پیام مرجع می‌برد) */}
@@ -115,7 +115,7 @@ const MessageBubble = memo(function MessageBubble({
               className={`mb-2 px-3 py-1.5 rounded-lg text-xs border-r-4 cursor-pointer transition hover:opacity-90 text-right ${
                 isCoach
                   ? "bg-blue-800/40 border-white text-blue-50"
-                  : "bg-gray-200/90 border-[#007BFF] text-gray-700"
+                  : "bg-border border-primary text-foreground"
               }`}
             >
               <p className="font-bold mb-0.5">
@@ -147,8 +147,8 @@ const MessageBubble = memo(function MessageBubble({
               download={message.attachment.name}
               className={`flex items-center gap-2.5 p-2.5 rounded-xl mb-2 transition ${
                 isCoach
-                  ? "bg-blue-600 hover:bg-blue-700 text-white"
-                  : "bg-white hover:bg-gray-50 text-gray-700"
+                  ? "bg-primary hover:bg-primary-hover text-white"
+                  : "bg-surface hover:bg-surface-secondary text-foreground"
               }`}
             >
               <InsertDriveFileOutlinedIcon />
@@ -188,7 +188,7 @@ const MessageBubble = memo(function MessageBubble({
       {/* زمان، تیک خوانده شدن و برچسب ویرایش شده */}
       <div className="flex items-center gap-1 mt-1 px-1">
         {isCoach && (
-          <span className="text-[#007BFF] flex items-center">
+          <span className="text-primary flex items-center">
             {message.status === "sent" ? (
               <DoneRoundedIcon sx={{ fontSize: 14 }} />
             ) : (
@@ -196,9 +196,9 @@ const MessageBubble = memo(function MessageBubble({
             )}
           </span>
         )}
-        <span className="text-[11px] text-[#A0A4AA]">{message.time}</span>
+        <span className="text-[11px] text-muted">{message.time}</span>
         {message.edited && (
-          <span className="text-[10px] text-[#A0A4AA] italic">(ویرایش شده)</span>
+          <span className="text-[10px] text-muted italic">(ویرایش شده)</span>
         )}
       </div>
     </div>
@@ -537,14 +537,14 @@ export default function StudentChat({
 
   if (!conversation) {
     return (
-      <div className="flex-1 bg-white rounded-3xl flex flex-col items-center justify-center p-8 select-none h-[calc(100vh-120px)]">
-        <div className="w-16 h-16 rounded-full bg-[#F5F7FB] flex items-center justify-center text-[#A0A4AA] mb-3">
+      <div className="flex-1 bg-surface rounded-3xl flex flex-col items-center justify-center p-8 select-none h-[calc(100vh-120px)]">
+        <div className="w-16 h-16 rounded-full bg-surface-secondary flex items-center justify-center text-muted mb-3">
           <SendRoundedIcon sx={{ fontSize: 28 }} />
         </div>
-        <p className="text-[#4F5965] font-medium text-sm">
+        <p className="text-foreground font-medium text-sm">
           یک گفتگو را انتخاب کنید
         </p>
-        <p className="text-[#A0A4AA] text-xs mt-1">
+        <p className="text-muted text-xs mt-1">
           برای شروع چت با شاگرد، از لیست کناری یک نفر را انتخاب کنید
         </p>
       </div>
@@ -557,31 +557,31 @@ export default function StudentChat({
       کلاس‌های h-[calc(100vh-120px)] و min-h-0 تضمین می‌کنند که باکس چت از صفحه بیرون نزند 
       و با زیاد شدن پیام‌ها اسکرول داخلی فعال شود.
     */
-    <div className="flex-1 bg-white rounded-3xl flex flex-col h-[calc(100vh-120px)] max-h-[820px] min-h-[500px] overflow-hidden shadow-xs relative">
+    <div className="flex-1 bg-surface rounded-3xl flex flex-col h-[calc(100vh-120px)] max-h-[820px] min-h-[500px] overflow-hidden shadow-xs relative">
       {/* ================= هدر چت ================= */}
-      <div className="flex items-center justify-between px-6 py-4 border-b border-[#F0F2F5] shrink-0 bg-white z-10">
+      <div className="flex items-center justify-between px-6 py-4 border-b border-border shrink-0 bg-surface z-10">
         {/* اطلاعات شاگرد */}
         <div className="flex items-center gap-3">
             <div className="relative">
             <img
               src={conversation.avatar}
               alt={conversation.name}
-              className="w-11 h-11 rounded-full object-cover border border-gray-100"
+              className="w-11 h-11 rounded-full object-cover border border-border"
             />
           </div>
           <div className="text-right">
-            <p className="text-sm font-semibold text-[#4F5965]">
+            <p className="text-sm font-semibold text-foreground">
               {conversation.name}
             </p>
             <p
               className={`text-xs flex items-center gap-1.5 justify-start mt-0.5 ${
-                conversation.online ? "text-[#22C55E]" : "text-[#A0A4AA]"
+                conversation.online ? "text-success" : "text-muted"
               }`}
             >
               {conversation.online ? "آنلاین" : "آخرین بازدید امروز"}
               <span
                 className={`w-2 h-2 rounded-full ${
-                  conversation.online ? "bg-[#22C55E]" : "bg-[#D9D9D9]"
+                  conversation.online ? "bg-success" : "bg-surface-secondary"
                 }`}
               />
             </p>
@@ -598,8 +598,8 @@ export default function StudentChat({
             }}
             className={`w-9 h-9 rounded-full flex items-center justify-center transition cursor-pointer ${
               showSearch
-                ? "bg-[#007BFF] text-white"
-                : "bg-[#F5F7FB] text-[#8A93A3] hover:text-[#007BFF]"
+                ? "bg-primary text-white"
+                : "bg-surface-secondary text-muted hover:text-primary"
             }`}
             title="جستجو در پیام‌ها"
           >
@@ -614,7 +614,7 @@ export default function StudentChat({
               placeholder="جستجو در پیام‌ها..."
               dir="rtl"
               autoFocus
-              className="bg-[#F5F7FB] text-xs text-[#4F5965] rounded-full px-3 py-2 outline-none w-44 sm:w-56 transition-all"
+              className="bg-surface-secondary text-xs text-foreground rounded-full px-3 py-2 outline-none w-44 sm:w-56 transition-all"
             />
           )}
         </div>
@@ -629,7 +629,7 @@ export default function StudentChat({
       >
         {filteredMessages.length === 0 ? (
           <div className="flex-1 flex flex-col items-center justify-center text-center my-auto">
-            <p className="text-sm text-[#A0A4AA]">
+            <p className="text-sm text-muted">
               {searchQuery
                 ? "پیامی با این عبارت پیدا نشد."
                 : "هنوز پیامی ثبت نشده — اولین پیام رو بفرست 👋"}
@@ -655,7 +655,7 @@ export default function StudentChat({
         <button
           type="button"
           onClick={() => scrollToBottom(true)}
-          className="absolute bottom-24 right-6 z-20 w-10 h-10 rounded-full bg-white text-[#007BFF] shadow-lg border border-gray-100 flex items-center justify-center hover:bg-blue-50 transition cursor-pointer"
+          className="absolute bottom-24 right-6 z-20 w-10 h-10 rounded-full bg-surface text-primary shadow-lg border border-border flex items-center justify-center hover:bg-primary/10 transition cursor-pointer"
           title="رفتن به آخرین پیام"
         >
           <KeyboardArrowDownRoundedIcon />
@@ -664,7 +664,7 @@ export default function StudentChat({
 
       {/* ================= نوار پیش‌نمایش ریپلای، ویرایش یا فایل پیوست ================= */}
       {(replyTo || editingMessage || attachment) && (
-        <div className="px-6 py-2.5 bg-[#F8FAFC] border-t border-[#F0F2F5] flex items-center justify-between gap-4 shrink-0">
+        <div className="px-6 py-2.5 bg-surface-secondary border-t border-border flex items-center justify-between gap-4 shrink-0">
           <button
             type="button"
             onClick={() => {
@@ -673,7 +673,7 @@ export default function StudentChat({
               setAttachment(null);
               if (editingMessage) setDraft("");
             }}
-            className="text-gray-400 hover:text-red-500 transition cursor-pointer p-1"
+            className="text-muted hover:text-danger transition cursor-pointer p-1"
             title="بستن"
           >
             <CloseRoundedIcon sx={{ fontSize: 18 }} />
@@ -681,13 +681,13 @@ export default function StudentChat({
 
           <div className="flex-1 text-right overflow-hidden" dir="rtl">
             {replyTo && (
-              <div className="border-r-3 border-[#007BFF] pr-2.5">
-                <p className="text-xs font-bold text-[#007BFF] flex items-center gap-1">
+              <div className="border-r-3 border-primary pr-2.5">
+                <p className="text-xs font-bold text-primary flex items-center gap-1">
                   <ReplyRoundedIcon sx={{ fontSize: 14 }} />
                   پاسخ به{" "}
                   {replyTo.sender === "coach" ? "خودتان" : conversation.name}
                 </p>
-                <p className="text-xs text-[#4F5965] truncate mt-0.5">
+                <p className="text-xs text-foreground truncate mt-0.5">
                   {replyTo.text ||
                     (replyTo.audioUrl ? "🎤 پیام صوتی" : "📎 فایل پیوست")}
                 </p>
@@ -700,7 +700,7 @@ export default function StudentChat({
                   <EditOutlinedIcon sx={{ fontSize: 14 }} />
                   در حال ویرایش پیام
                 </p>
-                <p className="text-xs text-[#4F5965] truncate mt-0.5">
+                <p className="text-xs text-foreground truncate mt-0.5">
                   {editingMessage.text}
                 </p>
               </div>
@@ -715,15 +715,15 @@ export default function StudentChat({
                     className="w-10 h-10 rounded-lg object-cover border"
                   />
                 ) : (
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#007BFF] flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
                     <InsertDriveFileOutlinedIcon fontSize="small" />
                   </div>
                 )}
                 <div className="overflow-hidden">
-                  <p className="text-xs font-medium text-[#4F5965] truncate">
+                  <p className="text-xs font-medium text-foreground truncate">
                     {attachment.name}
                   </p>
-                  <p className="text-[10px] text-[#A0A4AA]">{attachment.size}</p>
+                  <p className="text-[10px] text-muted">{attachment.size}</p>
                 </div>
               </div>
             )}
@@ -732,27 +732,27 @@ export default function StudentChat({
       )}
 
       {/* ================= فوتر ورودی پیام ================= */}
-      <div className="flex items-center gap-3 px-5 py-4 border-t border-[#F0F2F5] bg-white relative shrink-0">
+      <div className="flex items-center gap-3 px-5 py-4 border-t border-border bg-surface relative shrink-0">
         {/* دکمه ارسال / ثبت ویرایش */}
         <button
           type="button"
           onClick={handleSend}
           disabled={(!draft.trim() && !attachment) || isRecording}
-          className="bg-[#007BFF] text-white text-sm font-medium px-6 py-3 rounded-full flex items-center gap-2 hover:bg-blue-600 transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed shrink-0"
+          className="bg-primary text-white text-sm font-medium px-6 py-3 rounded-full flex items-center gap-2 hover:bg-primary-hover transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed shrink-0"
         >
           {editingMessage ? "ذخیره ویرایش" : "ارسال پیام"}
           <SendRoundedIcon sx={{ fontSize: 16 }} />
         </button>
 
         {/* کادر ورودی یا وضعیت ضبط صدا */}
-        <div className="flex-1 bg-[#F5F7FB] rounded-full flex items-center px-2 py-1.5 relative">
+        <div className="flex-1 bg-surface-secondary rounded-full flex items-center px-2 py-1.5 relative">
           {isRecording ? (
             <div className="flex items-center justify-between w-full px-2 py-0.5">
               <div className="flex items-center gap-2">
                 <button
                   type="button"
                   onClick={() => stopRecording(true)}
-                  className="px-3 py-1 rounded-full bg-[#007BFF] text-white text-xs font-medium hover:bg-blue-600 transition cursor-pointer flex items-center gap-1"
+                  className="px-3 py-1 rounded-full bg-primary text-white text-xs font-medium hover:bg-primary-hover transition cursor-pointer flex items-center gap-1"
                 >
                   <StopRoundedIcon sx={{ fontSize: 16 }} />
                   ارسال ویس
@@ -760,18 +760,18 @@ export default function StudentChat({
                 <button
                   type="button"
                   onClick={() => stopRecording(false)}
-                  className="px-2.5 py-1 rounded-full text-xs text-gray-500 hover:text-red-500 transition cursor-pointer"
+                  className="px-2.5 py-1 rounded-full text-xs text-muted hover:text-danger transition cursor-pointer"
                 >
                   انصراف
                 </button>
               </div>
 
               <div className="flex items-center gap-2">
-                <span className="text-xs font-mono font-semibold text-red-500">
+                <span className="text-xs font-mono font-semibold text-danger">
                   {formatTime(recordingTime)}
                 </span>
-                <span className="text-xs text-[#4F5965]">در حال ضبط...</span>
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping" />
+                <span className="text-xs text-foreground">در حال ضبط...</span>
+                <span className="w-2.5 h-2.5 rounded-full bg-danger animate-ping" />
               </div>
             </div>
           ) : (
@@ -780,7 +780,7 @@ export default function StudentChat({
               <button
                 type="button"
                 onClick={startRecording}
-                className="w-9 h-9 rounded-full bg-[#007BFF] flex items-center justify-center text-white shrink-0 hover:bg-blue-600 transition cursor-pointer"
+                className="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-white shrink-0 hover:bg-primary-hover transition cursor-pointer"
                 aria-label="پیام صوتی"
                 title="ضبط پیام صوتی"
               >
@@ -794,8 +794,8 @@ export default function StudentChat({
                   onClick={() => setShowEmoji((prev) => !prev)}
                   className={`w-9 h-9 rounded-full flex items-center justify-center transition cursor-pointer shrink-0 ${
                     showEmoji
-                      ? "text-[#007BFF] bg-blue-50"
-                      : "text-[#8A93A3] hover:text-[#007BFF]"
+                      ? "text-primary bg-primary/10"
+                      : "text-muted hover:text-primary"
                   }`}
                   aria-label="شکلک"
                   title="افزودن شکلک"
@@ -804,7 +804,7 @@ export default function StudentChat({
                 </button>
 
                 {showEmoji && (
-                  <div className="absolute bottom-12 right-0 bg-white border border-gray-100 shadow-xl rounded-2xl p-3 w-64 grid grid-cols-6 gap-1.5 z-30">
+                  <div className="absolute bottom-12 right-0 bg-surface border border-border shadow-xl rounded-2xl p-3 w-64 grid grid-cols-6 gap-1.5 z-30">
                     {EMOJIS.map((emoji) => (
                       <button
                         key={emoji}
@@ -813,7 +813,7 @@ export default function StudentChat({
                           setDraft((prev) => prev + emoji);
                           inputRef.current?.focus();
                         }}
-                        className="text-xl hover:bg-gray-100 rounded-lg p-1.5 transition cursor-pointer flex items-center justify-center"
+                        className="text-xl hover:bg-surface-secondary rounded-lg p-1.5 transition cursor-pointer flex items-center justify-center"
                       >
                         {emoji}
                       </button>
@@ -826,7 +826,7 @@ export default function StudentChat({
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
-                className="w-9 h-9 rounded-full flex items-center justify-center text-[#8A93A3] hover:text-[#007BFF] transition cursor-pointer shrink-0"
+                className="w-9 h-9 rounded-full flex items-center justify-center text-muted hover:text-primary transition cursor-pointer shrink-0"
                 aria-label="پیوست فایل"
                 title="پیوست تصویر یا فایل"
               >
@@ -848,7 +848,7 @@ export default function StudentChat({
                 type="text"
                 dir="rtl"
                 placeholder="پیام خود را بنویسید..."
-                className="flex-1 bg-transparent outline-none text-sm text-[#4F5965] text-right px-2"
+                className="flex-1 bg-transparent outline-none text-sm text-foreground text-right px-2"
               />
             </>
           )}

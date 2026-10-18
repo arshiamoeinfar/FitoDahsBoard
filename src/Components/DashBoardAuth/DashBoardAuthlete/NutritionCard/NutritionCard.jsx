@@ -26,14 +26,14 @@ export default function NutritionCard() {
 
       const navigate = useNavigate()
   return (
-    <div className="bg-white rounded-3xl p-6">
+    <div className="bg-surface rounded-3xl p-6">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl text-[#6B6F77] font-bold font-primary-light ">
+        <h2 className="text-xl text-muted font-bold font-primary-light ">
           تغذیه امروز
         </h2>
         <button
         onClick={()=> navigate("/dashboardnutrition")}
-        className="flex items-center gap-2 text-[#6B6F77] text-sm hover:text-[#000000] transition cursor-pointer">
+        className="flex items-center gap-2 text-muted text-sm hover:text-foreground transition cursor-pointer">
           جزئیات بیشتر
           <img src={Flesh} alt="" className="w-4 h-4" />
         </button>
@@ -44,10 +44,10 @@ export default function NutritionCard() {
           <div className="flex justify-start items-center mb-4">
             <img className="size-10" src={BreakFast} alt="" />
             <div className="flex flex-col mr-4">
-              <span className="text-[12px] text-[#6B6F77] font-medium">
+              <span className="text-[12px] text-muted font-medium">
                 صبحانه
               </span>
-              <p className="flex text-[12px] text-[#6B6F77] font-primary-ExtraLight font-medium">
+              <p className="flex text-[12px] text-muted font-primary-ExtraLight font-medium">
                 {" "}
                 <span>
                   <img className="size-3.5" src={imgFire} alt="" />
@@ -59,10 +59,10 @@ export default function NutritionCard() {
           <div className="flex justify-start items-center mb-4">
             <img className="size-10" src={imgLunch} alt="" />
             <div className="flex flex-col mr-4">
-              <span className="text-[12px] text-[#6B6F77] font-medium">
+              <span className="text-[12px] text-muted font-medium">
                 نهار
               </span>
-              <p className="flex text-[12px] text-[#6B6F77] font-primary-ExtraLight font-medium">
+              <p className="flex text-[12px] text-muted font-primary-ExtraLight font-medium">
                 {" "}
                 <span>
                   <img className="size-3.5" src={imgFire} alt="" />
@@ -74,10 +74,10 @@ export default function NutritionCard() {
           <div className="flex justify-start items-center mb-4">
             <img className="size-10" src={imgDinner} alt="" />
             <div className="flex flex-col mr-4">
-              <span className="text-[12px] text-[#6B6F77] font-medium">
+              <span className="text-[12px] text-muted font-medium">
                 شام
               </span>
-              <p className="flex text-[12px] text-[#6B6F77] font-primary-ExtraLight font-medium">
+              <p className="flex text-[12px] text-muted font-primary-ExtraLight font-medium">
                 {" "}
                 <span>
                   <img className="size-3.5" src={imgFire} alt="" />
@@ -93,9 +93,9 @@ export default function NutritionCard() {
             {nutritionData.map((item) => (
               <div key={item.name} className="flex flex-col items-center">
                 {/* ستون */}
-                <div className="h-30 w-3 bg-[#DBEDFF] rounded-full overflow-hidden flex items-end">
+                <div className="h-30 w-3 bg-primary/10 rounded-full overflow-hidden flex items-end">
                   <div
-                    className="w-full bg-[#007BFF] rounded-full transition-all duration-500"
+                    className="w-full bg-primary rounded-full transition-all duration-500"
                     style={{
                       height: `${item.value}%`,
                     }}
@@ -103,10 +103,10 @@ export default function NutritionCard() {
                 </div>
 
                 {/* اسم */}
-                <p className="mt-3 text-sm font-primary-light  text-[#9AA0A6] whitespace-nowrap">
+                <p className="mt-3 text-sm font-primary-light  text-muted whitespace-nowrap">
                   {item.name}
                 </p>
-                <p className="mt-1 text-[11px] font-primary-ExtraLight text-[#9AA0A6] whitespace-nowrap">
+                <p className="mt-1 text-[11px] font-primary-ExtraLight text-muted whitespace-nowrap">
                   190/120
                 </p>
               </div>

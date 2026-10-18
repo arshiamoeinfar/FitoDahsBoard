@@ -20,7 +20,7 @@ export default function DailyGoalCard() {
           onClick={() => {
             navigate("/dashboardAthlete/start-training")
           }}
-          className="bg-white text-[#007BFF] py-2 px-4 rounded-full hover:bg-gray-200 transition duration-300 cursor-pointer text-sm ">
+          className="bg-white text-primary py-2 px-4 rounded-full hover:bg-gray-200 transition duration-300 cursor-pointer text-sm ">
           شروع تمرین
         </span>
       </div>

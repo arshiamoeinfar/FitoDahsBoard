@@ -96,7 +96,7 @@ export default function WorkoutBuilder({
   }
 
   return (
-    <main dir="rtl" className="min-h-screen bg-[#F3F8FE] p-3 font-[Vazirmatn, sans-serif] text-slate-700 sm:p-5">
+    <main dir="rtl" className="min-h-screen bg-background p-3 font-[Vazirmatn, sans-serif] text-foreground sm:p-5">
       <div className="mx-auto flex w-full max-w-[1600px] flex-col gap-4">
         <WorkoutHeader
           weekdays={weekdays}
@@ -125,15 +125,15 @@ export default function WorkoutBuilder({
           onRemove={removeItem}
         />
 
-        <div className="flex flex-col gap-3 rounded-2xl border border-blue-50 bg-white p-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-          <div className="text-xs text-slate-500">
+        <div className="flex flex-col gap-3 rounded-2xl border border-border bg-surface p-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+          <div className="text-xs text-muted">
             {savedMessage || `روز ${activeDay} · ${dayItems.length} حرکت انتخاب شده`}
           </div>
           <button
             type="button"
             onClick={savePlan}
             disabled={!studentId || plan.length === 0}
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#087BFA] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-40"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-40"
           >
             <Check size={16} />
             ذخیره برنامه

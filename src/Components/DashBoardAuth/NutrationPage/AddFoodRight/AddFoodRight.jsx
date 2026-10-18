@@ -5,22 +5,22 @@ import ValueFood from "../ValueFood";
 export default function AddFoodRight({ SelectedFood , foods, SearchFood, setSearchFood, clickHandler }) {
     
     return (
-        <div className="space-y-6 border-l border-gray-100 p-6">
+        <div className="space-y-6 border-l border-border p-6">
             {/* SEARCH */}
             <div>
-                <label className="mb-2 block text-sm font-medium text-gray-700">
+                <label className="mb-2 block text-sm font-medium text-foreground">
                     انتخاب غذا
                 </label>
                 <div className="relative">
                     <Search
                         size={19}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 text-muted"
                     />
                     <input
                         value={SearchFood}
                         type="text"
                         placeholder="جستجوی غذا.."
-                        className="w-full rounded-2xl border border-gray-200 bg-white py-3.5 pr-11 pl-4 text-sm outline-none transition focus:border-[#007BFF] focus:ring-4 focus:ring-blue-500/10"
+                        className="w-full rounded-2xl border border-border bg-input py-3.5 pr-11 pl-4 text-sm outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/30"
                         onChange={(e) => setSearchFood(e.target.value)}
                     />
                 </div>
@@ -40,17 +40,17 @@ export default function AddFoodRight({ SelectedFood , foods, SearchFood, setSear
                             key={item.id}
                             onClick={() => clickHandler(item.id)}
                             type="button"
-                            className="flex w-full items-center justify-between rounded-2xl border border-gray-100 bg-white p-3 text-right transition hover:border-gray-200 cursor-pointer"
+                            className="flex w-full items-center justify-between rounded-2xl border border-border bg-surface p-3 text-right transition hover:border-border cursor-pointer"
                         >
                             <div className="flex items-center gap-3">
-                                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gray-50 text-xl">
+                                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-surface-secondary text-xl">
                                     {item.emoji}
                                 </div>
 
                                 <div>
-                                    <p className="font-medium text-gray-900">{item.name}</p>
+                                    <p className="font-medium text-foreground">{item.name}</p>
 
-                                    <p className="mt-1 text-xs text-gray-400">
+                                    <p className="mt-1 text-xs text-muted">
                                         {item.calories} کالری در 100 گرم
                                     </p>
                                 </div>
@@ -61,56 +61,56 @@ export default function AddFoodRight({ SelectedFood , foods, SearchFood, setSear
 
             {/* QUANTITY */}
             <div>
-                <label className="mb-2 block text-sm font-medium text-gray-700">
+                <label className="mb-2 block text-sm font-medium text-foreground">
                     مقدار
                 </label>
                 <div className="flex gap-3">
                     <ValueFood SelectedFood={SelectedFood} />
 
                     <div className="relative flex-1">
-                        <select className="h-full w-full appearance-none rounded-2xl border border-gray-200 bg-white px-4 text-sm text-gray-700 outline-none focus:border-[#007BFF]">
+                        <select className="h-full w-full appearance-none rounded-2xl border border-border bg-input px-4 text-sm text-foreground outline-none focus:border-primary">
                             <option>گرم</option>
                             <option>دانه</option>
                             <option>کف دست</option>
                         </select>
                         <ChevronDown
                             size={17}
-                            className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+                            className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-muted"
                         />
                     </div>
                 </div>
-                <p className="mt-2 text-xs text-gray-400">
+                <p className="mt-2 text-xs text-muted">
                     معادل تقریبی 100.0 گرم
                 </p>
             </div>
 
             {/* MEAL */}
             <div>
-                <label className="mb-2 block text-sm font-medium text-gray-700">
+                <label className="mb-2 block text-sm font-medium text-foreground">
                     وعده غذایی
                 </label>
                 <div className="grid grid-cols-2 gap-2">
                     <button
                         type="button"
-                        className="rounded-xl border border-[#007BFF] bg-blue-50 px-4 py-3 text-sm font-medium text-[#007BFF] transition"
+                        className="rounded-xl border border-primary bg-primary/10 px-4 py-3 text-sm font-medium text-primary transition"
                     >
                         صبحانه
                     </button>
                     <button
                         type="button"
-                        className="rounded-xl border border-gray-100 bg-white px-4 py-3 text-sm text-gray-500 transition hover:border-gray-200"
+                        className="rounded-xl border border-border bg-surface px-4 py-3 text-sm text-muted transition hover:border-border"
                     >
                         ناهار
                     </button>
                     <button
                         type="button"
-                        className="rounded-xl border border-gray-100 bg-white px-4 py-3 text-sm text-gray-500 transition hover:border-gray-200"
+                        className="rounded-xl border border-border bg-surface px-4 py-3 text-sm text-muted transition hover:border-border"
                     >
                         شام
                     </button>
                     <button
                         type="button"
-                        className="rounded-xl border border-gray-100 bg-white px-4 py-3 text-sm text-gray-500 transition hover:border-gray-200"
+                        className="rounded-xl border border-border bg-surface px-4 py-3 text-sm text-muted transition hover:border-border"
                     >
                         میان وعده
                     </button>
@@ -125,13 +125,13 @@ export default function AddFoodRight({ SelectedFood , foods, SearchFood, setSear
                     capture="environment"
                     className="hidden"
                 />
-                <div className="flex items-center gap-4 rounded-2xl border border-dashed border-blue-200 bg-blue-50/50 p-4 transition hover:bg-blue-50">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-[#007BFF] shadow-sm">
+                <div className="flex items-center gap-4 rounded-2xl border border-dashed border-primary/30 bg-primary/5 p-4 transition hover:bg-primary/10">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-surface text-primary shadow-sm">
                         <Camera size={21} />
                     </div>
                     <div>
-                        <p className="font-medium text-gray-900">تشخیص غذا با عکس</p>
-                        <p className="mt-1 text-xs text-gray-500">
+                        <p className="font-medium text-foreground">تشخیص غذا با عکس</p>
+                        <p className="mt-1 text-xs text-muted">
                             از غذایت عکس بگیر تا مقدار و ارزش غذایی آن تخمین زده شود
                         </p>
                     </div>

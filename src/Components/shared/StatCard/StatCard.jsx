@@ -12,7 +12,7 @@ export default function StatCard({
   colorBg = "#E9FFDB",
 }) {
   return (
-    <div className="bg-white rounded-[28px] h-23 flex items-center ">
+    <div className="bg-surface rounded-[28px] h-23 flex items-center ">
       <div className="flex mr-3">
         {type === "circle" ? (
           <div className="w-13 h-13 flex items-center justify-center">
@@ -31,8 +31,8 @@ export default function StatCard({
           <img src={img} alt={title} />
         )}
         <div className="flex flex-col justify-center mr-3">
-          <span className="text-lg text-[#6B6F77] font-medium">{value}</span>
-          <p className="text-sm text-[#6B6F77] Modam-Medium">{title}</p>
+          <span className="text-lg text-foreground font-medium">{value}</span>
+          <p className="text-sm text-muted Modam-Medium">{title}</p>
         </div>
       </div>
     </div>

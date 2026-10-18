@@ -19,11 +19,11 @@ export default function DailyHydrationCard() {
   return (
     <>
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-lg text-[#6B6F77]">
+        <h1 className="text-lg text-muted">
           آب رسانی روزانه
         </h1>
 
-        <span className="text-sm text-[#6B6F77] font-primary-light">
+        <span className="text-sm text-muted font-primary-light">
           {waterAmount >= 1000
             ? `${waterAmount / 1000} لیتر`
             : `${waterAmount} میلی‌لیتر`}{" "}
@@ -51,7 +51,7 @@ export default function DailyHydrationCard() {
                 />
 
                 {!isFilled && (
-                  <span className="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#007BFF]">
+                  <span className="absolute inset-0 flex items-center justify-center text-xl font-bold text-primary">
                     +
                   </span>
                 )}
@@ -65,14 +65,14 @@ export default function DailyHydrationCard() {
         <button
           onClick={removeWater}
           disabled={waterAmount === 0}
-          className="flex items-center justify-center w-9 h-9 rounded-xl bg-gray-100 text-[#6B6F77] hover:bg-gray-200 disabled:opacity-40"
+          className="flex items-center justify-center w-9 h-9 rounded-xl bg-surface-secondary text-muted hover:bg-border disabled:opacity-40"
         >
           −
         </button>
 
         <button
           onClick={addWater}
-          className="flex items-center justify-center px-4 h-9 rounded-xl bg-[#007BFF] text-white text-sm hover:bg-[#006fe6] transition"
+          className="flex items-center justify-center px-4 h-9 rounded-xl bg-primary text-white text-sm hover:bg-primary-hover transition"
         >
           + افزودن آب
         </button>

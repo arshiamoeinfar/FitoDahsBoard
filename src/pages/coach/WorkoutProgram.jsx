@@ -55,7 +55,7 @@ export default function WorkoutProgram({
       className="
         w-full
         rounded-[24px]
-        bg-white
+        bg-surface
         px-7
         py-6
       "
@@ -63,7 +63,7 @@ export default function WorkoutProgram({
       {/* Header */}
       <div className="mb-7 flex items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <h2 className="text-2xl  text-[#6B6F77] font-primary">
+          <h2 className="text-2xl  text-foreground font-primary">
             برنامه تمرینی فعلی
           </h2>
 
@@ -77,18 +77,18 @@ export default function WorkoutProgram({
               gap-2
               rounded-xl
               border
-              border-[#E5EAF1]
-              bg-white
+              border-border
+              bg-surface
               px-4
               py-2.5
               text-[12px]
               font-medium
-              text-[#7B8491]
+              text-muted
               transition-all
               duration-200
-              hover:border-[#BFDBFE]
-              hover:bg-[#F3F8FF]
-              hover:text-[#007BFF]
+              hover:border-primary/30
+              hover:bg-primary/20
+              hover:text-primary
               active:scale-[0.98]
               active:shadow-[0_0_0_2px_rgba(0,0,0,0.1)]
               cursor-pointer
@@ -111,7 +111,7 @@ export default function WorkoutProgram({
             items-center
             gap-7
             rounded-full
-            bg-[#EAF4FF]
+            bg-primary/10
             px-5
             py-3
           "
@@ -134,8 +134,8 @@ export default function WorkoutProgram({
                   cursor-pointer
                   ${
                     isActive
-                      ? "text-[#007BFF]"
-                      : "text-[#8B929C] hover:text-[#007BFF]"
+                      ? "text-primary"
+                      : "text-muted hover:text-primary"
                   }
                 `}
               >
@@ -152,7 +152,7 @@ export default function WorkoutProgram({
                       h-[4px]
                       w-10
                       rounded-t-full
-                      bg-[#007BFF]
+                      bg-primary
                     "
                   />
                 )}
@@ -166,28 +166,28 @@ export default function WorkoutProgram({
       <div className="w-full overflow-x-auto">
         <table className="w-full min-w-[850px] border-collapse text-right">
           <thead>
-            <tr className="border-b border-[#EDF0F4]">
-              <th className="pb-5 text-[13px] font-medium text-[#858B94] w-1/6">
+            <tr className="border-b border-border">
+              <th className="pb-5 text-[13px] font-medium text-muted w-1/6">
                 حرکت
               </th>
 
-              <th className="pb-5 text-[13px] font-medium text-[#858B94] w-1/6">
+              <th className="pb-5 text-[13px] font-medium text-muted w-1/6">
                 ست
               </th>
 
-              <th className="pb-5 text-[13px] font-medium text-[#858B94] w-1/6">
+              <th className="pb-5 text-[13px] font-medium text-muted w-1/6">
                 تکرار
               </th>
 
-              <th className="pb-5 text-[13px] font-medium text-[#858B94] w-1/6">
+              <th className="pb-5 text-[13px] font-medium text-muted w-1/6">
                 وزنه
               </th>
 
-              <th className="pb-5 text-[13px] font-medium text-[#858B94] w-1/6">
+              <th className="pb-5 text-[13px] font-medium text-muted w-1/6">
                 استراحت
               </th>
 
-              <th className="pb-5 text-[13px] font-medium text-[#858B94] w-1/6">
+              <th className="pb-5 text-[13px] font-medium text-muted w-1/6">
                 توضیحات مربی
               </th>
             </tr>
@@ -199,31 +199,31 @@ export default function WorkoutProgram({
                 key={index}
                 className="
                   border-b
-                  border-[#F0F2F5]
+                  border-border
                   last:border-b-0
                 "
               >
-                <td className="py-6 text-[13px] font-medium text-[#555D68]">
+                <td className="py-6 text-[13px] font-medium text-foreground">
                   {exercise.name}
                 </td>
 
-                <td className="py-6 text-[13px] text-[#68717D]">
+                <td className="py-6 text-[13px] text-muted">
                   {exercise.sets}
                 </td>
 
-                <td className="py-6 text-[13px] text-[#68717D]">
+                <td className="py-6 text-[13px] text-muted">
                   {exercise.reps}
                 </td>
 
-                <td className="py-6 text-[13px] text-[#68717D]">
+                <td className="py-6 text-[13px] text-muted">
                   {exercise.weight}
                 </td>
 
-                <td className="py-6 text-[13px] text-[#68717D]">
+                <td className="py-6 text-[13px] text-muted">
                   {exercise.rest}
                 </td>
 
-                <td className="py-6 text-[13px] text-[#68717D]">
+                <td className="py-6 text-[13px] text-muted">
                   {exercise.note}
                 </td>
               </tr>

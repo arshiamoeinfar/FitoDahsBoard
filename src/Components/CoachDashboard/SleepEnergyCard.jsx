@@ -57,7 +57,7 @@ function ProgressRing({
             {value}{unit}
           </span>
 
-          <span className="mt-1 text-center text-[13px] text-gray-400">
+          <span className="mt-1 text-center text-[13px] text-muted">
             {label}
           </span>
         </div>
@@ -86,10 +86,10 @@ export default function SleepEnergyCard({
   return (
     <section
       dir="rtl"
-      className="min-w-0 rounded-2xl bg-white p-5"
+      className="min-w-0 rounded-2xl bg-surface p-5"
     >
       <div className="mb-5 flex items-center justify-between">
-        <h3 className="text-sm font-bold text-gray-600">
+        <h3 className="text-sm font-bold text-foreground">
           خواب و انرژی
         </h3>
 
@@ -121,8 +121,8 @@ export default function SleepEnergyCard({
       </div>
 
       {editing && (
-        <div className="mt-5 space-y-4 rounded-xl bg-gray-50 p-4">
-          <label className="block text-xs text-gray-600">
+        <div className="mt-5 space-y-4 rounded-xl bg-surface-secondary p-4">
+          <label className="block text-xs text-foreground">
             ساعت خواب: {sleepHours}
             <input
               type="range"
@@ -133,11 +133,11 @@ export default function SleepEnergyCard({
               onChange={(e) =>
                 setSleepHours(Number(e.target.value))
               }
-              className="mt-2 w-full accent-blue-600"
+              className="mt-2 w-full accent-primary"
             />
           </label>
 
-          <label className="block text-xs text-gray-600">
+          <label className="block text-xs text-foreground">
             کیفیت خواب: {sleepQuality}%
             <input
               type="range"
@@ -147,11 +147,11 @@ export default function SleepEnergyCard({
               onChange={(e) =>
                 setSleepQuality(Number(e.target.value))
               }
-              className="mt-2 w-full accent-blue-600"
+              className="mt-2 w-full accent-primary"
             />
           </label>
 
-          <label className="block text-xs text-gray-600">
+          <label className="block text-xs text-foreground">
             سطح انرژی: {energyLevel} از ۱۰
             <input
               type="range"
@@ -161,19 +161,19 @@ export default function SleepEnergyCard({
               onChange={(e) =>
                 setEnergyLevel(Number(e.target.value))
               }
-              className="mt-2 w-full accent-blue-600"
+              className="mt-2 w-full accent-primary"
             />
           </label>
         </div>
       )}
 
-      <div className="mt-6 rounded-2xl bg-[#F1F7FC] p-4">
-        <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-700">
-          <span className="text-blue-500">✳</span>
+      <div className="mt-6 rounded-2xl bg-surface-secondary p-4">
+        <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-foreground">
+          <span className="text-primary">✳</span>
           خلاصه وضعیت
         </div>
 
-        <p className="text-xs leading-6 text-gray-500">
+        <p className="text-xs leading-6 text-muted">
           {summary}
         </p>
       </div>

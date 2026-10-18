@@ -2,7 +2,7 @@ import { Trash2, ClipboardList } from "lucide-react";
 
 function NumberField({ label, value, min = 0, max = 999, onChange }) {
   return (
-    <label className="flex min-w-0 flex-col gap-1 text-[10px] text-slate-400">
+    <label className="flex min-w-0 flex-col gap-1 text-[10px] text-muted">
       <span>{label}</span>
       <input
         type="number"
@@ -15,7 +15,7 @@ function NumberField({ label, value, min = 0, max = 999, onChange }) {
           const number = Number(raw);
           if (Number.isFinite(number)) onChange(Math.min(max, Math.max(min, number)));
         }}
-        className="w-full min-w-0 rounded-lg border border-slate-200 bg-white px-2 py-2 text-xs text-slate-700 outline-none focus:border-blue-400"
+        className="w-full min-w-0 rounded-lg border border-border bg-input px-2 py-2 text-xs text-foreground outline-none focus:border-primary"
       />
     </label>
   );
@@ -23,32 +23,32 @@ function NumberField({ label, value, min = 0, max = 999, onChange }) {
 
 export default function WorkoutPlanTable({ day, items, onUpdate, onRemove }) {
   return (
-    <section className="overflow-hidden rounded-2xl border border-blue-50 bg-white shadow-sm">
-      <div className="flex items-center justify-between border-b border-slate-100 px-4 py-4">
+    <section className="overflow-hidden rounded-2xl border border-border bg-surface shadow-sm">
+      <div className="flex items-center justify-between border-b border-border px-4 py-4">
         <div>
-          <h2 className="text-sm font-bold text-slate-700">
-            برنامه تمرینی <span className="text-[#007BFF]">{day}</span>
+          <h2 className="text-sm font-bold text-foreground">
+            برنامه تمرینی <span className="text-primary">{day}</span>
           </h2>
-          <p className="mt-1 text-[11px] text-slate-400">جزئیات هر حرکت را از همین جدول ویرایش کن.</p>
+          <p className="mt-1 text-[11px] text-muted">جزئیات هر حرکت را از همین جدول ویرایش کن.</p>
         </div>
-        <span className="rounded-full bg-blue-50 px-3 py-1.5 text-[10px] font-semibold text-[#007BFF]">
+        <span className="rounded-full bg-primary/10 px-3 py-1.5 text-[10px] font-semibold text-primary">
           {items.length} حرکت
         </span>
       </div>
 
       {items.length === 0 ? (
         <div className="flex flex-col items-center justify-center px-4 py-10 text-center">
-          <span className="mb-3 grid h-11 w-11 place-items-center rounded-2xl bg-blue-50 text-blue-500">
+          <span className="mb-3 grid h-11 w-11 place-items-center rounded-2xl bg-primary/10 text-primary">
             <ClipboardList size={21} />
           </span>
-          <p className="text-xs font-semibold text-slate-600">هنوز حرکتی برای این روز انتخاب نشده</p>
-          <p className="mt-1 text-[11px] text-slate-400">از کتابخانه حرکات، تمرین‌های موردنظرت را اضافه کن.</p>
+          <p className="text-xs font-semibold text-foreground">هنوز حرکتی برای این روز انتخاب نشده</p>
+          <p className="mt-1 text-[11px] text-muted">از کتابخانه حرکات، تمرین‌های موردنظرت را اضافه کن.</p>
         </div>
       ) : (
         <>
           <div className="hidden overflow-x-auto md:block">
             <table className="w-full min-w-[850px] table-fixed text-right">
-              <thead className="bg-slate-50/70 text-[10px] font-medium text-slate-400">
+              <thead className="bg-surface-secondary text-[10px] font-medium text-muted">
                 <tr>
                   <th className="w-10 px-3 py-3">#</th>
                   <th className="w-[22%] px-3 py-3">نام حرکت</th>
@@ -63,11 +63,11 @@ export default function WorkoutPlanTable({ day, items, onUpdate, onRemove }) {
               </thead>
               <tbody>
                 {items.map((item, index) => (
-                  <tr key={item.id} className="border-t border-slate-100 align-middle">
-                    <td className="px-3 py-3 text-xs text-slate-400">{index + 1}</td>
+                  <tr key={item.id} className="border-t border-border align-middle">
+                    <td className="px-3 py-3 text-xs text-muted">{index + 1}</td>
                     <td className="px-3 py-3">
-                      <p className="truncate text-xs font-semibold text-slate-700">{item.name}</p>
-                      <p className="mt-1 text-[10px] text-slate-400">{item.muscle}</p>
+                      <p className="truncate text-xs font-semibold text-foreground">{item.name}</p>
+                      <p className="mt-1 text-[10px] text-muted">{item.muscle}</p>
                     </td>
                     <td className="px-2 py-3"><NumberField label="" value={item.sets} min={1} max={20} onChange={(v) => onUpdate(item.id, "sets", v)} /></td>
                     <td className="px-2 py-3"><NumberField label="" value={item.reps} min={1} max={200} onChange={(v) => onUpdate(item.id, "reps", v)} /></td>
@@ -76,10 +76,10 @@ export default function WorkoutPlanTable({ day, items, onUpdate, onRemove }) {
                       {item.system}
                     </td>
                     <td className="px-3 py-3">
-                      <input value={item.note} onChange={(e) => onUpdate(item.id, "note", e.target.value)} placeholder="یادداشت..." className="w-full rounded-lg border border-slate-200 px-2 py-2 text-xs outline-none focus:border-blue-400" />
+                      <input value={item.note} onChange={(e) => onUpdate(item.id, "note", e.target.value)} placeholder="یادداشت..." className="w-full rounded-lg border border-border px-2 py-2 text-xs outline-none focus:border-primary" />
                     </td>
                     <td className="px-2 py-3">
-                      <button type="button" onClick={() => onRemove(item.id)} aria-label={`حذف ${item.name}`} className="rounded-lg p-2 text-rose-400 hover:bg-rose-50 hover:text-rose-600">
+                      <button type="button" onClick={() => onRemove(item.id)} aria-label={`حذف ${item.name}`} className="rounded-lg p-2 text-rose-400 hover:bg-rose-500/10 hover:text-rose-600">
                         <Trash2 size={15} />
                       </button>
                     </td>
@@ -91,13 +91,13 @@ export default function WorkoutPlanTable({ day, items, onUpdate, onRemove }) {
 
           <div className="grid gap-3 p-3 md:hidden">
             {items.map((item, index) => (
-              <article key={item.id} className="rounded-xl border border-slate-200 p-3">
+              <article key={item.id} className="rounded-xl border border-border p-3">
                 <div className="mb-3 flex items-start justify-between gap-2">
                   <div>
-                    <p className="text-xs font-bold text-slate-700">{index + 1}. {item.name}</p>
-                    <p className="mt-1 text-[10px] text-slate-400">{item.muscle}</p>
+                    <p className="text-xs font-bold text-foreground">{index + 1}. {item.name}</p>
+                    <p className="mt-1 text-[10px] text-muted">{item.muscle}</p>
                   </div>
-                  <button type="button" onClick={() => onRemove(item.id)} aria-label={`حذف ${item.name}`} className="rounded-lg p-2 text-rose-400 hover:bg-rose-50">
+                  <button type="button" onClick={() => onRemove(item.id)} aria-label={`حذف ${item.name}`} className="rounded-lg p-2 text-rose-400 hover:bg-rose-500/10">
                     <Trash2 size={15} />
                   </button>
                 </div>
@@ -107,11 +107,11 @@ export default function WorkoutPlanTable({ day, items, onUpdate, onRemove }) {
                   <NumberField label="استراحت (ثانیه)" value={item.rest} min={0} max={900} onChange={(v) => onUpdate(item.id, "rest", v)} />
                 </div>
                 <div className="mt-3 grid gap-2">
-                  <label className="text-[10px] text-slate-400">وزنه
-                    <input value={item.weight} onChange={(e) => onUpdate(item.id, "weight", e.target.value)} placeholder="مثلاً ۲۰ کیلو" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-xs outline-none focus:border-blue-400" />
+                  <label className="text-[10px] text-muted">وزنه
+                    <input value={item.weight} onChange={(e) => onUpdate(item.id, "weight", e.target.value)} placeholder="مثلاً ۲۰ کیلو" className="mt-1 w-full rounded-lg border border-border px-3 py-2 text-xs outline-none focus:border-primary" />
                   </label>
-                  <label className="text-[10px] text-slate-400">یادداشت مربی
-                    <input value={item.note} onChange={(e) => onUpdate(item.id, "note", e.target.value)} placeholder="یادداشت..." className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-xs outline-none focus:border-blue-400" />
+                  <label className="text-[10px] text-muted">یادداشت مربی
+                    <input value={item.note} onChange={(e) => onUpdate(item.id, "note", e.target.value)} placeholder="یادداشت..." className="mt-1 w-full rounded-lg border border-border px-3 py-2 text-xs outline-none focus:border-primary" />
                   </label>
                 </div>
               </article>

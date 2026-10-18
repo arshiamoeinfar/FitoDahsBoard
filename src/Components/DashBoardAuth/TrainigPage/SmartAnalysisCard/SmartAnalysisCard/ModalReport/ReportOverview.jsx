@@ -13,11 +13,11 @@ export default function ReportOverview({
 
       {/* Score */}
 
-      <div className="rounded-[26px] bg-white p-5 shadow-sm">
+      <div className="rounded-[26px] bg-surface p-5 shadow-sm">
 
         <div className="flex h-full flex-col items-center justify-center">
 
-          <p className="text-xs text-[#8A8D93]">
+          <p className="text-xs text-muted">
             امتیاز عملکرد
           </p>
 
@@ -33,7 +33,7 @@ export default function ReportOverview({
                 cy="60"
                 r="50"
                 fill="none"
-                stroke="#EAF2F9"
+                stroke="var(--surface-secondary)"
                 strokeWidth="9"
               />
 
@@ -42,7 +42,7 @@ export default function ReportOverview({
                 cy="60"
                 r="50"
                 fill="none"
-                stroke="#007BFF"
+                stroke="var(--primary)"
                 strokeWidth="9"
                 strokeLinecap="round"
                 strokeDasharray="314"
@@ -55,11 +55,11 @@ export default function ReportOverview({
 
             <div className="absolute inset-0 flex flex-col items-center justify-center">
 
-              <span className="text-3xl font-black text-[#45474C]">
+              <span className="text-3xl font-black text-foreground">
                 {score}
               </span>
 
-              <span className="text-[10px] text-[#8A8D93]">
+              <span className="text-[10px] text-muted">
                 از ۱۰۰
               </span>
 
@@ -67,7 +67,7 @@ export default function ReportOverview({
 
           </div>
 
-          <div className="mt-3 flex items-center gap-1.5 rounded-full bg-[#EAF9EF] px-3 py-1.5 text-[10px] font-medium text-[#4CAF50]">
+          <div className="mt-3 flex items-center gap-1.5 rounded-full bg-green-500/10 px-3 py-1.5 text-[10px] font-medium text-success">
 
             <TrendingUp size={13} />
 
@@ -81,21 +81,21 @@ export default function ReportOverview({
 
       {/* AI Summary */}
 
-      <div className="rounded-[26px] bg-white p-5 shadow-sm sm:p-6">
+      <div className="rounded-[26px] bg-surface p-5 shadow-sm sm:p-6">
 
         <div className="flex items-center gap-3">
 
-          <div className="flex h-10 w-10 items-center justify-center rounded-[13px] bg-[#EAF4FF] text-[#007BFF]">
+          <div className="flex h-10 w-10 items-center justify-center rounded-[13px] bg-primary/10 text-primary">
             <Sparkles size={19} />
           </div>
 
           <div>
 
-            <h3 className="text-sm font-bold text-[#45474C] sm:text-base">
+            <h3 className="text-sm font-bold text-foreground sm:text-base">
               تحلیل کلی هوش مصنوعی
             </h3>
 
-            <p className="mt-1 text-[10px] text-[#8A8D93]">
+            <p className="mt-1 text-[10px] text-muted">
               ارزیابی عملکرد در این دوره
             </p>
 
@@ -103,9 +103,9 @@ export default function ReportOverview({
 
         </div>
 
-        <div className="mt-5 rounded-[20px] bg-[#F7FAFD] p-4">
+        <div className="mt-5 rounded-[20px] bg-surface-secondary p-4">
 
-          <p className="text-sm leading-8 text-[#62666D]">
+          <p className="text-sm leading-8 text-foreground">
             {summary}
           </p>
 

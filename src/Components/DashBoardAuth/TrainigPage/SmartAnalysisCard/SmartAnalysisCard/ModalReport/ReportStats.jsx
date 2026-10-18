@@ -15,8 +15,8 @@ export default function ReportStats({ stats }) {
         title="جلسات انجام شده"
         value={`${stats.completed}/${stats.planned}`}
         label="جلسه"
-        bg="bg-[#EAF4FF]"
-        color="text-[#007BFF]"
+        bg="bg-primary/10"
+        color="text-primary"
       />
 
       <StatCard
@@ -24,8 +24,8 @@ export default function ReportStats({ stats }) {
         title="پایبندی به برنامه"
         value={`${stats.adherence}٪`}
         label="پایبندی"
-        bg="bg-[#EAF9EF]"
-        color="text-[#4CAF50]"
+        bg="bg-green-500/10"
+        color="text-success"
       />
 
       <StatCard
@@ -33,8 +33,8 @@ export default function ReportStats({ stats }) {
         title="زمان تمرین"
         value={stats.duration}
         label="مجموع"
-        bg="bg-[#FFF5E8]"
-        color="text-[#F59E0B]"
+        bg="bg-amber-500/10"
+        color="text-amber-500"
       />
 
       <StatCard
@@ -42,7 +42,7 @@ export default function ReportStats({ stats }) {
         title="رکوردهای جدید"
         value={`+${stats.records}`}
         label="رکورد"
-        bg="bg-[#FCEBFA]"
+        bg="bg-pink-500/10"
         color="text-[#D946EF]"
       />
 
@@ -59,7 +59,7 @@ function StatCard({
   color,
 }) {
   return (
-    <div className="rounded-[22px] bg-white p-4 shadow-sm">
+    <div className="rounded-[22px] bg-surface p-4 shadow-sm">
 
       <div
         className={`mb-3 flex h-10 w-10 items-center justify-center rounded-[13px] ${bg} ${color}`}
@@ -67,17 +67,17 @@ function StatCard({
         {icon}
       </div>
 
-      <p className="text-[10px] text-[#8A8D93]">
+      <p className="text-[10px] text-muted">
         {title}
       </p>
 
       <div className="mt-1 flex items-end gap-1">
 
-        <span className="text-lg font-black text-[#45474C]">
+        <span className="text-lg font-black text-foreground">
           {value}
         </span>
 
-        <span className="text-[9px] text-[#8A8D93]">
+        <span className="text-[9px] text-muted">
           {label}
         </span>
 

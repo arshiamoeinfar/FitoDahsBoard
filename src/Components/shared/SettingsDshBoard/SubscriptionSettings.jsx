@@ -46,40 +46,40 @@ const SubscriptionSettings = () => {
   const [selectedPlan, setSelectedPlan] = useState("pro");
 
   return (
-    <div className="bg-white rounded-4xl p-8">
+    <div className="bg-surface rounded-4xl p-8">
       {/* Header */}
       <div className="mb-10">
         <div className="flex items-center gap-3">
           <span className="text-2xl">👑</span>
 
-          <h2 className="text-2xl text-[#6B6F77] font-medium">
+          <h2 className="text-2xl text-foreground font-medium">
             پلن اشتراک
           </h2>
         </div>
 
-        <p className="text-[#A0A4AA] text-sm mt-3">
+        <p className="text-muted text-sm mt-3">
           پلن مناسب خود را انتخاب کنید و امکانات بیشتری دریافت کنید
         </p>
       </div>
 
       {/* Current Plan */}
-      <div className="bg-[#F3F8FF] border border-[#DBECFF] rounded-3xl p-6 mb-8 flex items-center justify-between">
+      <div className="bg-primary/10 border border-primary/30 rounded-3xl p-6 mb-8 flex items-center justify-between">
         <div>
-          <p className="text-sm text-[#A0A4AA] mb-2">
+          <p className="text-sm text-muted mb-2">
             پلن فعلی شما
           </p>
 
-          <h3 className="text-xl text-[#007BFF]">
+          <h3 className="text-xl text-primary">
             پلن حرفه‌ای
           </h3>
         </div>
 
         <div className="text-left">
-          <p className="text-sm text-[#A0A4AA]">
+          <p className="text-sm text-muted">
             اعتبار تا
           </p>
 
-          <span className="text-[#6B6F77]">
+          <span className="text-foreground">
             ۳۰ مهر ۱۴۰۵
           </span>
         </div>
@@ -95,31 +95,31 @@ const SubscriptionSettings = () => {
               key={plan.id}
               className={`relative rounded-3xl border-2 p-6 transition-all duration-300 ${
                 isSelected
-                  ? "border-[#007BFF] bg-[#F8FBFF]"
-                  : "border-[#F0F0F0]"
+                  ? "border-primary bg-primary/10"
+                  : "border-border"
               }`}
             >
               {plan.popular && (
-                <span className="absolute -top-3 right-6 bg-[#007BFF] text-white text-xs px-4 py-1 rounded-full">
+                <span className="absolute -top-3 right-6 bg-primary text-white text-xs px-4 py-1 rounded-full">
                   محبوب‌ترین
                 </span>
               )}
 
-              <h3 className="text-xl text-[#6B6F77]">
+              <h3 className="text-xl text-foreground">
                 {plan.name}
               </h3>
 
-              <p className="text-sm text-[#A0A4AA] mt-2">
+              <p className="text-sm text-muted mt-2">
                 {plan.description}
               </p>
 
               <div className="my-6">
-                <span className="text-2xl text-[#007BFF]">
+                <span className="text-2xl text-primary">
                   {plan.price}
                 </span>
 
                 {plan.id !== "free" && (
-                  <span className="text-sm text-[#A0A4AA] mr-2">
+                  <span className="text-sm text-muted mr-2">
                     تومان / ماه
                   </span>
                 )}
@@ -129,9 +129,9 @@ const SubscriptionSettings = () => {
                 {plan.features.map((feature) => (
                   <div
                     key={feature}
-                    className="flex items-center gap-2 text-sm text-[#6B6F77]"
+                    className="flex items-center gap-2 text-sm text-foreground"
                   >
-                    <span className="text-[#63AF42]">✓</span>
+                    <span className="text-success">✓</span>
                     {feature}
                   </div>
                 ))}
@@ -141,8 +141,8 @@ const SubscriptionSettings = () => {
                 onClick={() => setSelectedPlan(plan.id)}
                 className={`w-full h-12 rounded-full mt-7 transition cursor-pointer ${
                   isSelected
-                    ? "bg-[#007BFF] text-white"
-                    : "bg-[#F3F8FF] text-[#007BFF]"
+                    ? "bg-primary text-white"
+                    : "bg-primary/10 text-primary"
                 }`}
               >
                 {isSelected ? "پلن انتخاب شده" : "انتخاب پلن"}

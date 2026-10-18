@@ -9,11 +9,11 @@ const data = [
 
 export default function MetricCard({ label = "متابولیسم پایه", value = 1850, unit = "kcal", status = "عالی" }) {
   return (
-    <div dir="rtl" className="bg-white rounded-3xl p-5 flex flex-col gap-4 w-full max-w-72 max-h-72">
-      <span className="text-sm text-gray-500">{label}</span>
+    <div dir="rtl" className="bg-surface rounded-3xl p-5 flex flex-col gap-4 w-full max-w-72 max-h-72">
+      <span className="text-sm text-muted">{label}</span>
 
       <div className="flex items-baseline gap-1 justify-start">
-        <span className="text-3xl font-extrabold text-gray-800">{value}</span>
+        <span className="text-3xl font-extrabold text-foreground">{value}</span>
         <span className="text-sm text-cyan-500 font-medium">{unit}</span>
       </div>
 
@@ -38,8 +38,8 @@ export default function MetricCard({ label = "متابولیسم پایه", valu
         </ResponsiveContainer>
       </div>
 
-      <span className="text-xs text-gray-400">
-        وضعیت: <span className="text-green-500 font-medium">{status}</span>
+      <span className="text-xs text-muted">
+        وضعیت: <span className="text-success font-medium">{status}</span>
       </span>
     </div>
   );

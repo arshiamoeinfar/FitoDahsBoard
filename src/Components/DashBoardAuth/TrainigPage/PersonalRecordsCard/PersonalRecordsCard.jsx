@@ -63,25 +63,25 @@ const DEFAULT_RECORDS = [
 
 function RecordRow({ record, isOpen, onToggle }) {
   return (
-    <div className="border-b border-gray-100 last:border-b-0">
+    <div className="border-b border-border last:border-b-0">
       <button
         onClick={() => onToggle(record.id)}
         className="w-full flex items-center justify-between py-6 text-right"
       >
-        <div className="bg-blue-50 rounded-2xl w-16 h-16 flex items-center justify-center shrink-0">
+        <div className="bg-blue-500/10 rounded-2xl w-16 h-16 flex items-center justify-center shrink-0">
           <img className="size-7" src={Ranking} alt="" />
         </div>
 
         <div className="flex-1 mr-4 text-right">
-          <p className="font-primary font-medium text-[#6B6F77] mb-2">
+          <p className="font-primary font-medium text-foreground mb-2">
             {record.exercise}
           </p>
-          <p className="text-gray-400 text-sm mt-1">{record.value}</p>
+          <p className="text-muted text-sm mt-1">{record.value}</p>
         </div>
 
         {record.isNew && (
           <span
-            className="items-center gap-2 border border-gray-200 rounded-full px-2 py-0.5 text-gray-700 text-sm hover:bg-gray-50 transition-colors self-start"
+            className="items-center gap-2 border border-border rounded-full px-2 py-0.5 text-foreground text-sm hover:bg-surface-secondary transition-colors self-start"
           >
             <span>{"رکورد جدید"}</span>
             <span>🔥</span>
@@ -89,7 +89,7 @@ function RecordRow({ record, isOpen, onToggle }) {
         )}
 
         <svg
-          className={`w-4 h-4 text-gray-300 transition-transform ${isOpen ? "rotate-180" : ""}`}
+          className={`w-4 h-4 text-muted transition-transform ${isOpen ? "rotate-180" : ""}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -104,12 +104,12 @@ function RecordRow({ record, isOpen, onToggle }) {
       </button>
 
       {isOpen && (
-        <div className="bg-gray-50 rounded-2xl px-5 py-4 mb-5 flex items-center justify-between text-sm">
-          <div className="text-gray-500">
+        <div className="bg-surface-secondary rounded-2xl px-5 py-4 mb-5 flex items-center justify-between text-sm">
+          <div className="text-muted">
             رکورد قبلی:{" "}
-            <span className="text-gray-400 text-sm mt-1">{record.previous}</span>
+            <span className="text-muted text-sm mt-1">{record.previous}</span>
           </div>
-          <div className="text-gray-400">{record.date}</div>
+          <div className="text-muted">{record.date}</div>
         </div>
       )}
     </div>
@@ -140,14 +140,14 @@ export default function PersonalRecordsCard({
   return (
     <div
       dir="rtl"
-      className="bg-white rounded-3xl p-8 w-full max-w-2xl"
+      className="bg-surface rounded-3xl p-8 w-full max-w-2xl"
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-xl font-medium text-[#6B6F77]">{title}</h3>
+        <h3 className="text-xl font-medium text-foreground">{title}</h3>
           <button
             onClick={() => setShowAll(!showAll)}
-            className="flex items-center gap-1 text-sm text-[#007BFF] transition hover:text-[#0056A3]"
+            className="flex items-center gap-1 text-sm text-primary transition hover:text-primary-hover"
           >
             {showAll ? "نمایش کمتر" : "مشاهده همه"}
 

@@ -44,7 +44,7 @@ export default function SmartAnalysisCard({
         onClick={() => {
           setIsReportVisible(true);
         }}
-        className="bg-white text-blue-600 cursor-pointer text-base rounded-2xl py-4 hover:bg-blue-50 transition-colors"
+        className="bg-white text-primary cursor-pointer text-base rounded-2xl py-4 hover:bg-blue-500/10 transition-colors"
       >
         مشاهده گزارش کامل
       </button>

@@ -20,12 +20,12 @@ export default function BodyProgressCard({ isShowMore = true, count = [], title 
 
   const navigate = useNavigate()
   return (
-    <div className="flex bg-white flex-col p-6 rounded-3xl">
+    <div className="flex bg-surface flex-col p-6 rounded-3xl">
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-lg text-[#6B6F77]">{title}</h1>
+        <h1 className="text-lg text-muted">{title}</h1>
         <div className="flex justify-center items-center">
           {isShowMore && (
-            <span onClick={()=> navigate("/trainingpage")}  className="text-sm flex justify-center items-center text-[#6B6F77] font-primary-light cursor-pointer">
+            <span onClick={()=> navigate("/trainingpage")}  className="text-sm flex justify-center items-center text-muted font-primary-light cursor-pointer">
            مشاهده همه 
             {/* <img className=" mr-0.5 w-2.5 h-fit" src={Vector} alt="" /> */}
           </span>
@@ -37,8 +37,8 @@ export default function BodyProgressCard({ isShowMore = true, count = [], title 
           <React.Fragment key={index}>
             <div className="flex w-full flex-col gap-2">
               <div className="flex flex-col gap-2">
-                <h1 className="text-[#6B6F77] Modam-Medium text-sm ">پرس دمبل</h1>
-                <p className="text-sm text-[#6B6F77] font-primary-light">
+                <h1 className="text-muted Modam-Medium text-sm ">پرس دمبل</h1>
+                <p className="text-sm text-muted font-primary-light">
                   20kg → 24kg
                 </p>
               </div>

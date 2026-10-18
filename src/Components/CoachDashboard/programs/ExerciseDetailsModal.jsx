@@ -28,12 +28,12 @@ const defaultTips = [
 
 function AnatomyView({ muscle = "پشت" }) {
   return (
-    <div className="rounded-2xl border border-blue-100 bg-gradient-to-b from-blue-50 to-white p-4">
+    <div className="rounded-2xl border border-primary/30 bg-gradient-to-b from-primary/10 to-surface p-4">
       <div className="mb-3 flex items-center justify-between">
-        <h3 className="font-bold text-slate-700">
+        <h3 className="font-bold text-foreground">
           آناتومی عضلات
         </h3>
-        <span className="rounded-full bg-blue-100 px-3 py-1 text-xs text-blue-700">
+        <span className="rounded-full bg-primary/10 px-3 py-1 text-xs text-primary">
           عضله هدف
         </span>
       </div>
@@ -137,7 +137,7 @@ function AnatomyView({ muscle = "پشت" }) {
         />
       </svg>
 
-      <div className="flex flex-wrap justify-center gap-4 text-xs text-slate-500">
+      <div className="flex flex-wrap justify-center gap-4 text-xs text-muted">
         <span className="flex items-center gap-2">
           <span className="h-3 w-3 rounded-sm bg-red-500" />
           عضله هدف
@@ -148,7 +148,7 @@ function AnatomyView({ muscle = "پشت" }) {
         </span>
       </div>
 
-      <p className="mt-3 text-center text-xs leading-5 text-slate-400">
+      <p className="mt-3 text-center text-xs leading-5 text-muted">
         تصویر شماتیک آموزشی است. برای نمایش دقیق عضله درگیر هر حرکت،
         از تصاویر آناتومی اختصاصی همان حرکت استفاده کن.
       </p>
@@ -250,12 +250,12 @@ export default function ExerciseDetailsModal({
     "برای اجرای این حرکت، فرم صحیح بدن را حفظ کن، عضله هدف را کنترل کن و وزنه را متناسب با توانایی شاگرد انتخاب کن.";
 
   const inputClass =
-    "mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-3 text-sm text-slate-700 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100";
+    "mt-2 w-full rounded-xl border border-border bg-input px-3 py-3 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30";
 
   return (
     <div
       dir="rtl"
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/60 p-3 backdrop-blur-sm sm:p-6"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-overlay p-3 backdrop-blur-sm sm:p-6"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose?.();
       }}
@@ -264,40 +264,40 @@ export default function ExerciseDetailsModal({
         role="dialog"
         aria-modal="true"
         aria-labelledby="exercise-modal-title"
-        className="relative max-h-[94vh] w-full max-w-6xl overflow-y-auto rounded-[26px] bg-white p-4 shadow-2xl sm:p-6 lg:p-7"
+        className="relative max-h-[94vh] w-full max-w-6xl overflow-y-auto rounded-[26px] bg-surface p-4 shadow-2xl sm:p-6 lg:p-7"
       >
         <button
           type="button"
           onClick={onClose}
           aria-label="بستن پنجره"
-          className="absolute left-4 top-4 z-10 rounded-full border border-slate-200 bg-white p-2 text-slate-500 hover:bg-slate-50"
+          className="absolute left-4 top-4 z-10 rounded-full border border-border bg-surface p-2 text-muted hover:bg-surface-secondary"
         >
           <X size={20} />
         </button>
 
         {/* هدر مخصوص پنل مربی */}
-        <div className="mb-6 flex flex-col gap-3 border-b border-slate-100 pb-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mb-6 flex flex-col gap-3 border-b border-border pb-5 sm:flex-row sm:items-center sm:justify-between">
           <div className="pr-1">
-            <div className="mb-2 flex items-center gap-2 text-sm text-blue-600">
+            <div className="mb-2 flex items-center gap-2 text-sm text-primary">
               <Dumbbell size={17} />
               <span>تنظیم برنامه تمرینی</span>
             </div>
 
             <h2
               id="exercise-modal-title"
-              className="text-xl font-bold text-slate-800 sm:text-2xl"
+              className="text-xl font-bold text-foreground sm:text-2xl"
             >
               {exercise.name}
             </h2>
 
-            <p className="mt-2 text-sm text-slate-500">
+            <p className="mt-2 text-sm text-muted">
               {student?.name
                 ? `در حال تنظیم حرکت برای ${student.name}`
                 : "جزئیات حرکت و تنظیمات تمرین شاگرد"}
             </p>
           </div>
 
-          <span className="w-fit rounded-full bg-blue-50 px-4 py-2 text-xs font-medium text-blue-700">
+          <span className="w-fit rounded-full bg-primary/10 px-4 py-2 text-xs font-medium text-primary">
             {exercise.target || `عضله هدف: ${exercise.muscle || "عمومی"}`}
           </span>
         </div>
@@ -316,26 +316,26 @@ export default function ExerciseDetailsModal({
             <AnatomyView muscle={exercise.muscle} />
 
             <div className="grid grid-cols-3 gap-3">
-              <div className="rounded-xl border border-slate-100 p-3">
-                <Activity className="mb-2 text-blue-500" size={20} />
-                <p className="text-xs text-slate-400">سطح دشواری</p>
-                <p className="mt-1 text-sm font-bold text-slate-700">
+              <div className="rounded-xl border border-border p-3">
+                <Activity className="mb-2 text-primary" size={20} />
+                <p className="text-xs text-muted">سطح دشواری</p>
+                <p className="mt-1 text-sm font-bold text-foreground">
                   {exercise.difficulty || "متوسط"}
                 </p>
               </div>
 
-              <div className="rounded-xl border border-slate-100 p-3">
-                <Clock3 className="mb-2 text-blue-500" size={20} />
-                <p className="text-xs text-slate-400">زمان استراحت</p>
-                <p className="mt-1 text-sm font-bold text-slate-700">
+              <div className="rounded-xl border border-border p-3">
+                <Clock3 className="mb-2 text-primary" size={20} />
+                <p className="text-xs text-muted">زمان استراحت</p>
+                <p className="mt-1 text-sm font-bold text-foreground">
                   {settings.rest} ثانیه
                 </p>
               </div>
 
-              <div className="rounded-xl border border-slate-100 p-3">
-                <Dumbbell className="mb-2 text-blue-500" size={20} />
-                <p className="text-xs text-slate-400">تعداد ست</p>
-                <p className="mt-1 text-sm font-bold text-slate-700">
+              <div className="rounded-xl border border-border p-3">
+                <Dumbbell className="mb-2 text-primary" size={20} />
+                <p className="text-xs text-muted">تعداد ست</p>
+                <p className="mt-1 text-sm font-bold text-foreground">
                   {settings.sets} ست
                 </p>
               </div>
@@ -344,16 +344,16 @@ export default function ExerciseDetailsModal({
 
           {/* ستون تنظیمات و راهنمای اجرا */}
           <div className="min-w-0 space-y-5">
-            <section className="rounded-2xl border border-blue-100 bg-blue-50/50 p-4 sm:p-5">
+            <section className="rounded-2xl border border-primary/30 bg-primary/10 p-4 sm:p-5">
               <div className="mb-4 flex items-center gap-2">
-                <Dumbbell className="text-blue-600" size={20} />
-                <h3 className="font-bold text-slate-800">
+                <Dumbbell className="text-primary" size={20} />
+                <h3 className="font-bold text-foreground">
                   تنظیمات حرکت برای شاگرد
                 </h3>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <label className="text-sm font-medium text-slate-600">
+                <label className="text-sm font-medium text-foreground">
                   تعداد ست
                   <input
                     type="number"
@@ -367,7 +367,7 @@ export default function ExerciseDetailsModal({
                   />
                 </label>
 
-                <label className="text-sm font-medium text-slate-600">
+                <label className="text-sm font-medium text-foreground">
                   تعداد تکرار
                   <input
                     type="text"
@@ -380,7 +380,7 @@ export default function ExerciseDetailsModal({
                   />
                 </label>
 
-                <label className="text-sm font-medium text-slate-600">
+                <label className="text-sm font-medium text-foreground">
                   استراحت (ثانیه)
                   <input
                     type="number"
@@ -395,7 +395,7 @@ export default function ExerciseDetailsModal({
                   />
                 </label>
 
-                <label className="text-sm font-medium text-slate-600">
+                <label className="text-sm font-medium text-foreground">
                   وزنه (کیلوگرم)
                   <input
                     type="number"
@@ -411,7 +411,7 @@ export default function ExerciseDetailsModal({
                 </label>
               </div>
 
-              <label className="mt-4 block text-sm font-medium text-slate-600">
+              <label className="mt-4 block text-sm font-medium text-foreground">
                 یادداشت اختصاصی مربی برای این حرکت
                 <textarea
                   rows={3}
@@ -435,40 +435,40 @@ export default function ExerciseDetailsModal({
                     notes: "",
                   })
                 }
-                className="mt-4 inline-flex items-center gap-2 text-xs text-slate-500 hover:text-blue-600"
+                className="mt-4 inline-flex items-center gap-2 text-xs text-muted hover:text-primary"
               >
                 <RotateCcw size={14} />
                 بازگرداندن مقادیر پیش‌فرض
               </button>
             </section>
 
-            <section className="rounded-2xl border border-blue-100 bg-white p-4 sm:p-5">
+            <section className="rounded-2xl border border-primary/30 bg-surface p-4 sm:p-5">
               <div className="mb-4 flex items-center gap-2">
-                <Sparkles size={20} className="text-blue-600" />
-                <h3 className="font-bold text-slate-800">
+                <Sparkles size={20} className="text-primary" />
+                <h3 className="font-bold text-foreground">
                   راهنمای هوشمند حرکت
                 </h3>
               </div>
 
-              <div className="mb-4 rounded-xl bg-blue-50 p-4">
-                <span className="mb-2 inline-flex items-center gap-1 rounded-full bg-blue-600 px-3 py-1 text-xs text-white">
+              <div className="mb-4 rounded-xl bg-primary/10 p-4">
+                <span className="mb-2 inline-flex items-center gap-1 rounded-full bg-primary px-3 py-1 text-xs text-white">
                   <Sparkles size={12} />
                   AI
                 </span>
 
-                <p className="text-sm leading-7 text-slate-600">
+                <p className="text-sm leading-7 text-foreground">
                   {aiDescription}
                 </p>
               </div>
 
-              <div className="mb-4 flex gap-2 border-b border-slate-100 pb-3">
+              <div className="mb-4 flex gap-2 border-b border-border pb-3">
                 <button
                   type="button"
                   onClick={() => setTab("instructions")}
                   className={`rounded-full px-4 py-2 text-xs transition ${
                     tab === "instructions"
-                      ? "bg-blue-600 text-white"
-                      : "bg-slate-100 text-slate-600"
+                      ? "bg-primary text-white"
+                      : "bg-surface-secondary text-foreground"
                   }`}
                 >
                   نحوه اجرا
@@ -479,8 +479,8 @@ export default function ExerciseDetailsModal({
                   onClick={() => setTab("tips")}
                   className={`rounded-full px-4 py-2 text-xs transition ${
                     tab === "tips"
-                      ? "bg-blue-600 text-white"
-                      : "bg-slate-100 text-slate-600"
+                      ? "bg-primary text-white"
+                      : "bg-surface-secondary text-foreground"
                   }`}
                 >
                   نکات مربی
@@ -492,9 +492,9 @@ export default function ExerciseDetailsModal({
                   (item, index) => (
                     <li
                       key={`${tab}-${index}`}
-                      className="flex items-start gap-3 text-sm leading-6 text-slate-600"
+                      className="flex items-start gap-3 text-sm leading-6 text-foreground"
                     >
-                      <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-blue-50 text-xs font-bold text-blue-600">
+                      <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary/10 text-xs font-bold text-primary">
                         {index + 1}
                       </span>
                       {item}
@@ -503,7 +503,7 @@ export default function ExerciseDetailsModal({
                 )}
               </ol>
 
-              <div className="mt-5 flex items-start gap-2 rounded-xl bg-amber-50 p-3 text-xs leading-6 text-amber-800">
+              <div className="mt-5 flex items-start gap-2 rounded-xl bg-amber-500/10 p-3 text-xs leading-6 text-amber-600">
                 <ShieldCheck className="mt-1 shrink-0" size={16} />
                 <p>
                   تنظیمات نهایی باید با سطح آمادگی، هدف تمرینی و شرایط شاگرد
@@ -515,11 +515,11 @@ export default function ExerciseDetailsModal({
         </div>
 
         {/* دکمه‌های عملیاتی مربی */}
-        <div className="mt-6 flex flex-col-reverse gap-3 border-t border-slate-100 pt-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-6 flex flex-col-reverse gap-3 border-t border-border pt-5 sm:flex-row sm:items-center sm:justify-between">
           <button
             type="button"
             onClick={onClose}
-            className="rounded-full border border-slate-200 px-6 py-3 text-sm text-slate-600 hover:bg-slate-50"
+            className="rounded-full border border-border px-6 py-3 text-sm text-foreground hover:bg-surface-secondary"
           >
             انصراف
           </button>
@@ -527,7 +527,7 @@ export default function ExerciseDetailsModal({
           <button
             type="button"
             onClick={handleAdd}
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-7 py-3 text-sm font-bold text-white transition hover:bg-blue-700 active:scale-[0.98]"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-bold text-white transition hover:bg-primary-hover active:scale-[0.98]"
           >
             <PlusCircle size={19} />
             افزودن حرکت به برنامه شاگرد

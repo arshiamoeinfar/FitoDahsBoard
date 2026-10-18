@@ -57,17 +57,17 @@ const NotificationSettings = () => {
   };
 
   return (
-    <div className="bg-white rounded-4xl p-8">
+    <div className="bg-surface rounded-4xl p-8">
       {/* Header */}
       <div className="flex items-center gap-3 mb-8">
         <span className="text-2xl">🔔</span>
 
         <div>
-          <h2 className="text-2xl text-[#6B6F77] font-medium">
+          <h2 className="text-2xl text-foreground font-medium">
             تنظیمات اعلان‌ها
           </h2>
 
-          <p className="text-sm text-[#A0A4AA] mt-2">
+          <p className="text-sm text-muted mt-2">
             مشخص کنید چه اعلان‌هایی را دریافت کنید
           </p>
         </div>
@@ -80,22 +80,22 @@ const NotificationSettings = () => {
             key={item.id}
             className={`flex items-center justify-between py-6 ${
               index !== notificationItems.length - 1
-                ? "border-b border-[#F0F0F0]"
+                ? "border-b border-border"
                 : ""
             }`}
           >
             {/* Right */}
             <div className="flex items-center gap-4">
-              <div className="size-12 rounded-2xl bg-[#F5F7FA] flex items-center justify-center text-xl">
+              <div className="size-12 rounded-2xl bg-surface-secondary flex items-center justify-center text-xl">
                 {item.icon}
               </div>
 
               <div>
-                <h3 className="text-[#6B6F77] text-base">
+                <h3 className="text-foreground text-base">
                   {item.title}
                 </h3>
 
-                <p className="text-sm text-[#A0A4AA] mt-1">
+                <p className="text-sm text-muted mt-1">
                   {item.description}
                 </p>
               </div>
@@ -106,8 +106,8 @@ const NotificationSettings = () => {
               onClick={() => handleToggle(item.id)}
               className={`relative w-14 h-7 rounded-full transition-all duration-300 cursor-pointer ${
                 notifications[item.id]
-                  ? "bg-[#007BFF]"
-                  : "bg-[#E5E7EB]"
+                  ? "bg-primary"
+                  : "bg-border"
               }`}
             >
               <span
@@ -124,7 +124,7 @@ const NotificationSettings = () => {
 
       {/* Save Button */}
       <div className="mt-8 flex justify-end">
-        <button className="bg-[#007BFF] hover:bg-[#006BE0] text-white px-10 h-14 rounded-full transition-all duration-300 cursor-pointer">
+        <button className="bg-primary hover:bg-primary-hover text-white px-10 h-14 rounded-full transition-all duration-300 cursor-pointer">
           ذخیره تغییرات
         </button>
       </div>

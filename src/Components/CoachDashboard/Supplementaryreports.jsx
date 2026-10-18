@@ -54,7 +54,7 @@ function ProgressRow({ report, delay }) {
   return (
     <div>
       <div className="flex items-center justify-between mb-3">
-          <p className="text-sm font-primary text-[#4F5965]">{report.label}</p>
+          <p className="text-sm font-primary text-foreground">{report.label}</p>
         <span
           className="text-sm  tabular-nums"
           style={{ color: report.color }}
@@ -65,7 +65,7 @@ function ProgressRow({ report, delay }) {
 
       <div
         className="w-full h-2.5 rounded-full overflow-hidden"
-        style={{ backgroundColor: report.track }}
+        style={{ backgroundColor: "var(--surface-secondary)" }}
       >
         <div
           className="h-full rounded-full transition-all duration-1000 ease-out"
@@ -81,8 +81,8 @@ function ProgressRow({ report, delay }) {
 
 export default function SupplementaryReports() {
   return (
-    <div dir="rtl" className="bg-white rounded-3xl p-8 w-full max-w-xl mx-auto">
-      <h2 className="text-2xl  text-[#6B6F77] font-primary text-right mb-10">
+    <div dir="rtl" className="bg-surface rounded-3xl p-8 w-full max-w-xl mx-auto">
+      <h2 className="text-2xl  text-foreground font-primary text-right mb-10">
         گزارشات تکمیلی
       </h2>
 

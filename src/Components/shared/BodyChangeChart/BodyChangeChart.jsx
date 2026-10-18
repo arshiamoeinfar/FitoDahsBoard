@@ -60,12 +60,12 @@ const CustomTooltip = ({ active, payload }) => {
   if (!active || !payload || !payload.length) return null;
 
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white px-4 py-3 shadow-lg">
-      <p className="mb-2 font-bold text-gray-700">{payload[0]?.payload?.day}</p>
+    <div className="rounded-2xl border border-border bg-surface px-4 py-3 shadow-lg">
+      <p className="mb-2 font-bold text-foreground">{payload[0]?.payload?.day}</p>
 
-      <p className="text-[#007BFF]">وزن: {payload[0]?.value} کیلوگرم</p>
+      <p className="text-primary">وزن: {payload[0]?.value} کیلوگرم</p>
 
-      <p className="text-[#6BAF41]">چربی: {payload[1]?.value}٪</p>
+      <p className="text-success">چربی: {payload[1]?.value}٪</p>
 
       <p className="text-[#6366F1]">عضله: {payload[2]?.value} کیلوگرم</p>
     </div>
@@ -73,9 +73,9 @@ const CustomTooltip = ({ active, payload }) => {
 };
 export default function BodyChangeChart() {
   return (
-    <div className="bg-white rounded-3xl p-4 w-full">
+    <div className="bg-surface rounded-3xl p-4 w-full">
       <div className="flex justify-between items-center">
-        <div className="text-2xl  text-[#6B6F77] font-primary">
+        <div className="text-2xl  text-foreground font-primary">
           روند تغییرات وزن ، چربی و عضله
         </div>
         <div className="p-5 flex justify-center items-center">
@@ -87,7 +87,7 @@ export default function BodyChangeChart() {
           />
         </div>
       </div>
-      <div className="w-full rounded-[32px] bg-white p-6" dir="rtl">
+      <div className="w-full rounded-[32px] bg-surface p-6" dir="rtl">
         {/* Header */}
 
         {/* Chart */}
@@ -127,7 +127,7 @@ export default function BodyChangeChart() {
 
               {/* Grid */}
               <CartesianGrid
-                stroke="#DCE3EB"
+                stroke="var(--border)"
                 strokeDasharray="7 7"
                 vertical={true}
                 horizontal={true}
@@ -137,12 +137,12 @@ export default function BodyChangeChart() {
               <XAxis
                 dataKey="day"
                 tick={{
-                  fill: "#777",
+                  fill: "var(--muted)",
                   fontSize: 16,
                 }}
                 axisLine={false}
                 tickLine={{
-                  stroke: "#8FA7C0",
+                  stroke: "var(--border)",
                 }}
                 tickMargin={18}
               />
@@ -154,12 +154,12 @@ export default function BodyChangeChart() {
                 tickMargin={40}
                 width={70}
                 tick={{
-                  fill: "#777",
+                  fill: "var(--muted)",
                   fontSize: 16,
                 }}
                 axisLine={false}
                 tickLine={{
-                  stroke: "#8FA7C0",
+                  stroke: "var(--border)",
                 }}
               />
 
@@ -229,18 +229,18 @@ export default function BodyChangeChart() {
         {/* Legend */}
         <div className="mt-5 flex items-center justify-center gap-10">
           <div className="flex items-center gap-2">
-            <span className="h-[3px] w-8 rounded-full bg-[#007BFF]" />
-            <span className="text-gray-600">وزن (کیلوگرم)</span>
+            <span className="h-[3px] w-8 rounded-full bg-primary" />
+            <span className="text-muted">وزن (کیلوگرم)</span>
           </div>
 
           <div className="flex items-center gap-2">
             <span className="h-[3px] w-8 rounded-full bg-[#6BAF41]" />
-            <span className="text-gray-600">چربی (%)</span>
+            <span className="text-muted">چربی (%)</span>
           </div>
 
           <div className="flex items-center gap-2">
             <span className="h-[3px] w-8 rounded-full bg-[#6366F1]" />
-            <span className="text-gray-600">عضله (کیلوگرم)</span>
+            <span className="text-muted">عضله (کیلوگرم)</span>
           </div>
         </div>
       </div>

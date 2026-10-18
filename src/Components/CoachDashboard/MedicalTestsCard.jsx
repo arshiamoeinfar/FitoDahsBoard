@@ -82,17 +82,17 @@ export default function MedicalTestsCard({
   return (
     <section
       dir="rtl"
-      className="min-w-0 rounded-2xl bg-white p-5"
+      className="min-w-0 rounded-2xl bg-surface p-5"
     >
       <div className="mb-5 flex items-center justify-between gap-3">
-        <h3 className="text-sm font-bold text-gray-600">
+        <h3 className="text-sm font-bold text-foreground">
           آزمایش‌های پزشکی
         </h3>
 
         <button
           type="button"
           onClick={() => setShowAll((prev) => !prev)}
-          className="shrink-0 text-xs text-blue-600 hover:text-blue-700"
+          className="shrink-0 text-xs text-primary hover:text-primary-hover"
         >
           {showAll ? "نمایش کمتر" : "مشاهده همه"}
         </button>
@@ -111,8 +111,8 @@ export default function MedicalTestsCard({
                 aria-expanded={isSelected}
                 className={`flex w-full items-center justify-between rounded-2xl px-4 py-3 text-right text-xs transition ${
                   isSelected
-                    ? "bg-blue-100 text-blue-700"
-                    : "bg-[#F1F7FC] text-gray-600 hover:bg-blue-50"
+                    ? "bg-primary/10 text-primary"
+                    : "bg-surface-secondary text-foreground hover:bg-primary/10"
                 }`}
               >
                 <span>{test.title}</span>
@@ -123,10 +123,10 @@ export default function MedicalTestsCard({
               </button>
 
               {isSelected && (
-                <div className="mt-2 rounded-xl border border-gray-100 p-4">
+                <div className="mt-2 rounded-xl border border-border p-4">
                   {isEditing ? (
                     <div className="space-y-3">
-                      <label className="block text-xs text-gray-600">
+                      <label className="block text-xs text-foreground">
                         تاریخ آزمایش
                         <input
                           type="date"
@@ -137,11 +137,11 @@ export default function MedicalTestsCard({
                               date: e.target.value,
                             }))
                           }
-                          className="mt-2 w-full rounded-lg border border-gray-200 p-2 text-xs outline-none focus:border-blue-400"
+                          className="mt-2 w-full rounded-lg border border-border p-2 text-xs outline-none focus:border-primary"
                         />
                       </label>
 
-                      <label className="block text-xs text-gray-600">
+                      <label className="block text-xs text-foreground">
                         توضیحات و نتیجه
                         <textarea
                           value={draft.details}
@@ -152,32 +152,32 @@ export default function MedicalTestsCard({
                             }))
                           }
                           rows={3}
-                          className="mt-2 w-full rounded-lg border border-gray-200 p-3 text-xs outline-none focus:border-blue-400"
+                          className="mt-2 w-full rounded-lg border border-border p-3 text-xs outline-none focus:border-primary"
                         />
                       </label>
 
                       <button
                         type="button"
                         onClick={() => saveTest(test.id)}
-                        className="rounded-lg bg-blue-600 px-4 py-2 text-xs text-white hover:bg-blue-700"
+                        className="rounded-lg bg-primary px-4 py-2 text-xs text-white hover:bg-primary-hover"
                       >
                         ذخیره
                       </button>
                     </div>
                   ) : (
                     <>
-                      <p className="text-xs leading-6 text-gray-500">
+                      <p className="text-xs leading-6 text-muted">
                         {test.details}
                       </p>
 
-                      <p className="mt-2 text-xs text-gray-400">
+                      <p className="mt-2 text-xs text-muted">
                         تاریخ: {test.date}
                       </p>
 
                       <button
                         type="button"
                         onClick={() => startEditing(test)}
-                        className="mt-3 rounded-lg border border-blue-100 px-3 py-2 text-xs text-blue-600 hover:bg-blue-50"
+                        className="mt-3 rounded-lg border border-primary/30 px-3 py-2 text-xs text-primary hover:bg-primary/10"
                       >
                         ثبت یا ویرایش نتیجه
                       </button>

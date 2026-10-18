@@ -48,10 +48,10 @@ export default function AssessmentHistory() {
   ];
 
   return (
-    <div className="bg-white rounded-[32px] p-7">
+    <div className="bg-surface rounded-[32px] p-7">
 
       {/* Header */}
-      <h2 className="text-2xl  text-[#6B6F77] font-primary mb-6">
+      <h2 className="text-2xl  text-foreground font-primary mb-6">
         تاریخچه ارزیابی‌ها
       </h2>
 
@@ -74,7 +74,7 @@ export default function AssessmentHistory() {
                 {/* Date */}
                 <div className="flex items-center gap-3">
 
-                  <span className="text-[#6B6F77] ">
+                  <span className="text-foreground ">
                     {item.date}
                   </span>
 
@@ -92,8 +92,8 @@ export default function AssessmentHistory() {
                     transition-all duration-300
                     ${
                       isOpen
-                        ? "bg-[#006FE6] scale-105"
-                        : "bg-[#007BFF] group-hover:bg-[#006FE6]"
+                        ? "bg-primary-hover scale-105"
+                        : "bg-primary group-hover:bg-primary-hover"
                     }
                   `}
                 >
@@ -117,50 +117,50 @@ export default function AssessmentHistory() {
 
                 <div className="overflow-hidden">
 
-                  <div className="bg-[#F5F8FC] rounded-[24px] p-5 mb-5">
+                  <div className="bg-surface-secondary rounded-[24px] p-5 mb-5">
 
                     <div className="grid grid-cols-4 gap-4">
 
                       {/* Weight */}
-                      <div className="bg-white rounded-2xl p-4 text-center">
-                        <p className="text-sm text-[#A0A4AA]">
+                      <div className="bg-surface rounded-2xl p-4 text-center">
+                        <p className="text-sm text-muted">
                           وزن
                         </p>
 
-                        <p className="text-xl font-semibold text-[#6B6F77] mt-2">
+                        <p className="text-xl font-semibold text-foreground mt-2">
                           {item.weight}
                         </p>
                       </div>
 
                       {/* Body Fat */}
-                      <div className="bg-white rounded-2xl p-4 text-center">
-                        <p className="text-sm text-[#A0A4AA]">
+                      <div className="bg-surface rounded-2xl p-4 text-center">
+                        <p className="text-sm text-muted">
                           چربی بدن
                         </p>
 
-                        <p className="text-xl font-semibold text-[#6B6F77] mt-2">
+                        <p className="text-xl font-semibold text-foreground mt-2">
                           {item.bodyFat}
                         </p>
                       </div>
 
                       {/* Muscle */}
-                      <div className="bg-white rounded-2xl p-4 text-center">
-                        <p className="text-sm text-[#A0A4AA]">
+                      <div className="bg-surface rounded-2xl p-4 text-center">
+                        <p className="text-sm text-muted">
                           عضله
                         </p>
 
-                        <p className="text-xl font-semibold text-[#6B6F77] mt-2">
+                        <p className="text-xl font-semibold text-foreground mt-2">
                           {item.muscle}
                         </p>
                       </div>
 
                       {/* Water */}
-                      <div className="bg-white rounded-2xl p-4 text-center">
-                        <p className="text-sm text-[#A0A4AA]">
+                      <div className="bg-surface rounded-2xl p-4 text-center">
+                        <p className="text-sm text-muted">
                           آب بدن
                         </p>
 
-                        <p className="text-xl font-semibold text-[#6B6F77] mt-2">
+                        <p className="text-xl font-semibold text-foreground mt-2">
                           {item.water}
                         </p>
                       </div>
@@ -175,7 +175,7 @@ export default function AssessmentHistory() {
 
               {/* Divider */}
               {index !== assessments.length - 1 && (
-                <div className="h-px bg-[#E8E8E8]" />
+                <div className="h-px bg-border" />
               )}
 
             </div>

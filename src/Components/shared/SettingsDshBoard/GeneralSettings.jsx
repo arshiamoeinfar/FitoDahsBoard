@@ -19,16 +19,16 @@ const GeneralSettings = () => {
   return (
     <div className="flex flex-col gap-6">
       {/* General */}
-      <div className="bg-white rounded-4xl p-8">
+      <div className="bg-surface rounded-4xl p-8">
         <div className="flex items-center gap-3 mb-8">
           <span className="text-2xl">⚙️</span>
 
           <div>
-            <h2 className="text-2xl text-[#6B6F77]">
+            <h2 className="text-2xl text-foreground">
               تنظیمات عمومی
             </h2>
 
-            <p className="text-sm text-[#A0A4AA] mt-2">
+            <p className="text-sm text-muted mt-2">
               تنظیمات کلی تجربه کاربری خود را مدیریت کنید
             </p>
           </div>
@@ -37,7 +37,7 @@ const GeneralSettings = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Theme */}
           <div>
-            <label className="block text-sm text-[#6B6F77] mb-3">
+            <label className="block text-sm text-foreground mb-3">
               حالت نمایش
             </label>
 
@@ -46,7 +46,7 @@ const GeneralSettings = () => {
               onChange={(e) =>
                 handleChange("theme", e.target.value)
               }
-              className="w-full h-14 bg-[#F5F7FA] rounded-2xl px-5 outline-none text-[#6B6F77]"
+              className="w-full h-14 bg-input rounded-2xl px-5 outline-none text-foreground"
             >
               <option value="light">روشن</option>
               <option value="dark">تیره</option>
@@ -56,7 +56,7 @@ const GeneralSettings = () => {
 
           {/* Language */}
           <div>
-            <label className="block text-sm text-[#6B6F77] mb-3">
+            <label className="block text-sm text-foreground mb-3">
               زبان
             </label>
 
@@ -65,7 +65,7 @@ const GeneralSettings = () => {
               onChange={(e) =>
                 handleChange("language", e.target.value)
               }
-              className="w-full h-14 bg-[#F5F7FA] rounded-2xl px-5 outline-none text-[#6B6F77]"
+              className="w-full h-14 bg-input rounded-2xl px-5 outline-none text-foreground"
             >
               <option value="fa">فارسی</option>
               <option value="en">English</option>
@@ -74,7 +74,7 @@ const GeneralSettings = () => {
 
           {/* Weight Unit */}
           <div>
-            <label className="block text-sm text-[#6B6F77] mb-3">
+            <label className="block text-sm text-foreground mb-3">
               واحد وزن
             </label>
 
@@ -83,7 +83,7 @@ const GeneralSettings = () => {
               onChange={(e) =>
                 handleChange("weightUnit", e.target.value)
               }
-              className="w-full h-14 bg-[#F5F7FA] rounded-2xl px-5 outline-none text-[#6B6F77]"
+              className="w-full h-14 bg-input rounded-2xl px-5 outline-none text-foreground"
             >
               <option value="kg">کیلوگرم (KG)</option>
               <option value="lb">پوند (LB)</option>
@@ -93,8 +93,8 @@ const GeneralSettings = () => {
       </div>
 
       {/* Preferences */}
-      <div className="bg-white rounded-4xl p-8">
-        <h2 className="text-xl text-[#6B6F77] mb-5">
+      <div className="bg-surface rounded-4xl p-8">
+        <h2 className="text-xl text-foreground mb-5">
           ترجیحات
         </h2>
 
@@ -122,7 +122,7 @@ const GeneralSettings = () => {
           />
         </div>
 
-        <button className="mt-8 bg-[#007BFF] hover:bg-[#006BE0] text-white px-10 h-14 rounded-full transition cursor-pointer">
+        <button className="mt-8 bg-primary hover:bg-primary-hover text-white px-10 h-14 rounded-full transition cursor-pointer">
           ذخیره تنظیمات
         </button>
       </div>
@@ -140,13 +140,13 @@ const SettingToggle = ({
   return (
     <div
       className={`flex items-center justify-between py-5 ${
-        !last ? "border-b border-[#F0F0F0]" : ""
+        !last ? "border-b border-border" : ""
       }`}
     >
       <div>
-        <h3 className="text-[#6B6F77]">{title}</h3>
+        <h3 className="text-foreground">{title}</h3>
 
-        <p className="text-sm text-[#A0A4AA] mt-1">
+        <p className="text-sm text-muted mt-1">
           {description}
         </p>
       </div>
@@ -154,7 +154,7 @@ const SettingToggle = ({
       <button
         onClick={onClick}
         className={`relative w-14 h-7 rounded-full transition-all duration-300 ${
-          enabled ? "bg-[#007BFF]" : "bg-[#E5E7EB]"
+          enabled ? "bg-primary" : "bg-border"
         }`}
       >
         <span

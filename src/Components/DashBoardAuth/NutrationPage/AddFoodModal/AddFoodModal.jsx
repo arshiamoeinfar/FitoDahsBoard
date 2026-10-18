@@ -55,13 +55,13 @@ function calcNutrition(per100g, grams) {
 /* کارت کوچک آمار تغذیه‌ای — icon فعلاً یه جای خالیه، بعداً آیکون خودتون رو پاس بدید */
 function NutritionStat({ label, value, unit, accent, icon }) {
   return (
-    <div className="rounded-2xl px-3 py-2.5 bg-white flex items-center gap-2.5">
+    <div className="rounded-2xl px-3 py-2.5 bg-surface flex items-center gap-2.5">
       <div className="text-right">
-        <p className="text-sm font-semibold text-[#4F5965] leading-tight">
+        <p className="text-sm font-semibold text-foreground leading-tight">
           {value}
-          <span className="text-[11px] font-normal text-[#8A8F98]">{unit}</span>
+          <span className="text-[11px] font-normal text-muted">{unit}</span>
         </p>
-        <p className="text-[11px] text-[#8A8F98] mt-0.5">{label}</p>
+        <p className="text-[11px] text-muted mt-0.5">{label}</p>
       </div>
 
       {/* جای خالی آیکون — بعداً همینجا آیکون واقعی رو بذارید */}
@@ -150,32 +150,32 @@ export default function AddFoodModal({ isOpen, onClose, mealName, onAddFood }) {
 
   return (
     <div
-      className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4"
+      className="fixed inset-0 bg-overlay flex items-center justify-center z-50 px-4"
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-3xl w-full max-w-6xl max-h-[90vh] flex flex-col overflow-hidden"
+        className="bg-surface rounded-3xl w-full max-w-6xl max-h-[90vh] flex flex-col overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* هدر */}
         <div className="flex items-start justify-between px-8 pt-8 pb-4 shrink-0">
           <div className="flex items-start gap-4">
             <div className="text-right">
-              <h2 className="text-2xl font-semibold text-[#4F5965]">
+              <h2 className="text-2xl font-semibold text-foreground">
                 افزودن غذا
               </h2>
-              <p className="text-sm text-[#A0A4AA] mt-1">
+              <p className="text-sm text-muted mt-1">
                 افزودن غذا به لیست {mealName || "صبحانه"}
               </p>
             </div>
 
-            <div className="w-14 h-14 rounded-2xl bg-[#E9FFDB] flex items-center justify-center shrink-0">
+            <div className="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center shrink-0">
               <img className="w-8 h-8" src={imgLunch} alt="" />
             </div>
           </div>
           <button
             onClick={onClose}
-            className="w-10 h-10 rounded-full border-2 border-[#007BFF] flex items-center justify-center text-[#007BFF] hover:bg-[#E8F1FF] transition cursor-pointer"
+            className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center text-primary hover:bg-primary/20 transition cursor-pointer"
             aria-label="بستن"
           >
             <CloseIcon fontSize="small" />
@@ -188,19 +188,19 @@ export default function AddFoodModal({ isOpen, onClose, mealName, onAddFood }) {
           <div className="flex-1 overflow-y-auto pr-2 flex flex-col gap-7">
             {/* جستجو */}
             <div className="relative shrink-0 ml-4">
-              <SearchIcon className="absolute top-1/2 right-5 -translate-y-1/2 text-[#A0A4AA]" />
+              <SearchIcon className="absolute top-1/2 right-5 -translate-y-1/2 text-muted" />
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="جستجو در غذا ها"
-                className="w-full bg-white border border-[#E4E7EC] rounded-full pr-12 pl-5 py-4 text-right text-[#4F5965] outline-none"
+                className="w-full bg-input border border-border rounded-full pr-12 pl-5 py-4 text-right text-foreground outline-none"
               />
             </div>
 
             {/* اخیرا مصرف شده */}
             <div>
-              <h3 className="text-lg font-medium text-[#4F5965] text-right mb-4">
+              <h3 className="text-lg font-medium text-foreground text-right mb-4">
                 اخیرا مصرف شده
               </h3>
               <div className="flex items-center gap-3 overflow-x-auto py-2">
@@ -212,16 +212,16 @@ export default function AddFoodModal({ isOpen, onClose, mealName, onAddFood }) {
                       onClick={() => handleSelectFood(food)}
                       className={`flex items-center gap-3 rounded-3xl px-4  py-2 whitespace-nowrap shrink-0 transition cursor-pointer ${
                         isSelected
-                          ? "bg-[#EAF3FF] ring-2 ring-[#007BFF]"
-                          : "bg-white border border-[#E4E7EC] hover:bg-[#F8FAFF]"
+                          ? "bg-primary/10 ring-2 ring-primary"
+                          : "bg-surface border border-border hover:bg-surface-secondary"
                       }`}
                     >
                       <div className="text-right">
-                        <p className="text-sm font-medium text-[#4F5965]">
+                        <p className="text-sm font-medium text-foreground">
                           {food.name}
                         </p>
                         <div className="flex items-center gap-1 justify-end mt-0.5">
-                          <span className="text-xs text-[#A0A4AA]">
+                          <span className="text-xs text-muted">
                             {food.desc}
                           </span>
                           {/* <img src={ClockCircle} className="size-3" alt="" /> */}
@@ -236,7 +236,7 @@ export default function AddFoodModal({ isOpen, onClose, mealName, onAddFood }) {
 
             {/* پیشنهاد شده برای شما */}
             <div>
-              <h3 className="text-lg font-medium text-[#4F5965] text-right mb-4">
+              <h3 className="text-lg font-medium text-foreground text-right mb-4">
                 پیشنهاد شده برای شما
               </h3>
               <div className="flex flex-col gap-3">
@@ -249,19 +249,19 @@ export default function AddFoodModal({ isOpen, onClose, mealName, onAddFood }) {
                       onClick={() => handleSelectFood(food)}
                       className={`flex items-center justify-between rounded-3xl ml-4 px-3 py-3 cursor-pointer transition ${
                         isSelected
-                          ? "bg-[#EAF3FF] ring-2 ring-[#007BFF]"
-                          : "bg-white border border-[#E4E7EC] hover:bg-[#F8FAFF]"
+                          ? "bg-primary/10 ring-2 ring-primary"
+                          : "bg-surface border border-border hover:bg-surface-secondary"
                       }`}
                     >
                       <div className=" flex items-center justify-center gap-2">
                         <FoodThumbnail />
 
                         <div className="text-right">
-                          <p className="text-sm font-medium text-[#4F5965]">
+                          <p className="text-sm font-medium text-foreground">
                             {food.name}
                           </p>
                           <div className="flex items-center gap-1 justify-end mt-0.5">
-                            <span className="text-xs text-[#A0A4AA]">
+                            <span className="text-xs text-muted">
                               {food.desc}
                             </span>
                             {/* <img src={ClockCircle} className="size-2" alt="" /> */}
@@ -275,8 +275,8 @@ export default function AddFoodModal({ isOpen, onClose, mealName, onAddFood }) {
                         }}
                         className={`flex items-center gap-2 ml-3 px-4 py-2.5 rounded-full text-sm font-medium transition cursor-pointer ${
                           isSelected
-                            ? "bg-[#007BFF] text-white"
-                            : "bg-[#DBECFF] text-[#007BFF] hover:bg-[#c9e0ff]"
+                            ? "bg-primary text-white"
+                            : "bg-primary/10 text-primary hover:bg-primary/20"
                         }`}
                       >
                         {isAdded ? "اضافه شد ✓" : "افزودن"}
@@ -289,29 +289,29 @@ export default function AddFoodModal({ isOpen, onClose, mealName, onAddFood }) {
             </div>
           </div>
           {/* پنل چپ: جزئیات غذای انتخاب‌شده */}
-          <div className="w-90 shrink-0 bg-[#F2F8FD] rounded-3xl p-6 overflow-y-auto">
+          <div className="w-90 shrink-0 bg-surface-secondary rounded-3xl p-6 overflow-y-auto">
             <div className="flex flex-col items-center justify-center">
             <div className="relativ w-fit ">
               <FoodThumbnail size="w-20 h-20" iconSize="w-14 h-14" />
               <button
-                className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-white border-2 border-[#007BFF] flex items-center justify-center text-[#007BFF] hover:bg-[#E8F1FF] transition cursor-pointer"
+                className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-surface border-2 border-primary flex items-center justify-center text-primary hover:bg-primary/20 transition cursor-pointer"
                 aria-label="تغییر عکس"
               >
                 <AddPhotoAlternateOutlinedIcon sx={{ fontSize: 16 }} />
               </button>
             </div>
 
-            <h3 className="text-xl font-primary font-medium text-[#4F5965] mt-5">
+            <h3 className="text-xl font-primary font-medium text-foreground mt-5">
               {selectedFood.name}
             </h3>
-            <p className="text-sm text-[#A0A4AA] mt-1 Modam-Medium">
+            <p className="text-sm text-muted mt-1 Modam-Medium">
               ارزش غذایی بر اساس ۱۰۰ گرم
             </p>
 
             </div>
 
             {/* روش اندازه‌گیری */}
-            <p className="text-sm text-[#8A8F98] mt-6 mb-3">روش اندازه گیری</p>
+            <p className="text-sm text-muted mt-6 mb-3">روش اندازه گیری</p>
             <div className="flex items-center justify-center gap-2">
               {Object.keys(MEASURE_UNITS).map((measure) => (
                 <button
@@ -322,8 +322,8 @@ export default function AddFoodModal({ isOpen, onClose, mealName, onAddFood }) {
                   }}
                   className={`px-5 py-2.5 rounded-full text-sm transition cursor-pointer ${
                     selectedMeasure === measure
-                      ? "bg-[#007BFF] text-white"
-                      : "bg-white text-[#6B6F77] hover:bg-[#E8F1FF]"
+                      ? "bg-primary text-white"
+                      : "bg-surface text-foreground hover:bg-primary/20"
                   }`}
                 >
                   {measure}
@@ -332,25 +332,25 @@ export default function AddFoodModal({ isOpen, onClose, mealName, onAddFood }) {
             </div>
 
             {/* مقدار مصرف */}
-            <p className="text-sm text-[#8A8F98] mt-6 mb-3">مقدار مصرف</p>
-            <div className="flex items-center justify-between bg-white rounded-2xl px-3 py-3">
+            <p className="text-sm text-muted mt-6 mb-3">مقدار مصرف</p>
+            <div className="flex items-center justify-between bg-surface rounded-2xl px-3 py-3">
               <button
                 onClick={() => handleStep(1)}
-                className="w-9 h-9 rounded-full bg-[#E8F1FF] flex items-center justify-center text-[#007BFF] hover:bg-[#d7e9ff] transition cursor-pointer"
+                className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition cursor-pointer"
               >
                 <AddIcon fontSize="small" />
               </button>
 
-              <span className="text-lg font-semibold text-[#4F5965]">
+              <span className="text-lg font-semibold text-foreground">
                 {quantity}{" "}
-                <span className="text-sm font-normal text-[#A0A4AA]">
+                <span className="text-sm font-normal text-muted">
                   {selectedMeasure}
                 </span>
               </span>
 
               <button
                 onClick={() => handleStep(-1)}
-                className="w-9 h-9 rounded-full bg-[#F5F7FB] flex items-center justify-center text-[#8A8F98] hover:bg-[#EDEFF3] transition cursor-pointer"
+                className="w-9 h-9 rounded-full bg-surface-secondary flex items-center justify-center text-muted hover:bg-border transition cursor-pointer"
               >
                 <RemoveIcon fontSize="small" />
               </button>
@@ -358,8 +358,8 @@ export default function AddFoodModal({ isOpen, onClose, mealName, onAddFood }) {
 
             {/* ارزش غذایی */}
             <div className="flex items-center justify-between mt-6 mb-3">
-              <span className="text-sm text-[#8A8F98]">ارزش غذایی</span>
-              <span className="text-xs text-[#A0A4AA]">
+              <span className="text-sm text-muted">ارزش غذایی</span>
+              <span className="text-xs text-muted">
                 برای {quantity} {selectedMeasure}
               </span>
             </div>
@@ -393,7 +393,7 @@ export default function AddFoodModal({ isOpen, onClose, mealName, onAddFood }) {
 
             <button
               onClick={handleAddSelected}
-              className="w-full mt-6 py-3.5 rounded-full bg-[#007BFF] text-white font-medium flex items-center justify-center gap-2 hover:bg-blue-600 transition cursor-pointer"
+              className="w-full mt-6 py-3.5 rounded-full bg-primary text-white font-medium flex items-center justify-center gap-2 hover:bg-primary-hover transition cursor-pointer"
             >
               <AddIcon fontSize="small" />
               افزودن به وعده

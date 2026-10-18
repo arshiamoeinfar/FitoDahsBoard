@@ -62,7 +62,7 @@ function Toggle({ checked, onChange }) {
       type="button"
       onClick={() => onChange?.(!checked)}
       className={`relative h-6 w-11 shrink-0 rounded-full transition-all duration-200 ${
-        checked ? "bg-[#007BFF]" : "bg-[#DCE2E9]"
+        checked ? "bg-primary" : "bg-border"
       }`}
     >
       <span
@@ -82,18 +82,18 @@ function SettingRow({
   onChange,
 }) {
   return (
-    <div className="flex items-center justify-between gap-5 border-b border-[#F0F2F5] py-5 last:border-b-0">
+    <div className="flex items-center justify-between gap-5 border-b border-border py-5 last:border-b-0">
       <div className="flex min-w-0 items-center gap-3">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F3F8FF] text-[#007BFF]">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
           <Icon size={18} strokeWidth={1.8} />
         </div>
 
         <div className="min-w-0">
-          <h4 className="text-[12px] font-semibold text-[#454C55]">
+          <h4 className="text-[12px] font-semibold text-foreground">
             {title}
           </h4>
 
-          <p className="mt-1 text-[10px] leading-5 text-[#9AA1AA]">
+          <p className="mt-1 text-[10px] leading-5 text-muted">
             {description}
           </p>
         </div>
@@ -113,7 +113,7 @@ function InputField({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-[12px] font-medium text-[#68717D]">
+      <label className="text-[12px] font-medium text-foreground">
         {label}
       </label>
 
@@ -127,18 +127,18 @@ function InputField({
           w-full
           rounded-xl
           border
-          border-[#E7EBF0]
-          bg-[#FCFDFE]
+          border-border
+          bg-input
           px-4
           text-[12px]
-          text-[#454C55]
+          text-foreground
           outline-none
           transition-all
-          placeholder:text-[#B2B8C0]
-          focus:border-[#8CC3FF]
-          focus:bg-white
+          placeholder:text-muted
+          focus:border-primary
+          focus:bg-input
           focus:ring-4
-          focus:ring-[#007BFF]/5
+          focus:ring-primary/5
         "
       />
     </div>
@@ -148,11 +148,11 @@ function InputField({
 function SectionHeader({ title, description }) {
   return (
     <div className="mb-6">
-      <h2 className="text-[18px] font-primary text-[#6B6F77]">
+      <h2 className="text-[18px] font-primary text-foreground">
         {title}
       </h2>
 
-      <p className="mt-1 text-[10px] text-[#9AA1AA]">
+      <p className="mt-1 text-[10px] text-muted">
         {description}
       </p>
     </div>
@@ -202,19 +202,19 @@ function AccountSettings({ form, setForm }) {
         />
       </div>
 
-      <div className="mt-6 rounded-2xl border border-[#E8EEF5] bg-[#FAFCFF] p-5">
+      <div className="mt-6 rounded-2xl border border-border bg-surface-secondary p-5">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EEF6FF] text-[#007BFF]">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <LockKeyhole size={18} />
             </div>
 
             <div>
-              <h3 className="text-[12px] font-semibold text-[#454C55]">
+              <h3 className="text-[12px] font-semibold text-foreground">
                 رمز عبور
               </h3>
 
-              <p className="mt-1 text-[10px] text-[#9AA1AA]">
+              <p className="mt-1 text-[10px] text-muted">
                 رمز عبور حساب خود را تغییر دهید.
               </p>
             </div>
@@ -222,7 +222,7 @@ function AccountSettings({ form, setForm }) {
 
           <button
             type="button"
-            className="rounded-xl border border-[#DCE8F5] bg-white px-4 py-2.5 text-[10px] font-medium text-[#007BFF] transition-all hover:bg-[#F3F8FF]"
+            className="rounded-xl border border-border bg-surface px-4 py-2.5 text-[10px] font-medium text-primary transition-all hover:bg-surface-secondary"
           >
             تغییر رمز عبور
           </button>
@@ -242,24 +242,24 @@ function CoachProfileSettings({ form, setForm }) {
 
       <div className="mb-7 flex items-center gap-5">
         <div className="relative">
-          <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-full border-4 border-white bg-[#EAF4FF] text-[#007BFF] shadow-sm">
+          <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-full border-4 border-white bg-primary/10 text-primary shadow-sm">
             <User size={30} strokeWidth={1.5} />
           </div>
 
           <button
             type="button"
-            className="absolute bottom-0 left-0 flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-[#007BFF] text-white shadow-sm"
+            className="absolute bottom-0 left-0 flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-primary text-white shadow-sm"
           >
             <Camera size={13} />
           </button>
         </div>
 
         <div>
-          <h3 className="text-[14px] font-bold text-[#343A40]">
+          <h3 className="text-[14px] font-bold text-foreground">
             {form.name || "نام مربی"}
           </h3>
 
-          <p className="mt-1 text-[10px] text-[#9AA1AA]">
+          <p className="mt-1 text-[10px] text-muted">
             تصویر پروفایل مربی
           </p>
         </div>
@@ -286,7 +286,7 @@ function CoachProfileSettings({ form, setForm }) {
       </div>
 
       <div className="mt-5">
-        <label className="mb-2 block text-[11px] font-medium text-[#68717D]">
+        <label className="mb-2 block text-[11px] font-medium text-foreground">
           درباره من
         </label>
 
@@ -305,20 +305,20 @@ function CoachProfileSettings({ form, setForm }) {
             resize-none
             rounded-xl
             border
-            border-[#E7EBF0]
-            bg-[#FCFDFE]
+            border-border
+            bg-input
             px-4
             py-3
             text-[11px]
             leading-6
-            text-[#454C55]
+            text-foreground
             outline-none
             transition-all
-            placeholder:text-[#B2B8C0]
-            focus:border-[#8CC3FF]
-            focus:bg-white
+            placeholder:text-muted
+            focus:border-primary
+            focus:bg-input
             focus:ring-4
-            focus:ring-[#007BFF]/5
+            focus:ring-primary/5
           "
         />
       </div>
@@ -334,7 +334,7 @@ function StudentSettings({ settings, setSettings }) {
         description="نحوه مدیریت و ارتباط با شاگردان را تنظیم کنید."
       />
 
-      <div className="rounded-2xl border border-[#E8EDF3] bg-white px-5">
+      <div className="rounded-2xl border border-border bg-surface px-5">
         <SettingRow
           icon={Users}
           title="تأیید خودکار درخواست شاگرد"
@@ -375,27 +375,27 @@ function StudentSettings({ settings, setSettings }) {
         />
       </div>
 
-      <div className="mt-5 rounded-2xl bg-[#F7FAFD] p-5">
+      <div className="mt-5 rounded-2xl bg-surface-secondary p-5">
         <div className="flex items-center justify-between">
           <div>
-            <span className="text-[10px] text-[#9AA1AA]">
+            <span className="text-[10px] text-muted">
               تعداد شاگردان
             </span>
 
-            <div className="mt-1 text-[20px] font-bold text-[#343A40]">
+            <div className="mt-1 text-[20px] font-bold text-foreground">
               42
-              <span className="mx-1 text-[12px] font-normal text-[#A5ABB3]">
+              <span className="mx-1 text-[12px] font-normal text-muted">
                 /
               </span>
 
-              <span className="text-[13px] font-medium text-[#007BFF]">
+              <span className="text-[13px] font-medium text-primary">
                 100
               </span>
             </div>
           </div>
 
-          <div className="h-2 w-40 overflow-hidden rounded-full bg-[#E7EEF5]">
-            <div className="h-full w-[42%] rounded-full bg-[#007BFF]" />
+          <div className="h-2 w-40 overflow-hidden rounded-full bg-border">
+            <div className="h-full w-[42%] rounded-full bg-primary" />
           </div>
         </div>
       </div>
@@ -411,7 +411,7 @@ function NotificationSettings({ settings, setSettings }) {
         description="اعلان‌هایی که می‌خواهید از Fito دریافت کنید."
       />
 
-      <div className="rounded-2xl border border-[#E8EDF3] bg-white px-5">
+      <div className="rounded-2xl border border-border bg-surface px-5">
         <SettingRow
           icon={MessageCircle}
           title="پیام جدید شاگرد"
@@ -477,18 +477,18 @@ function ProgramSettings({ settings, setSettings }) {
       />
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <div className="rounded-2xl border border-[#E8EDF3] bg-white p-5">
+        <div className="rounded-2xl border border-border bg-surface p-5">
           <div className="mb-4 flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EEF6FF] text-[#007BFF]">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Dumbbell size={18} />
             </div>
 
             <div>
-              <h3 className="text-[12px] font-bold text-[#454C55]">
+              <h3 className="text-[12px] font-bold text-foreground">
                 تمرین
               </h3>
 
-              <p className="mt-1 text-[9px] text-[#A0A6AE]">
+              <p className="mt-1 text-[9px] text-muted">
                 تنظیمات Workout Builder
               </p>
             </div>
@@ -508,18 +508,18 @@ function ProgramSettings({ settings, setSettings }) {
           />
         </div>
 
-        <div className="rounded-2xl border border-[#E8EDF3] bg-white p-5">
+        <div className="rounded-2xl border border-border bg-surface p-5">
           <div className="mb-4 flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EFFBEA] text-[#68B43F]">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-500/10 text-success">
               <Utensils size={18} />
             </div>
 
             <div>
-              <h3 className="text-[12px] font-bold text-[#454C55]">
+              <h3 className="text-[12px] font-bold text-foreground">
                 تغذیه
               </h3>
 
-              <p className="mt-1 text-[9px] text-[#A0A6AE]">
+              <p className="mt-1 text-[9px] text-muted">
                 تنظیمات برنامه غذایی
               </p>
             </div>
@@ -540,7 +540,7 @@ function ProgramSettings({ settings, setSettings }) {
         </div>
       </div>
 
-      <div className="mt-4 rounded-2xl border border-[#E8EDF3] bg-white px-5">
+      <div className="mt-4 rounded-2xl border border-border bg-surface px-5">
         <SettingRow
           icon={ShieldCheck}
           title="تأیید قبل از انتشار"
@@ -566,25 +566,25 @@ function AISettings({ settings, setSettings }) {
         description="نحوه استفاده Fito AI از اطلاعات و داده‌های شاگردان."
       />
 
-      <div className="mb-5 rounded-2xl border border-[#DCEBFF] bg-[#F5FAFF] p-5">
+      <div className="mb-5 rounded-2xl border border-primary/30 bg-primary/10 p-5">
         <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#007BFF] text-white">
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-white">
             <Bot size={21} />
           </div>
 
           <div>
-            <h3 className="text-[13px] font-bold text-[#343A40]">
+            <h3 className="text-[13px] font-bold text-foreground">
               Fito AI
             </h3>
 
-            <p className="mt-1 text-[9px] text-[#7E8995]">
+            <p className="mt-1 text-[9px] text-muted">
               دستیار هوشمند برای تحلیل و پیشنهاد برنامه
             </p>
           </div>
         </div>
       </div>
 
-      <div className="rounded-2xl border border-[#E8EDF3] bg-white px-5">
+      <div className="rounded-2xl border border-border bg-surface px-5">
         <SettingRow
           icon={Bot}
           title="فعال بودن دستیار AI"
@@ -662,19 +662,19 @@ function SecuritySettings() {
         description="امنیت حساب و دسترسی‌های فعال خود را مدیریت کنید."
       />
 
-      <div className="rounded-2xl border border-[#E8EDF3] bg-white px-5">
-        <div className="flex items-center justify-between gap-5 border-b border-[#F0F2F5] py-5">
+      <div className="rounded-2xl border border-border bg-surface px-5">
+        <div className="flex items-center justify-between gap-5 border-b border-border py-5">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EEF6FF] text-[#007BFF]">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <ShieldCheck size={18} />
             </div>
 
             <div>
-              <h4 className="text-[12px] font-semibold text-[#454C55]">
+              <h4 className="text-[12px] font-semibold text-foreground">
                 ورود دو مرحله‌ای
               </h4>
 
-              <p className="mt-1 text-[10px] text-[#9AA1AA]">
+              <p className="mt-1 text-[10px] text-muted">
                 یک لایه امنیتی بیشتر برای حساب شما.
               </p>
             </div>
@@ -682,24 +682,24 @@ function SecuritySettings() {
 
           <button
             type="button"
-            className="rounded-xl bg-[#EEF6FF] px-4 py-2.5 text-[10px] font-medium text-[#007BFF]"
+            className="rounded-xl bg-primary/10 px-4 py-2.5 text-[10px] font-medium text-primary"
           >
             فعال‌سازی
           </button>
         </div>
 
-        <div className="flex items-center justify-between gap-5 border-b border-[#F0F2F5] py-5">
+        <div className="flex items-center justify-between gap-5 border-b border-border py-5">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F5F6F8] text-[#737B85]">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-surface-secondary text-muted">
               <Smartphone size={18} />
             </div>
 
             <div>
-              <h4 className="text-[12px] font-semibold text-[#454C55]">
+              <h4 className="text-[12px] font-semibold text-foreground">
                 دستگاه‌های فعال
               </h4>
 
-              <p className="mt-1 text-[10px] text-[#9AA1AA]">
+              <p className="mt-1 text-[10px] text-muted">
                 مدیریت دستگاه‌هایی که به حساب شما وارد شده‌اند.
               </p>
             </div>
@@ -707,7 +707,7 @@ function SecuritySettings() {
 
           <button
             type="button"
-            className="flex items-center gap-1 text-[10px] font-medium text-[#007BFF]"
+            className="flex items-center gap-1 text-[10px] font-medium text-primary"
           >
             مشاهده
             <ChevronLeft size={13} />
@@ -716,18 +716,18 @@ function SecuritySettings() {
 
         <div className="flex items-center justify-between gap-5 py-5">
           <div>
-            <h4 className="text-[12px] font-semibold text-[#454C55]">
+            <h4 className="text-[12px] font-semibold text-foreground">
               نشست‌های فعال
             </h4>
 
-            <p className="mt-1 text-[10px] text-[#9AA1AA]">
+            <p className="mt-1 text-[10px] text-muted">
               مدیریت دسترسی دستگاه‌های متصل به حساب
             </p>
           </div>
 
           <button
             type="button"
-            className="rounded-xl border border-[#F0D4D4] bg-white px-4 py-2.5 text-[10px] font-medium text-[#D95353]"
+            className="rounded-xl border border-danger/30 bg-surface px-4 py-2.5 text-[10px] font-medium text-danger"
           >
             خروج از همه
           </button>
@@ -832,7 +832,7 @@ export default function CoachSettings() {
   return (
     <div
       dir="rtl"
-      className="min-h-screen bg-[#F5F7FB] flex justify-center"
+      className="min-h-screen bg-background flex justify-center"
     >
       <main className="mx-auto w-full px-4 ">
         <div className="mb-6">
@@ -841,7 +841,7 @@ export default function CoachSettings() {
         {/* Header */}
 
         {/* Top Menu */}
-        <div className="mb-5 overflow-x-auto rounded-3xl bg-white p-2">
+        <div className="mb-5 overflow-x-auto rounded-3xl bg-surface p-2">
           <div className="flex min-w-max items-center gap-1">
             {settingsItems.map((item) => {
               const Icon = item.icon;
@@ -870,8 +870,8 @@ export default function CoachSettings() {
                     cursor-pointer
                     ${
                       active
-                        ? "bg-[#EEF6FF] text-[#007BFF]"
-                        : "text-[#7D858F] hover:bg-[#F8FAFC] hover:text-[#007BFF]"
+                        ? "bg-primary/10 text-primary"
+                        : "text-muted hover:bg-surface-secondary hover:text-primary"
                     }
                   `}
                 >
@@ -883,7 +883,7 @@ export default function CoachSettings() {
                   {item.title}
 
                   {active && (
-                    <span className="absolute bottom-0 left-1/2 h-[3px] w-7 -translate-x-1/2 rounded-full bg-[#007BFF]" />
+                    <span className="absolute bottom-0 left-1/2 h-[3px] w-7 -translate-x-1/2 rounded-full bg-primary" />
                   )}
                 </button>
               );
@@ -892,12 +892,12 @@ export default function CoachSettings() {
         </div>
 
         {/* Main Content */}
-        <section className="rounded-3xl bg-white p-7">
+        <section className="rounded-3xl bg-surface p-7">
           {renderContent()}
 
           {/* Footer */}
-          <div className="mt-8 flex flex-col-reverse items-center justify-between gap-4 border-t border-[#F0F2F5] pt-6 sm:flex-row">
-            <p className="text-[12px] text-[#d30000]">
+          <div className="mt-8 flex flex-col-reverse items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
+            <p className="text-[12px] text-danger">
               تغییرات شما تا زمان ذخیره شدن اعمال نمی‌شوند.
             </p>
 
@@ -914,7 +914,7 @@ export default function CoachSettings() {
                 items-center
                 gap-2
                 rounded-xl
-                bg-[#007BFF]
+                bg-primary
                 px-6
                 py-3
                 text-[12px]
@@ -923,7 +923,7 @@ export default function CoachSettings() {
                 shadow-[0_5px_15px_rgba(0,123,255,0.18)]
                 transition-all
                 duration-200
-                hover:bg-[#006FE6]
+                hover:bg-primary-hover
                 hover:shadow-[0_7px_20px_rgba(0,123,255,0.22)]
                 active:scale-[0.98]
               "

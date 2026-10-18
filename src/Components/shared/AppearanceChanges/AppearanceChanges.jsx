@@ -30,11 +30,11 @@ const BodyChanges = () => {
   return (
     <>
       {/* ===== کارت اصلی ===== */}
-      <div className="bg-white rounded-3xl  border border-gray-100/50 overflow-hidden transition-shadow">
+      <div className="bg-surface rounded-3xl  border border-border/50 overflow-hidden transition-shadow">
         <div className="flex flex-col md:flex-row">
           
           {/* بخش تصویر (پیش‌نمایش) */}
-          <div className="relative w-full md:w-1/3 h-48 md:h-auto bg-gradient-to-br from-blue-50 to-indigo-100">
+          <div className="relative w-full md:w-1/3 h-48 md:h-auto bg-gradient-to-br from-primary/10 to-primary/5">
             {stats.imagePreview ? (
               <img
                 src={stats.imagePreview}
@@ -42,7 +42,7 @@ const BodyChanges = () => {
                 className="w-full h-full object-cover"
               />
             ) : (
-              <div className="flex items-center justify-center h-full text-gray-400">
+              <div className="flex items-center justify-center h-full text-muted">
                 <svg className="w-12 h-12 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -61,16 +61,16 @@ const BodyChanges = () => {
           {/* بخش اطلاعات */}
           <div className="flex-1 p-5 md:p-6 space-y-4">
             <div>
-              <h3 className="text-2xl  text-[#6B6F77] font-primary mb-3">تغییرات بدن</h3>
-              <p className="text-sm text-gray-500">آخرین بروزرسانی: {stats.lastUpdate}</p>
+              <h3 className="text-2xl  text-foreground font-primary mb-3">تغییرات بدن</h3>
+              <p className="text-sm text-muted">آخرین بروزرسانی: {stats.lastUpdate}</p>
             </div>
 
             {/* ۳ کارت آمار */}
             <div className="grid grid-cols-3 gap-4">
               {/* وزن */}
-              <div className="bg-gray-50/70 p-3 rounded-xl text-center">
-                <p className="text-xs text-gray-500 mb-1">وزن</p>
-                <p className="text-base  text-gray-600">{stats.currentWeight} kg</p>
+              <div className="bg-surface-secondary p-3 rounded-xl text-center">
+                <p className="text-xs text-muted mb-1">وزن</p>
+                <p className="text-base  text-foreground">{stats.currentWeight} kg</p>
                 <div className={`flex items-center justify-center gap-0.5 text-xs font-medium mt-0.5 ${isWeightDown ? "text-emerald-500" : "text-rose-500"}`}>
                   {weightDiff < 0 ? (
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,14 +82,14 @@ const BodyChanges = () => {
                     </svg>
                   )}
                   <span>{Math.abs(weightDiff)} kg</span>
-                  <span className="text-gray-400 mr-1">({isWeightDown ? "✓" : "✗"})</span>
+                  <span className="text-muted mr-1">({isWeightDown ? "✓" : "✗"})</span>
                 </div>
               </div>
 
               {/* چربی */}
-              <div className="bg-gray-50/70 p-3 rounded-2xl text-center">
-                <p className="text-xs text-gray-500 mb-1">چربی</p>
-                <p className="text-base  text-gray-600">{stats.currentFat}%</p> 
+              <div className="bg-surface-secondary p-3 rounded-2xl text-center">
+                <p className="text-xs text-muted mb-1">چربی</p>
+                <p className="text-base  text-foreground">{stats.currentFat}%</p> 
                 <div className={`flex items-center justify-center gap-0.5 text-xs font-medium mt-0.5 ${isFatDown ? "text-emerald-500" : "text-rose-500"}`}>
                   {fatDiff < 0 ? (
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,14 +101,14 @@ const BodyChanges = () => {
                     </svg>
                   )}
                   <span>{Math.abs(fatDiff)}%</span>
-                  <span className="text-gray-400 mr-1">({isFatDown ? "✓" : "✗"})</span>
+                  <span className="text-muted mr-1">({isFatDown ? "✓" : "✗"})</span>
                 </div>
               </div>
 
               {/* عضله */}
-              <div className="bg-gray-50/70 p-3 rounded-xl text-center">
-                <p className="text-xs text-gray-500 mb-1">عضله</p>
-                <p className="text-base  text-gray-600">{stats.currentMuscle}%</p> 
+              <div className="bg-surface-secondary p-3 rounded-xl text-center">
+                <p className="text-xs text-muted mb-1">عضله</p>
+                <p className="text-base  text-foreground">{stats.currentMuscle}%</p> 
                 <div className={`flex items-center justify-center gap-0.5 text-xs font-medium mt-0.5 ${isMuscleUp ? "text-emerald-500" : "text-rose-500"}`}>
                   {muscleDiff > 0 ? (
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,21 +120,21 @@ const BodyChanges = () => {
                     </svg>
                   )}
                   <span>{Math.abs(muscleDiff)}%</span>
-                  <span className="text-gray-400 mr-1">({isMuscleUp ? "✓" : "✗"})</span>
+                  <span className="text-muted mr-1">({isMuscleUp ? "✓" : "✗"})</span>
                 </div>
               </div>
             </div>
 
             {/* مقایسه با هدف */}
-            <div className="flex items-center justify-between bg-gray-50/80 p-3 rounded-xl">
-              <div className="flex items-center gap-2 text-sm text-gray-600">
+            <div className="flex items-center justify-between bg-surface-secondary p-3 rounded-xl">
+              <div className="flex items-center gap-2 text-sm text-foreground">
                 <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
                 </svg>
                 <span>وزن هدف: {stats.targetWeight} kg</span>
               </div>
               <div className="text-sm font-medium">
-                <span className="text-gray-500">فاصله: </span>
+                <span className="text-muted">فاصله: </span>
                 <span className={stats.currentWeight > stats.targetWeight ? "text-amber-500" : "text-emerald-500"}>
                   {(stats.currentWeight - stats.targetWeight).toFixed(1)} kg
                 </span>
@@ -144,7 +144,7 @@ const BodyChanges = () => {
             {/* دکمه مشاهده تصاویر کامل */}
             <button
               onClick={() => setIsModalOpen(true)}
-              className="w-full h-12 cursor-pointer bg-[#007BFF] text-white font-medium rounded-xl hover:bg-[#005BAF] transition-colors flex items-center justify-center gap-2 shadow-sm hover:shadow-md"
+              className="w-full h-12 cursor-pointer bg-primary text-white font-medium rounded-xl hover:bg-primary-hover transition-colors flex items-center justify-center gap-2 shadow-sm hover:shadow-md"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />

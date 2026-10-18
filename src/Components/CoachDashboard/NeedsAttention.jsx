@@ -36,21 +36,21 @@ const students = [
 ];
 
 const statusStyles = {
-  warning: "bg-amber-100 text-amber-700",
-  danger: "bg-rose-100 text-rose-700",
-  success: "bg-emerald-100 text-emerald-700",
+  warning: "bg-amber-500/10 text-amber-600",
+  danger: "bg-rose-500/10 text-rose-600",
+  success: "bg-emerald-500/10 text-emerald-600",
 };
 
 const NeedsAttention = () => {
 
   const navigate = useNavigate()
   return (
-    <section className="bg-white rounded-3xl p-5 md:p-7 ">
+    <section className="bg-surface rounded-3xl p-5 md:p-7 ">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-primary  text-[#6B6F77]">نیازمند توجه</h2>
+        <h2 className="text-xl font-primary  text-foreground">نیازمند توجه</h2>
         <button
         onClick={() => navigate("/coach/athletes")}
-        className="text-sm font-medium text-[#007BFF] hover:text-blue-600 transition-colors cursor-pointer">
+        className="text-sm font-medium text-primary hover:text-primary-hover transition-colors cursor-pointer">
           مشاهده همه شاگردان
         </button>
       </div>
@@ -58,7 +58,7 @@ const NeedsAttention = () => {
       <div className="overflow-x-auto ">
         <table className="w-full text-right border-collapse">
           <thead>
-            <tr className="text-sm text-slate-400">
+            <tr className="text-sm text-muted">
               <th className="pb-4 font-normal">شاگرد</th>
               <th className="pb-4 font-normal">وضعیت</th>
               <th className="pb-4 font-normal">دلیل</th>
@@ -70,7 +70,7 @@ const NeedsAttention = () => {
             {students.map((student) => (
               <tr
                 key={student.id}
-                className=" border-t border-slate-100 hover:bg-slate-50/50 transition-colors"
+                className=" border-t border-border hover:bg-surface-secondary/50 transition-colors"
               >
                 {/* شاگرد */}
                 <td className="py-4">
@@ -78,13 +78,13 @@ const NeedsAttention = () => {
                     <img
                       src={student.avatar}
                       alt={student.name}
-                      className="w-11 h-11 rounded-full object-cover ring-2 ring-slate-100"
+                      className="w-11 h-11 rounded-full object-cover ring-2 ring-border"
                     />
                     <div>
-                      <p className="text-sm font-primary text-[#6B6F77]">
+                      <p className="text-sm font-primary text-foreground">
                         {student.name}
                       </p>
-                      <p className="text-xs text-[#767676] mt-0.5">
+                      <p className="text-xs text-muted mt-0.5">
                         {student.goal}
                       </p>
                     </div>
@@ -94,7 +94,7 @@ const NeedsAttention = () => {
                 {/* وضعیت */}
                 <td className="py-4">
                   <span
-                    className={`inline-block text-[#CEA333] px-4 py-1.5 text-xs font-medium rounded-full ${
+                    className={`inline-block px-4 py-1.5 text-xs font-medium rounded-full ${
                       statusStyles[student.statusType]
                     }`}
                   >
@@ -103,18 +103,18 @@ const NeedsAttention = () => {
                 </td>
 
                 {/* دلیل */}
-                <td className="py-4 text-sm text-[#6B6F77]">
+                <td className="py-4 text-sm text-foreground">
                   {student.reason}
                 </td>
 
                 {/* آخرین فعالیت */}
-                <td className="py-4 text-sm text-[#6B6F77]">
+                <td className="py-4 text-sm text-foreground">
                   {student.lastActivity}
                 </td>
 
                 {/* جزئیات */}
                 <td className="py-4 text-center">
-                  <button className="px-6 py-2 cursor-pointer bg-blue-50 text-[#007BFF] text-sm font-medium rounded-full hover:bg-blue-100 transition-colors">
+                  <button className="px-6 py-2 cursor-pointer bg-primary/10 text-primary text-sm font-medium rounded-full hover:bg-primary/20 transition-colors">
                     مشاهده
                   </button>
                 </td>

@@ -160,12 +160,12 @@ export default function HeadeeMessage({
     >
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="bg-white p-3 rounded-full relative cursor-pointer block"
+        className="bg-surface p-3 rounded-full relative cursor-pointer block"
         aria-haspopup="true"
         aria-expanded={isOpen}
       >
         {value > 0 && (
-          <span className="flex items-center justify-center bottom-8 left-8 text-[12px] bg-[#007BFF] w-5.5 h-5.5 text-white rounded-full absolute">
+          <span className="flex items-center justify-center bottom-8 left-8 text-[12px] bg-primary w-5.5 h-5.5 text-white rounded-full absolute">
             {value}
           </span>
         )}
@@ -173,15 +173,15 @@ export default function HeadeeMessage({
       </button>
 
       {isOpen && (
-        <div className="absolute left-0 top-full mt-3 w-96 bg-white rounded-3xl shadow-xl p-4 z-50 text-right">
-          <div className="flex items-center justify-between px-2 pb-3 border-b border-[#EEEEEE]">
-            <span className="text-xs text-[#A0A4AA]">{items.length} مورد</span>
-            <h3 className="text-base font-medium text-[#4F5965]">{title}</h3>
+        <div className="absolute left-0 top-full mt-3 w-96 bg-surface rounded-3xl shadow-xl p-4 z-50 text-right">
+          <div className="flex items-center justify-between px-2 pb-3 border-b border-border">
+            <span className="text-xs text-muted">{items.length} مورد</span>
+            <h3 className="text-base font-medium text-foreground">{title}</h3>
           </div>
 
           <div className="max-h-96 overflow-y-auto mt-2 flex flex-col">
             {items.length === 0 ? (
-              <p className="text-sm text-[#A0A4AA] text-center py-8">
+              <p className="text-sm text-muted text-center py-8">
                 {emptyText}
               </p>
             ) : (
@@ -192,7 +192,7 @@ export default function HeadeeMessage({
                 return (
                   <div
                     key={item.id ?? index}
-                    className="flex items-start gap-3 px-2 py-3 rounded-2xl hover:bg-[#F5F7FB] transition cursor-pointer"
+                    className="flex items-start gap-3 px-2 py-3 rounded-2xl hover:bg-surface-secondary transition cursor-pointer"
                   >
                     {Icon ? (
                       <div
@@ -202,14 +202,14 @@ export default function HeadeeMessage({
                         <Icon style={{ color: config.color, fontSize: 18 }} />
                       </div>
                     ) : (
-                      <div className="w-2 h-2 rounded-full bg-[#007BFF] mt-2 shrink-0" />
+                      <div className="w-2 h-2 rounded-full bg-primary mt-2 shrink-0" />
                     )}
                     <div className="flex-1">
-                      <p className="text-sm text-[#4F5965] leading-6">
+                      <p className="text-sm text-foreground leading-6">
                         {item.text}
                       </p>
                       {item.time && (
-                        <span className="text-[11px] text-[#A0A4AA]">
+                        <span className="text-[11px] text-muted">
                           {item.time}
                         </span>
                       )}

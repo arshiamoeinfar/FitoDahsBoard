@@ -13,14 +13,14 @@ import BodyProgressCard from "../../../Components/DashBoardAuth/DashBoardAuthlet
 import imgWalk from "../../../assets/imges/walk.png";
 export default function DashboardAthlete() {
   return (
-    <div className="min-h-screen bg-[#F5F7FB] flex justify-center">
-      <div className="w-full max-w-[1600px] grid grid-cols-[90px_1fr_330px] gap-6 px-8 py-6 bg-[#F5F7FB]">
+    <div className="min-h-screen flex justify-center">
+      <div className="w-full max-w-[1600px] grid grid-cols-[90px_1fr_330px] gap-6 px-8 py-6 bg-background">
         <div className="">
           <Navbar />
         </div>
         <div className="py-3 ">
           <div className="grid grid-cols-12 gap-6 h-full">
-            <div className="col-span-6 row-span-1 w-full max-h-44 bg-[#007BFF]  rounded-4xl flex items-center justify-center relative">
+            <div className="col-span-6 row-span-1 w-full max-h-44 bg-primary  rounded-4xl flex items-center justify-center relative overflow-hidden">
               <DailyGoalCard />
             </div>
 
@@ -42,7 +42,7 @@ export default function DashboardAthlete() {
             {/* </div> */}
 
             <div className="col-span-6">
-              <div className="flex bg-white flex-col p-6 rounded-3xl h-auto">
+              <div className="flex bg-surface flex-col p-6 rounded-3xl h-auto">
                 <DailyHydrationCard />
               </div>
             </div>

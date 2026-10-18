@@ -368,40 +368,40 @@ export default function BodyAnalysisModel({ frontImage, backImage, title }) {
   const getStatusColor = (status) => {
     switch (status) {
       case "عالی":
-        return "text-[#007BFF]";
+        return "text-primary";
       case "خوب":
-        return "text-[#63AF42]";
+        return "text-success";
       case "متوسط":
         return "text-[#D5A329]";
       case "ضعیف":
-        return "text-[#F04444]";
+        return "text-danger";
       default:
-        return "text-[#63AF42]";
+        return "text-success";
     }
   };
 
   const getStatusBg = (status) => {
     switch (status) {
       case "عالی":
-        return "bg-[#007BFF]";
+        return "bg-primary";
       case "خوب":
-        return "bg-[#63AF42]";
+        return "bg-success";
       case "متوسط":
         return "bg-[#D5A329]";
       case "ضعیف":
-        return "bg-[#F04444]";
+        return "bg-danger";
       default:
-        return "bg-[#63AF42]";
+        return "bg-success";
     }
   };
 
   const currentPoints = musclePoints[active] || [];
 
   return (
-    <div className="bg-white rounded-3xl flex flex-col justify-between p-4 h-full">
+    <div className="bg-surface rounded-3xl flex flex-col justify-between p-4 h-full">
       {/* ===== هدر ===== */}
       <div className="flex justify-between items-center">
-        <div className="text-2xl text-[#6B6F77] font-primary">{title}</div>
+        <div className="text-2xl text-foreground font-primary">{title}</div>
         <div className="p-5 flex justify-center items-center">
           <SegmentedControl item1={"جلو"} item2={"پشت"} onChange={setActive} />
         </div>
@@ -487,7 +487,7 @@ export default function BodyAnalysisModel({ frontImage, backImage, title }) {
                   <div
                     className={`
                       w-40 flex flex-col py-2 px-4 rounded-3xl absolute z-99
-                      bg-white border-2 border-gray-200 shadow-xl
+                      bg-surface border-2 border-border shadow-xl
                       transition-all duration-200
                       ${
                         hoveredPoint === point.id
@@ -501,12 +501,12 @@ export default function BodyAnalysisModel({ frontImage, backImage, title }) {
                     {/* مثلث پایین tooltip */}
                     <div
                       className="absolute -bottom-2 left-1/2 -translate-x-1/2 
-                                  w-3 h-3 bg-white border-r-2 border-b-2 border-gray-200 
+                                  w-3 h-3 bg-surface border-r-2 border-b-2 border-border 
                                   rotate-45 z-99"
                     />
 
                     {/* نام عضله */}
-                    <h2 className="text-[#007BFF] font-bold text-sm text-center">
+                    <h2 className="text-primary font-bold text-sm text-center">
                       {point.label}
                     </h2>
 
@@ -518,7 +518,7 @@ export default function BodyAnalysisModel({ frontImage, backImage, title }) {
                     </h3>
 
                     {/* درصد */}
-                    <span className="text-gray-500 text-xs flex justify-end">
+                    <span className="text-muted text-xs flex justify-end">
                       {point.percent}%
                     </span>
                   </div>
@@ -530,13 +530,13 @@ export default function BodyAnalysisModel({ frontImage, backImage, title }) {
       </div>
 
       {/* ===== راهنما (لجند) ===== */}
-      <div className="flex justify-center items-end gap-8 text-[#6B6F77] px-4 mt-4">
+      <div className="flex justify-center items-end gap-8 text-foreground px-4 mt-4">
         <div className="flex items-center gap-2">
-          <span className="w-3 h-3 rounded-full bg-[#007BFF]" />
+          <span className="w-3 h-3 rounded-full bg-primary" />
           عالی
         </div>
         <div className="flex items-center gap-2">
-          <span className="w-3 h-3 rounded-full bg-[#63AF42]" />
+          <span className="w-3 h-3 rounded-full bg-success" />
           خوب
         </div>
         <div className="flex items-center gap-2">
@@ -544,7 +544,7 @@ export default function BodyAnalysisModel({ frontImage, backImage, title }) {
           متوسط
         </div>
         <div className="flex items-center gap-2">
-          <span className="w-3 h-3 rounded-full bg-[#F04444]" />
+          <span className="w-3 h-3 rounded-full bg-danger" />
           ضعیف
         </div>
       </div>

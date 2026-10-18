@@ -5,21 +5,21 @@ import {
 
 export default function ReportSummary() {
   return (
-    <section className="mt-4 rounded-[24px] border border-[#DCEEFF] bg-[#F1F8FF] p-5">
+    <section className="mt-4 rounded-[24px] border border-border bg-primary/10 p-5">
 
       <div className="flex items-start gap-3">
 
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#007BFF] text-white">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-white">
           <Sparkles size={18} />
         </div>
 
         <div>
 
-          <h4 className="text-sm font-bold text-[#45474C]">
+          <h4 className="text-sm font-bold text-foreground">
             جمع‌بندی نهایی
           </h4>
 
-          <p className="mt-2 text-sm leading-8 text-[#62666D]">
+          <p className="mt-2 text-sm leading-8 text-foreground">
             روند کلی عملکرد ورزشکار مثبت است. افزایش قدرت در
             حرکات اصلی نشان‌دهنده پیشرفت مناسب است. در صورت
             حفظ روند فعلی، افزایش پایبندی به برنامه و بهبود

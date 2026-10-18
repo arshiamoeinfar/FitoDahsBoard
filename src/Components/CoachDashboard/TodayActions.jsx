@@ -71,16 +71,16 @@ export default function TodayActions() {
 
   const styles = {
     warning: {
-      icon: "bg-[#FFF7E6] text-[#E9A820]",
-      badge: "bg-[#FFF3CD] text-[#C58A12]",
+      icon: "bg-amber-500/10 text-[#E9A820]",
+      badge: "bg-amber-500/10 text-[#C58A12]",
     },
     blue: {
-      icon: "bg-[#EEF6FF] text-[#1683F7]",
-      badge: "bg-[#EAF4FF] text-[#007BFF]",
+      icon: "bg-primary/10 text-primary",
+      badge: "bg-primary/10 text-primary",
     },
     green: {
-      icon: "bg-[#EFFBEA] text-[#68B43F]",
-      badge: "bg-[#EFFBEA] text-[#5FA93A]",
+      icon: "bg-green-500/10 text-success",
+      badge: "bg-green-500/10 text-success",
     },
   };
 
@@ -93,7 +93,7 @@ export default function TodayActions() {
         w-full
         h-fit
         rounded-[24px]
-        bg-white
+        bg-surface
         p-5
         
       "
@@ -101,11 +101,11 @@ export default function TodayActions() {
       {/* Header */}
       <div className="mb-5 flex items-start justify-between">
         <div>
-          <h2 className="text-xl text-[#6B6F77] font-primary">
+          <h2 className="text-xl text-foreground font-primary">
             اقدامات امروز
           </h2>
 
-          <p className="mt-1 text-[12px] text-[#9AA1AA]">
+          <p className="mt-1 text-[12px] text-muted">
             مواردی که نیاز به توجه شما دارند
           </p>
         </div>
@@ -113,7 +113,7 @@ export default function TodayActions() {
         <span
           className="
             rounded-full
-            bg-[#FFF4D6]
+            bg-amber-500/10
             px-2.5
             py-1
             text-[11px]
@@ -142,7 +142,7 @@ export default function TodayActions() {
                 gap-3
                 py-4
                 cursor-pointer
-                hover:bg-[#F5F7FB]
+                hover:bg-surface-secondary
                 transition-colors
                 duration-200
                 rounded-md
@@ -150,7 +150,7 @@ export default function TodayActions() {
                 ${
                   showAll
                   || index !== visibleActions.length - 1
-                    ? "border-b border-[#F0F2F5]"
+                    ? "border-b border-border"
                     : ""
                 }
               `}
@@ -174,7 +174,7 @@ export default function TodayActions() {
               {/* Content */}
               <div className="min-w-0 flex-1">
                 <div className="mb-1 flex items-center gap-2">
-                  <h3 className="text-[13px] font-semibold text-[#4B5563]">
+                  <h3 className="text-[13px] font-semibold text-foreground">
                     {action.title}
                   </h3>
 
@@ -192,7 +192,7 @@ export default function TodayActions() {
                   </span>
                 </div>
 
-                <p className="truncate text-[11px] leading-5 text-[#A0A6AE]">
+                <p className="truncate text-[11px] leading-5 text-muted">
                   {action.description}
                 </p>
               </div>
@@ -207,10 +207,10 @@ export default function TodayActions() {
                   gap-1
                   text-[11px]
                   font-medium
-                  text-[#1683F7]
+                  text-primary
                   transition-all
                   duration-200
-                  hover:text-[#006FE6]
+                  hover:text-primary-hover
                   group-hover
                   cursor-pointer
                 "
@@ -240,9 +240,9 @@ export default function TodayActions() {
           className="
             text-[11px]
             font-medium
-            text-[#8B929C]
+            text-muted
             transition-colors
-            hover:text-[#007BFF]
+            hover:text-primary
             cursor-pointer
           "
         >

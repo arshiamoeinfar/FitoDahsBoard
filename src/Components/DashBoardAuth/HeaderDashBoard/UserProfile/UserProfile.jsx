@@ -6,7 +6,7 @@ export default function UserProfile() {
   const navigate = useNavigate();
   return (
          <div className="rounded-full bg-[linear-gradient(180deg,#007BFF_0%,rgba(246,242,250,0)_100%)] p-px">
-           <div className="rounded-full bg-white">
+           <div className="rounded-full bg-surface">
              <img
              onClick={() => navigate("/settings")}
                src={Avatar}

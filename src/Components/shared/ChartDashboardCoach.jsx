@@ -40,7 +40,7 @@ const dataByRange = {
 const metrics = {
   "وزن": {
     dataKey: "weight",
-    color: "#007BFF",
+    color: "var(--primary)",
     domain: [60, 140],
     ticks: [60, 80, 100, 120, 140],
   },
@@ -67,10 +67,10 @@ const ProgressChart = () => {
   const currentMetric = metrics[metric];
 
   return (
-    <section className="bg-white rounded-3xl p-5 md:p-7  h-full flex flex-col">
+    <section className="bg-surface rounded-3xl p-5 md:p-7  h-full flex flex-col">
       {/* ===== هدر ===== */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-        <h2 className="text-2xl font-primary  text-[#6B6F77]">
+        <h2 className="text-2xl font-primary  text-foreground">
           روند پیشرفت شاگرد
         </h2>
 
@@ -113,7 +113,7 @@ const ProgressChart = () => {
 
             {/* گرید */}
             <CartesianGrid
-              stroke="#DCE3EB"
+              stroke="var(--border)"
               strokeDasharray="7 7"
               vertical={true}
               horizontal={true}
@@ -122,9 +122,9 @@ const ProgressChart = () => {
             {/* محور X */}
             <XAxis
               dataKey="day"
-              tick={{ fill: "#777", fontSize: 16 }}
+              tick={{ fill: "var(--muted)", fontSize: 16 }}
               axisLine={false}
-              tickLine={{ stroke: "#8FA7C0" }}
+              tickLine={{ stroke: "var(--border)" }}
               tickMargin={18}
             />
 
@@ -134,15 +134,15 @@ const ProgressChart = () => {
               ticks={currentMetric.ticks}
               tickMargin={40}
               width={70}
-              tick={{ fill: "#777", fontSize: 16 }}
+              tick={{ fill: "var(--muted)", fontSize: 16 }}
               axisLine={false}
-              tickLine={{ stroke: "#8FA7C0" }}
+              tickLine={{ stroke: "var(--border)" }}
             />
 
             {/* تولتیپ */}
             <Tooltip
               content={<CustomTooltip />}
-              cursor={{ stroke: "#007BFF", strokeDasharray: "5 5" }}
+              cursor={{ stroke: "var(--primary)", strokeDasharray: "5 5" }}
             />
 
             {/* ===== Area اصلی (داینامیک) ===== */}
@@ -175,9 +175,9 @@ const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload || !payload.length) return null;
   const item = payload[0];
   return (
-    <div className="bg-white rounded-xl shadow-lg px-4 py-3 border border-slate-100">
-      <p className="text-xs text-slate-400 mb-1">{label}</p>
-      <p className="text-sm font-semibold text-slate-800">
+    <div className="bg-surface rounded-xl shadow-lg px-4 py-3 border border-border">
+      <p className="text-xs text-muted mb-1">{label}</p>
+      <p className="text-sm font-semibold text-foreground">
         {item.name}: {item.value}
       </p>
     </div>
@@ -191,7 +191,7 @@ const FilterPill = ({ value, options, onChange }) => {
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="appearance-none px-8 h-11 bg-white text-sm font-medium text-slate-700 rounded-full border border-slate-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none cursor-pointer hover:border-slate-300 transition"
+        className="appearance-none px-8 h-11 bg-input text-sm font-medium text-foreground rounded-full border border-border focus:border-primary focus:ring-2 focus:ring-primary/30 outline-none cursor-pointer hover:border-border transition"
       >
         {options.map((opt) => (
           <option key={opt} value={opt}>
@@ -199,7 +199,7 @@ const FilterPill = ({ value, options, onChange }) => {
           </option>
         ))}
       </select>
-      <ChevronDown className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
+      <ChevronDown className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted pointer-events-none" />
     </div>
   );
 };

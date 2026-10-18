@@ -48,7 +48,7 @@ function ExerciseStat({ icon, label }) {
   return (
     <div className="flex items-center gap-0.5">
       <img className="size-3.5" src={icon} alt="" />
-      <p className="text-[12px] text-[#6B6F77] font-primary-ExtraLight font-medium">
+      <p className="text-[12px] text-foreground font-primary-ExtraLight font-medium">
         {label}
       </p>
     </div>
@@ -97,14 +97,14 @@ export default function StartTrain() {
   const progressPercent = ((currentStep - 1) / (totalSets - 1)) * 100;
 
   return (
-    <div className="grid grid-cols-12 min-h-screen px-8 py-6 w-full max-w-[1600px]">
+    <div className="grid grid-cols-12 min-h-screen px-8 py-6 w-full max-w-[1600px] bg-background">
       <div className="col-span-1">
         <Navbar />
       </div>
 
       <div className="col-span-11 py-3">
         {/* Hero video card */}
-        <div className="bg-white rounded-3xl overflow-hidden relative">
+        <div className="bg-surface rounded-3xl overflow-hidden relative">
           <img className="w-full" src={current.image} alt="" />
 
           {/* Play button */}
@@ -153,12 +153,12 @@ export default function StartTrain() {
         </div>
 
         {/* Progress card */}
-        <div className="bg-white rounded-3xl mt-5 px-6 py-8">
+        <div className="bg-surface rounded-3xl mt-5 px-6 py-8">
           <div className="flex items-center justify-between relative">
-            <div className="absolute top-5 left-0 w-full h-2 bg-[#D9E9FF] rounded-full" />
+            <div className="absolute top-5 left-0 w-full h-2 bg-primary/10 rounded-full" />
 
             <div
-              className="absolute top-5 right-0 h-2 bg-[#007BFF] rounded-full transition-all duration-500"
+              className="absolute top-5 right-0 h-2 bg-primary rounded-full transition-all duration-500"
               style={{ width: `${progressPercent}%` }}
             />
 
@@ -175,16 +175,16 @@ export default function StartTrain() {
                   <div
                     className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all duration-300 ${
                       isDone
-                        ? "bg-[#007BFF] text-white"
+                        ? "bg-primary text-white"
                         : isCurrent
-                          ? "bg-[#007BFF] ring-4 ring-[#D9E9FF] text-white"
-                          : "bg-[#D9E9FF] text-[#6B6F77]"
+                          ? "bg-primary ring-4 ring-primary/30 text-white"
+                          : "bg-primary/10 text-foreground"
                     }`}
                   >
                     {isDone ? <CheckIcon fontSize="small" /> : step}
                   </div>
 
-                  <span className="mt-3 text-sm text-[#6B6F77]">
+                  <span className="mt-3 text-sm text-foreground">
                     ست {SET_LABELS[index]}
                   </span>
                 </div>
@@ -195,14 +195,14 @@ export default function StartTrain() {
           <div className="flex justify-start items-center gap-2 mt-8">
             <button
               onClick={handleFinishSet}
-              className="w-44 py-3 px-5 bg-[#007BFF] rounded-4xl text-white font-primary-light cursor-pointer hover:bg-blue-600 transition"
+              className="w-44 py-3 px-5 bg-primary rounded-4xl text-white font-primary-light cursor-pointer hover:bg-primary-hover transition"
             >
               پایان ست
             </button>
             <button
               onClick={handleSkipSet}
               disabled={isLastSet}
-              className="w-44 py-3 px-5 bg-[#DBECFF] rounded-4xl text-[#6578BC] font-primary-light cursor-pointer hover:bg-[#c9e0ff] transition disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-44 py-3 px-5 bg-primary/10 rounded-4xl text-foreground font-primary-light cursor-pointer hover:bg-primary/20 transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
               پرش به ست بعدی
             </button>
@@ -210,8 +210,8 @@ export default function StartTrain() {
         </div>
 
         {/* حرکات بعدی */}
-        <div className="bg-white mt-5 rounded-3xl p-6">
-          <h1 className="text-2xl text-[#6B6F77] mb-4 text-right">
+        <div className="bg-surface mt-5 rounded-3xl p-6">
+          <h1 className="text-2xl text-foreground mb-4 text-right">
             حرکات بعدی
           </h1>
           <div className="flex justify-around">
@@ -254,7 +254,7 @@ export default function StartTrain() {
               </button>
             ))}
             {upcoming.length === 0 && (
-              <p className="text-[#A0A4AA] py-6">حرکت بعدی‌ای باقی نمانده</p>
+              <p className="text-muted py-6">حرکت بعدی‌ای باقی نمانده</p>
             )}
           </div>
         </div>
@@ -263,29 +263,29 @@ export default function StartTrain() {
       {/* پاپ‌آپ پایان تمرین */}
       {showCompleteModal && (
         <div
-          className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4"
+          className="fixed inset-0 bg-overlay flex items-center justify-center z-50 px-4"
           onClick={() => setShowCompleteModal(false)}
         >
           <div
-            className="bg-white rounded-3xl p-8 max-w-sm w-full text-center relative"
+            className="bg-surface rounded-3xl p-8 max-w-sm w-full text-center relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setShowCompleteModal(false)}
-              className="absolute top-5 left-5 text-[#A0A4AA] hover:text-[#6B6F77] cursor-pointer"
+              className="absolute top-5 left-5 text-muted hover:text-foreground cursor-pointer"
               aria-label="بستن"
             >
               <CloseIcon fontSize="small" />
             </button>
 
-            <div className="w-16 h-16 rounded-full bg-[#E8F1FF] flex items-center justify-center mx-auto mb-5 text-3xl">
+            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5 text-3xl">
               🎉
             </div>
 
-            <h2 className="text-xl font-semibold text-[#4F5965] mb-2">
+            <h2 className="text-xl font-semibold text-foreground mb-2">
               آفرین، عالی بود!
             </h2>
-            <p className="text-sm text-[#A0A4AA] mb-8">
+            <p className="text-sm text-muted mb-8">
               ست {current.title} رو تموم کردی، وقت رفتن سراغ حرکت بعدیه 💪
             </p>
 
@@ -293,18 +293,18 @@ export default function StartTrain() {
               {upcoming.length > 0 ? (
                 <button
                   onClick={handleGoToNextExercise}
-                  className="w-full py-3 px-5 bg-[#007BFF] rounded-4xl text-white font-primary-light cursor-pointer hover:bg-blue-600 transition"
+                  className="w-full py-3 px-5 bg-primary rounded-4xl text-white font-primary-light cursor-pointer hover:bg-primary-hover transition"
                 >
                   شروع حرکت بعدی: {upcoming[0].title}
                 </button>
               ) : (
-                <p className="text-sm text-[#007BFF] font-medium py-2">
+                <p className="text-sm text-primary font-medium py-2">
                   تمام حرکات این تمرین تمام شد 🎉
                 </p>
               )}
               <button
                 onClick={() => setShowCompleteModal(false)}
-                className="w-full py-3 px-5 bg-[#F5F7FB] rounded-4xl text-[#6B6F77] font-primary-light cursor-pointer hover:bg-[#eef1f6] transition"
+                className="w-full py-3 px-5 bg-surface-secondary rounded-4xl text-foreground font-primary-light cursor-pointer hover:bg-primary/10 transition"
               >
                 بستن
               </button>

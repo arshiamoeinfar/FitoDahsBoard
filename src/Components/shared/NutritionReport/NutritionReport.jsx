@@ -138,23 +138,23 @@ export default function DailyReportCalendar({
     <>
       <div
         dir="rtl"
-        className="w-full rounded-[28px] bg-white p-6 "
+        className="w-full rounded-[28px] bg-surface p-6 "
       >
         {/* Header */}
         <div className="mb-7 flex items-center justify-between">
-          <h2 className="text-2xl  text-[#6B6F77] font-primary">
+          <h2 className="text-2xl  text-foreground font-primary">
             {title || config.title}
           </h2>
 
           <div className="flex items-center gap-2">
-            <span className="text-sm font-primary-light text-[#6B6F77]">
+            <span className="text-sm font-primary-light text-foreground">
               {date}
             </span>
 
             <CalendarDays
               size={20}
               strokeWidth={1.8}
-              className="text-[#007BFF]"
+              className="text-primary"
             />
           </div>
         </div>
@@ -164,7 +164,7 @@ export default function DailyReportCalendar({
           {WEEK_DAYS.map((day) => (
             <div
               key={day}
-              className="flex h-7 items-center justify-center text-xs text-[#6B6F77]"
+              className="flex h-7 items-center justify-center text-xs text-muted"
             >
               {day}
             </div>
@@ -185,9 +185,9 @@ export default function DailyReportCalendar({
 
         {/* Footer */}
         <div className="mt-6 flex items-center gap-2">
-          <div className="h-8 w-1 rounded-full bg-[#007BFF]" />
+          <div className="h-8 w-1 rounded-full bg-primary" />
 
-          <p className="text-xs leading-6 text-[#8A8D93]">
+          <p className="text-xs leading-6 text-muted">
             برای مشاهده جزئیات{" "}
             {isNutrition ? "تغذیه" : "مصرف آب"}، روی روزهای گذشته
             کلیک کنید.
@@ -218,11 +218,11 @@ function CalendarDay({ day, dots, onClick }) {
       <span
         className="
           flex h-9 w-9 items-center justify-center
-          rounded-full bg-[#F1F7FD]
-          text-sm text-[#6B6F77]
+          rounded-full bg-surface-secondary
+          text-sm text-foreground
           transition-all duration-200
-          group-hover:bg-[#E2F0FF]
-          group-hover:text-[#007BFF]
+          group-hover:bg-primary/20
+          group-hover:text-primary
           group-active:scale-95
         "
       >
@@ -263,15 +263,15 @@ function ReportModal({ type, day, report, onClose }) {
       onClick={onClose}
     >
       <div
-        className="w-full max-w-lg rounded-[28px] bg-white p-6 shadow-2xl"
+        className="w-full max-w-lg rounded-[28px] bg-surface p-6 shadow-2xl"
         onClick={(event) => event.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="flex items-center justify-between border-b border-gray-100 pb-5">
+        <div className="flex items-center justify-between border-b border-border pb-5">
           <div>
-            <p className="text-xs text-[#8A8D93]">گزارش روز</p>
+            <p className="text-xs text-muted">گزارش روز</p>
 
-            <h3 className="mt-1 text-xl font-bold text-[#45474C]">
+            <h3 className="mt-1 text-xl font-bold text-foreground">
               {report?.title ||
                 `${isNutrition ? "گزارش تغذیه" : "گزارش آب"} روز ${
                   day.day
@@ -282,7 +282,7 @@ function ReportModal({ type, day, report, onClose }) {
           <button
             type="button"
             onClick={onClose}
-            className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-50 text-[#6B6F77] transition hover:bg-gray-100"
+            className="flex h-10 w-10 items-center justify-center rounded-xl bg-surface-secondary text-foreground transition hover:bg-muted/20"
           >
             <X size={19} />
           </button>
@@ -319,7 +319,7 @@ function NutritionReport({ report }) {
           value={data.calories}
           icon="🔥"
           color="orange"
-          bgColor="bg-orange-50"
+          bgColor="bg-orange-500/10"
           textColor="text-orange-500"
         />
 
@@ -329,7 +329,7 @@ function NutritionReport({ report }) {
           value={data.protein}
           icon="🥩"
           color="red"
-          bgColor="bg-red-50"
+          bgColor="bg-red-500/10"
           textColor="text-red-500"
         />
 
@@ -339,7 +339,7 @@ function NutritionReport({ report }) {
           value={data.carbs}
           icon="🌾"
           color="yellow"
-          bgColor="bg-yellow-50"
+          bgColor="bg-yellow-500/10"
           textColor="text-yellow-600"
         />
 
@@ -349,13 +349,13 @@ function NutritionReport({ report }) {
           value={data.fat}
           icon="🥑"
           color="green"
-          bgColor="bg-green-50"
+          bgColor="bg-green-500/10"
           textColor="text-green-500"
         />
       </div>
 
-      <div className="mt-4 rounded-2xl bg-[#F7FAFD] p-4">
-        <p className="text-sm leading-7 text-[#6B6F77]">
+      <div className="mt-4 rounded-2xl bg-surface-secondary p-4">
+        <p className="text-sm leading-7 text-muted">
           {data.description}
         </p>
       </div>
@@ -393,15 +393,15 @@ function WaterReport({ report }) {
           title="مصرف آب"
           value={data.amount}
           icon="💧"
-          bgColor="bg-blue-50"
-          textColor="text-[#007BFF]"
+          bgColor="bg-blue-500/10"
+          textColor="text-primary"
         />
 
         <ReportItem
           title="هدف"
           value={data.goal}
           icon="🎯"
-          bgColor="bg-purple-50"
+          bgColor="bg-purple-500/10"
           textColor="text-purple-500"
         />
 
@@ -409,7 +409,7 @@ function WaterReport({ report }) {
           title="پیشرفت"
           value={data.percentage}
           icon="📈"
-          bgColor="bg-cyan-50"
+          bgColor="bg-cyan-500/10"
           textColor="text-cyan-500"
         />
       </div>
@@ -417,19 +417,19 @@ function WaterReport({ report }) {
       {/* میزان رسیدن به هدف */}
       <div className="mt-5">
         <div className="mb-2 flex items-center justify-between">
-          <span className="text-xs text-[#8A8D93]">
+          <span className="text-xs text-muted">
             میزان رسیدن به هدف
           </span>
 
-          <span className="text-xs font-bold text-[#007BFF]">
+          <span className="text-xs font-bold text-primary">
             {data.percentage}
           </span>
         </div>
 
         {/* Progress Bar */}
-        <div className="relative h-3 w-full overflow-hidden rounded-full bg-[#EAF2F9]">
+        <div className="relative h-3 w-full overflow-hidden rounded-full bg-surface-secondary">
           <div
-            className="absolute right-0 top-0 h-full rounded-full bg-[#007BFF] transition-all duration-700 ease-out"
+            className="absolute right-0 top-0 h-full rounded-full bg-primary transition-all duration-700 ease-out"
             style={{
               width: `${percentage}%`,
             }}
@@ -438,8 +438,8 @@ function WaterReport({ report }) {
       </div>
 
       {/* توضیحات */}
-      <div className="mt-4 rounded-2xl bg-[#F7FAFD] p-4">
-        <p className="text-sm leading-7 text-[#6B6F77]">
+      <div className="mt-4 rounded-2xl bg-surface-secondary p-4">
+        <p className="text-sm leading-7 text-muted">
           {data.description}
         </p>
       </div>
@@ -466,7 +466,7 @@ function ReportItem({
         </p>
       </div>
 
-      <p className="mt-2 text-lg font-bold text-[#45474C]">
+      <p className="mt-2 text-lg font-bold text-foreground">
         {value}
       </p>
     </div>

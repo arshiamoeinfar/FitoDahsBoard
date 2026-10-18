@@ -5,7 +5,7 @@ export default function ProfileCard() {
 
   const navigate = useNavigate();
   return (
-    <div className="bg-white rounded-4xl p-7">
+    <div className="bg-surface rounded-4xl p-7">
       <img
         onClick={()=> navigate("/settings")}
         src={EditProf}
@@ -15,18 +15,18 @@ export default function ProfileCard() {
       {/* پروفایل */}
       <div className="flex flex-col items-center">
           <UserProfile />
-        <h2 className="mt-2 text-xl font-semibold text-[#007BFF]">
+        <h2 className="mt-2 text-xl font-semibold text-primary">
           ارشیا معین فر
         </h2>
 
         {/* شهر | سن */}
         <div className="flex items-center gap-2 mt-2">
-          <span className="text-[15px] text-[#A3AED0] font-primary-ExtraLight font-medium">
+          <span className="text-[15px] text-muted font-primary-ExtraLight font-medium">
             ایران، سقز
           </span>
-          <div className="w-px h-4 bg-[#ECECEC]"></div>
+          <div className="w-px h-4 bg-border"></div>
 
-          <span className="text-[15px] text-[#A3AED0] font-primary-ExtraLight font-medium">
+          <span className="text-[15px] text-muted font-primary-ExtraLight font-medium">
             ۱۸ سال
           </span>
         </div>
@@ -34,18 +34,18 @@ export default function ProfileCard() {
       {/* اطلاعات */}
       <div className="grid grid-cols-3 mt-5">
         <div className="text-center">
-          <p className="text-sm text-[#A0A4AA] mt-1">قد</p>
-          <h3 className="text-2xl font-bold text-[#85A5C2]">178</h3>
+          <p className="text-sm text-muted mt-1">قد</p>
+          <h3 className="text-2xl font-bold text-foreground">178</h3>
         </div>
 
-        <div className="border-x border-[#ECECEC] text-center">
-          <p className="text-sm text-[#A0A4AA] mt-1">وزن</p>
-          <h3 className="text-2xl font-bold text-[#85A5C2]">82</h3>
+        <div className="border-x border-border text-center">
+          <p className="text-sm text-muted mt-1">وزن</p>
+          <h3 className="text-2xl font-bold text-foreground">82</h3>
         </div>
 
         <div className="text-center">
-          <p className="text-sm text-[#A0A4AA] mt-1">گروه خون</p>
-          <h3 className="text-2xl font-bold text-[#85A5C2]">+A</h3>
+          <p className="text-sm text-muted mt-1">گروه خون</p>
+          <h3 className="text-2xl font-bold text-foreground">+A</h3>
         </div>
       </div>
     </div>
