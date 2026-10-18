@@ -11,9 +11,9 @@ export default function ReportHeader({
   onClose,
 }) {
   return (
-    <header className="relative shrink-0 overflow-hidden bg-primary px-5 py-5 text-white sm:px-7 sm:py-6">
+    <header className="relative shrink-0 overflow-hidden bg-[var(--bg-theme)] px-5 py-5 text-white sm:px-7 sm:py-6">
 
-      <div className="absolute -left-16 -top-20 h-48 w-48 rounded-full bg-white/[0.06]" />
+      <div className="absolute -left-16 -top-20 h-48 w-48 rounded-full bg-white/[0.03]" />
 
       <div className="relative flex items-center justify-between gap-4">
 
@@ -47,14 +47,14 @@ export default function ReportHeader({
 
         <button
           onClick={onClose}
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-white/20"
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-white/20 cursor-pointer"
         >
           <X size={20} />
         </button>
 
       </div>
 
-      <div className="relative mt-5 flex flex-wrap items-center justify-between gap-4 rounded-[20px] bg-white/[0.09] p-4">
+      <div className="relative mt-5 flex flex-wrap items-center justify-between gap-4 rounded-[20px] bg-[var(--bg-theme-hover)] p-4">
 
         <div className="flex items-center gap-3">
 

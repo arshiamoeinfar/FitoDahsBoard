@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Liner from "../../../../assets/imges/Line 1.png";
 import Vector from "../../../../assets/imges/Vector 177.png";
 import { AreaChart, Area, ResponsiveContainer } from "recharts";
 import { useNavigate } from "react-router-dom";
+import ExerciseProgressModal from "../../../DashBoardAuth/DashBoardAuthlete/ExerciseProgressModal";
 
-export default function BodyProgressCard({ isShowMore = true, count = [], title = "" }) {
+export default function BodyProgressCard({
+  isShowMore = true,
+  count = [],
+  title = "",
+}) {
   const data = [
     { value: 45 },
     { value: 20 },
@@ -18,17 +23,24 @@ export default function BodyProgressCard({ isShowMore = true, count = [], title 
     { value: 55 },
   ];
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="flex bg-surface flex-col p-6 rounded-3xl">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-lg text-muted">{title}</h1>
         <div className="flex justify-center items-center">
+        <ExerciseProgressModal isOpen={open} onClose={() => setOpen(false)} />
           {isShowMore && (
-            <span onClick={()=> navigate("/trainingpage")}  className="text-sm flex justify-center items-center text-muted font-primary-light cursor-pointer">
-           مشاهده همه 
-            {/* <img className=" mr-0.5 w-2.5 h-fit" src={Vector} alt="" /> */}
-          </span>
+            <span
+              onClick={() => setOpen(true)}
+              className="text-sm flex justify-center items-center text-muted font-primary-light cursor-pointer"
+            >
+              مشاهده همه
+              {/* <img className=" mr-0.5 w-2.5 h-fit" src={Vector} alt="" /> */}
+            </span>
           )}
         </div>
       </div>

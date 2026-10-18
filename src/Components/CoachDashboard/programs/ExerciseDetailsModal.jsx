@@ -255,7 +255,7 @@ export default function ExerciseDetailsModal({
   return (
     <div
       dir="rtl"
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-overlay p-3 backdrop-blur-sm sm:p-6"
+      className="fixed inset-0 z-[1000] flex items-center justify-center bg-overlay p-3 backdrop-blur-sm sm:p-6"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose?.();
       }}

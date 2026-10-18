@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-body{
-    background-color: #ff0000;
-}
-
 .font-primary {
   font-family: "IRANYekanMMedium", sans-serif;
 }

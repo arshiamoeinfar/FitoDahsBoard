@@ -41,6 +41,9 @@ body{
   --background: #f5f7fb;
   --surface: #ffffff;
   --surface-secondary: #f0f4fa;
+  --circle-color: #f0f4fa;
+  --bg-theme: #2b91fe;
+  --bg-theme-hover: #1a73e8;
   --foreground: #6B6F77;
   --muted: #6b6f77;
   --border: #e3e8f0;
@@ -58,7 +61,10 @@ body{
   --background: #0B1220;
   --surface: #141d2e;
   --surface-secondary: #1c2940;
+  --circle-color: #3395ff;
   --foreground: #f1f5f9;
+  --bg-theme: #141d2e;
+  --bg-theme-hover: #0B1220;
   --muted: #a0aec0;
   --border: #2b3950;
   --primary: #3395ff;

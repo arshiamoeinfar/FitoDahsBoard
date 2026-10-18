@@ -118,14 +118,16 @@ export default function Navbar() {
                 } ${isActive ? "text-primary" : "text-muted"}`
               }
             >
-              <img
-                className="w-6 h-6 gap-2"
-                src={
-                  location.pathname === item.to ? item.active : item.inactive
-                }
-                alt={item.label}
-              />
-              <p className="font-primary text-xs">{item.label}</p>
+              {({ isActive }) => (
+                <>
+                  <img
+                    className="w-6 h-6 gap-2"
+                    src={isActive ? item.active : item.inactive}
+                    alt={item.label}
+                  />
+                  <p className="font-primary text-xs">{item.label}</p>
+                </>
+              )}
             </NavLink>
           ))}
         </div>
