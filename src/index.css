@@ -42,6 +42,7 @@ body{
   --surface: #ffffff;
   --surface-secondary: #f0f4fa;
   --circle-color: #f0f4fa;
+  --circle-color-hover: #FFFFFF83;
   --bg-theme: #2b91fe;
   --bg-theme-hover: #1a73e8;
   --foreground: #6B6F77;
@@ -62,6 +63,7 @@ body{
   --surface: #141d2e;
   --surface-secondary: #1c2940;
   --circle-color: #3395ff;
+  --circle-color-hover: #1c2940;
   --foreground: #f1f5f9;
   --bg-theme: #141d2e;
   --bg-theme-hover: #0B1220;
